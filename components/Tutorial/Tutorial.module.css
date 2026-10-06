@@ -33,7 +33,7 @@
     position: absolute;
     inset: 0;
     border: 0;
-    background: #000;
+    background: var(--color-bg-overlay);
     object-fit: contain;
     cursor: pointer;
 }
