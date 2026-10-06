@@ -337,7 +337,7 @@ body {
     white-space: nowrap;
 }
 
-/* 載入畫面（2026-10-07 實驗）：public/motion.js 在 <html> 加 loading，字型好了或 1 秒後加 loading-out 淡出再拿掉 */
+/* 載入畫面（2026-10-07 使用者決定加）：public/motion.js 在 <html> 加 loading，字型好了或 1 秒後加 loading-out 淡出再拿掉 */
 html.loading::after {
     content: "";
     position: fixed;

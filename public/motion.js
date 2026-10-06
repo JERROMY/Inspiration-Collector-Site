@@ -17,7 +17,7 @@
     // 有 JS：給 <html> 加 js（不管減少動態）。關掉 JS 時沒有這個 class，CSS 直接換成不用程式的樣子（例如手指框直接顯示網址、不放播放鈕）
     document.documentElement.classList.add('js');
 
-    // 載入畫面（2026-10-07 實驗，使用者要的）：有 JS 才出現（關掉 JS 的人與爬蟲直接看到內容）；
+    // 載入畫面（2026-10-07 使用者決定加；量過效能：加之前後英文頁 Lighthouse 都約 83，沒有變差）：有 JS 才出現（關掉 JS 的人與爬蟲直接看到內容）；
     // 網頁字型好了、而且 HTML 讀完就淡出，最多等 1 秒；設了減少動態就直接拿掉、不淡出。畫面在 app/styles/global.css 的 html.loading。
     (function () {
         var html = document.documentElement;
