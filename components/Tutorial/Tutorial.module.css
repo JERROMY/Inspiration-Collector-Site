@@ -505,6 +505,19 @@
     }
 }
 
+/* 最窄（< 360）：框只有 140 高，上面那套留白只剩 48 給字（中文排 5 行、英日文 6 行，字壓到播放鈕、跑出框）——
+   留白收小（上 8、左右 12、下面 8＋44＋8）、字小一階（12px，中文不低於 11），字有 72 高（2026-10-07，F7.14） */
+@media (max-width: 359px) {
+    .fail {
+        padding: var(--space-8) var(--space-12) calc(var(--space-8) * 2 + var(--tap));
+        font-size: var(--text-base);
+    }
+
+    .failed .playBtn {
+        bottom: var(--space-8);
+    }
+}
+
 /* 640 起：沒有影片那一句跟影片框同一格，疊回框的左下角（離框邊 24） */
 @media (min-width: 640px) {
     .novideo .screen {
