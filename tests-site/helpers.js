@@ -9,6 +9,7 @@
 // siteCss()            網站自己的 CSS 原始檔（app/、components/ 底下，設計系統複本 app/styles/nox/ 除外）。
 // outCss()             build 出來的 CSS（out/_next/ 底下的 .css 與每頁 HTML 裡的 <style>）。
 // buildCopy(opts)      把整個網站複製到系統暫存資料夾（不動專案裡的任何檔），換掉 content/、用 prepare(複本的路徑) 改複本裡的檔、或換一支 node，在那裡 build。
+// buildDesignNews(label)  同上，只把 content/news.*.md 換成 fixtures/news-design/ 那三支（公告條是設計稿那一則、置頂，哪一天跑都看得到），其他照真的 content/。
 // browserSession(pw, dir)  第一次 get() 才開伺服器與瀏覽器（dir 當根目錄，預設 out/；可以給函式，第一次 get() 才算）；close() 收掉。不放在 before()：量過 —— 用 --test-name-pattern
 //                      篩掉整支檔時，node:test 不等 async 的 before 跑完就跑 after，瀏覽器開了沒人關，整個測試卡住。
 // playwright()         找 Playwright（環境變數 SITE_PLAYWRIGHT，或 GPTPlugins 的 clipper/node_modules/playwright；git worktree 用主資料夾那一份）；找不到回 null 與原因。
@@ -177,6 +178,15 @@ export function buildCopy({ content = null, prepare = null, node = process.execP
         out: path.join(copy, 'out'),
         cleanup: () => fs.rmSync(scratch, { recursive: true, force: true }),
     };
+}
+
+// 2026-10-07 加：真的公告換了一則（10-02）、9-29 取消置頂，公告條的字跟設計稿不一樣、30 天後也會不見；量公告條排法的測試改用這一份
+export const DESIGN_NEWS = path.join(SITE, 'tests-site', 'fixtures', 'news-design');
+export function buildDesignNews(label = 'news-design') {
+    return buildCopy({
+        label,
+        prepare: (copy) => { for (const lang of LANGS) fs.copyFileSync(path.join(DESIGN_NEWS, `news.${lang}.md`), path.join(copy, 'content', `news.${lang}.md`)); },
+    });
 }
 
 export function tail(text, lines = 30) {

@@ -17,6 +17,10 @@
 //   F4.3 減少動態（三語 1440×360）：沒有拆字（0 個 data-char）、沒有在跑的動畫；捲動之前三個 0 已經在 0、括號角已經是 scale 1、透明度 1。
 //   F4.3 只動 opacity／transform／顏色、CLS 0：開頁、捲到 04 的整段（字型擋掉），每一幀看到的動畫（CSS 轉場與動畫）只動透明度、位移縮放旋轉、顏色；layout-shift 總和 0。
 //   F4.3 C 不放（設計定稿的決定）：捲下去之後頁面底色、04 的底色跟捲動之前一樣。
+//   F4.3 A'（2026-10-07 使用者加的；public/motion.js、components/Final/Final.module.css）：15 最後的安裝，大標括號裡那半句（final.title 的 .clamp）——
+//        React 接手之後拆字（字數＝括號裡不含空白的字數）、大標加 data-a="wait"，每個字透明（藏起來等）；大標露出四成時還在等，露出六成以上才換 data-a="go"、
+//        隨機冒出來；2.5 秒後括號裡的字都看得到（透明度 1、顏色跟大標其他的字一樣，字一個不少）；捲走再捲回來不再播（停在 go）。
+//        減少動態（三語）：不拆字、沒有 data-a、字一開始就看得到。
 //
 // 跑法（在 homepage/site/）：
 //   node tests-site/run.mjs --test-name-pattern "F4.3"
@@ -240,6 +244,97 @@ test('F4.3 減少動態（三語 1440×360）：A、B、D 直接是最後的樣�
             await context.close();
         }
     }
+});
+
+// ---------- A'：15 最後的安裝的大標（2026-10-07 加） ----------
+
+const finalText = (lang) => plain(/⟨(.*)⟩/.exec(strings[lang]['final.title'])[1]);
+const finalCount = (lang) => Array.from(new Intl.Segmenter(undefined, { granularity: 'grapheme' }).segment(finalText(lang).replace(/\s+/g, ''))).length;
+const FINAL = '[data-section="final"] [data-id="final.title"]';
+
+// 15 大標：data-a、拆出來的字（透明度）、括號裡的字、跟大標其他字的顏色比
+const FINAL_STATE = (sel) => {
+    const title = document.querySelector(sel);
+    const clamp = title?.querySelector('.clamp');
+    if (!title || !clamp) return null;
+    const chars = [...clamp.querySelectorAll('[data-char]')];
+    const r = title.getBoundingClientRect();
+    // 大標裡括號外面的字（拿來比顏色）
+    let other = null;
+    const walk = document.createTreeWalker(title, NodeFilter.SHOW_TEXT);
+    while (walk.nextNode()) if (walk.currentNode.data.trim() && !clamp.contains(walk.currentNode)) { other = getComputedStyle(walk.currentNode.parentElement).color; break; }
+    return {
+        a: title.getAttribute('data-a'),
+        n: chars.length,
+        opacity: chars.map((c) => parseFloat(getComputedStyle(c).opacity)),
+        colors: [...new Set((chars.length ? chars : [clamp]).map((c) => getComputedStyle(c).color))],
+        other,
+        text: clamp.textContent.replace(/\s+/g, ''),
+        visible: Math.max(0, Math.min(r.bottom, innerHeight) - Math.max(r.top, 0)) / r.height,
+    };
+};
+
+// 把 15 大標捲到露出 ratio（從畫面下緣露出來）
+const showFinal = (page, ratio) => page.evaluate(([sel, k]) => {
+    const r = document.querySelector(sel).getBoundingClientRect();
+    window.scrollTo({ top: window.scrollY + r.top - (innerHeight - r.height * k), behavior: 'instant' });
+}, [FINAL, ratio]);
+
+test("F4.3 A'（三語 1440×900）：15 大標括號裡的字拆好後藏著等、露出六成才隨機冒出來、之後都看得到、只播一次", { skip: pw ? false : why }, async () => {
+    const bad = [];
+    for (const lang of LANGS) {
+        const { page, context } = await open(lang);
+        try {
+            const wait = await page.waitForFunction((sel) => document.querySelector(sel)?.getAttribute('data-a') === 'wait', FINAL, { timeout: 5000 }).then(() => true, () => false);
+            let st = await page.evaluate(FINAL_STATE, FINAL);
+            if (!wait) { bad.push(`${lang}：React 接手之後大標要加 data-a="wait"（拆好、藏著等），得到 ${st?.a}`); continue; }
+            if (st.n !== finalCount(lang)) bad.push(`${lang}：括號裡那半句要拆成 ${finalCount(lang)} 個 data-char（「${finalText(lang)}」不含空白），得到 ${st.n}`);
+            if (st.opacity.some((o) => o > 0.1)) bad.push(`${lang}：還沒捲到時拆出來的字要藏著（透明），得到透明度 ${[...new Set(st.opacity)].join('、')}`);
+            await showFinal(page, 0.4);
+            await page.waitForTimeout(600);
+            st = await page.evaluate(FINAL_STATE, FINAL);
+            if (st.a !== 'wait') bad.push(`${lang}：大標只露出 ${Math.round(st.visible * 100)}% 時還不能開始（要露出六成），得到 data-a="${st.a}"`);
+            await showFinal(page, 1);
+            const go = await page.waitForFunction((sel) => document.querySelector(sel)?.getAttribute('data-a') === 'go', FINAL, { timeout: 3000 }).then(() => true, () => false);
+            if (!go) { bad.push(`${lang}：大標整個露出來之後要換 data-a="go"`); continue; }
+            await page.waitForTimeout(2500);
+            st = await page.evaluate(FINAL_STATE, FINAL);
+            if (st.opacity.some((o) => o < 1)) bad.push(`${lang}：2.5 秒後括號裡每個字都要看得到（透明度 1），得到 ${[...new Set(st.opacity)].join('、')}`);
+            if (st.colors.length !== 1 || st.colors[0] !== st.other) bad.push(`${lang}：2.5 秒後括號裡的字顏色要跟大標其他的字一樣（${st.other}），得到 ${st.colors.join('、')}`);
+            if (st.text !== finalText(lang).replace(/\s+/g, '')) bad.push(`${lang}：括號裡的字要一個不少，得到「${st.text}」`);
+            await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+            await page.waitForTimeout(300);
+            await showFinal(page, 1);
+            await page.waitForTimeout(300);
+            st = await page.evaluate(FINAL_STATE, FINAL);
+            if (st.a !== 'go' || st.opacity.some((o) => o < 1)) bad.push(`${lang}：捲走再捲回來不能再播一次（data-a ${st.a}、透明度 ${[...new Set(st.opacity)].join('、')}）`);
+        } finally {
+            await context.close();
+        }
+    }
+    assert.deepEqual(bad, [], `${bad.length} 處不對`);
+});
+
+test("F4.3 A' 減少動態（三語 1440×900）：15 大標不拆字、沒有 data-a、括號裡的字一開始就看得到", { skip: pw ? false : why }, async () => {
+    const bad = [];
+    for (const lang of LANGS) {
+        const { page, context } = await open(lang, { context: { reducedMotion: 'reduce' } });
+        try {
+            await page.waitForTimeout(1500);
+            await showFinal(page, 1);
+            await page.waitForTimeout(300);
+            const st = await page.evaluate(FINAL_STATE, FINAL);
+            if (!st) { bad.push(`${lang}：找不到 ${FINAL} .clamp`); continue; }
+            if (st.a !== null) bad.push(`${lang}：減少動態時大標不能有 data-a，得到「${st.a}」`);
+            if (st.n) bad.push(`${lang}：減少動態時不拆字，得到 ${st.n} 個 data-char`);
+            if (st.text !== finalText(lang).replace(/\s+/g, '')) bad.push(`${lang}：括號裡的字要完整，得到「${st.text}」`);
+            const shown = await page.locator(`${FINAL} .clamp`).evaluate((c) => parseFloat(getComputedStyle(c).opacity) === 1 && getComputedStyle(c).color !== 'rgba(0, 0, 0, 0)');
+            if (!shown) bad.push(`${lang}：減少動態時括號裡的字要看得到`);
+        } finally {
+            await context.close();
+        }
+    }
+    assert.deepEqual(bad, [], `${bad.length} 處不對`);
 });
 
 test('F4.3 B（1440×900，三語）：捲到 04，三個 0 依序從上面一格滾下來停在 0、只播一次、只有「0」', { skip: pw ? false : why }, async () => {

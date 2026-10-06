@@ -4,6 +4,8 @@
 // 規格書 §5-10～16、§7、§10.4、§10.5、§11、§12、§14。對照資料：fixtures/design-lines-10-16.json（逐行）、fixtures/design-f8-1d18ae2.json（位置與字到框邊；004264c 只在 5b74044 之上改了 14 社群讀不到的虛線框上下內距；1d18ae2 再改了日文 faq.7.a 的斷行、狀態一覽多一格 12 的空狀態），
 // 用 tools/measure-design.mjs --only f8 量設計稿產生。
 //
+// 2026-10-07 為什麼改：真的內容 9-29 那則公告取消置頂，現在沒有一則畫得出「置頂」標籤 —— F8.6 字到框邊的 news.pinned 搬到 f8-content.test.js（content-many 有一則置頂）。
+//
 // 介面（README.md「10～16（F8）」）：
 //   <section data-section="devices" id="devices">、news／#news、changelog／#changelog、faq／#faq、author／#author 依序排在 09 之後、15 之前；頁尾是 <main> 後面的 <footer data-section="footer">。
 //   版型裡的字（字串表的 id）畫在 data-id="<id>" 的元素上（連結、按鈕、<summary> 的 data-id 放在它本身；常見問題的題目在 <h3>、答案在 <p>）。
@@ -534,17 +536,17 @@ for (const lang of LANGS) {
 
 // 框裡的字到框的內緣（EDGE_GAPS，左右與上下分開）：網站 ≥ 設計稿的內距（那一邊內距寫 0 的，用設計稿量到的距離）減 1。只量現在的內容畫得出來的那幾種；
 // 「看更早的」與「這一條讀不到」在 f8-content.test.js 用寫壞的、內容多的那兩份量。
+// 2026-10-07：「置頂」標籤（news.pinned）搬到 f8-content.test.js 的 content-many 量 —— 真的內容 9-29 那則取消置頂，現在沒有一則畫得出這個標籤。
 const GAP_SITE = {
     devicesCard: `${F8_SECTIONS.devices} li:has([data-id="devices.win"], [data-id="devices.mac"], [data-id="devices.mobile"], [data-id="devices.other"])`,
     newsCard: `${F8_SECTIONS.news} li[data-entry]:not([data-state="unreadable"])`,
     tested: `${F8_SECTIONS.devices} [data-id="devices.tested"]`,
     latest: `${F8_SECTIONS.changelog} [data-id="changelog.latest"]`,
-    pinned: `${F8_SECTIONS.news} [data-id="news.pinned"]`,
     blog: `${F8_SECTIONS.author} [data-id="author.blog"]`,
 };
 
 for (const lang of LANGS) {
-    test(`F8.6 字到框邊（${lang}，有滑鼠十二種寬度）：10 的卡片、11 的公告卡、三種標籤、到部落格看更多 —— 字到框的內緣 ≥ 設計稿`, { skip: pw ? false : why }, async () => {
+    test(`F8.6 字到框邊（${lang}，有滑鼠十二種寬度）：10 的卡片、11 的公告卡、兩種標籤、到部落格看更多 —— 字到框的內緣 ≥ 設計稿`, { skip: pw ? false : why }, async () => {
         const bad = [];
         for (const width of WIDTHS) {
             const { page, context } = await open(lang, width);

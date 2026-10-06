@@ -15,7 +15,16 @@
 //   F3.4 America/Los_Angeles、UTC 2026-11-20 06:30（當地 11-19 23:30，第 30 天）→ 10-20（用當地日期，不是 UTC 日期）；
 //        當地 10-19（台北已經 10-20）→ 10-20 還沒到，換 10-05（時區晚的人晚一天看到）。
 //   F3.4 按 ✕：下一幀整條就不在（高度 0 或拿掉），沒有在跑的動畫（不做高度動畫）；localStorage 的 collector-bulletin-dismissed 記了那一則的 id；
-//        重新整理：那一則不再出現（換下一則 10-05）。
+//        重新整理：任何一則都不再出現（顯示的時候就把它與比它舊的都記成看過）。
+//   F3.4 看過就不再出現（不按 ✕）：10-15 看到 10-05 → localStorage 記了 10-05 與比它舊的（09-01、08-01 置頂），沒記 10-20；重新整理不出現任何一則；
+//        到了 10-25（有比它新的 10-20）重新整理 → 10-20 出現（有新公告才會再出現）。
+//   F3.4 有 JS 時浮在導覽列下面（position: absolute、上緣＝導覽列下緣）、不佔版面（main 的位置跟沒有公告條時一樣）；關掉 JS 照舊在原位（推下 main）。
+//   F3.4 8 秒後自己收掉（page.clock 快轉；從首頁出現 collector:loaded 算起）：7.5 秒還在、8.5 秒不在（減少動態直接拿掉）；沒設減少動態時先 data-leaving 淡出再拿掉；
+//        滑鼠停在上面不收（快轉 20 秒還在），移開之後至少再停 1.5 秒才收；鍵盤焦點在裡面也不收。
+//
+// 2026-10-07 為什麼改（使用者決定：公告條浮在導覽列下面、首頁出現後 8 秒淡出、看過一次就不再出現；public/bulletin.js、components/Bulletin）：
+//   按 ✕ 那條原本量「重新整理換下一則 10-05」，現在顯示的那一刻就把它與比它舊的都記成看過 —— 重新整理不出現任何一則；
+//   另外加上「看過就不再出現（有新的才出現）」「浮著不佔版面」「8 秒後收、停在上面不收」三條。
 //   F3.4 localStorage 被擋掉：照樣出現、按 ✕ 收起、重新整理又出現（只在這次瀏覽關掉）、頁面不報錯。
 //   F3.4 CLS 0：字型擋掉（沒有字型換上來的那一下）時，公告條出現（10-25）與不出現（全關掉）兩種，layout-shift 總和都是 0。
 //   F3.5 三語：標題連結的最後一個 .nw（bindTail 綁的那一段）的最後一個子元素是箭頭圖示（data-icon="arrow"）；
@@ -139,7 +148,7 @@ test('F3.4 瀏覽器：30 天的邊界用看的人的當地日期（Asia/Taipei 
     }
 });
 
-test('F3.4 瀏覽器：按 ✕ 下一幀整條就不在、不做高度動畫、記住 id；重新整理不出現（換下一則）', { skip: pw ? false : why }, async () => {
+test('F3.4 瀏覽器：按 ✕ 下一幀整條就不在、不做高度動畫、記住 id；重新整理不再出現任何一則', { skip: pw ? false : why }, async () => {
     const lang = 'zh';
     const { page, context, errors } = await open(lang);
     try {
@@ -159,10 +168,141 @@ test('F3.4 瀏覽器：按 ✕ 下一幀整條就不在、不做高度動畫、�
         const stored = JSON.parse(await page.evaluate((key) => localStorage.getItem(key), KEY) ?? '[]');
         assert.ok(Array.isArray(stored) && stored.includes(byDate(lang, '2026-10-20').id), `localStorage 的 ${KEY} 要是 id 陣列、記了 10-20 的 id，得到 ${JSON.stringify(stored)}`);
         await page.reload({ waitUntil: 'load' });
-        assert.equal(await shown(page, lang), titleOf(byDate(lang, '2026-10-05')), '重新整理：關掉的那則不再出現，換下一則 10-05');
+        assert.equal(await shown(page, lang), null, '重新整理：任何一則都不再出現（10-20 顯示時就把它與比它舊的 10-05、置頂的都記成看過）');
         assert.deepEqual(errors, [], '頁面不能有錯誤');
     } finally {
         await context.close();
+    }
+});
+
+test('F3.4 瀏覽器：看過就不再出現（不按 ✕）—— 記下這一則與比它舊的、不記比它新的；重新整理不出現；有新公告才再出現（zh 1280、Asia/Taipei）', { skip: pw ? false : why }, async () => {
+    const lang = 'zh';
+    const { page, context, errors } = await open(lang, { time: '2026-10-15T12:00:00+08:00' });
+    try {
+        assert.equal(await shown(page, lang), titleOf(byDate(lang, '2026-10-05')), '防呆：10-15 看到的是 10-05（10-20 還沒發布）');
+        const stored = JSON.parse(await page.evaluate((key) => localStorage.getItem(key), KEY) ?? '[]');
+        for (const d of ['2026-10-05', '2026-09-01', '2026-08-01']) assert.ok(stored.includes(byDate(lang, d).id), `顯示 10-05 時要把 ${d} 記成看過（${KEY}），得到 ${JSON.stringify(stored)}`);
+        assert.ok(!stored.includes(byDate(lang, '2026-10-20').id), `比它新的 10-20 不能記成看過，得到 ${JSON.stringify(stored)}`);
+        await page.reload({ waitUntil: 'load' });
+        assert.equal(await shown(page, lang), null, '同一天重新整理：看過的不再出現，也不換成比它舊的（09-01、置頂的 08-01）');
+        await page.clock.setFixedTime(new Date('2026-10-25T12:00:00+08:00'));
+        await page.reload({ waitUntil: 'load' });
+        assert.equal(await shown(page, lang), titleOf(byDate(lang, '2026-10-20')), '10-25 重新整理：有新公告（10-20）才再出現');
+        assert.deepEqual(errors, [], '頁面不能有錯誤');
+    } finally {
+        await context.close();
+    }
+});
+
+// 公告條、導覽列、main 的位置
+const PLACE = (label) => {
+    const bar = [...document.querySelectorAll(`[role="region"][aria-label="${label}"]`)].find((e) => e.checkVisibility());
+    const header = document.querySelector('header');
+    const main = document.querySelector('main');
+    return { bar: bar ? { position: getComputedStyle(bar).position, top: bar.getBoundingClientRect().top, height: bar.getBoundingClientRect().height } : null, nav: header.getBoundingClientRect().bottom, main: main.getBoundingClientRect().top };
+};
+
+test('F3.4 瀏覽器：有 JS 時浮在導覽列下面、不佔版面；關掉 JS 照舊在原位（zh、ja × 390、1280）', { skip: pw ? false : why }, async () => {
+    const bad = [];
+    const all = (lang) => good[lang].map((e) => e.id);
+    for (const lang of ['zh', 'ja']) {
+        for (const width of [390, 1280]) {
+            const at = async (opts) => {
+                const { page, context } = await open(lang, { width, ...opts });
+                try { return await page.evaluate(PLACE, say(lang, 'bulletin.label')); } finally { await context.close(); }
+            };
+            const on = await at({});
+            const none = await at({ dismissed: all(lang) });
+            // 關掉 JS：不能裝假時鐘（page.clock 要跑腳本），自己開；產生網頁時挑的那一則就在 HTML 裡
+            const off = await (async () => {
+                const { site, browser } = await session.get();
+                const context = await browser.newContext({ viewport: { width, height: 800 }, javaScriptEnabled: false });
+                try {
+                    const page = await context.newPage();
+                    await page.goto(`${site.url}/${lang}/`, { waitUntil: 'load' });
+                    return await page.evaluate(PLACE, say(lang, 'bulletin.label'));
+                } finally {
+                    await context.close();
+                }
+            })();
+            const label = `${lang} ${width}`;
+            if (!on.bar) { bad.push(`${label}：防呆：有 JS 時公告條要出現`); continue; }
+            if (on.bar.position !== 'absolute') bad.push(`${label}：有 JS 時公告條要 position: absolute（不佔版面），得到 ${on.bar.position}`);
+            if (Math.abs(on.bar.top - on.nav) > 1) bad.push(`${label}：有 JS 時公告條要貼在導覽列正下方（公告條上緣 ${on.bar.top}、導覽列下緣 ${on.nav}）`);
+            if (none.bar) bad.push(`${label}：防呆：全部記成看過時公告條不該出現`);
+            if (Math.abs(on.main - none.main) > 1) bad.push(`${label}：有 JS 時公告條不能推下 main（有公告條 ${on.main}、沒有 ${none.main}）`);
+            if (!off.bar) { bad.push(`${label}：關掉 JS 時公告條要在`); continue; }
+            if (off.bar.position === 'absolute' || off.bar.position === 'fixed') bad.push(`${label}：關掉 JS 時公告條要在原位（不浮著），得到 ${off.bar.position}`);
+            if (Math.abs(off.main - (off.bar.top + off.bar.height)) > 1) bad.push(`${label}：關掉 JS 時 main 要接在公告條下面（公告條下緣 ${off.bar.top + off.bar.height}、main ${off.main}）`);
+        }
+    }
+    assert.deepEqual(bad, [], `${bad.length} 處不對`);
+});
+
+// 跟 open() 一樣，但用 page.clock.install（計時器也是假的，runFor 快轉）而不是 setFixedTime
+async function openTimed(lang, { reduced = true, width = 1280 } = {}) {
+    const { site, browser } = await session.get();
+    const context = await browser.newContext({ viewport: { width, height: 800 }, timezoneId: 'Asia/Taipei', ...(reduced ? { reducedMotion: 'reduce' } : {}) });
+    const page = await context.newPage();
+    page.setDefaultTimeout(15000);
+    const errors = [];
+    page.on('pageerror', (err) => errors.push(err.message));
+    await page.clock.install({ time: new Date('2026-10-25T12:00:00+08:00') });
+    await page.goto(`${site.url}/${lang}/`, { waitUntil: 'load' });
+    // 首頁出現（載入畫面淡出、collector:loaded）才開始算 8 秒
+    for (let i = 0; i < 50 && !(await page.evaluate(() => window.__collectorLoaded === true)); i += 1) await page.waitForTimeout(100);
+    assert.equal(await page.evaluate(() => window.__collectorLoaded === true), true, '防呆：首頁要出現（public/motion.js 發 collector:loaded）');
+    return { page, context, errors };
+}
+
+test('F3.4 瀏覽器：8 秒後自己收掉（減少動態直接拿掉；沒設時先淡出）；滑鼠或焦點停在上面不收、移開之後至少再停 1.5 秒（zh 1280）', { skip: pw ? false : why }, async () => {
+    const lang = 'zh';
+    const want = titleOf(byDate(lang, '2026-10-20'));
+    {
+        const { page, context, errors } = await openTimed(lang);
+        try {
+            assert.equal(await shown(page, lang), want, '防呆：一開始是 10-20');
+            await page.clock.runFor(7500);
+            assert.equal(await shown(page, lang), want, '首頁出現 7.5 秒時公告條還在');
+            await page.clock.runFor(1000);
+            assert.equal(await shown(page, lang), null, '8.5 秒時公告條要收掉（減少動態：直接拿掉）');
+            assert.deepEqual(errors, [], '頁面不能有錯誤');
+        } finally {
+            await context.close();
+        }
+    }
+    {
+        const { page, context } = await openTimed(lang, { reduced: false });
+        try {
+            await page.clock.runFor(8100);
+            const leaving = await bulletinParts(page, lang).all.evaluateAll((els) => els.some((e) => e.hasAttribute('data-leaving')));
+            const gone = (await shown(page, lang)) === null;
+            assert.ok(leaving || gone, '沒設減少動態：8 秒時要開始淡出（data-leaving）');
+            await page.clock.runFor(1100);
+            await page.waitForTimeout(100);
+            assert.equal(await bulletinParts(page, lang).all.evaluateAll((els) => els.filter((e) => e.checkVisibility()).length), 0, '淡出之後要拿掉');
+        } finally {
+            await context.close();
+        }
+    }
+    for (const how of ['滑鼠', '焦點']) {
+        const { page, context } = await openTimed(lang);
+        try {
+            const b = bulletinParts(page, lang);
+            await page.clock.runFor(3000);
+            if (how === '滑鼠') await b.text.hover();
+            else await b.close.focus();
+            await page.clock.runFor(20000);
+            assert.equal(await shown(page, lang), want, `${how}停在上面：快轉 20 秒還在`);
+            if (how === '滑鼠') await page.mouse.move(5, 790);
+            else await page.evaluate(() => document.activeElement.blur());
+            await page.clock.runFor(1200);
+            assert.equal(await shown(page, lang), want, `${how}移開之後 1.2 秒還在（至少再停 1.5 秒）`);
+            await page.clock.runFor(Math.max(0, 5000 - 1200 + 500));
+            assert.equal(await shown(page, lang), null, `${how}移開之後剩下的時間到了要收掉`);
+        } finally {
+            await context.close();
+        }
     }
 });
 

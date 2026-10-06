@@ -1,33 +1,42 @@
-// F7.1～F7.15 09 教學影片（YouTube 播放器、章節）。讀 out/，真的開瀏覽器；「有影片 ID」那一種在暫存複本把三語 ID 換成假的再 build 一次。
+// F7.0～F7.16 09 教學影片（自己網站上的 <video>、章節）。真的開瀏覽器；「有影片 ID」「沒有影片 ID」兩種各在暫存複本把三語 ID 換掉再 build 一次（out/ 現在是真的 ID）。
 // 照設計稿 6511462 的 {zh,en,ja}/index.html 09 那一段（頁面上是「有影片、還沒按」）與狀態一覽的 ②～⑥、home.css「09 教學影片」、動態.md 09 那張表、notes/4-2.md、
 // notes/4-4.md 開頭那一節（09 沒有影片那一態的修正）、strings/README.md「從資料轉進來的字」；規格書 §5-09、§9、§10.5、§11、§14。章節資料：data/chapters.{zh,en,ja}.json（[{ id, name, desc, start, end }]，16 章）。
 //
+// 2026-10-07 為什麼改（使用者決定：教學影片改成自己的網站播，不嵌 YouTube；public/tutorial.js、components/Tutorial）：
+//   - 三語的 YouTube ID 填了真的（app/site.js）：F7.0 改量「三語都是 11 碼的真 ID」；「沒有影片」那一種另外清空 ID 再 build 一份（不再是 out/）。
+//   - 播放器從 YouTube 的 iframe（iframe_api、YT.Player、每 250ms 看 getCurrentTime）換成影片框裡自己建的 <video>，一章一支 /media/tutorial/<語言>/<章>.mp4（沒有音軌）：
+//     F7.1（按了才載入）、F7.2（章節、章尾那一層）、F7.3（06 的「看教學 NN」）、F7.5（章尾那一層的版面）、F7.9、F7.10（載不到）、F7.12、F7.14、F7.15 改量 <video>：
+//     src、真的在播（currentTime 往前走）、播完（ended）才蓋章尾那一層；快轉到結尾改成把 currentTime 設到「長度 −0.4 秒」（tests-site/server.js 加了 Range）。
+//   - 刪掉：F7.10 的「播放器程式晚到」「建了卻一直沒 ready」「已經有 YT.Player」（沒有播放器程式了）、F7.11 播放中拖進度到別章（<video> 沒有控制列，拖不了）、
+//     F7.1 的 iframe_api／youtube-nocookie／rel／playsinline 參數；fake-youtube.js 沒人用了一起刪（README「09 教學影片」記了一句）。
+//   - 新加 F7.16：<video> 沒有 controls、靜音、playsinline、不給子母畫面與下載、tabindex=0；點畫面、空白鍵、Enter、k 暫停與繼續；換章是換同一支 <video> 的 src。
+//
 // 介面（README.md「09 教學影片（F7）」）：
-//   影片 ID 放 app/site.js 的 export const TUTORIAL_VIDEO_IDS = { zh: '', en: '', ja: '' };（一語一支；空字串＝還沒上 YouTube → 沒有影片的樣子）。
+//   影片 ID 放 app/site.js 的 export const TUTORIAL_VIDEO_IDS = { zh, en, ja };（一語一支；空字串＝還沒上 YouTube → 沒有影片的樣子；有 ID＝影片已上線）。
 //   <section data-section="tutorial" id="tutorial">：大標 <h2 data-id="tutorial.title">（沒有影片時 data-id="tutorial.title.noid"）、data-id 的 tutorial.eyebrow、
 //     說明 data-id="tutorial.lead"（沒有影片時 data-id="tutorial.lead.noid"）；
 //   [data-player]：16:9 的影片框（data-state＝idle｜loading｜playing｜paused｜ended），裡面是預覽圖 <img src*="tutorial-poster-<語言>">（srcset 照 images.json）、
 //     播放鈕 <button data-play aria-label＝tutorial.play>（只有有影片時）；沒有影片時一句 data-id="tutorial.noid.note"（影片框的下一個兄弟：手機在框底下，640 起疊在框的左下角）；
 //     章尾那一層 [data-endcard]：data-id="tutorial.done"（代入章名）、<button data-id="tutorial.replay">、<button data-id="tutorial.next">（代入下一章的章名）；
-//     第 16 章只有 <button data-id="tutorial.again">。
+//     第 16 章只有 <button data-id="tutorial.again">。載不到時 [data-api-fail]（role="status"，字是 tutorial.apifail）。
 //   <a data-id="tutorial.youtube">（只有有影片時）連到 https://www.youtube.com/watch?v=<那一語的 ID>（或 youtu.be/<ID>）。
 //   [data-chapters]：章節那一欄（標頭＋清單）。每一章一個 <li id="ch-NN">：data-id="ch.NN.name"、data-id="ch.NN.desc"（摘要在那一列的 <details> 裡）、起點 m:ss；
 //     有影片時那一列是 <button data-chapter="NN" data-goatcounter-click="tutorial-NN">，正在播的那一章 aria-current="true"、列裡出現 tutorial.nowPlaying；
 //     沒有影片時那一列是摘要的開關（<summary>），沒有 button[data-chapter]。
 //   「看全部 16 章」：data-id="tutorial.showAll"，在一個 <summary>（或 <button aria-expanded>）裡；1024 起（09 的內容寬 ≥ 960）藏起來、16 章全列。
-//   播放器：按了播放鈕（或章名、06 的「看教學 NN」）才載入 https://www.youtube.com/iframe_api，用 new YT.Player(...)，
-//     iframe 在 https://www.youtube-nocookie.com/embed/<那一語的 ID>，參數 rel=0、playsinline=1；從那一章的 start 播，播到 end 停（每 250ms 左右看一次 getCurrentTime()，
-//     或用 endSeconds），蓋上章尾那一層、焦點移到「播下一段」（第 16 章是「從頭再看一次」），Esc 收掉。
-//   測試用的假 YT 播放器：fake-youtube.js（時間跟著 page.clock 走）。
+//   播放（有影片）：按了播放鈕（從第 01 章）、章名（從那一章）、或 06 的「看教學 NN」才在 [data-player] 裡建一個 <video>（之前整頁不抓 /media/tutorial/ 的 mp4、不連 YouTube）；
+//     <video> 沒有 controls、muted、playsinline、disablepictureinpicture、controlslist 含 nodownload、tabindex=0，src＝/media/tutorial/<語言>/<章>.mp4（box 的 data-clips 是 /media/tutorial/<語言>/）；
+//     真的播起來（playing）才標那一章；播完（ended）蓋上章尾那一層、焦點移到「播下一段」（第 16 章是「從頭再看一次」），Esc 收掉；換章是換同一支 <video> 的 src。
+//     載不到（video error、play() 被拒、或 8 秒還在 loading；測試的上限 10 秒）：拿掉 <video>、回到 idle、播放鈕放回來、那一句出現、框加 data-fail-class；再按重試。
 //
 // 量什麼（案例全文在 README）：
-//   F7.0 設定：TUTORIAL_VIDEO_IDS 在 app/site.js、三語現在都是空字串。
-//   F7.1 不按不載入：兩種 build × 三語 × 有滑鼠 1440、只有手指 390：開頁、整頁捲過一遍（有滑鼠時滑過播放鈕）—— 沒有任何往 YouTube 網域的請求、沒有 iframe；
-//        送出來的 HTML 裡沒有往 YouTube 網域的 <script>、<link>、<iframe>；預覽圖（srcset 照 images.json、alt、寬高、lazy）看得到；有影片才有播放鈕。
-//        有影片時按下播放鈕：才有一個 iframe_api 請求、iframe 在 youtube-nocookie.com/embed/<這一語的 ID>、rel=0、playsinline=1、從 0:00 播、第 01 章標出來。
-//   F7.2 章節（有影片，三語 × 1440）：16 章逐一按 —— 起點＝start（±1.5 秒內）、播到 end 前 1.5 秒還在播、到 end ±1 秒內停下並蓋上章尾那一層（重播＋播下一段：下一章的章名；
-//        第 16 章停在 8:49、只問從頭再看一次）、焦點在那顆鈕、正在播的那一章標出來（只有一章）；重播、播下一段、從頭再看一次、Esc；換語言之後換成那一語的影片。
-//   F7.3 沒有影片 ID（現在）：沒有播放鈕與「在 YouTube 上看」、大標是 tutorial.title.noid、有 tutorial.noid.note；16 章的章名與摘要都在 HTML、每一列能打開摘要；
+//   F7.0 設定：TUTORIAL_VIDEO_IDS 在 app/site.js、三語都是 11 碼的真 ID（不是測試用的假 ID）、寫成換得掉的那一行。
+//   F7.1 不按不載入：兩種 build × 三語 × 有滑鼠 1440、只有手指 390：開頁、整頁捲過一遍（有滑鼠時滑過播放鈕）—— 沒有往 YouTube 網域的請求、沒有 iframe、
+//        影片框裡沒有 <video>、伺服器沒收到 /media/tutorial/ 的請求；送出來的 HTML 裡沒有往 YouTube 網域的 <script>、<link>、<iframe>，09 裡沒有 <video>；預覽圖看得到；有影片才有播放鈕。
+//        有影片時按下播放鈕：影片框裡一個 <video>、src 是這一語的 01.mp4、伺服器收到那一支、真的在播（從 0 秒開始、時間往前走）、第 01 章標出來；沒有 iframe、沒有往 YouTube 的請求。
+//   F7.2 章節（有影片，三語 × 1440）：16 章逐一按 —— src 是那一章的 mp4、從頭播、真的在播、只標那一章；跳到結尾播完蓋上章尾那一層（重播＋播下一段：下一章的章名；
+//        第 16 章只問從頭再看一次）、焦點在那顆鈕；從頭到尾只有一個 <video>（換章是換 src）。重播、播下一段、從頭再看一次、Esc；換語言之後播那一語的 mp4。
+//   F7.3 沒有影片 ID：沒有播放鈕與「在 YouTube 上看」、大標是 tutorial.title.noid、有 tutorial.noid.note；16 章的章名與摘要都在 HTML、每一列能打開摘要；
 //        06 的「看教學 NN」跳到清單那一章（390、1440）；整個過程沒有頁面錯誤。有影片時：播放鈕、「在 YouTube 上看」連到這一語的影片，06 的「看教學 NN」從那一章播。
 //   F7.4 清單排法（兩種 build）：1024 起影片在左、章節在右，章節那一欄的上下緣跟影片框對齊、清單自己捲、16 章都看得到、沒有「看全部」；
 //        640 以下到 768（內容寬 < 960）影片在上、先看得到 5 章、「看全部 16 章」≥ 44×44、鍵盤 Enter／空白鍵打得開也收得起來、讀屏讀得到展開／收起；關掉 JS 16 章都在、點得開。
@@ -41,31 +50,31 @@
 //        沒有一行 > 25 字寬；英文沒有一個字一行；三語的字都不超出摘要的框。
 //   F7.9 06「看教學 NN」的落點（動態.md 09 表）：三語 × 390、1024、1440 × 03、07、09 —— 停下來之後播放器上緣（窄而沒有影片時是那一列）沒被導覽列蓋住、
 //        就在導覽列底下；沒有影片時摘要已打開、寬的時候那一列捲到清單頂；有影片時從那一章播、清單只捲清單；關掉 JS 照原生 #ch-NN 跳。
-//   F7.10 播放器程式（iframe_api）被擋或一直不回：10 秒內回到還沒按的樣子（idle、播放鈕、沒有章被標正在播）、影片框裡有一句話、「在 YouTube 上看」還在；按章名也不標；網路好了重試播得起來。
-//        程式在逾時之後才到（假的照真的有防重入，第二次執行什麼都不做）：不自己播、再按播得起來、不再載一次 iframe_api；載到一半（YT.loading、播放器本體還沒到）再按：不再載、等它好就播。
-//        播放器建了卻一直沒 ready：一樣 10 秒內回到還沒按的樣子、拿掉建了一半的播放器，再按播得起來。
-//        頁面上已經有 YT.Player（別的程式先載好了，沒有 YT.ready）：按了直接用，不載 iframe_api、播得起來。
-//   F7.11 播放中自己拖進度到別章：改認時間所在的那一章，播到那一章結尾才停（往後、往前各一次）。
+//   F7.10 載不到（有影片，三語 × 1440）：mp4 擋掉、一直不回（快轉 10 秒）、play() 被拒各一次 —— 回到還沒按的樣子（idle、播放鈕、沒有 <video>、沒有章被標正在播）、
+//        影片框裡有一句話、「在 YouTube 上看」還在；失敗之後按章名也不標；網路好了再按播得起來。載入中（mp4 還沒回）不標正在播，回了、真的播起來才標。
 //   F7.12 Esc 收掉章尾那一層之後，焦點回到影片框或正在播的那一章的按鈕；窄的時候播到收在「看全部」裡的章（第 05 章播完按「播下一段」）也一樣，打開時影片框不跳。
 //   F7.13 影片 ID 只准空字串或 11 個 [A-Za-z0-9_-]：不合格（整個網址、太短、含空白）build 失敗，訊息講到格式與哪一語。
 //   F7.14 兩句的版位（設計稿 5b74044）：載入失敗那一句（role="status"）—— 手機蓋滿整個影片框、字不壓播放鈕、播放鈕 44 而且按得到、焦點留在播放鈕；
 //        640 起在框的左上角（上 16、左 24）。沒有影片那一句 —— 手機排在影片框外面（框底下 16、離畫面左邊 16），640 起疊在框的左下角（左 24、下 24）。
 //   F7.15 用鍵盤（Tab 到播放鈕、Enter）播：播放鈕藏起來之後焦點不掉到 <body>，載入中與播起來之後都在影片框裡；載不到時回到播放鈕；重試播起來之後同上。
+//   F7.16 <video> 本身（有影片，三語 × 1440）：沒有 controls（屬性與 property）、muted、playsinline、disablepictureinpicture、controlslist 含 nodownload、tabindex=0；
+//        點影片暫停（data-state paused）、再點繼續；焦點在影片上按空白鍵（整頁不捲）、Enter、k 輪流暫停與繼續。
 //
-// 跑法（在 homepage/site/）：
+// 跑法（在網站 repo 根目錄）：
 //   node tests-site/run.mjs --test-name-pattern "F7\\."
 import { test, after } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { SITE, OUT, LANGS, playwright, browserSession, buildCopy, tail, needOut, decodeEntities } from './helpers.js';
+import { SITE, LANGS, playwright, browserSession, buildCopy, tail, decodeEntities } from './helpers.js';
 import { textLines, width as wide, WIDTHS, CHAPTER_GEOMETRY, parts, FOCUS_BEFORE } from './page-helpers.js';
-import { installFakeYouTube, YT_HOSTS, IFRAME_API, WIDGET_API, clock } from './fake-youtube.js';
+import { clock } from '../app/chapters.js';
 import { getPlainString } from '../app/strings.js';
 
 const say = (lang, id) => getPlainString(lang, id);
 const SITE_JS = path.join(SITE, 'app', 'site.js');
-const ID_LINE = /export\s+const\s+TUTORIAL_VIDEO_IDS\s*=\s*\{\s*zh:\s*(['"])\1\s*,\s*en:\s*(['"])\2\s*,\s*ja:\s*(['"])\3\s*,?\s*\}\s*;/;
+// 2026-10-07 起三語填了真的 ID：不管填了什麼都換得掉（沒有影片的那一組換成空字串、有影片的那一組換成假的）
+const ID_LINE = /export\s+const\s+TUTORIAL_VIDEO_IDS\s*=\s*\{[^}]*\}\s*;/;
 // 假的影片 ID（YouTube 的 ID 是 11 個字元）：三語各不一樣，量得出「換語言換影片」
 const IDS = { zh: 'TstZh000001', en: 'TstEn000002', ja: 'TstJa000003' };
 const CHAPTERS = Object.fromEntries(LANGS.map((lang) => [lang, JSON.parse(fs.readFileSync(path.join(SITE, 'data', `chapters.${lang}.json`), 'utf8'))]));
@@ -81,10 +90,25 @@ const flat = (s) => (s ?? '').replace(/\s+/g, ' ').trim();
 
 const { pw, why } = playwright();
 let built = null;
-// 現在的 out/（沒有影片 ID）與暫存複本（三語 ID 換成假的）各一個伺服器
-const noid = pw ? browserSession(pw) : null;
+// 兩份暫存複本各一個伺服器：三語 ID 清空（沒有影片）、三語 ID 換成假的（有影片；三語各不一樣，量得出換語言換影片）
+let builtNoId = null;
+const noid = pw ? browserSession(pw, () => noIdOut()) : null;   // 2026-10-07 起現在的 out/ 有真的 ID，「沒有影片」另外產生一份
 const withId = pw ? browserSession(pw, () => withIdOut()) : null;
-after(async () => { await noid?.close(); await withId?.close(); built?.cleanup(); });
+after(async () => { await noid?.close(); await withId?.close(); built?.cleanup(); builtNoId?.cleanup(); });
+
+function noIdOut() {
+    builtNoId ??= buildCopy({
+        label: 'tutorial-noid',
+        prepare: (copy) => {
+            const file = path.join(copy, 'app', 'site.js');
+            const src = fs.readFileSync(file, 'utf8');
+            if (!ID_LINE.test(src)) throw new Error('app/site.js 要有一行 export const TUTORIAL_VIDEO_IDS = { … };（見 F7.0）');
+            fs.writeFileSync(file, src.replace(ID_LINE, "export const TUTORIAL_VIDEO_IDS = { zh: '', en: '', ja: '' };"));
+        },
+    });
+    assert.equal(builtNoId.status, 0, `三語 ID 清空之後 build 失敗：\n${tail(builtNoId.output)}`);
+    return builtNoId.out;
+}
 
 function withIdOut() {
     built ??= buildCopy({
@@ -92,7 +116,7 @@ function withIdOut() {
         prepare: (copy) => {
             const file = path.join(copy, 'app', 'site.js');
             const src = fs.readFileSync(file, 'utf8');
-            if (!ID_LINE.test(src)) throw new Error('app/site.js 要有 export const TUTORIAL_VIDEO_IDS = { zh: \'\', en: \'\', ja: \'\' };（三語空字串，測試才換得掉；見 F7.0）');
+            if (!ID_LINE.test(src)) throw new Error('app/site.js 要有一行 export const TUTORIAL_VIDEO_IDS = { … };（測試才換得掉；見 F7.0）');
             fs.writeFileSync(file, src.replace(ID_LINE, `export const TUTORIAL_VIDEO_IDS = { zh: '${IDS.zh}', en: '${IDS.en}', ja: '${IDS.ja}' };`));
         },
     });
@@ -100,21 +124,38 @@ function withIdOut() {
     return built.out;
 }
 
-// 開一頁。yt：裝上假的 YouTube（攔請求；給 { preloaded: true } 是一開頁 YT.Player 就在、沒有 YT.ready）；time：裝 page.clock（時間照常走，要快轉時 runFor）。
-async function open(session, lang, width, { touch = false, js = true, reduced = true, height, yt = false, time = false } = {}) {
+// YouTube 的網域（2026-10-07 起網站自己播，頁面上任何時候都不該連過去；「在 YouTube 上看」是一般的連結，點了才走）
+const YT_HOSTS = /(^|\.)(youtube\.com|youtube-nocookie\.com|youtu\.be|ytimg\.com|googlevideo\.com|ggpht\.com)$/;
+// 那一章的影片：一章一支（scripts/tutorial-clips.mjs 從配樂版切的，沒有音軌）
+const CLIP = (lang, nn) => `/media/tutorial/${lang}/${nn}.mp4`;
+const CLIP_RE = /^\/media\/tutorial\//;
+// 前端定的「按下去多久還沒開始播就放棄」（public/tutorial.js 的 LOAD_TIMEOUT_MS 是 8 秒）不能超過這麼久；測試把頁面的時鐘快轉這麼多再量
+const LOAD_TIMEOUT_MAX = 10;
+
+// 開一頁。time：裝 page.clock（時間照常走，要快轉時 runFor —— 只快轉網頁的計時器，影片照真的時間播）。
+// 往 YouTube 網域的請求一律擋掉並記下來（requests.yt）；伺服器收到的 /media/tutorial/ 請求在 requests.clips（從開頁那一刻算；Playwright 的 request 事件在影片的請求上量過會漏）。
+// 開頁之後等載入畫面收掉（html.loading，public/motion.js：最多 1 秒，等首屏影片時 2 秒），量畫面與點擊才不會被它蓋住。
+async function open(session, lang, width, { touch = false, js = true, reduced = true, height, time = false, init = [] } = {}) {
     const { site, browser } = await session.get();
     const context = await browser.newContext({ viewport: { width, height: height ?? (touch ? 844 : 900) }, ...(touch ? { isMobile: true, hasTouch: true } : {}), javaScriptEnabled: js, ...(reduced ? { reducedMotion: 'reduce' } : {}) });
-    const fake = yt ? await installFakeYouTube(context, typeof yt === 'object' ? yt : {}) : null;
-    const requests = fake ? fake.requests : [];
-    if (!yt) context.on('request', (r) => { const u = new URL(r.url()); if (YT_HOSTS.test(u.hostname)) requests.push({ url: r.url(), host: u.hostname, kind: 'other' }); });
+    const yt = [];
+    await context.route((url) => YT_HOSTS.test(url.hostname), (route) => { yt.push(route.request().url()); return route.abort(); });
+    const start = site.requests.length;
+    const requests = { yt, get clips() { return site.requests.slice(start).filter((r) => CLIP_RE.test(r.path)).map((r) => r.path); } };
     const page = await context.newPage();
     page.setDefaultTimeout(15000);
     const errors = [];
     page.on('pageerror', (e) => errors.push(`頁面錯誤：${e.message}`));
-    page.on('console', (m) => { if (m.type() === 'error' && !YT_HOSTS.test(m.location()?.url ? new URL(m.location().url, 'http://x').hostname : '')) errors.push(`主控台 error：${m.text()}`); });
+    // 影片被測試擋掉時，主控台的「載入資源失敗」不算頁面的錯
+    page.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource/.test(m.text())) errors.push(`主控台 error：${m.text()}`); });
+    for (const script of init) await page.addInitScript(script);
     if (time) await page.clock.install();
     await page.goto(`${site.url}/${lang}/`, { waitUntil: 'load' });
     await page.evaluate(() => document.fonts.ready);
+    if (js) {
+        const ok = await until(page, async () => { const loading = await page.evaluate(() => document.documentElement.classList.contains('loading')); return { ok: !loading, got: 'html.loading' }; }, '載入畫面要收掉', 5000);
+        assert.ok(ok.ok, ok.why);
+    }
     return { page, context, requests, errors };
 }
 
@@ -125,11 +166,28 @@ const toCenter = (el) => {
 };
 const toTop = (el) => window.scrollTo({ top: window.scrollY + el.getBoundingClientRect().top, behavior: 'instant' });
 
-// 假播放器現在的樣子（最後建的那一個）
-const player = (page) => page.evaluate(() => {
-    const p = window.__ytPlayers?.at(-1);
-    return p ? { t: p.getCurrentTime(), s: p.getPlayerState(), id: p.getVideoData().video_id, n: window.__ytPlayers.length } : null;
-});
+// 影片框裡的 <video> 現在的樣子（n：09 裡有幾支 <video>；src：路徑）
+const player = (page) => page.evaluate((sec) => {
+    const all = document.querySelectorAll(`${sec} video`);
+    const v = all[all.length - 1];
+    if (!v) return null;
+    const src = v.getAttribute('src');
+    return { n: all.length, src: src ? new URL(src, location.href).pathname : null, t: v.currentTime, d: v.duration, paused: v.paused, ended: v.ended, inPlayer: Boolean(v.closest(`${sec} [data-player]`)) };
+}, SEC);
+
+// 真的在播：沒暫停、時間在 0.05 秒之後（播起來了）
+const isPlaying = (p) => Boolean(p && !p.paused && !p.ended && p.t > 0.05);
+
+// 等那一支影片真的播起來（從頭播：時間 < 3 秒）
+async function playingClip(page, lang, nn, label) {
+    return until(page, async () => { const p = await player(page); return { ok: isPlaying(p) && p.src === CLIP(lang, nn) && p.t < 3, got: p }; }, `${label}：要播 ${CLIP(lang, nn)}（從頭、真的在播）`);
+}
+
+// 跳到快結尾（長度 −0.4 秒）讓它自己播完；等章尾那一層蓋上（最多 5 秒）
+async function toEnd(page) {
+    await page.evaluate((sec) => { const v = [...document.querySelectorAll(`${sec} video`)].at(-1); if (v && v.duration) v.currentTime = Math.max(0, v.duration - 0.4); }, SEC);
+    return until(page, async () => { const s = await panel(page); return { ok: s.endcard, got: { panel: s, video: await player(page) } }; }, '跳到結尾之後播完、蓋上章尾那一層', 5000);
+}
 
 async function until(page, fn, label, ms = 8000) {
     const end = Date.now() + ms;
@@ -162,25 +220,26 @@ const panel = (page) => page.evaluate((sec) => {
 
 // ---------- F7.0 設定 ----------
 
-test('F7.0 影片 ID 放在 app/site.js 的 TUTORIAL_VIDEO_IDS（三語各一個），現在三語都是空字串', async () => {
+test('F7.0 影片 ID 放在 app/site.js 的 TUTORIAL_VIDEO_IDS（三語各一個；2026-10-07 起都填了真的 YouTube ID）', async () => {
     const mod = await import(`${SITE_JS}?t=${Date.now()}`);
     assert.ok('TUTORIAL_VIDEO_IDS' in mod, 'app/site.js 要 export const TUTORIAL_VIDEO_IDS（{ zh, en, ja }；空字串＝還沒上 YouTube）');
-    assert.deepEqual(mod.TUTORIAL_VIDEO_IDS, { zh: '', en: '', ja: '' }, '教學片還沒上 YouTube，三語的 ID 都要是空字串（不寫死假 ID）');
-    assert.match(fs.readFileSync(SITE_JS, 'utf8'), ID_LINE, '防呆：app/site.js 要有一行 export const TUTORIAL_VIDEO_IDS = { zh: \'\', en: \'\', ja: \'\' };（測試才換得掉）');
+    for (const lang of ['zh', 'en', 'ja']) assert.match(mod.TUTORIAL_VIDEO_IDS[lang], /^[A-Za-z0-9_-]{11}$/, `${lang} 的影片 ID 要是 11 碼的 YouTube ID`);
+    assert.ok(!Object.values(mod.TUTORIAL_VIDEO_IDS).some((id) => id.startsWith('Tst')), '不是測試用的假 ID');
+    assert.match(fs.readFileSync(SITE_JS, 'utf8'), ID_LINE, '防呆：app/site.js 要有一行 export const TUTORIAL_VIDEO_IDS = { … };（測試才換得掉）');
 });
 
 // ---------- F7.1 不按不載入 ----------
 
 const POSTER = (lang) => `${SEC} [data-player] img[src*="tutorial-poster-${lang}"]`;
 
-for (const [name, which] of [['沒有影片 ID（現在）', () => noid], ['有影片 ID', () => withId]]) {
-    test(`F7.1 不按不載入（${name}）：三語 × 有滑鼠 1440、只有手指 390，整頁捲過一遍沒有任何往 YouTube 的請求、沒有 iframe；預覽圖看得到`, { skip: pw ? false : why }, async () => {
+for (const [name, which] of [['沒有影片 ID', () => noid], ['有影片 ID', () => withId]]) {
+    test(`F7.1 不按不載入（${name}）：三語 × 有滑鼠 1440、只有手指 390，整頁捲過一遍沒有往 YouTube 的請求、沒有 iframe、沒有 <video>、沒抓教學影片的 mp4；預覽圖看得到`, { skip: pw ? false : why }, async () => {
         const bad = [];
         const id = which() === withId;
         for (const lang of LANGS) {
             for (const [width, touch] of [[1440, false], [390, true]]) {
                 const label = `${lang} ${touch ? '只有手指' : '有滑鼠'} ${width}`;
-                const { page, context, requests, errors } = await open(which(), lang, width, { touch, yt: true });
+                const { page, context, requests, errors } = await open(which(), lang, width, { touch });
                 try {
                     const sec = page.locator(SEC);
                     if (!(await sec.count())) { bad.push(`${label}：找不到 ${SEC}`); continue; }
@@ -192,15 +251,16 @@ for (const [name, which] of [['沒有影片 ID（現在）', () => noid], ['有�
                     await sec.evaluate(toCenter);
                     await page.waitForTimeout(400);
                     const play = page.locator(`${SEC} [data-player] [data-play]`);
-                    // 先量（捲過一遍、還沒碰播放鈕），再滑過播放鈕量一次
-                    if (requests.length) bad.push(`${label}：沒按播放就有 ${requests.length} 個往 YouTube 的請求（${requests.slice(0, 3).map((r) => r.url).join('、')}）`);
-                    else if (id && !touch && (await play.count()) && (await play.isVisible())) {
+                    if (id && !touch && (await play.count()) && (await play.isVisible())) {
                         await play.hover();
                         await page.waitForTimeout(400);
-                        if (requests.length) bad.push(`${label}：滑過播放鈕（沒按）就有 ${requests.length} 個往 YouTube 的請求（${requests.slice(0, 3).map((r) => r.url).join('、')}）`);
                     }
+                    if (requests.yt.length) bad.push(`${label}：有 ${requests.yt.length} 個往 YouTube 的請求（${requests.yt.slice(0, 3).join('、')}）`);
+                    if (requests.clips.length) bad.push(`${label}：沒按播放就抓了教學影片（${[...new Set(requests.clips)].slice(0, 3).join('、')}）`);
                     const frames = await page.locator('iframe').count();
-                    if (frames) bad.push(`${label}：沒按播放就有 ${frames} 個 iframe`);
+                    if (frames) bad.push(`${label}：頁面上有 ${frames} 個 iframe`);
+                    const videos = await page.locator(`${SEC} video`).count();
+                    if (videos) bad.push(`${label}：沒按播放，09 裡就有 ${videos} 個 <video>`);
                     const poster = page.locator(POSTER(lang));
                     if ((await poster.count()) !== 1) bad.push(`${label}：影片框裡要有一張 tutorial-poster-${lang} 的預覽圖，得到 ${await poster.count()}`);
                     else if (!(await poster.isVisible())) bad.push(`${label}：預覽圖看不到`);
@@ -222,10 +282,9 @@ for (const [name, which] of [['沒有影片 ID（現在）', () => noid], ['有�
     });
 }
 
-test('F7.1 送出來的 HTML（兩種 build、三語）沒有往 YouTube 網域的 <script>、<link>、<iframe>；預覽圖 srcset 照 images.json、alt、寬高、lazy', { skip: pw ? false : why }, async () => {
+test('F7.1 送出來的 HTML（兩種 build、三語）沒有往 YouTube 網域的 <script>、<link>、<iframe>，09 裡沒有 <video>；預覽圖 srcset 照 images.json、alt、寬高、lazy', { skip: pw ? false : why }, async () => {
     const bad = [];
-    needOut();
-    const dirs = [['沒有影片 ID', OUT], ['有影片 ID', withIdOut()]];
+    const dirs = [['沒有影片 ID', noIdOut()], ['有影片 ID', withIdOut()]];
     for (const [name, dir] of dirs) {
         for (const lang of LANGS) {
             const html = fs.readFileSync(path.join(dir, lang, 'index.html'), 'utf8');
@@ -233,7 +292,10 @@ test('F7.1 送出來的 HTML（兩種 build、三語）沒有往 YouTube 網域�
                 const urls = [...m[0].matchAll(/(?:src|href|imagesrcset)\s*=\s*"([^"]*)"/gi)].map((x) => x[1]);
                 for (const u of urls) { try { if (YT_HOSTS.test(new URL(u, 'https://x/').hostname)) bad.push(`${name} ${lang}：<${m[1]}> 連到 ${u}`); } catch { /* 不是網址 */ } }
             }
-            if (/<iframe\b/i.test(html)) bad.push(`${name} ${lang}：HTML 裡有 <iframe>（要按了才放）`);
+            if (/<iframe\b/i.test(html)) bad.push(`${name} ${lang}：HTML 裡有 <iframe>`);
+            const sec = /<section\b[^>]*data-section="tutorial"[^>]*>([\s\S]*?)<\/section>/i.exec(html);
+            if (sec && /<video\b/i.test(sec[1])) bad.push(`${name} ${lang}：09 的 HTML 裡就有 <video>（要按了才建）`);
+            if (sec && /\.mp4/i.test(sec[1].replace(/data-clips="[^"]*"/g, ''))) bad.push(`${name} ${lang}：09 的 HTML 裡有 .mp4 的網址（只能寫在 data-clips 的資料夾，按了才組出來）`);
         }
     }
     for (const [name, session] of [['沒有影片 ID', noid], ['有影片 ID', withId]]) {
@@ -259,33 +321,42 @@ test('F7.1 送出來的 HTML（兩種 build、三語）沒有往 YouTube 網域�
     assert.deepEqual(bad, [], `${bad.length} 處不對`);
 });
 
+test('F7.1 一章一支的影片都在（三語 × 16 章）：public/media/tutorial/<語言>/<章>.mp4 是 mp4、不是空檔', () => {
+    const bad = [];
+    for (const lang of LANGS) {
+        for (const ch of CHAPTERS[lang]) {
+            const file = path.join(SITE, 'public', ...CLIP(lang, ch.id).split('/').filter(Boolean));
+            if (!fs.existsSync(file)) { bad.push(`${lang} 第 ${ch.id} 章：沒有 ${CLIP(lang, ch.id)}`); continue; }
+            const head = fs.readFileSync(file).subarray(0, 12);
+            if (fs.statSync(file).size < 10000 || head.toString('latin1', 4, 8) !== 'ftyp') bad.push(`${lang} 第 ${ch.id} 章：${CLIP(lang, ch.id)} 不像一支 mp4（大小 ${fs.statSync(file).size}、開頭 ${head.toString('latin1', 4, 8)}）`);
+        }
+    }
+    assert.deepEqual(bad, [], `${bad.length} 處不對`);
+});
+
 for (const lang of LANGS) {
-    test(`F7.1 按了播放鈕才載入（${lang}，有影片 ID，1440）：一個 iframe_api 請求、iframe 在 youtube-nocookie.com/embed/<這一語的 ID>、rel=0、playsinline=1、從 0:00 播、第 01 章標出來`, { skip: pw ? false : why }, async () => {
-        const { page, context, requests, errors } = await open(withId, lang, 1440, { yt: true });
+    test(`F7.1 按了播放鈕才載入（${lang}，有影片 ID，1440）：影片框裡一個 <video>、src 是這一語的 01.mp4、從頭真的在播、第 01 章標出來；沒有 iframe、沒有往 YouTube 的請求`, { skip: pw ? false : why }, async () => {
+        const { page, context, requests, errors } = await open(withId, lang, 1440);
         try {
             await page.locator(SEC).evaluate(toCenter);
             const play = page.locator(`${SEC} [data-player] [data-play]`);
             assert.equal(await play.count(), 1, '有影片 ID 時要有播放鈕 [data-play]');
-            assert.equal(requests.length, 0, `按之前就有往 YouTube 的請求：${requests.map((r) => r.url).join('、')}`);
+            assert.deepEqual(requests.clips, [], `按之前就抓了教學影片：${requests.clips.join('、')}`);
             await play.click();
-            const ok = await until(page, async () => { const p = await player(page); return { ok: p && p.s === 1, got: p }; }, '按了播放鈕之後播放器開始播');
+            const ok = await playingClip(page, lang, '01', '按了播放鈕');
             assert.ok(ok.ok, ok.why);
-            const api = requests.filter((r) => r.kind === 'api');
-            assert.equal(api.length, 1, `要剛好一個 ${IFRAME_API} 的請求，得到 ${api.length}`);
-            assert.equal(requests.filter((r) => r.kind === 'other').length, 0, `iframe_api 與播放器以外不能有往 YouTube 的請求：${requests.filter((r) => r.kind === 'other').map((r) => r.url).join('、')}`);
-            const frame = await page.evaluate((sec) => [...document.querySelectorAll('iframe')].map((f) => ({ src: f.src, inPlayer: Boolean(f.closest(`${sec} [data-player]`)) })), SEC);
-            assert.equal(frame.length, 1, `要剛好一個 iframe，得到 ${frame.length}`);
-            assert.ok(frame[0].inPlayer, 'iframe 要在 [data-player] 影片框裡');
-            const u = new URL(frame[0].src);
-            assert.equal(u.hostname, 'www.youtube-nocookie.com', `iframe 要在 youtube-nocookie.com（加強隱私模式），得到 ${u.hostname}`);
-            assert.equal(u.pathname, `/embed/${IDS[lang]}`, `iframe 要播這一語的影片 ${IDS[lang]}，得到 ${u.pathname}`);
-            assert.equal(u.searchParams.get('rel'), '0', 'iframe 參數要 rel=0（播完不推薦別的頻道）');
-            assert.equal(u.searchParams.get('playsinline'), '1', 'iframe 參數要 playsinline=1（iPhone 不自動全螢幕）');
             const p = await player(page);
-            assert.equal(p.id, IDS[lang], `播放器要載這一語的影片 ${IDS[lang]}，得到 ${p.id}`);
-            assert.ok(p.t >= 0 && p.t <= 1.5, `按播放鈕要從 0:00 播，得到 ${p.t.toFixed(2)} 秒`);
+            assert.equal(p.n, 1, `09 裡要剛好一個 <video>，得到 ${p.n}`);
+            assert.ok(p.inPlayer, '<video> 要在 [data-player] 影片框裡');
+            assert.ok(requests.clips.includes(CLIP(lang, '01')), `伺服器要收到 ${CLIP(lang, '01')} 的請求，得到 ${requests.clips.join('、') || '沒有'}`);
+            assert.ok(requests.clips.every((c) => c === CLIP(lang, '01')), `只能抓第 01 章那一支，得到 ${[...new Set(requests.clips)].join('、')}`);
+            const box = await page.locator(`${SEC} [data-tutorial]`).getAttribute('data-clips');
+            assert.equal(box, `/media/tutorial/${lang}/`, `[data-tutorial] 的 data-clips 要是 /media/tutorial/${lang}/`);
             const s = await panel(page);
+            assert.equal(s.state, 'playing', `影片框的 data-state 要是 playing，得到 ${s.state}`);
             assert.deepEqual(s.current, ['ch-01'], `正在播的要標第 01 章（aria-current="true" 只有一章），得到 ${JSON.stringify(s.current)}`);
+            assert.equal(await page.locator('iframe').count(), 0, '不能有 iframe');
+            assert.deepEqual(requests.yt, [], `不能連 YouTube：${requests.yt.join('、')}`);
             assert.deepEqual(errors, [], '不能有頁面錯誤');
         } finally {
             await context.close();
@@ -295,24 +366,21 @@ for (const lang of LANGS) {
 
 // ---------- F7.2 章節 ----------
 
-// 按一章，等它從 start 開始播；回傳錯誤（沒有錯回 null）
+// 按一章，等那一支從頭真的播起來；回傳錯誤（沒有錯回 null）
 async function startChapter(page, lang, ch) {
     const button = page.locator(`${SEC} button[data-chapter="${ch.id}"]`);
     if ((await button.count()) !== 1) return `第 ${ch.id} 章：找不到 button[data-chapter="${ch.id}"]（得到 ${await button.count()}）`;
     await button.click();
-    const ok = await until(page, async () => { const p = await player(page); return { ok: p && p.s === 1 && p.t >= ch.start - 0.5 && p.t <= ch.start + 1.5, got: p }; }, `第 ${ch.id} 章從 ${clock(ch.start)} 開始播`);
-    if (!ok.ok) return ok.why;
-    const p = await player(page);
-    if (p.id !== IDS[lang]) return `第 ${ch.id} 章：播的是 ${p.id}，要是這一語的 ${IDS[lang]}`;
-    return null;
+    const ok = await playingClip(page, lang, ch.id, `按第 ${ch.id} 章`);
+    return ok.ok ? null : ok.why;
 }
 
 for (const lang of LANGS) {
-    test(`F7.2 章節（${lang}，有影片 ID，1440）：16 章逐一按，起點＝start、播到 end ±1 秒停、蓋上章尾那一層、焦點與正在播的那一章對`, { skip: pw ? false : why }, async () => {
+    test(`F7.2 章節（${lang}，有影片 ID，1440）：16 章逐一按 —— 播那一章的 mp4、從頭真的在播、只標那一章；播完蓋上章尾那一層、焦點在那顆鈕；從頭到尾只有一支 <video>`, { skip: pw ? false : why }, async () => {
         const bad = [];
         const chapters = CHAPTERS[lang];
         assert.equal(chapters.length, 16, `data/chapters.${lang}.json 要 16 章`);
-        const { page, context, errors } = await open(withId, lang, 1440, { yt: true, time: true });
+        const { page, context, errors } = await open(withId, lang, 1440);
         try {
             await page.locator(SEC).evaluate(toCenter);
             for (const [i, ch] of chapters.entries()) {
@@ -323,19 +391,15 @@ for (const lang of LANGS) {
                 const now = await page.locator(`${SEC} li#ch-${ch.id}`).evaluate((li, word) => li.checkVisibility() && li.textContent.includes(word), say(lang, 'tutorial.nowPlaying'));
                 if (!now) bad.push(`第 ${ch.id} 章：那一列要寫「${say(lang, 'tutorial.nowPlaying')}」`);
                 if (s.endcard) bad.push(`第 ${ch.id} 章：剛開始播就蓋著章尾那一層`);
-                const t0 = (await player(page)).t;
-                await page.clock.runFor(Math.max(0, (ch.end - t0 - 1.5) * 1000));
-                const mid = await player(page);
+                if (s.state !== 'playing') bad.push(`第 ${ch.id} 章：影片框的 data-state 要是 playing，得到 ${s.state}`);
+                const p = await player(page);
+                if (p.n !== 1) bad.push(`第 ${ch.id} 章：09 裡要只有一支 <video>（換章是換 src），得到 ${p.n}`);
+                const end = await toEnd(page);
+                if (!end.ok) { bad.push(`第 ${ch.id} 章：${end.why}`); continue; }
                 s = await panel(page);
-                if (mid.s !== 1) bad.push(`第 ${ch.id} 章：播到 ${mid.t.toFixed(1)} 秒（end ${ch.end} 前 1.5 秒）就停了（狀態 ${mid.s}）`);
-                if (s.endcard) bad.push(`第 ${ch.id} 章：還沒到 end 就蓋上章尾那一層`);
-                await page.clock.runFor(2500);
-                await page.waitForTimeout(50);
-                const stop = await player(page);
-                s = await panel(page);
-                if (stop.s === 1) bad.push(`第 ${ch.id} 章：過了 end（${clock(ch.end)}）還在播（${stop.t.toFixed(1)} 秒）`);
-                else if (Math.abs(stop.t - ch.end) > 1) bad.push(`第 ${ch.id} 章：停在 ${stop.t.toFixed(1)} 秒，要在 end ${ch.end}（${clock(ch.end)}）±1 秒內`);
-                if (!s.endcard) { bad.push(`第 ${ch.id} 章：播完沒有蓋上章尾那一層（[data-endcard]）`); continue; }
+                const v = await player(page);
+                if (!v.ended) bad.push(`第 ${ch.id} 章：蓋上章尾那一層時影片要是播完的（ended），得到 ${JSON.stringify(v)}`);
+                if (s.state !== 'ended') bad.push(`第 ${ch.id} 章：播完影片框的 data-state 要是 ended，得到 ${s.state}`);
                 const done = say(lang, 'tutorial.done').replace('%章名%', ch.name);
                 if (s.done !== flat(done)) bad.push(`第 ${ch.id} 章：章尾那一層的標題要是「${done}」，得到「${s.done}」`);
                 if (i < chapters.length - 1) {
@@ -345,7 +409,6 @@ for (const lang of LANGS) {
                     if (s.again) bad.push(`第 ${ch.id} 章：不是最後一章，不能問「${say(lang, 'tutorial.again')}」`);
                     if (s.focus !== 'tutorial.next') bad.push(`第 ${ch.id} 章：焦點要在「播下一段」，在 ${s.focus}`);
                 } else {
-                    if (Math.abs(stop.t - 529) > 1) bad.push(`第 16 章：要停在 8:49（529 秒），停在 ${stop.t.toFixed(1)}`);
                     if (s.again !== flat(say(lang, 'tutorial.again'))) bad.push(`第 16 章：要問「${say(lang, 'tutorial.again')}」，得到 ${s.again}`);
                     if (s.next || s.replay) bad.push(`第 16 章：只問從頭再看一次，不能有重播或播下一段（得到 ${s.replay}／${s.next}）`);
                     if (s.focus !== 'tutorial.again') bad.push(`第 16 章：焦點要在「從頭再看一次」，在 ${s.focus}`);
@@ -362,35 +425,37 @@ for (const lang of LANGS) {
 for (const lang of LANGS) {
     test(`F7.2 章尾那一層的鈕（${lang}，有影片 ID，1440）：重播這一段、播下一段、從頭再看一次、Esc 收掉`, { skip: pw ? false : why }, async () => {
         const chapters = CHAPTERS[lang];
-        const { page, context, errors } = await open(withId, lang, 1440, { yt: true, time: true });
-        const toEnd = async (ch) => { const t = (await player(page)).t; await page.clock.runFor((ch.end - t + 1.5) * 1000); await page.waitForTimeout(50); };
+        const { page, context, errors } = await open(withId, lang, 1440);
         try {
             await page.locator(SEC).evaluate(toCenter);
             const c3 = chapters[2];
             assert.equal(await startChapter(page, lang, c3), null);
-            await toEnd(c3);
-            assert.ok((await panel(page)).endcard, '第 03 章播完要蓋上章尾那一層');
+            let end = await toEnd(page);
+            assert.ok(end.ok, `第 03 章：${end.why}`);
             await page.locator(`${SEC} [data-endcard] [data-id="tutorial.replay"]`).click();
-            let ok = await until(page, async () => { const p = await player(page); return { ok: p.s === 1 && Math.abs(p.t - c3.start) <= 1.5, got: p }; }, '重播這一段：回到第 03 章的起點播');
+            let ok = await playingClip(page, lang, c3.id, '重播這一段');
             assert.ok(ok.ok, ok.why);
             assert.equal((await panel(page)).endcard, false, '重播之後章尾那一層要收掉');
-            await toEnd(c3);
+            end = await toEnd(page);
+            assert.ok(end.ok, `第 03 章重播：${end.why}`);
             await page.locator(`${SEC} [data-endcard] [data-id="tutorial.next"]`).click();
-            const c4 = chapters[3];
-            ok = await until(page, async () => { const p = await player(page); return { ok: p.s === 1 && Math.abs(p.t - c4.start) <= 1.5, got: p }; }, '播下一段：從第 04 章的起點播');
+            ok = await playingClip(page, lang, chapters[3].id, '播下一段');
             assert.ok(ok.ok, ok.why);
             assert.deepEqual((await panel(page)).current, ['ch-04'], '播下一段之後正在播的要標第 04 章');
-            await toEnd(c4);
+            end = await toEnd(page);
+            assert.ok(end.ok, `第 04 章：${end.why}`);
             await page.keyboard.press('Escape');
             await page.waitForTimeout(100);
             assert.equal((await panel(page)).endcard, false, 'Esc 要收掉章尾那一層');
             const c16 = chapters[15];
             assert.equal(await startChapter(page, lang, c16), null);
-            await toEnd(c16);
+            end = await toEnd(page);
+            assert.ok(end.ok, `第 16 章：${end.why}`);
             await page.locator(`${SEC} [data-endcard] [data-id="tutorial.again"]`).click();
-            ok = await until(page, async () => { const p = await player(page); return { ok: p.s === 1 && p.t <= 1.5, got: p }; }, '從頭再看一次：從 0:00 播');
+            ok = await playingClip(page, lang, '01', '從頭再看一次');
             assert.ok(ok.ok, ok.why);
             assert.deepEqual((await panel(page)).current, ['ch-01'], '從頭再看一次之後正在播的要標第 01 章');
+            assert.equal((await player(page)).n, 1, '從頭到尾只有一支 <video>');
             assert.deepEqual(errors, [], '不能有頁面錯誤');
         } finally {
             await context.close();
@@ -398,8 +463,8 @@ for (const lang of LANGS) {
     });
 }
 
-test('F7.2 換語言之後換成那一語的影片（有影片 ID，1440）：中文播第 03 章 → 語言切換到英文、日文 → 按第 03 章播的是那一語的 ID', { skip: pw ? false : why }, async () => {
-    const { page, context } = await open(withId, 'zh', 1440, { yt: true });
+test('F7.2 換語言之後換成那一語的影片（有影片 ID，1440）：中文播第 03 章 → 語言切換到英文、日文 → 按第 03 章播的是那一語的 mp4', { skip: pw ? false : why }, async () => {
+    const { page, context } = await open(withId, 'zh', 1440);
     try {
         await page.locator(SEC).evaluate(toCenter);
         assert.equal(await startChapter(page, 'zh', CHAPTERS.zh[2]), null);
@@ -411,11 +476,10 @@ test('F7.2 換語言之後換成那一語的影片（有影片 ID，1440）：�
             else await page.goto(new URL(`/${to}/`, page.url()).href);
             await page.waitForURL(new RegExp(`/${to}/`));
             await page.evaluate(() => document.fonts.ready);
+            await until(page, async () => ({ ok: !(await page.evaluate(() => document.documentElement.classList.contains('loading'))) }), '載入畫面收掉', 5000);
             await page.locator(SEC).evaluate(toCenter);
-            assert.equal(await startChapter(page, to, CHAPTERS[to][2]), null);
-            const frame = await page.evaluate(() => [...document.querySelectorAll('iframe')].map((f) => f.src));
-            assert.equal(frame.length, 1, `${to}：要剛好一個播放器`);
-            assert.ok(frame[0].includes(`/embed/${IDS[to]}`), `${to}：播放器要是 ${IDS[to]}，得到 ${frame[0]}`);
+            assert.equal(await startChapter(page, to, CHAPTERS[to][2]), null, `${to}：要播 ${CLIP(to, '03')}`);
+            assert.equal((await player(page)).n, 1, `${to}：要剛好一支 <video>`);
         }
     } finally {
         await context.close();
@@ -425,7 +489,7 @@ test('F7.2 換語言之後換成那一語的影片（有影片 ID，1440）：�
 // ---------- F7.3 沒有影片 ID 的時候 ----------
 
 for (const lang of LANGS) {
-    test(`F7.3 沒有影片 ID（${lang}，現在）：沒有播放鈕與「在 YouTube 上看」、大標換成 tutorial.title.noid、封面一句實話；16 章的章名與摘要都在、每一列打得開摘要；沒有頁面錯誤`, { skip: pw ? false : why }, async () => {
+    test(`F7.3 沒有影片 ID（${lang}）：沒有播放鈕與「在 YouTube 上看」、大標換成 tutorial.title.noid、封面一句實話；16 章的章名與摘要都在、每一列打得開摘要；沒有頁面錯誤`, { skip: pw ? false : why }, async () => {
         const bad = [];
         for (const [width, touch] of [[1440, false], [390, true]]) {
             const label = `${touch ? '只有手指' : '有滑鼠'} ${width}`;
@@ -465,7 +529,7 @@ for (const lang of LANGS) {
                     await row.click();
                     if (!(await li.locator(`[data-id="ch.${ch.id}.desc"]`).isVisible())) bad.push(`${label} 第 ${ch.id} 章：點了那一列，摘要要看得到`);
                 }
-                if (requests.length) bad.push(`${label}：有往 YouTube 的請求`);
+                if (requests.yt.length) bad.push(`${label}：有往 YouTube 的請求`);
                 if (errors.length) bad.push(`${label}：${errors.slice(0, 3).join('、')}`);
             } finally {
                 await context.close();
@@ -509,7 +573,7 @@ test('F7.3 沒有影片 ID 時 06 的「看教學 NN」跳到清單那一章（�
 for (const lang of LANGS) {
     test(`F7.3 有影片 ID（${lang}）：大標 tutorial.title、播放鈕、「在 YouTube 上看」連到這一語的影片；06 的「看教學 NN」從那一章播`, { skip: pw ? false : why }, async () => {
         const bad = [];
-        const { page, context, errors } = await open(withId, lang, 1440, { yt: true });
+        const { page, context, errors } = await open(withId, lang, 1440);
         try {
             const title = flat(await page.locator(`${SEC} h2`).first().textContent());
             if (title !== flat(say(lang, 'tutorial.title'))) bad.push(`大標要是「${say(lang, 'tutorial.title')}」，得到「${title}」`);
@@ -530,7 +594,7 @@ for (const lang of LANGS) {
             const link = page.locator('[data-section="features"] [data-id="features.3.more"]');
             await link.evaluate(toCenter);
             await link.click();
-            const ok = await until(page, async () => { const p = await player(page); return { ok: p && p.s === 1 && Math.abs(p.t - ch.start) <= 1.5, got: p }; }, `06「看教學 05」：從第 05 章（${clock(ch.start)}）開始播`);
+            const ok = await playingClip(page, lang, ch.id, '06「看教學 05」');
             if (!ok.ok) bad.push(ok.why);
             else {
                 const s = await panel(page);
@@ -896,7 +960,7 @@ test('F7.5 章尾那一層（有影片 ID，三語 × 十二種寬度，章名�
         const ch = CHAPTERS[lang][LONGEST[lang]];
         for (const width of WIDTHS) {
             const label = `${lang} ${width}（第 ${ch.id} 章）`;
-            const { page, context } = await open(withId, lang, width, { yt: true, time: true, touch: width <= 430 });
+            const { page, context } = await open(withId, lang, width, { touch: width <= 430 });
             try {
                 await page.locator(SEC).evaluate(toCenter);
                 if (width < 1024) {
@@ -906,9 +970,8 @@ test('F7.5 章尾那一層（有影片 ID，三語 × 十二種寬度，章名�
                 const err = await startChapter(page, lang, ch);
                 if (err) { bad.push(`${label}：${err}`); continue; }
                 const before = await page.locator(SEC).evaluate((s) => s.getBoundingClientRect().height);
-                const t = (await player(page)).t;
-                await page.clock.runFor((ch.end - t + 1.5) * 1000);
-                await page.waitForTimeout(50);
+                const end = await toEnd(page);
+                if (!end.ok) { bad.push(`${label}：${end.why}`); continue; }
                 const r = await page.evaluate((sec) => {
                     const end = document.querySelector(`${sec} [data-endcard]`);
                     if (!end || !end.checkVisibility()) return null;
@@ -975,8 +1038,8 @@ test('F7.5 關掉 JS（兩種 build、三語 × 390、1440）：09 每一段字�
 
 test('F7.5 SEO（兩種 build、三語，送出來的 HTML）：09 剛好一個 <h2>（大標）、不跳層、沒有 <h1>；16 章的章名與摘要在看得到的字裡；JSON-LD 現在沒有 VideoObject', () => {
     const bad = [];
-    needOut();
-    for (const [name, dir, title] of [['沒有影片 ID', OUT, 'tutorial.title.noid'], ['有影片 ID', withIdOut(), 'tutorial.title']]) {
+    // 2026-10-07：out/ 現在是真的 ID（有影片），「沒有影片」那一份改用清空 ID 再 build 的暫存複本
+    for (const [name, dir, title] of [['沒有影片 ID', noIdOut(), 'tutorial.title.noid'], ['有影片 ID', withIdOut(), 'tutorial.title']]) {
         for (const lang of LANGS) {
             const html = fs.readFileSync(path.join(dir, lang, 'index.html'), 'utf8');
             const m = /<section\b[^>]*data-section="tutorial"[^>]*>([\s\S]*?)<\/section>/i.exec(html);
@@ -1369,14 +1432,13 @@ test('F7.9 有影片時「看教學 NN」的落點（三語 × 只有手指 390�
         for (const [width, touch] of [[390, true], [1024, false], [1440, false]]) {
             for (const [nn, n] of JUMPS) {
                 const label = `${lang} ${touch ? '只有手指' : '有滑鼠'} ${width}「看教學 ${nn}」`;
-                const ch = CHAPTERS[lang][Number(nn) - 1];
-                const { page, context, errors } = await open(withId, lang, width, { touch, yt: true });
+                const { page, context, errors } = await open(withId, lang, width, { touch });
                 try {
                     const link = page.locator(`[data-section="features"] [data-id="features.${n}.more"]`);
                     if (!(await link.count())) { bad.push(`${label}：找不到`); continue; }
                     await link.evaluate(toCenter);
                     await link.click();
-                    const ok = await until(page, async () => { const p = await player(page); return { ok: p && p.s === 1 && Math.abs(p.t - ch.start) <= 1.5, got: p }; }, `從第 ${nn} 章（${clock(ch.start)}）開始播`);
+                    const ok = await playingClip(page, lang, nn, `「看教學 ${nn}」`);
                     if (!ok.ok) { bad.push(`${label}：${ok.why}`); continue; }
                     await settle(page);
                     const g = await page.evaluate(LANDING, [SEC, nn]);
@@ -1400,7 +1462,7 @@ test('F7.9 有影片時「看教學 NN」的落點（三語 × 只有手指 390�
 test('F7.9 有影片時按清單裡的章名（三語 × 1440，07、09、03）：只捲清單（整頁不動）、正在播的那一列在清單裡看得到', { skip: pw ? false : why }, async () => {
     const bad = [];
     for (const lang of LANGS) {
-        const { page, context, errors } = await open(withId, lang, 1440, { yt: true });
+        const { page, context, errors } = await open(withId, lang, 1440);
         try {
             await page.locator(`${SEC} [data-player]`).evaluate(toCenter);
             for (const nn of ['07', '09', '03']) {
@@ -1461,12 +1523,9 @@ test('F7.9 關掉 JS（兩種 build、三語 × 390、1440 × 03、07、09）：
     assert.deepEqual(bad, [], `${bad.length} 處不對`);
 });
 
-// ---------- F7.10 YouTube 的播放器程式載不到 ----------
+// ---------- F7.10 影片載不到 ----------
 
-// 前端定的逾時（介面約定）不能超過這麼久；測試把頁面的時鐘快轉這麼多再量
-const API_TIMEOUT_MAX = 10;
-
-// 影片框裡看得到的字（不含預覽圖的替代文字與按鈕的 aria-label）、播放鈕、「在 YouTube 上看」、正在播的章
+// 影片框裡看得到的字（不含預覽圖的替代文字與按鈕的 aria-label）、播放鈕、「在 YouTube 上看」、正在播的章、<video> 還在不在、失敗的樣式
 const FAILED = ([sec, nowWord]) => {
     const root = document.querySelector(sec);
     const frame = root.querySelector('[data-player]');
@@ -1478,6 +1537,7 @@ const FAILED = ([sec, nowWord]) => {
     const link = yt && (yt.closest('a') || yt);
     const y = link?.checkVisibility() ? link.getBoundingClientRect() : null;
     const play = frame.querySelector('[data-play]');
+    const failClass = root.querySelector('[data-tutorial]')?.getAttribute('data-fail-class');
     return {
         state: frame.getAttribute('data-state'),
         text: text.replace(/\s+/g, ' ').trim(),
@@ -1486,60 +1546,88 @@ const FAILED = ([sec, nowWord]) => {
         current: [...root.querySelectorAll('[aria-current="true"]')].map((e) => e.closest('li')?.id ?? e.tagName),
         now: [...root.querySelectorAll('li[id^="ch-"]')].filter((li) => li.checkVisibility() && li.textContent.includes(nowWord)).map((li) => li.id),
         endcard: Boolean(root.querySelector('[data-endcard]')?.checkVisibility()),
+        videos: root.querySelectorAll('video').length,
+        failClass: failClass ? frame.classList.contains(failClass) : null,
     };
 };
 
-// 失敗之後的樣子：回到 idle、播放鈕回來、沒有章被標正在播、影片框裡有一句話、「在 YouTube 上看」還在而且就在影片框底下
+// 失敗之後的樣子：回到 idle、播放鈕回來、<video> 拿掉、沒有章被標正在播、影片框裡有一句話（框加上失敗的樣式）、「在 YouTube 上看」還在而且就在影片框底下
 function failedProblems(r, lang) {
     const bad = [];
     if (r.state !== 'idle') bad.push(`影片框的 data-state 要回到 idle，得到 ${r.state}`);
     if (!r.play) bad.push('播放鈕要放回來（看得到 [data-play]）');
+    if (r.videos) bad.push(`<video> 要拿掉，還有 ${r.videos} 支`);
     if (r.current.length) bad.push(`不能有章被標 aria-current="true"（得到 ${r.current.join('、')}）`);
     if (r.now.length) bad.push(`不能有章寫「${say(lang, 'tutorial.nowPlaying')}」（得到 ${r.now.join('、')}）`);
     if (!r.text) bad.push('影片框裡要有一句白話說明（看得到的字），得到空的');
+    if (r.failClass !== true) bad.push(`影片框要加上 [data-tutorial] 的 data-fail-class（得到 ${r.failClass}）`);
     if (!r.link) bad.push('「在 YouTube 上看」要還在、看得到');
     else if (r.link.gap < -1 || r.link.gap > 48) bad.push(`「在 YouTube 上看」要在說明附近（就在影片框底下 0～48px），離影片框下緣 ${r.link.gap}px`);
     if (r.endcard) bad.push('不能蓋著章尾那一層');
     return bad;
 }
 
+const CLIPS_GLOB = '**/media/tutorial/**';
+// play() 被拒（瀏覽器不准播、省電模式）：window.__rejectPlay 是 true 時 HTMLMediaElement 的 play() 丟 NotAllowedError
+const REJECT_PLAY = () => {
+    const play = HTMLMediaElement.prototype.play;
+    window.__rejectPlay = true;
+    HTMLMediaElement.prototype.play = function () {
+        return window.__rejectPlay ? Promise.reject(new DOMException('play() 被拒（測試）', 'NotAllowedError')) : play.call(this);
+    };
+};
+
 for (const lang of LANGS) {
-    test(`F7.10 播放器程式載不到（${lang}，有影片 ID，1440；iframe_api 被擋、回很慢各一次）：${API_TIMEOUT_MAX} 秒內回到還沒按的樣子、說一句話指向「在 YouTube 上看」、按章名不標正在播放、之後再按播放鈕重試得起來`, { skip: pw ? false : why }, async () => {
+    test(`F7.10 影片載不到（${lang}，有影片 ID，1440；mp4 擋掉、一直不回、play() 被拒各一次）：回到還沒按的樣子、說一句話指向「在 YouTube 上看」、按章名也不標正在播放、之後再按播放鈕重試得起來`, { skip: pw ? false : why }, async () => {
         const bad = [];
-        for (const mode of ['被擋', '回很慢']) {
-            const { page, context, errors } = await open(withId, lang, 1440, { yt: true, time: true });
-            // 後加的 route 先比對：把 iframe_api 換成擋掉或一直不回（假的播放器那一份留著，重試時拿掉這一層就通）。
+        for (const mode of ['擋掉', '一直不回', 'play() 被拒']) {
+            const { page, context, errors } = await open(withId, lang, 1440, { time: mode === '一直不回', init: mode === 'play() 被拒' ? [REJECT_PLAY] : [] });
             // 一直不回的那幾個，重試之前才讓它失敗：不然瀏覽器可能把重試的同一個網址併進那個還沒回的請求
             const pending = [];
-            const block = (route) => (mode === '被擋' ? route.abort() : pending.push(route));
-            await context.route(IFRAME_API, block);
+            const block = (route) => (mode === '擋掉' ? route.abort() : pending.push(route));
+            if (mode !== 'play() 被拒') await context.route(CLIPS_GLOB, block);
+            const fail = async (what) => {
+                if (mode === '一直不回') await page.clock.runFor(LOAD_TIMEOUT_MAX * 1000);
+                const ok = await until(page, async () => { const r = await page.evaluate(FAILED, [SEC, say(lang, 'tutorial.nowPlaying')]); return { ok: failedProblems(r, lang).length === 0, got: r }; }, `${mode}，${what}：回到還沒按的樣子`, 5000);
+                const r = await page.evaluate(FAILED, [SEC, say(lang, 'tutorial.nowPlaying')]);
+                for (const b of failedProblems(r, lang)) bad.push(`${mode}，${what}：${b}`);
+                return ok.ok;
+            };
             try {
                 await page.locator(`${SEC} [data-player]`).evaluate(toCenter);
                 const play = page.locator(`${SEC} [data-player] [data-play]`);
                 if ((await play.count()) !== 1) { bad.push(`${mode}：要有播放鈕`); continue; }
                 await play.click();
-                if (mode === '回很慢') {
+                if (mode === '一直不回') {
                     await page.waitForTimeout(300);
-                    // 還在等播放器程式時按第 04 章
+                    const s = await panel(page);
+                    if (s.current.length) bad.push(`${mode}：影片還沒回來（載入中）就標了 ${s.current.join('、')}（真的播起來才標）`);
+                    // 還在等影片時按第 04 章
                     await page.locator(`${SEC} button[data-chapter="04"]`).click();
+                    await page.waitForTimeout(300);
+                    const s4 = await panel(page);
+                    if (s4.current.length) bad.push(`${mode}：還在等影片時按第 04 章，不能標 ${s4.current.join('、')}`);
                 }
-                await page.clock.runFor(API_TIMEOUT_MAX * 1000);
-                await page.waitForTimeout(300);
-                let r = await page.evaluate(FAILED, [SEC, say(lang, 'tutorial.nowPlaying')]);
-                for (const b of failedProblems(r, lang)) bad.push(`${mode}，按了播放之後 ${API_TIMEOUT_MAX} 秒：${b}`);
+                await fail(mode === '一直不回' ? `按了播放之後 ${LOAD_TIMEOUT_MAX} 秒` : '按了播放之後');
                 // 失敗之後（還是載不到）按第 04 章：一樣不能標成正在播放
                 await page.locator(`${SEC} button[data-chapter="04"]`).click();
-                await page.clock.runFor(API_TIMEOUT_MAX * 1000);
                 await page.waitForTimeout(300);
-                r = await page.evaluate(FAILED, [SEC, say(lang, 'tutorial.nowPlaying')]);
-                for (const b of failedProblems(r, lang)) bad.push(`${mode}，失敗之後按第 04 章：${b}`);
+                await fail('失敗之後按第 04 章');
                 // 網路好了，再按播放鈕：要播得起來
-                await context.unroute(IFRAME_API, block);
-                for (const route of pending) await route.abort().catch(() => {});
+                if (mode === 'play() 被拒') await page.evaluate(() => { window.__rejectPlay = false; });
+                else {
+                    await context.unroute(CLIPS_GLOB, block);
+                    for (const route of pending) await route.abort().catch(() => {});
+                }
                 if (await play.isVisible()) {
                     await play.click();
-                    const ok = await until(page, async () => { const p = await player(page); const s = await panel(page); return { ok: p && p.s === 1 && s.state === 'playing', got: { p, state: s.state } }; }, '網路好了再按播放鈕，要開始播');
-                    if (!ok.ok) bad.push(`${mode}：${ok.why}`);
+                    const ok = await playingClip(page, lang, '01', `${mode}：好了之後再按播放鈕`);
+                    if (!ok.ok) bad.push(ok.why);
+                    else {
+                        const r = await page.evaluate(FAILED, [SEC, say(lang, 'tutorial.nowPlaying')]);
+                        if (r.failClass) bad.push(`${mode}：重試播起來之後，影片框還帶著失敗的樣式`);
+                        if (await page.locator(`${SEC} [data-api-fail]`).isVisible()) bad.push(`${mode}：重試播起來之後，載不到那一句還在`);
+                    }
                 } else bad.push(`${mode}：沒辦法重試（播放鈕看不到）`);
                 if (errors.length) bad.push(`${mode}：${errors.slice(0, 3).join('、')}`);
             } finally {
@@ -1550,133 +1638,39 @@ for (const lang of LANGS) {
     });
 }
 
-// 載不到時影片框裡那一句的字串 id（tutorial.apifail）與三語的字：F7.14 量（data-id、role="status"、字跟字串表一樣）。
-
-// 播放中：假播放器在播、影片框 data-state 是 playing
-const playing = async (page) => { const p = await player(page); const s = await panel(page); return { ok: Boolean(p && p.s === 1 && s.state === 'playing'), got: { p, state: s.state } }; };
-const kinds = (requests, kind) => requests.filter((r) => r.kind === kind).length;
-
-for (const lang of LANGS) {
-    test(`F7.10 播放器程式晚到（${lang}，有影片 ID，1440）：逾時之後才到 —— 不自己播、再按播得起來、不再載一次 iframe_api；載到一半（YT.loading、本體還沒到）時再按 —— 不再載、本體到了就播`, { skip: pw ? false : why }, async () => {
-        const bad = [];
-        for (const mode of ['逾時之後才到', '載到一半再按']) {
-            const { page, context, requests, errors } = await open(withId, lang, 1440, { yt: true, time: true });
-            // 逾時之後才到：攔住第一個 iframe_api；載到一半：iframe_api 照常、攔住播放器本體（widgetapi）。放行＝交回假的那一層
-            const held = [];
-            const url = mode === '逾時之後才到' ? IFRAME_API : WIDGET_API;
-            const hold = (route) => (held.length ? route.fallback() : held.push(route));
-            await context.route(url, hold);
-            try {
-                await page.locator(`${SEC} [data-player]`).evaluate(toCenter);
-                const play = page.locator(`${SEC} [data-player] [data-play]`);
-                if (!(await play.isVisible())) { bad.push(`${mode}：一開始就看不到播放鈕`); continue; }
-                await play.click();
-                await page.clock.runFor(API_TIMEOUT_MAX * 1000);
-                await page.waitForTimeout(300);
-                const r = await page.evaluate(FAILED, [SEC, say(lang, 'tutorial.nowPlaying')]);
-                for (const b of failedProblems(r, lang)) bad.push(`${mode}，按了播放之後 ${API_TIMEOUT_MAX} 秒：${b}`);
-                if (held.length !== 1) { bad.push(`${mode}：防呆：要攔到一個 ${url} 的請求，得到 ${held.length}`); continue; }
-                if (mode === '逾時之後才到') {
-                    await held[0].fallback();
-                    const came = await until(page, async () => { const got = await page.evaluate(() => typeof window.YT?.Player === 'function'); return { ok: got, got }; }, '放行之後 YT.Player 要出現（防呆）');
-                    if (!came.ok) { bad.push(`${mode}：${came.why}`); continue; }
-                    await page.clock.runFor(1000);
-                    await page.waitForTimeout(200);
-                    const after = await page.evaluate(FAILED, [SEC, say(lang, 'tutorial.nowPlaying')]);
-                    const p = await player(page);
-                    if (p) bad.push(`${mode}：程式晚到之後不能自己建播放器、自己播（建了 ${p.n} 個，狀態 ${p.s}）`);
-                    if (after.state !== 'idle' || !after.play) bad.push(`${mode}：程式晚到之後要停在還沒按的樣子（data-state ${after.state}、播放鈕${after.play ? '在' : '不在'}）`);
-                    if (!(await play.isVisible())) { bad.push(`${mode}：程式晚到之後沒辦法再按（播放鈕看不到，data-state ${after.state}），量不到「再按播得起來」`); continue; }
-                    await play.click();
-                    const ok = await until(page, () => playing(page), '程式晚到之後再按播放鈕，要開始播');
-                    if (!ok.ok) bad.push(`${mode}：${ok.why}`);
-                } else {
-                    // 這時 iframe_api 已經執行過（YT.loading），本體還沒到：再按不能再插一次 iframe_api，本體到了就播
-                    const loading = await page.evaluate(() => Boolean(window.YT?.loading) && typeof window.YT?.Player !== 'function');
-                    if (!loading) { bad.push(`${mode}：防呆：要停在 YT.loading、還沒有 YT.Player`); continue; }
-                    if (!(await play.isVisible())) { bad.push(`${mode}：逾時之後沒辦法再按（播放鈕看不到，data-state ${r.state}），量不到「本體到了就播」`); continue; }
-                    await play.click();
-                    await page.waitForTimeout(200);
-                    await held[0].fallback();
-                    const ok = await until(page, () => playing(page), '本體到了之後要開始播');
-                    if (!ok.ok) bad.push(`${mode}：${ok.why}`);
-                }
-                const api = kinds(requests, 'api');
-                if (api !== 1) bad.push(`${mode}：iframe_api 只能載一次（第二次執行什麼都不做，不會再叫 onYouTubeIframeAPIReady），得到 ${api} 次`);
-                const frames = await page.evaluate((sec) => document.querySelectorAll(`${sec} [data-player] iframe`).length, SEC);
-                if (frames !== 1) bad.push(`${mode}：影片框裡要剛好一個 iframe，得到 ${frames}`);
-                if (errors.length) bad.push(`${mode}：${errors.slice(0, 3).join('、')}`);
-            } finally {
-                await context.close();
-            }
-        }
-        assert.deepEqual(bad, [], `${lang}：${bad.length} 處不對`);
-    });
-
-    test(`F7.10 播放器建了卻一直沒 ready（${lang}，有影片 ID，1440）：${API_TIMEOUT_MAX} 秒內回到還沒按的樣子、拿掉建了一半的播放器、播放鈕按得到；之後再按播得起來`, { skip: pw ? false : why }, async () => {
-        const bad = [];
-        const { page, context, errors } = await open(withId, lang, 1440, { yt: true, time: true });
+test('F7.10 真的播起來才標那一章（三語，有影片 ID，1440）：影片還沒回來時 data-state 是 loading、不標任何章、不寫「正在播放」；回來播起來才標', { skip: pw ? false : why }, async () => {
+    const bad = [];
+    for (const lang of LANGS) {
+        const { page, context, errors } = await open(withId, lang, 1440);
+        const pending = [];
+        const hold = (route) => pending.push(route);
+        await context.route(CLIPS_GLOB, hold);
         try {
-            await page.evaluate(() => { window.__ytNoReady = true; });
-            await page.locator(`${SEC} [data-player]`).evaluate(toCenter);
-            const play = page.locator(`${SEC} [data-player] [data-play]`);
-            await play.click();
-            const made = await until(page, async () => { const n = await page.evaluate(() => window.__ytPlayers.length); return { ok: n === 1, got: n }; }, '防呆：播放器要建起來（只是不 ready）');
-            assert.ok(made.ok, made.why);
-            await page.clock.runFor(API_TIMEOUT_MAX * 1000);
+            await page.locator(SEC).evaluate(toCenter);
+            await page.locator(`${SEC} button[data-chapter="03"]`).click();
+            const asked = await until(page, async () => ({ ok: pending.length > 0, got: pending.length }), '防呆：要攔到 03.mp4 的請求', 5000);
+            if (!asked.ok) { bad.push(`${lang}：${asked.why}`); continue; }
             await page.waitForTimeout(300);
             const r = await page.evaluate(FAILED, [SEC, say(lang, 'tutorial.nowPlaying')]);
-            for (const b of failedProblems(r, lang)) bad.push(`播放器沒 ready，按了播放之後 ${API_TIMEOUT_MAX} 秒：${b}`);
-            const left = await page.evaluate((sec) => document.querySelectorAll(`${sec} [data-player] iframe`).length, SEC);
-            if (left) bad.push(`放棄之後影片框裡還留著 ${left} 個建了一半的播放器（iframe）`);
-            const hit = await play.evaluate((b) => { const x = b.getBoundingClientRect(); const e = document.elementFromPoint(x.left + x.width / 2, x.top + x.height / 2); return Boolean(e && b.contains(e)); });
-            if (!hit) bad.push('放棄之後播放鈕被別的東西蓋住（elementFromPoint 打不到它）');
-            await page.evaluate(() => { window.__ytNoReady = false; });
-            if (await play.isVisible()) {
-                await play.click();
-                const ok = await until(page, () => playing(page), '播放器正常之後再按播放鈕，要開始播');
-                if (!ok.ok) bad.push(ok.why);
-                const frames = await page.evaluate((sec) => document.querySelectorAll(`${sec} [data-player] iframe`).length, SEC);
-                if (frames !== 1) bad.push(`重試之後影片框裡要剛好一個 iframe，得到 ${frames}`);
-            } else bad.push('沒辦法重試（播放鈕看不到）');
-            if (errors.length) bad.push(...errors.slice(0, 3));
+            if (r.state !== 'loading') bad.push(`${lang}：影片還沒回來時 data-state 要是 loading，得到 ${r.state}`);
+            if (r.current.length || r.now.length) bad.push(`${lang}：影片還沒回來就標了 ${[...r.current, ...r.now].join('、')}（真的播起來才標）`);
+            await context.unroute(CLIPS_GLOB, hold);
+            for (const route of pending) await route.fallback().catch(() => {});
+            const ok = await playingClip(page, lang, '03', '影片回來之後');
+            if (!ok.ok) { bad.push(`${lang}：${ok.why}`); continue; }
+            const s = await panel(page);
+            if (JSON.stringify(s.current) !== '["ch-03"]') bad.push(`${lang}：播起來之後要標第 03 章，得到 ${JSON.stringify(s.current)}`);
+            if (errors.length) bad.push(`${lang}：${errors.slice(0, 3).join('、')}`);
         } finally {
             await context.close();
         }
-        assert.deepEqual(bad, [], `${lang}：${bad.length} 處不對`);
-    });
-}
-
-for (const lang of LANGS) {
-    test(`F7.10 頁面上已經有 YT.Player、沒有 YT.ready（${lang}，有影片 ID，1440；別的程式先把播放器程式載好了）：按播放鈕直接用 —— 不再載 iframe_api、播得起來`, { skip: pw ? false : why }, async () => {
-        const bad = [];
-        const { page, context, requests, errors } = await open(withId, lang, 1440, { yt: { preloaded: true }, time: true });
-        try {
-            const guard = await page.evaluate(() => typeof window.YT?.Player === 'function' && window.YT.loading === 1 && typeof window.YT.ready === 'undefined');
-            assert.ok(guard, '防呆：開頁時 YT.Player 要已經在、YT.loading 是 1、沒有 YT.ready');
-            await page.locator(`${SEC} [data-player]`).evaluate(toCenter);
-            const play = page.locator(`${SEC} [data-player] [data-play]`);
-            if (!(await play.isVisible())) bad.push('一開始就看不到播放鈕');
-            else {
-                await play.click();
-                const ok = await until(page, () => playing(page), '已經有 YT.Player：按了播放鈕要直接建播放器、開始播');
-                if (!ok.ok) bad.push(ok.why);
-                const api = kinds(requests, 'api');
-                if (api !== 0) bad.push(`已經有 YT.Player 就不再載 iframe_api，得到 ${api} 次`);
-                const frames = await page.evaluate((sec) => document.querySelectorAll(`${sec} [data-player] iframe`).length, SEC);
-                if (frames !== 1) bad.push(`影片框裡要剛好一個 iframe，得到 ${frames}`);
-            }
-            if (errors.length) bad.push(...errors.slice(0, 3));
-        } finally {
-            await context.close();
-        }
-        assert.deepEqual(bad, [], `${lang}：${bad.length} 處不對`);
-    });
-}
+    }
+    assert.deepEqual(bad, [], `${bad.length} 處不對`);
+});
 
 // ---------- F7.15 用鍵盤按播放鈕之後的焦點 ----------
 
-// 現在焦點在哪：不是 <body>／<html>、看得到、在影片框裡（含播放器的 iframe）、是不是播放鈕
+// 現在焦點在哪：不是 <body>／<html>、看得到、在影片框裡（含 <video>）、是不是播放鈕
 const FOCUS = (sec) => {
     const a = document.activeElement;
     const body = !a || a === document.body || a === document.documentElement;
@@ -1709,15 +1703,15 @@ for (const lang of LANGS) {
         };
         // 一般：載得到
         {
-            const { page, context, errors } = await open(withId, lang, 1440, { yt: true, time: true });
+            const { page, context, errors } = await open(withId, lang, 1440);
             try {
                 await page.locator(`${SEC} [data-player]`).evaluate(toCenter);
                 const path1 = await tabToPlay(page);
                 if (path1) bad.push(`從 09 前面那個連結按 Tab 走不到播放鈕（停過：${path1}）`);
                 else {
                     await page.keyboard.press('Enter');
-                    reasonable(await page.evaluate(FOCUS, SEC), '剛按下 Enter（播放鈕藏起來、播放器載入中）');
-                    const ok = await until(page, () => playing(page), '用鍵盤按播放鈕要開始播');
+                    reasonable(await page.evaluate(FOCUS, SEC), '剛按下 Enter（播放鈕藏起來、影片載入中）');
+                    const ok = await playingClip(page, lang, '01', '用鍵盤按播放鈕');
                     if (!ok.ok) bad.push(ok.why);
                     else reasonable(await page.evaluate(FOCUS, SEC), '開始播放之後');
                 }
@@ -1728,24 +1722,22 @@ for (const lang of LANGS) {
         }
         // 載不到 → 焦點留在播放鈕 → 網路好了再按 Enter → 播起來之後焦點在影片框裡
         {
-            const { page, context, errors } = await open(withId, lang, 1440, { yt: true, time: true });
+            const { page, context, errors } = await open(withId, lang, 1440);
             const block = (route) => route.abort();
-            await context.route(IFRAME_API, block);
+            await context.route(CLIPS_GLOB, block);
             try {
                 await page.locator(`${SEC} [data-player]`).evaluate(toCenter);
                 const path2 = await tabToPlay(page);
                 if (path2) bad.push(`載不到那次：從 09 前面那個連結按 Tab 走不到播放鈕（停過：${path2}）`);
                 else {
                     await page.keyboard.press('Enter');
-                    await page.clock.runFor(API_TIMEOUT_MAX * 1000);
-                    await page.waitForTimeout(300);
-                    const f = await page.evaluate(FOCUS, SEC);
-                    if (!f.play) bad.push(`載不到之後焦點要留在播放鈕，現在在 ${f.what}`);
-                    await context.unroute(IFRAME_API, block);
-                    if (f.play) {
+                    const back = await until(page, async () => { const f = await page.evaluate(FOCUS, SEC); return { ok: f.play, got: f.what }; }, '載不到之後焦點要回到播放鈕', 5000);
+                    if (!back.ok) bad.push(back.why);
+                    await context.unroute(CLIPS_GLOB, block);
+                    if (back.ok) {
                         await page.keyboard.press('Enter');
                         reasonable(await page.evaluate(FOCUS, SEC), '重試：剛按下 Enter');
-                        const ok = await until(page, () => playing(page), '網路好了用鍵盤再按播放鈕，要開始播');
+                        const ok = await playingClip(page, lang, '01', '網路好了用鍵盤再按播放鈕');
                         if (!ok.ok) bad.push(ok.why);
                         else reasonable(await page.evaluate(FOCUS, SEC), '重試：開始播放之後');
                     }
@@ -1759,46 +1751,49 @@ for (const lang of LANGS) {
     });
 }
 
-// ---------- F7.11 播放中自己拖進度到章外 ----------
+// ---------- F7.16 <video> 本身 ----------
 
 for (const lang of LANGS) {
-    test(`F7.11 播放中把進度拖到別章（${lang}，有影片 ID，1440）：第 03 章拖到第 10 章裡 → 改標第 10 章、播到第 10 章結尾才停；第 05 章拖回第 02 章裡 → 改標第 02 章、播到第 02 章結尾就停`, { skip: pw ? false : why }, async () => {
+    test(`F7.16 <video>（${lang}，有影片 ID，1440）：沒有 controls、muted、playsinline、不給子母畫面與下載、tabindex=0；點影片、空白鍵、Enter、k 暫停與繼續`, { skip: pw ? false : why }, async () => {
         const bad = [];
-        const chapters = CHAPTERS[lang];
-        const { page, context, errors } = await open(withId, lang, 1440, { yt: true, time: true });
+        const { page, context, errors } = await open(withId, lang, 1440);
         try {
             await page.locator(SEC).evaluate(toCenter);
-            for (const [fromN, toN] of [[3, 10], [5, 2]]) {
-                const from = chapters[fromN - 1];
-                const to = chapters[toN - 1];
-                const label = `第 ${from.id} 章拖到第 ${to.id} 章`;
-                const err = await startChapter(page, lang, from);
-                if (err) { bad.push(`${label}：${err}`); continue; }
-                await page.clock.runFor(2000);
-                // 使用者在 YouTube 的播放器裡自己拖進度：網頁不知道，只看得到時間變了
-                const into = to.start + Math.min(5, (to.end - to.start) / 2);
-                await page.evaluate((t) => window.__ytPlayers.at(-1).seekTo(t, true), into);
-                await page.clock.runFor(1000);
-                await page.waitForTimeout(100);
-                let p = await player(page);
-                let s = await panel(page);
-                if (p.s !== 1) bad.push(`${label}：拖過去之後要繼續播（狀態 ${p.s}、${p.t.toFixed(1)} 秒）`);
-                if (s.endcard) bad.push(`${label}：拖過去之後不能蓋上章尾那一層（「${s.done}」）`);
-                if (JSON.stringify(s.current) !== JSON.stringify([`ch-${to.id}`])) bad.push(`${label}：正在播的要改標第 ${to.id} 章，得到 ${JSON.stringify(s.current)}`);
-                // 播到第 to 章結尾前 1.5 秒還在播，過了結尾要停、講第 to 章
-                await page.clock.runFor(Math.max(0, (to.end - p.t - 1.5) * 1000));
-                p = await player(page);
-                if (p.s !== 1) bad.push(`${label}：第 ${to.id} 章結尾（${clock(to.end)}）前 1.5 秒就停了（${p.t.toFixed(1)} 秒）`);
-                await page.clock.runFor(2500);
-                await page.waitForTimeout(100);
-                p = await player(page);
-                s = await panel(page);
-                if (p.s === 1) bad.push(`${label}：過了第 ${to.id} 章的結尾（${clock(to.end)}）還在播（${p.t.toFixed(1)} 秒）`);
-                else if (Math.abs(p.t - to.end) > 1) bad.push(`${label}：要停在第 ${to.id} 章的結尾 ${clock(to.end)} ±1 秒，停在 ${p.t.toFixed(1)} 秒`);
-                const done = flat(say(lang, 'tutorial.done').replace('%章名%', to.name));
-                if (!s.endcard || s.done !== done) bad.push(`${label}：章尾那一層要講「${done}」，得到 ${s.endcard ? `「${s.done}」` : '沒有蓋上'}`);
-                if (s.endcard) { await page.keyboard.press('Escape'); await page.waitForTimeout(100); }
-            }
+            await page.locator(`${SEC} [data-player] [data-play]`).click();
+            const ok = await playingClip(page, lang, '01', '按了播放鈕');
+            assert.ok(ok.ok, ok.why);
+            const a = await page.locator(`${SEC} [data-player] video`).evaluate((v) => ({
+                controlsAttr: v.hasAttribute('controls'), controls: v.controls, muted: v.muted, mutedAttr: v.hasAttribute('muted'), playsinline: v.hasAttribute('playsinline'),
+                pip: v.hasAttribute('disablepictureinpicture') && v.disablePictureInPicture === true, list: (v.getAttribute('controlslist') || '').split(/\s+/), tabindex: v.getAttribute('tabindex'),
+            }));
+            if (a.controlsAttr || a.controls) bad.push(`<video> 不能有 controls（瀏覽器內建的控制列不出現），得到屬性 ${a.controlsAttr}、property ${a.controls}`);
+            if (!a.muted || !a.mutedAttr) bad.push(`<video> 要靜音（muted 屬性與 property），得到屬性 ${a.mutedAttr}、property ${a.muted}`);
+            if (!a.playsinline) bad.push('<video> 要 playsinline（iPhone 不自動全螢幕）');
+            if (!a.pip) bad.push('<video> 要 disablepictureinpicture（不給子母畫面）');
+            if (!a.list.includes('nodownload')) bad.push(`<video> 的 controlslist 要有 nodownload，得到「${a.list.join(' ')}」`);
+            if (a.tabindex !== '0') bad.push(`<video> 要 tabindex="0"（鍵盤停得到、空白鍵暫停），得到 ${a.tabindex}`);
+            const state = async () => ({ s: (await panel(page)).state, v: await player(page) });
+            const paused = async (want, what) => {
+                const r = await until(page, async () => { const x = await state(); return { ok: want ? x.v.paused && x.s === 'paused' : !x.v.paused && x.s === 'playing', got: x }; }, what, 3000);
+                if (!r.ok) bad.push(r.why);
+            };
+            // 點影片
+            await page.locator(`${SEC} [data-player] video`).click();
+            await paused(true, '點影片要暫停（data-state paused）');
+            await page.locator(`${SEC} [data-player] video`).click();
+            await paused(false, '再點一次要繼續播（data-state playing）');
+            // 鍵盤：焦點在影片上
+            await page.locator(`${SEC} [data-player] video`).focus();
+            const y0 = await page.evaluate(() => window.scrollY);
+            await page.keyboard.press('Space');
+            await paused(true, '空白鍵要暫停');
+            if (Math.abs((await page.evaluate(() => window.scrollY)) - y0) > 1) bad.push('在影片上按空白鍵，整頁不能跟著捲（要擋掉預設動作）');
+            await page.keyboard.press('Enter');
+            await paused(false, 'Enter 要繼續播');
+            await page.keyboard.press('k');
+            await paused(true, 'k 要暫停');
+            await page.keyboard.press('k');
+            await paused(false, '再按 k 要繼續播');
             if (errors.length) bad.push(...errors.slice(0, 3));
         } finally {
             await context.close();
@@ -1812,15 +1807,13 @@ for (const lang of LANGS) {
 for (const lang of LANGS) {
     test(`F7.12 Esc 收掉章尾那一層（${lang}，有影片 ID，1440）：焦點回到影片框或正在播的那一章的按鈕，不是 <body>`, { skip: pw ? false : why }, async () => {
         const chapters = CHAPTERS[lang];
-        const { page, context, errors } = await open(withId, lang, 1440, { yt: true, time: true });
+        const { page, context, errors } = await open(withId, lang, 1440);
         try {
             await page.locator(SEC).evaluate(toCenter);
             const ch = chapters[2];
             assert.equal(await startChapter(page, lang, ch), null);
-            const t = (await player(page)).t;
-            await page.clock.runFor((ch.end - t + 1.5) * 1000);
-            await page.waitForTimeout(50);
-            assert.ok((await panel(page)).endcard, '第 03 章播完要蓋上章尾那一層');
+            const end = await toEnd(page);
+            assert.ok(end.ok, `第 03 章：${end.why}`);
             await page.keyboard.press('Escape');
             await page.waitForTimeout(100);
             assert.equal((await panel(page)).endcard, false, 'Esc 要收掉章尾那一層');
@@ -1842,34 +1835,28 @@ for (const lang of LANGS) {
 for (const lang of LANGS) {
     test(`F7.12 Esc 之後的焦點（${lang}，有影片 ID，只有手指 390）：第 05 章播完按「播下一段」→ 第 06 章（收在「看全部」裡）播完 → Esc：焦點在第 06 章看得到的按鈕；打開「看全部」時影片框不跳`, { skip: pw ? false : why }, async () => {
         const chapters = CHAPTERS[lang];
-        const { page, context, errors } = await open(withId, lang, 390, { yt: true, time: true, touch: true });
+        const { page, context, errors } = await open(withId, lang, 390, { touch: true });
         try {
             await page.locator(`${SEC} [data-player]`).evaluate(toCenter);
-            const [five, six] = [chapters[4], chapters[5]];
-            const rest = () => page.evaluate((sec) => { const li = document.getElementById('ch-06'); const d = li?.parentElement.closest('details'); return d ? d.open : null; }, SEC);
+            const five = chapters[4];
+            const rest = () => page.evaluate(() => { const li = document.getElementById('ch-06'); const d = li?.parentElement.closest('details'); return d ? d.open : null; });
             assert.equal(await rest(), false, '防呆：390 時第 06 章要收在還沒打開的「看全部」裡');
             assert.equal(await startChapter(page, lang, five), null);
-            let t = (await player(page)).t;
-            await page.clock.runFor((five.end - t + 1.5) * 1000);
-            await page.waitForTimeout(50);
-            let s = await panel(page);
-            assert.ok(s.endcard, '第 05 章播完要蓋上章尾那一層');
+            let end = await toEnd(page);
+            assert.ok(end.ok, `第 05 章：${end.why}`);
+            const s = await panel(page);
             assert.equal(s.focus, 'tutorial.next', `第 05 章播完焦點要在「播下一段」，得到 ${s.focus}`);
             const top = () => page.locator(`${SEC} [data-player]`).evaluate((f) => f.getBoundingClientRect().top);
             const before = await top();
             await page.keyboard.press('Enter');
-            const ok = await until(page, async () => { const p = await player(page); return { ok: p && p.s === 1 && p.t >= six.start - 0.5 && p.t <= six.start + 1.5, got: p }; }, `「播下一段」要從第 06 章 ${clock(six.start)} 播`);
+            const ok = await playingClip(page, lang, '06', '「播下一段」');
             assert.ok(ok.ok, ok.why);
-            await page.clock.runFor(1000);
-            await page.waitForTimeout(50);
+            await page.waitForTimeout(300);
             const bad = [];
             const moved = (await top()) - before;
             if (Math.abs(moved) > 1) bad.push(`播到第 06 章（打開「看全部」）時影片框不能跳，上緣移了 ${moved.toFixed(1)}px`);
-            t = (await player(page)).t;
-            await page.clock.runFor((six.end - t + 1.5) * 1000);
-            await page.waitForTimeout(50);
-            s = await panel(page);
-            assert.ok(s.endcard, '第 06 章播完要蓋上章尾那一層');
+            end = await toEnd(page);
+            assert.ok(end.ok, `第 06 章：${end.why}`);
             await page.keyboard.press('Escape');
             await page.waitForTimeout(100);
             assert.equal((await panel(page)).endcard, false, 'Esc 要收掉章尾那一層');
@@ -1904,7 +1891,7 @@ for (const [lang, value, kind] of BAD_IDS) {
             prepare: (copy) => {
                 const file = path.join(copy, 'app', 'site.js');
                 const src = fs.readFileSync(file, 'utf8');
-                if (!ID_LINE.test(src)) throw new Error('app/site.js 要有 export const TUTORIAL_VIDEO_IDS = { zh: \'\', en: \'\', ja: \'\' };（見 F7.0）');
+                if (!ID_LINE.test(src)) throw new Error('app/site.js 要有一行 export const TUTORIAL_VIDEO_IDS = { … };（見 F7.0）');
                 fs.writeFileSync(file, src.replace(ID_LINE, `export const TUTORIAL_VIDEO_IDS = { zh: ${JSON.stringify(ids.zh)}, en: ${JSON.stringify(ids.en)}, ja: ${JSON.stringify(ids.ja)} };`));
             },
         });
@@ -1916,9 +1903,9 @@ for (const [lang, value, kind] of BAD_IDS) {
     });
 }
 
-test('F7.13 影片 ID 合格與空字串都 build 得過（三語合格的假 ID：有影片那一份；三語空字串：現在的 out/）', () => {
-    needOut();
-    for (const lang of LANGS) assert.ok(fs.existsSync(path.join(OUT, lang, 'index.html')), `三語空字串的 out/${lang}/index.html 要在`);
+test('F7.13 影片 ID 合格與空字串都 build 得過（三語合格的假 ID：有影片那一份；三語空字串：沒有影片那一份）', () => {
+    const empty = noIdOut();   // 2026-10-07：out/ 現在是真的 ID，空字串那一份改用暫存複本
+    for (const lang of LANGS) assert.ok(fs.existsSync(path.join(empty, lang, 'index.html')), `三語空字串的 ${lang}/index.html 要在`);
     const dir = withIdOut();
     for (const lang of LANGS) assert.ok(fs.existsSync(path.join(dir, lang, 'index.html')), `三語合格 ID 的 ${lang}/index.html 要在`);
     for (const id of Object.values(IDS)) assert.match(id, /^[A-Za-z0-9_-]{11}$/, `防呆：測試用的假 ID「${id}」本身要合格`);
@@ -1933,8 +1920,8 @@ for (const lang of LANGS) {
         const bad = [];
         for (const [width, touch] of [[280, true], [320, true], [390, true], [640, false], [1024, false], [1440, false]]) {
             const label = `${width}`;
-            const { page, context, errors } = await open(withId, lang, width, { yt: true, touch });
-            await context.route(IFRAME_API, (route) => route.abort());
+            const { page, context, errors } = await open(withId, lang, width, { touch });
+            await context.route(CLIPS_GLOB, (route) => route.abort());
             try {
                 await page.locator(`${SEC} [data-player]`).evaluate(toCenter);
                 const play = page.locator(`${SEC} [data-player] [data-play]`);

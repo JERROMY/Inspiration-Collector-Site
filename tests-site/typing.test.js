@@ -2,7 +2,13 @@
 // 依據：設計稿 90de030 的 動態.md「07 為 AI 做的」最後一列（樹長完之後逐字打出來；減少動態、關掉 JS 只有靜態大綱圖）、規格書 §8、§9、§12、§14，
 // 與派工人員 2026-10-04 的決定（打靜態大綱圖上那一段、速度與停頓、游標、框裡的長相、HTML 不變大、代表組合）。
 // 要打的字：fixtures/typing-f9.json 的 excerpt —— 靜態大綱圖上那一段（tutorial/13-ai.js 的 REPORT.first 套在 data/agent.<語言>.json 的 outline 上，不是前 12 行）。
-// 靜態大綱圖上字的位置與框：fixtures/design-f9-90de030.json（tools/measure-design.mjs --only f9）。
+// 靜態大綱圖上字的位置與框：fixtures/design-f9-c41f0dd.json（tools/measure-design.mjs --only f9）。
+//
+// 2026-10-07 為什麼改（派工人員決定）：
+//   - F9.3 框的位置改用較晚的設計稿 c41f0dd 重量（F5.4 逐行比對 07 用的就是這一份）。原本的 90de030（10-04 10:36）07 大標在中文 320 排 4 行，
+//     c41f0dd（10-04 23:11）排 3 行、網站照它排，於是中文 320、日文 414、640 的框差 40～60px（重量之後只有這三格變，show、imageText 不變）。舊的 design-f9-90de030.json 刪掉。
+//   - F9.1 HTML 大小的基準從 c046013（f8b）換成 9f0594c：三語填了真的影片 ID 之後 09 多了有影片的標記（gzip 約 +850），其餘 +682～814 在 01aa2e0 就已經多了；
+//     要打的字照樣沒放進 HTML。上限 512 照舊。原因也寫在 fixtures/typing-f9.json 的 source。
 //
 // 介面（README.md「07 右邊 AI 開始打字（F9）」，前端照這個做）：
 //   框：07 裡唯一的 [data-corners]，靜態大綱圖（src 有 ai-outline、alt＝forai.outline.alt）永遠在裡面。
@@ -15,7 +21,7 @@
 //   減少動態、關掉 JS：打字層看不到、不抓 typing.json，只有圖。程式：public/typing.js（defer），gzip ≤ 3 KB。
 //
 // 量什麼（案例全文在 README）：
-//   F9.1 結構（三語，關掉 JS）、typing.json 的字、HTML 大小（不算 Next.js 接手用的資料，gzip 不比 f8b 大 512 位元組以上）。
+//   F9.1 結構（三語，關掉 JS）、typing.json 的字、HTML 大小（不算 Next.js 接手用的資料，gzip 不比基準 9f0594c 大 512 位元組以上；2026-10-07 前是 f8b）。
 //   F9.1 時間、游標、打完的樣子（代表組合：中文只有手指 390、英文 1440、日文 320；page.clock）。
 //   F9.2 減少動態、關掉 JS（同上三組）；離開再回來與切到背景（英文 1440）；換語言（中文 1440 → 英文）；打到一半改寬度（日文）。
 //   F9.3 通用（三語 × 十二種寬度：不橫捲、不壓字、框與打字層照設計稿、CLS 0、只動 opacity／transform）；長工作（中文 390 CPU 慢 4 倍、英文 1440）；JS 預算與原始碼。
@@ -33,7 +39,7 @@ import { WIDTHS, parts, pool } from './page-helpers.js';
 import { getPlainString } from '../app/strings.js';
 
 const FIX = JSON.parse(fs.readFileSync(path.join(SITE, 'tests-site', 'fixtures', 'typing-f9.json'), 'utf8'));
-const DESIGN = JSON.parse(fs.readFileSync(path.join(SITE, 'tests-site', 'fixtures', 'design-f9-90de030.json'), 'utf8'));
+const DESIGN = JSON.parse(fs.readFileSync(path.join(SITE, 'tests-site', 'fixtures', 'design-f9-c41f0dd.json'), 'utf8'));
 const AGENT = Object.fromEntries(LANGS.map((lang) => [lang, JSON.parse(fs.readFileSync(path.join(SITE, 'data', `agent.${lang}.json`), 'utf8'))]));
 const TOUCH = { isMobile: true, hasTouch: true };
 const SEC = '[data-section="forai"]';
@@ -381,7 +387,7 @@ test('F9.1 typing.json（三語）：{ text } 剛好是靜態大綱圖上那一�
 // 拿掉之後穩定。字若放進 HTML（data-* 或文字），畫面那一段就會變大，照樣抓得到。整份的 gzip 只印出來。
 const domPart = (html) => html.replace(/<script>self\.__next_f\.push\([\s\S]*?<\/script>/g, '');
 
-test('F9.1 HTML 大小（三語）：gzip 後不比 f8b（c046013）大 512 位元組以上（不算 Next.js 接手用的資料）', (t) => {
+test('F9.1 HTML 大小（三語）：gzip 後不比基準（9f0594c）大 512 位元組以上（不算 Next.js 接手用的資料）', (t) => {
     const bad = [];
     for (const lang of LANGS) {
         const html = readOut(`${lang}/index.html`);
@@ -389,7 +395,7 @@ test('F9.1 HTML 大小（三語）：gzip 後不比 f8b（c046013）大 512 位�
         const was = FIX.htmlGzip[lang];
         const full = zlib.gzipSync(html).length;
         t.diagnostic(`F9 ${lang}/index.html gzip（不算接手資料）${was} → ${now}（${now - was >= 0 ? '+' : ''}${now - was}）；整份 ${FIX.htmlGzipFull[lang]} → ${full}`);
-        if (now > was + HTML_SLACK) bad.push(`${lang}：gzip 後 ${now} 位元組，比 f8b 的 ${was} 大 ${now - was}（上限 ${HTML_SLACK}）—— 要打的字放 typing.json，不放進 HTML`);
+        if (now > was + HTML_SLACK) bad.push(`${lang}：gzip 後 ${now} 位元組，比基準（${FIX.htmlGzip.commit}）的 ${was} 大 ${now - was}（上限 ${HTML_SLACK}）—— 要打的字放 typing.json，不放進 HTML`);
     }
     assert.deepEqual(bad, [], `${bad.length} 處不對`);
 });

@@ -6,6 +6,8 @@
 // 現在的 content/（out/）也量 F8.7：中文第 32 行那種沒有類型前綴、卻有冒號的整句，三語各一。
 // 照設計稿 5b74044 的 11、12 那兩段與狀態一覽（11 滿的時候、有一則寫壞、12 兩版以上、有一條寫壞、14 一條寫壞；14 那個虛線框的上下內距照 004264c）、strings/README.md「公告」「更新紀錄的類型標記」「這一條讀不到」「社群連結」；規格書 §5-11、§5-12、§7、§14。
 //
+// 2026-10-07 為什麼改：F8.6 字到框邊多量一種「置頂」標籤（news.pinned）—— 從 f8-sections.test.js 搬過來，真的內容現在沒有置頂的公告，content-many 有一則。
+//
 // 介面（README.md「10～16（F8）」）：
 //   11：每一則（好的、寫壞的）一個 <li data-entry>，照內容檔的順序；寫壞的那一則 <li data-entry data-state="unreadable">（虛線卡，字＝state.unreadable）。
 //       好的一則：<time datetime>、類別、標題 <h3>、內文 [data-body]（使用者的換行照留）、有連結時 <a data-id="news.more" href＝那個網址 data-goatcounter-click="blog-news">、置頂的加 data-id="news.pinned"。
@@ -442,10 +444,12 @@ const GAP_CONTENT = {
     badInline: `${F8_SECTIONS.changelog} li[data-item] [data-state="unreadable"], ${F8_SECTIONS.changelog} li[data-item][data-state="unreadable"]`,
     badSection: `${F8_SECTIONS.changelog} [data-version=""] [data-state="unreadable"], ${F8_SECTIONS.changelog} [data-version=""][data-state="unreadable"]`,
     badSocial: `${F8_SECTIONS.author} ul [data-state="unreadable"]`,
+    // 2026-10-07 從 f8-sections.test.js 搬過來：真的內容現在沒有置頂的公告，content-many 有一則
+    pinned: `${F8_SECTIONS.news} [data-id="news.pinned"]`,
 };
 
 for (const lang of LANGS) {
-    test(`F8.6 字到框邊（${lang}，content-many，有滑鼠十二種寬度，收合全打開）：「看更早的」按鈕、四種「這一條讀不到」的虛線框 —— 字到框的內緣 ≥ 設計稿`, { skip: pw ? false : why }, async () => {
+    test(`F8.6 字到框邊（${lang}，content-many，有滑鼠十二種寬度，收合全打開）：「看更早的」按鈕、四種「這一條讀不到」的虛線框、「置頂」標籤 —— 字到框的內緣 ≥ 設計稿`, { skip: pw ? false : why }, async () => {
         const bad = [];
         const socialLines = new Set();
         for (const width of WIDTHS) {

@@ -1,5 +1,8 @@
 // F3.9 通用（十二種寬度 × 三語的版面、減少動態、關掉 JS、內嵌腳本、照設計稿的數字）與 F3.10 換行樣式、字跟字串表一致。
-// 讀 out/（真的內容），真的開瀏覽器。設計稿的數字取自 design/homepage/home.css（第二批）：
+// 開瀏覽器量的那幾條讀暫存複本（真的內容，只有 content/news.*.md 換成 fixtures/news-design：公告條是設計稿那一則、置頂）；「沒有內嵌腳本」讀 out/。
+// 2026-10-07 為什麼改：真的公告換成 10-02 那一則、9-29 取消置頂，「真的內容有一則置頂、公告條一定看得到」不成立了（30 天後公告條就不見），
+//   公告條那幾條（F3.9 不重疊、關掉 JS 看得到、F3.10 word-break）改用 helpers.js 的 buildDesignNews；F3.10 詞界 <wbr> 搬到 bulletin-layout.test.js（同一份內容）。
+// 設計稿的數字取自 design/homepage/home.css（第二批）：
 //   --nav-h：手機 64（--space-60 ＋ --space-4）、1024 起 72（--space-60 ＋ --space-12）；公告條 min-height 60（--tap ＋ --space-16）；
 //   按鈕、圖示鈕、語言切換每一段 44（--tap）；☰ 選單的連結 52（--tap ＋ --space-8）；
 //   兩邊留白 --gx：手機 16、640 起 32；內容最寬 1180（--max）→ 1440 寬時內容左緣在 (1440 − 1180 − 64) / 2 ＋ 32 ＝ 130。
@@ -16,7 +19,7 @@
 //        選單的連結高 52；內容左緣（記號的左邊）在 16（< 640）、32（640～1243）、130（1440）；捲下去之後導覽列釘在最上面、公告條跟著捲走。
 //   F3.10 中文：導覽列、選單、main、公告條標題的 word-break 都是 keep-all，公告條標題另外 overflow-wrap: anywhere（設計第三批）；
 //         日文 auto-phrase（公告條標題在 lang="ja" 的元素裡）；英文 normal；:root 的 --measure 是 25em。
-//   F3.10 公告條標題的詞界 <wbr>（後端 bindTail 插的）：中文的 DOM 裡有 <wbr>，日文、英文沒有（用 content/ 真的內容：有一則置頂、一定看得到）。
+//   F3.10 公告條標題的詞界 <wbr>：在 bulletin-layout.test.js（2026-10-07 搬過去）。
 //   F3.10 導覽列與公告條的字跟字串表逐字一樣：六個連結、加到 Chrome、記號的名字（nav.brand）、導覽的讀屏名字（nav.label）、語言切換（lang.label）、
 //         ☰（nav.menu.open）、「公告」標籤（bulletin.label）、✕（bulletin.close）、跳到主要內容（nav.skip，連到 #main）。
 //
@@ -26,12 +29,18 @@ import { test, after } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { OUT, LANGS, needOut, listFiles, siteCss, stripCssComments, playwright, browserSession } from './helpers.js';
+import { OUT, LANGS, needOut, listFiles, siteCss, stripCssComments, playwright, browserSession, buildDesignNews, tail } from './helpers.js';
 import { parts, bulletinParts, say, NAV_IDS, WIDTHS } from './page-helpers.js';
 
 const { pw, why } = playwright();
-const session = pw ? browserSession(pw) : null;
-after(() => session?.close());
+let build = null;
+function built() {
+    build ??= buildDesignNews('layout');
+    assert.equal(build.status, 0, `content/news.*.md 換成 fixtures/news-design 之後 build 失敗：\n${tail(build.output)}`);
+    return build.out;
+}
+const session = pw ? browserSession(pw, built) : null;
+after(async () => { await session?.close(); build?.cleanup(); });
 
 async function open(lang, width, contextOptions = {}, height = 900) {
     const { site, browser } = await session.get();
@@ -225,26 +234,11 @@ test('F3.10 換行樣式：中文 keep-all（公告條標題也是，加 overflo
             assert.equal(await wb(p.header), want[lang], `${lang}：導覽列的 word-break`);
             assert.equal(await wb(page.locator('main').first()), want[lang], `${lang}：main 的 word-break`);
             assert.equal(await wb(p.menu), want[lang], `${lang}：選單的 word-break`);
-            assert.equal(await b.region.count(), 1, `${lang}：防呆：公告條要看得到（真的內容有一則置頂）`);
+            assert.equal(await b.region.count(), 1, `${lang}：防呆：公告條要看得到（fixtures/news-design 那一則置頂）`);
             assert.equal(await wb(b.text), want[lang], `${lang}：公告條標題的 word-break（設計第三批：中文 keep-all＋後端在詞界插的 <wbr>，日文 auto-phrase，英文 normal）`);
             if (lang === 'zh') assert.equal(await b.text.evaluate((el) => getComputedStyle(el).overflowWrap), 'anywhere', 'zh：公告條標題要 overflow-wrap: anywhere（keep-all 時一段沒有斷點、比一行長的兜底）');
             if (lang === 'ja') assert.equal(await b.text.evaluate((el) => el.closest('[lang]')?.getAttribute('lang')), 'ja', 'ja：公告條標題要在 lang="ja" 的元素裡（auto-phrase 才生效）');
             assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--measure').trim()), '25em', `${lang}：:root 的 --measure 要是 25em（說明文字一行約 25 個中文字）`);
-        } finally {
-            await context.close();
-        }
-    }
-});
-
-test('F3.10 公告條標題的詞界 <wbr>：中文有、日文英文沒有（真的內容）', { skip: pw ? false : why }, async () => {
-    for (const lang of LANGS) {
-        const { page, context } = await open(lang, 390);
-        try {
-            const b = bulletinParts(page, lang);
-            assert.equal(await b.region.count(), 1, `${lang}：防呆：公告條要看得到`);
-            const n = await b.text.evaluate((el) => el.querySelectorAll('wbr').length);
-            if (lang === 'zh') assert.ok(n > 0, 'zh：公告條標題的 DOM 裡要有 <wbr>（後端 bindTail 在中文詞界插的）');
-            else assert.equal(n, 0, `${lang}：公告條標題不能有 <wbr>（只有中文插）`);
         } finally {
             await context.close();
         }

@@ -1,5 +1,5 @@
 {
- "source": "07 打字要打的字與 HTML 的基準。excerpt：靜態大綱圖上那一段 —— GPTPlugins 的 tutorial/13-ai.js 的 REPORT.first（行號照原檔）套在 data/agent.<語言>.json 的 outline 上，照 tutorial/engine.js 的 fileCard 挑（<!-- 開頭的不算、空行照留、最多 12 行有字的），行與行之間 \\n；2026-10-04 產生。htmlGzip：c046013（f8b）npm run build 出來的 out/<語言>/index.html 拿掉 Next.js 給 React 接手用的 <script>self.__next_f.push(…)</script> 之後，用 Node 預設等級 gzip 的位元組數（那幾段資料的切法會隨內容變，整份 gzip 差幾百位元組是常有的，見 README）；htmlGzipFull：整份的，只印出來比。",
+ "source": "07 打字要打的字與 HTML 的基準。excerpt：靜態大綱圖上那一段 —— GPTPlugins 的 tutorial/13-ai.js 的 REPORT.first（行號照原檔）套在 data/agent.<語言>.json 的 outline 上，照 tutorial/engine.js 的 fileCard 挑（<!-- 開頭的不算、空行照留、最多 12 行有字的），行與行之間 \\n；2026-10-04 產生。htmlGzip：9f0594c（2026-10-07 換基準；原本是 c046013（f8b）的 zh 16407、en 15165、ja 17452）npm run build 出來的 out/<語言>/index.html 拿掉 Next.js 給 React 接手用的 <script>self.__next_f.push(…)</script> 之後，用 Node 預設等級 gzip 的位元組數（那幾段資料的切法會隨內容變，整份 gzip 差幾百位元組是常有的，見 README）；htmlGzipFull：整份的，只印出來比。 2026-10-07 為什麼換基準（派工人員決定）：三語填了真的影片 ID 之後 09 多了有影片的標記，gzip 約 +850（拿掉 09 那一段，有 ID、沒 ID 兩份一樣大）；其餘 +682～814 在 01aa2e0（這個 repo 的第一個 commit）就已經多了；公告條浮起來只多約 19。要打的字照樣沒放進 HTML（量過）。上限 512 照舊。",
  "ranges": {
   "zh": [
    [
@@ -95,15 +95,15 @@
   "ja": "# 深海パズルゲーム 素材アウトライン\n**凡例**：〔資料〕＝素材にそう書かれている事実／〔案〕＝そこからのゲーム設計の派生。\n### 1-2. 生態（資料 1）\n- 〔資料〕1977 年、潜水調査船アルビン号がガラパゴス地溝で初めて観測。\n- 〔資料〕太陽光ではなく**化学合成**。細菌が硫化水素を酸化してエネルギーを得て、食物連鎖の起点になる。\n- 〔資料〕ジャイアントチューブワームには**口も消化管もなく**、体内の共生細菌から栄養を得る。\n- 〔資料〕噴出口の水温は **350℃ 超**。高水圧のため沸騰しない。\n- 〔資料〕**数メートル離れると 2℃ に戻る**。生き物は熱水と冷水の境目の**細い帯**に集まる。\n\n→〔案〕**この「細い帯」が熱水ステージの中核メカニクス**。素材中でいちばんパズル化しやすい一文。"
  },
  "htmlGzip": {
-  "commit": "c046013",
-  "zh": 16407,
-  "en": 15165,
-  "ja": 17452
+  "commit": "9f0594c",
+  "zh": 18093,
+  "en": 16712,
+  "ja": 18998
  },
  "htmlGzipFull": {
-  "commit": "c046013",
-  "zh": 36555,
-  "en": 33980,
-  "ja": 38856
+  "commit": "9f0594c",
+  "zh": 39788,
+  "en": 37612,
+  "ja": 42355
  }
 }

@@ -3,6 +3,7 @@
 // holdFonts()／releaseFonts()：先扣住 .woff2 的回應，等測試確定第一次畫面已經用回退字型畫出來再放 —— 量「字型換上來時版面跳不跳」（CLS）。
 //   不用固定的延遲：固定延遲時字型什麼時候到，要看機器忙不忙（整套一起跑時旁邊在 build），量到的結果不穩。
 // requests：每一個請求的 { path, status, bytes }（量「中文頁有沒有下載中日文字型」用）。
+// Range（bytes=…）回 206 —— 2026-10-07 起 09 教學影片是自己的 <video>，測試要把影片跳到快結尾才量得到「播完」。
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -41,10 +42,28 @@ export function serve(root) {
             status = 404;
             file = path.join(base, '404.html');
         }
-        const body = fs.existsSync(file) ? fs.readFileSync(file) : Buffer.from('not found');
+        let body = fs.existsSync(file) ? fs.readFileSync(file) : Buffer.from('not found');
+        const headers = { 'content-type': TYPES[path.extname(file)] ?? 'application/octet-stream', 'cache-control': 'no-store', 'accept-ranges': 'bytes' };
+        // Range（2026-10-07 加）：09 教學影片改成自己的網站播 <video>，測試要把影片跳到快結尾（currentTime）—— 沒有 Range 時 Chrome 跳不過去。
+        // 只收一段 bytes=起-迄（或 起-、-後 N 個）；Cloudflare Pages 也照 Range 回 206
+        const range = status === 200 && /^bytes=(\d*)-(\d*)$/.exec(req.headers.range ?? '');
+        if (range && (range[1] || range[2])) {
+            const size = body.length;
+            const from = Math.max(0, range[1] ? Number(range[1]) : size - Number(range[2]));
+            const to = Math.min(size - 1, range[1] && range[2] ? Number(range[2]) : size - 1);
+            if (from > to) {
+                status = 416;
+                headers['content-range'] = `bytes */${size}`;
+                body = Buffer.alloc(0);
+            } else {
+                status = 206;
+                headers['content-range'] = `bytes ${from}-${to}/${size}`;
+                body = body.subarray(from, to + 1);
+            }
+        }
         const send = () => {
             requests.push({ path: pathname, status, bytes: body.length });
-            res.writeHead(status, { 'content-type': TYPES[path.extname(file)] ?? 'application/octet-stream', 'cache-control': 'no-store' });
+            res.writeHead(status, headers);
             res.end(req.method === 'HEAD' ? undefined : body);
         };
         if (held && file.endsWith('.woff2')) held.push(send);

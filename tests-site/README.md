@@ -234,14 +234,14 @@ SITE_PLAYWRIGHT=<…/clipper/node_modules/playwright> node tests-site/run.mjs   
 | F3.2 ☰ 選單 | `nav.test.js` | 390 三語：打開時讀屏名字變 `nav.menu.close`、圖示換成 close；點「公告」收起、網址 `#news`、那一區頂端在導覽列下緣之下；Esc 關、點導覽列上空的地方關；拿掉 `showPopover` 這幾個照樣能開關；844×390（只有手指）捲到底最後一個社群圖示整個在畫面裡、點得到 |
 | F3.3 只有手指 | `nav.test.js` | isMobile＋hasTouch（防呆先確認 `(hover: none) and (pointer: coarse)`）390 三語：看不到加到 Chrome；記號、名稱、☰ 看得到 |
 | F3.4 挑哪一則（純函式） | `bulletin-pick.test.js` | `pick` 的規則；第 0、30 天在、第 31 天不在；在 `America/Los_Angeles` 與 `Asia/Taipei` 各跑一次（子程序設 `TZ`），用 UTC 日期的寫法會在其中一個時區差一天 |
-| F3.4 瀏覽器 | `bulletin.test.js` | 用 `fixtures/content-bulletin/` 另外 build；`<head>` 的 meta 與同步外部腳本；固定時鐘（`page.clock.setFixedTime`）與時區：挑最新、關掉換下一則、全關掉不出現、換新 id 又出現、第 30／31 天、洛杉磯的第 30 天；按 ✕ 下一幀不在、沒有動畫、記住 id、重新整理換下一則；localStorage 擋掉照樣能用；字型擋掉時公告條出現與不出現兩種的 CLS 都是 0 |
+| F3.4 瀏覽器 | `bulletin.test.js` | 用 `fixtures/content-bulletin/` 另外 build；`<head>` 的 meta 與同步外部腳本；固定時鐘（`page.clock.setFixedTime`）與時區：挑最新、關掉換下一則、全關掉不出現、換新 id 又出現、第 30／31 天、洛杉磯的第 30 天；按 ✕ 下一幀不在、沒有動畫、記住 id、重新整理不再出現任何一則；看過就不再出現（不按 ✕：10-15 看到 10-05 → 記了它與比它舊的、沒記 10-20；重新整理不出現；10-25 重新整理 10-20 出現）；有 JS 時浮在導覽列正下方（`position: absolute`）、main 跟沒有公告條時一樣高，關掉 JS 在原位、main 接在它下面；8 秒後收（`page.clock.install` 快轉：7.5 秒在、8.5 秒不在；沒設減少動態先 `data-leaving` 再拿掉；滑鼠或焦點停在上面快轉 20 秒還在、移開 1.2 秒還在、剩下的時間到了才收）；localStorage 擋掉照樣能用；字型擋掉時公告條出現與不出現兩種的 CLS 都是 0。2026-10-07 改：原本量「重新整理換下一則」（使用者改成看過一次就不再出現、浮著、8 秒淡出） |
 | F3.5 公告標題 | `bulletin.test.js` | 三語 × 1280、390、320、280：最後一個 `.nw` 是最後三個字（英文兩個字）、最後一個子元素是 `data-icon="arrow"`、後面沒有字；最後一行不只一個字；看不到 reason |
 | F3.6 按鈕與觸控 | `controls.test.js` | 三語 × 320、390、1024、1440（選單打開也量）每個看得到的 a、button ≥ 44×44；Tab 走過導覽列每個都有焦點框；主要按鈕括號：滑過前透明在外側、滑過後在定位；沒設減少動態時括號透明度的轉場 ≥ 100ms（在滑），設了減少動態時轉場 ≤ 1ms、滑過之後兩個畫格已經到位、底色已變（原本量「滑過 50ms 時」，機器忙時誤紅過，2026-10-03 改） |
 | F3.7 社群圖示一排 | `bulletin.test.js` | 選單裡只有好的三個（寫壞的跳過、沒有「讀不到」）、照檔案順序、mastodon 用代號當名字；content:check 的警告講到 mastodon；14 區是 todo |
 | F3.8 語言切換 | `controls.test.js` | 每一段的名字、字、hreflang、aria-current；`/zh/#faq` 點「日」→ `/ja/#faq`、只走一次導航、`collector-lang` 是 `ja`；localStorage 擋掉照樣切 |
-| F3.9 通用 | `layout.test.js`、`shots.test.js` | 十二種寬度 × 三語（320、390 另外量只有手指）：不橫捲、導覽列與公告條不重疊、按鈕裡的字不跑出框、選單不橫捲；減少動態時開頁與開選單沒有動畫在跑；關掉 JS 看得到導覽連結與公告條標題；CSS 不用 `--mira-*`；HTML 沒有自己寫的內嵌腳本（只准 JSON-LD 與 Next.js 的 `self.__next_f`）；照設計稿的數字（導覽列 72／64、公告條 60、按鈕與語言切換 44、☰ 44×44、選單連結 52、內容左緣 16／32／130、導覽列釘住、公告條跟著捲走） |
-| F3.10 換行與字 | `layout.test.js`、`bulletin.test.js` | 算出來的 `word-break`（中文公告條標題 `keep-all`＋`overflow-wrap: anywhere`、日文在 `lang="ja"` 裡）與 `--measure`；公告條標題的 `<wbr>`：中文有、日文英文沒有（`content/` 真的內容）；導覽列與公告條的字逐字是字串表的；公告標題的防孤字（F3.5） |
-| F3.11 公告條照設計稿第三批（2026-10-03 加） | `bulletin-layout.test.js`、`fixtures/design-6511462.json` | 手機（三語 × 280、320、360、375、390、430）：「公告」標籤與 ✕ 上排、標題下排（頂在兩者之下、左緣對齊標籤），整條高與三樣東西的 [x, y, 寬, 高] 跟設計稿差 ≤ 2px，✕ 44×44，標籤與 ✕ 不重疊、✕ 不壓到標題；桌機（三語 × 640、768、1024、1280、1440）：整條高與三樣東西的位置大小跟設計稿差 ≤ 2px（標題不限 25em，768 起一行 61 高）；只有手指 360×780 的日文：手指框主要按鈕的下緣跟設計稿差 ≤ 2px（737）。F3.9 的「至少 60、左緣」不動 |
+| F3.9 通用 | `layout.test.js`、`shots.test.js` | （2026-10-07 起 `layout.test.js` 開瀏覽器那幾條用 `fixtures/news-design/` 的暫存複本：真的內容沒有置頂的公告，30 天後公告條會不見）十二種寬度 × 三語（320、390 另外量只有手指）：不橫捲、導覽列與公告條不重疊、按鈕裡的字不跑出框、選單不橫捲；減少動態時開頁與開選單沒有動畫在跑；關掉 JS 看得到導覽連結與公告條標題；CSS 不用 `--mira-*`；HTML 沒有自己寫的內嵌腳本（只准 JSON-LD 與 Next.js 的 `self.__next_f`）；照設計稿的數字（導覽列 72／64、公告條 60、按鈕與語言切換 44、☰ 44×44、選單連結 52、內容左緣 16／32／130、導覽列釘住、公告條跟著捲走） |
+| F3.10 換行與字 | `layout.test.js`、`bulletin.test.js` | 算出來的 `word-break`（中文公告條標題 `keep-all`＋`overflow-wrap: anywhere`、日文在 `lang="ja"` 裡）與 `--measure`；公告條標題的 `<wbr>`：中文有、日文英文沒有（2026-10-07 搬到 `bulletin-layout.test.js`，改用 `fixtures/news-design/`：真的內容換了一則、沒有置頂）；導覽列與公告條的字逐字是字串表的；公告標題的防孤字（F3.5） |
+| F3.11 公告條照設計稿第三批（2026-10-03 加） | `bulletin-layout.test.js`、`fixtures/design-6511462.json`、`fixtures/news-design/` | 2026-10-07 起用暫存複本（`content/news.*.md` 換成 `fixtures/news-design/`：設計稿那一則 9-29、置頂；`helpers.js` 的 `buildDesignNews`），有 JS 與關掉 JS 各量一次（有 JS 時公告條浮著，位置一樣）。手機（三語 × 280、320、360、375、390、430）：「公告」標籤與 ✕ 上排、標題下排（頂在兩者之下、左緣對齊標籤），整條高與三樣東西的 [x, y, 寬, 高] 跟設計稿差 ≤ 2px，✕ 44×44，標籤與 ✕ 不重疊、✕ 不壓到標題；桌機（三語 × 640、768、1024、1280、1440）：整條高與三樣東西的位置大小跟設計稿差 ≤ 2px（標題不限 25em，768 起一行 61 高）；只有手指 360×780 的日文（有 JS）：公告條 `position: absolute`、貼在導覽列正下方，手指框主要按鈕的下緣＝設計稿 737 扣掉設計稿的公告條高 106（差 ≤ 2px）、跟沒有公告條時差 ≤ 1px（2026-10-07 改：原本量「公告條推下來」；關掉 JS 沒有分享鈕，比不了這一顆）。F3.9 的「至少 60、左緣」不動 |
 | F3.12 公告條 ✕ 保持透明框（2026-10-03 加） | `bulletin-layout.test.js` | 三語 × 390：有滑鼠強制 `:hover`、只有手指強制 `:active`（Chrome 開發者協定）時，公告條 ✕ 的框是透明的（沒有框、寬 0 或透明）；同一個寬度的 ☰ 照樣是螢光綠框。設計稿 ba016e9 的 `.iconbtn--ghost:is(:hover, :active…) { border-color: transparent }` |
 
 現在（前端還沒做導覽列與公告條）紅在：找不到 ☰（`aria-controls`）、找不到導覽連結與語言切換、缺 `public/bulletin.js`、`<head>` 沒有 `collector-bulletin`、選單打不開、content:check 沒有警告。
@@ -355,8 +355,8 @@ F3.5 的英文那條（`.nw` 要是最後兩個字、箭頭在 `.nw` 裡）與 F
 | F4.1b 分享的退路 | `hero.test.js` | 三語：沒有 `navigator.share`、剪貼簿寫不進去 → 按了之後手指框有 `touch--noshare`、分享鈕收起、`share.fallback` 那一句與網址框（`https://collector.jerromy.com/<語言>/`）看得到、焦點在網址框、沒有對話框、沒有「已複製」；zh：share 丟出 NotAllowedError 也一樣、丟出 AbortError 什麼都不做；關掉 JS 三語：網址框與那一句直接看得到、分享鈕看不到 |
 | F4.1 按鈕與分享框 | `hero.test.js` | 桌機三語：`hero.cta` 連到商店、點了真的走過去，`#tutorial`、`#devices`；只有手指 390 三語：看不到 `hero.cta`，分享框四樣東西與 mailto 的主旨、內文；有 `navigator.share` 時的 title、text、url；沒有時的剪貼簿、「已複製」（role=status、fixed、main 不動、頁高不變、1 秒與 3 秒在、4 秒收掉） |
 | F4.2 預覽圖的替代文字 | `hero.test.js` | 三語：首屏那一張 hero-poster 的 `alt` 剛好是字串表 `hero.video.alt` 的純文字 |
-| F4.2 宣傳片 | `hero.test.js` | 桌機 1440×360：進畫面前沒播、沒抓、沒載（readyState 0）；捲到看得到才播、靜音循環、這個語言那支；預覽圖是這個語言那張、框 1920:1080 不水平裁切、底下有蓋進度條的遮罩、影片跟預覽圖同框；捲出去就停。只有手指 390：開頁沒抓沒載，按播放鈕才載入、才播。省流量、減少動態：不播、不抓、看得到預覽圖與播放鈕。LCP 是預覽圖且 ≤ 2.5 秒；`<details>` 用 Enter 開合 |
-| F4.3 A、B、D、C | `motion.test.js` | 見那支檔頭：A 的字數、拆字當下全透明、每個字都冒出來、分散在 200～1000ms、不照字的順序、2.5 秒後全部到位、括號透明度 1 且沒有動畫、等字型（扣住 600ms、擋掉）、同種子每個字的 `--k` 一樣、換種子不同（讀 `--k`，不看每一幀的透明度：相鄰兩個字的出場最少只差約 11ms，比一幀短，機器一忙看到的先後會對調）、拆字前後斷行一樣、關 JS 完整；B 依序、只有「0」、只播一次；D 1.03→1、0→1、只播一次；減少動態三者直接是最後的樣子；只動 opacity／transform／顏色、CLS 0；C 不放 |
+| F4.2 宣傳片 | `hero.test.js` | （2026-10-07 改：手機也自動播、載入畫面期間就下載、淡出那一刻才播）桌機 1440×360：`video-auto`、載入畫面期間就抓這一語的 mp4（只抓那一支）、進畫面前沒播過；捲到看得到才播、第一次播在 `collector:loaded` 之後、靜音循環、這個語言那支；預覽圖是這個語言那張、框 1920:1080 不水平裁切、底下有蓋進度條的遮罩、影片跟預覽圖同框；捲出去就停。只有手指 390：`video-auto`、載入畫面期間抓這一語的 mp4、`collector:loaded` 之後自己播、靜音、鈕是暫停鍵、按下去停。載入畫面（zh 1440×900，宣傳片一直不回）：DOMContentLoaded 時有 `html.loading`；自動播時 1.3～2.6 秒收掉、減少動態時 1.3 秒內收掉；關掉 JS 沒有 `loading`、`::after` 不蓋頁面。省流量、減少動態：不播、不抓、看得到預覽圖與播放鈕。LCP 是預覽圖且 ≤ 2.5 秒；`<details>` 用 Enter 開合 |
+| F4.3 A、B、D、C | `motion.test.js` | 見那支檔頭：A 的字數、拆字當下全透明、每個字都冒出來、分散在 200～1000ms、不照字的順序、2.5 秒後全部到位、括號透明度 1 且沒有動畫、等字型（扣住 600ms、擋掉）、同種子每個字的 `--k` 一樣、換種子不同（讀 `--k`，不看每一幀的透明度：相鄰兩個字的出場最少只差約 11ms，比一幀短，機器一忙看到的先後會對調）、拆字前後斷行一樣、關 JS 完整；B 依序、只有「0」、只播一次；D 1.03→1、0→1、只播一次；減少動態三者直接是最後的樣子；只動 opacity／transform／顏色、CLS 0；C 不放。A'（2026-10-07 加，15 大標括號裡的字）：拆好後 `data-a="wait"`、字數對、每個字透明；露出四成還在等、整個露出來換 `go`；2.5 秒後透明度 1、顏色跟大標其他字一樣、字一個不少；捲走再回來不重播；減少動態不拆、沒有 `data-a` |
 | F4.4 文案 | `copy-lines.test.js` | 三語 × 十二種寬度，03、04 十七個區塊的每一行跟設計稿逐行表一樣；只有手指時 320～430 手指框的 `hero.mobile.text`、`hero.pc` 也一樣；說明文字（`hero.sub`、`hero.video.desc`，只有手指時另量 `hero.mobile.text`）中日文每行 5～25 字、行首沒有孤標點，英文沒有只有一個字的行 |
 | F4.5 通用 | `hero-layout.test.js`（另見 F1.5 色碼、F3.9 內嵌腳本、F4.4 斷行） | 三語 × 十二種寬度（320、390 另外量只有手指）：不橫捲、`data-id` 區塊不重疊、按鈕與連結的字不跑出框、≥ 44×44、1024 起左字右片、一欄時影片在按鈕下面；減少動態沒有動畫；關掉 JS 每個 `data-id` 的字都在 |
 | F4.6 CLS（2026-10-03 加，同日改量法） | `hero-quality.test.js`、`page-helpers.js` 的 `measureCls` | 一個語言一條：十二種寬度（有滑鼠，高 900）＋只有手指 320～430 七種（高 844）；這一頁的 .woff2 用 Playwright 攔住（每頁各自扣，可以同時開好幾頁），回退字型畫過兩個畫格才放，等 load、字型、1.2 秒；CLS ≤ 0.02，**不扣 `hadRecentInput`**（原本扣：Playwright 開只有手指時，字型換上來的位移被標成有人操作，只有手指那七組永遠 0）。兩種模式都量的寬度（320、360、375、390、414、430）：手指框之上的東西（`hero.kicker`、`hero.title`、`hero.sub`、公告條）兩種模式的位移要一樣（差 ≤ 1px），只有手指那邊量少了就紅。紅的時候寫語言、寬度、模式、CLS、位移最大的三個元素；每一組的值印成一行 `# CLS …`。防呆：放字型前拉丁字型還沒載好。F1.5 的 0.01、F4.3 的「動態 CLS 0」不動 |
@@ -443,7 +443,7 @@ F4.6 改量法、加 F4.6b（2026-10-03）：放回錯誤在前端修過一輪�
 ### 已知限制
 
 - `--measure`（說明文字一行最寬約 25 字）在手機寬量不到（手指框本來就比 25em 窄），等 15 區做出來時在平板、桌機寬再量。
-- F3.10 的 `<wbr>` 那條用 `content/` 真的內容：要有一則看得到的中文公告、標題裡至少有一個詞界；內容改成很短的標題時這條可能失準，改用測試資料夾。
+- F3.10 的 `<wbr>` 那條 2026-10-07 起用 `fixtures/news-design/`（設計稿那一則、置頂），不再跟著真的內容走；真的公告標題沒有詞界（例如 10-02 那一則）不會讓它紅。
 - 逐行表是用測試同一個量法（`textLines`）直接量設計稿 HTML 得來的；有滑鼠那 612 條跟設計稿 `notes/4-1-lines-all.txt` 逐條一樣。手指框那幾條是頁面上的手指框（`notes/4-3-lines-all.txt` 的 `.states .touch p` 是說明區裡的手機框，寬度跟頁面不同，沒拿來比）。
 - 「沒有字壓到別的東西」量的是 `data-id` 區塊的外框（巢狀的不算）；字的實際筆畫、圖片上的字沒量。收著的 `<details>` 裡的字不算（`checkVisibility`）。
 - 「看得到才播」量的是 1440×360（影片在第一屏下面）；「手機」是 Playwright 的 isMobile＋hasTouch，不是真的手機（真的 iPhone、Android 由規格書第 14 節人工看）。
@@ -716,8 +716,11 @@ notes/4-4.md 開頭那一節（09 沒有影片那一態的修正）與第 5⁗ �
 
 ### 介面約定（前端照這個做）
 
-- **影片 ID**：`app/site.js` 的 `export const TUTORIAL_VIDEO_IDS = { zh: '', en: '', ja: '' };`（一語一支，寫成這一行）。**空字串＝那一語還沒上 YouTube**，是現在的樣子；不寫死假 ID。
-  測試在暫存複本把這一行換成三個不一樣的假 ID（11 個字元）再 build，量「有影片」那一種；換不掉（形狀不一樣）就停在那一步。
+**2026-10-07 改（使用者決定：教學影片改成自己的網站播，不嵌 YouTube）**：三語填了真的 YouTube ID；播放器從 YouTube 的 iframe 換成影片框裡自己建的 `<video>`，一章一支 `/media/tutorial/<語言>/<章>.mp4`（沒有音軌）。
+下面「播放器怎麼載入」「載不到」改寫了；「播放中使用者自己拖進度」拿掉（沒有控制列，拖不了）；假的 YouTube 播放器（`fake-youtube.js`）沒人用了，刪掉。
+
+- **影片 ID**：`app/site.js` 的 `export const TUTORIAL_VIDEO_IDS = { zh: '…', en: '…', ja: '…' };`（一語一支，寫成這一行）。**空字串＝那一語還沒上 YouTube**；有 ID＝影片已上線（2026-10-07 起三語都填了真的 11 碼 ID）。
+  測試在暫存複本把這一行換掉再 build 兩份：三語清空（沒有影片）、三語換成三個不一樣的假 ID（有影片，量得出換語言換影片）；換不掉（形狀不一樣）就停在那一步。
 - **區塊**：`<section data-section="tutorial" id="tutorial">`，排在 08 隱私之後、15 最後的安裝之前；導覽列「教學影片」、首屏「看教學影片」連到 `#tutorial`。
   標題組：`data-id` 的 `tutorial.eyebrow`、大標 `<h2 data-id="tutorial.title">`（**沒有影片時換成 `data-id="tutorial.title.noid"`** 的字）、說明 `data-id="tutorial.lead"`（**沒有影片時換成 `data-id="tutorial.lead.noid"`** 的字：不說「點章名就從那一章開始播」）。09 裡只有這一個 `<h2>`、沒有 `<h1>`、標題不跳層。
 - **影片框**：`[data-player]`，16:9，`data-state` 是 `idle`｜`loading`｜`playing`｜`paused`｜`ended`。裡面：
@@ -725,10 +728,9 @@ notes/4-4.md 開頭那一節（09 沒有影片那一態的修正）與第 5⁗ �
   - 有影片時：播放鈕 `<button data-play aria-label="tutorial.play 的字">`；**關掉 JS 時播放鈕不放**（按了也播不了；同首屏）；
   - 沒有影片時：一句 `data-id="tutorial.noid.note"`，沒有播放鈕；放在影片框外面、`[data-player]` 的下一個兄弟（設計稿 5b74044）：手機（< 640）排在框底下（隔 16、離畫面左邊 16；括號角在框內 12～32），640 起疊在框的左下角（左 24、下 24，括號角在框外）。
     括號角畫在 `data-corners` 那個元素（就是 `[data-player]`）上，顏色是 `--color-accent-lime-default`（測試靠這個顏色在截圖裡找括號角）；
-  - 播放器程式（`iframe_api`）載不到（被擋、出錯）或過了逾時還沒好（**逾時 ≤ 10 秒**，秒數由前端定、寫在這裡；建議 8 秒）：`data-state` 回到 `idle`、播放鈕放回來、沒有任何章 `aria-current="true"` 或寫「正在播放」、
-    影片框裡出現一句看得到的白話說明（`tutorial.apifail`，`role="status"`；640 起框的左上角上 16、左 24，手機蓋滿整個框、不透明、播放鈕 44 在底下正中間而且按得到；焦點留在播放鈕），「在 YouTube 上看」還在、就在影片框底下（≤ 48px）；沒有未接住的錯誤；之後再按播放鈕會重新載入（不要把失敗的那一次記住）。
-    逾時從按下去算到播放器 `onReady`（播放器建了卻一直沒 ready 也算，建了一半的播放器拿掉）；程式在逾時之後才到時不自己播，再按就直接用 —— 已經有 `YT.Player` 就不再載，`YT.loading` 正在載就只等它好（`onYouTubeIframeAPIReady` 串接、`YT.ready` 也接），不再插一次 `iframe_api`（真的那一支有防重入，第二次執行什麼都不做）。
-    還在等的時候、或失敗之後按章名，也不能把那一章標成正在播放（等真的播起來才標）；
+  - 影片載不到（`<video>` 的 error、`play()` 被拒、或按下去之後過了逾時還在 loading；**逾時 ≤ 10 秒**，前端是 8 秒）：拿掉 `<video>`、`data-state` 回到 `idle`、播放鈕放回來、沒有任何章 `aria-current="true"` 或寫「正在播放」、
+    影片框加上 `[data-tutorial]` 的 `data-fail-class`、出現一句看得到的白話說明（`[data-api-fail]`，字是 `tutorial.apifail`，`role="status"`；640 起框的左上角上 16、左 24，手機蓋滿整個框、不透明、播放鈕 44 在底下正中間而且按得到；焦點留在播放鈕），「在 YouTube 上看」還在、就在影片框底下（≤ 48px）；沒有未接住的錯誤；之後再按播放鈕會重試（不要把失敗的那一次記住），播起來之後失敗的樣式與那一句收掉。
+    還在等影片的時候、或失敗之後按章名，也不能把那一章標成正在播放（真的播起來 `playing` 才標）；
   - 章尾那一層 `[data-endcard]`：標題 `data-id="tutorial.done"`（`%章名%` 換成這一章的章名）、`<button data-id="tutorial.replay">`、`<button data-id="tutorial.next">`（`%章名%` 換成下一章）；
     第 16 章只有 `<button data-id="tutorial.again">`。`data-id` 放在 `<button>` 本身。蓋上時焦點移到「播下一段」（第 16 章是「從頭再看一次」），Esc 收掉；
     手機放不下時往下蓋住章節清單，**不推動版面**（蓋上前後 09 的高度一樣）。
@@ -745,41 +747,26 @@ notes/4-4.md 開頭那一節（09 沒有影片那一態的修正）與第 5⁗ �
   - 沒有影片、窄的時候：落在那一列本身，打開摘要；那一列收在「看全部」裡就先打開「看全部」；
   - 沒有影片時網址的 `#ch-NN` 照樣要換上（F7.3 量 `location.hash`）；關掉 JS 時就是原生的錨點。
 - **正在播的章**：清單只捲清單（`scrollTop`），整頁不動；不用會連整頁一起捲的 `scrollIntoView`。
-- **播放中使用者自己拖進度**：時間跑出這一章的範圍時，改認時間所在的那一章（`aria-current`、「正在播放」換過去，播到那一章的結尾才停、章尾那一層講那一章），不是當成原本那一章播完了。
 - **Esc 收掉章尾那一層之後**：焦點回到影片框（或框裡看得到的元素）或正在播的那一章的按鈕，不是 `<body>`。
 - **影片 ID 的格式**：`TUTORIAL_VIDEO_IDS` 的值只准空字串或 `/^[A-Za-z0-9_-]{11}$/`；其他值讓產生網頁（`next build`）失敗，訊息有一行同時講到「格式」（或 format）與是哪一語（語言代碼或那個值）。
-- **播放器怎麼載入**：還沒按之前，整頁沒有任何往 YouTube 網域（`youtube.com`、`youtube-nocookie.com`、`ytimg.com`、`googlevideo.com`…）的請求，HTML 裡也沒有連到那些網域的 `<script>`、`<link>`（含 preconnect）、`<iframe>`；滑過播放鈕也一樣。
-  按了播放鈕、章名、或 06 的「看教學 NN」才動態載入 `https://www.youtube.com/iframe_api`（YouTube IFrame Player API；整頁只載一次），用 `new YT.Player(...)` 建播放器：
-  iframe 在 `https://www.youtube-nocookie.com/embed/<那一語的 ID>`（`host: 'https://www.youtube-nocookie.com'`，或自己放 iframe 再交給 `YT.Player`），參數 `rel=0`、`playsinline=1`（`enablejsapi=1`）。
-  按播放鈕從 0:00（第 01 章）播；按章名從那一章的 `start` 播（`seekTo`、`loadVideoById({ startSeconds })` 都可以），播到 `end` 停（每 250ms 左右看一次 `getCurrentTime()`，或用 `endSeconds`），蓋上章尾那一層。
-  「重播這一段」回到這一章的 `start`、「播下一段」從下一章的 `start`、「從頭再看一次」從 0:00。換語言（另一頁）播那一語的 ID。
+- **播放器怎麼載入**（2026-10-07 起）：整頁任何時候都沒有往 YouTube 網域（`youtube.com`、`youtube-nocookie.com`、`ytimg.com`、`googlevideo.com`…）的請求，HTML 裡也沒有連到那些網域的 `<script>`、`<link>`（含 preconnect）、`<iframe>`；「在 YouTube 上看」是一般的連結。
+  還沒按之前整頁不抓 `/media/tutorial/` 的 mp4、09 裡沒有 `<video>`（HTML 裡也沒有）；滑過播放鈕也一樣。`[data-tutorial]` 帶 `data-clips="/media/tutorial/<語言>/"`。
+  按了播放鈕（第 01 章）、章名（那一章）、或 06 的「看教學 NN」才在 `[data-player]` 裡建一個 `<video>`：沒有 `controls`、`muted`、`playsinline`、`disablepictureinpicture`、`controlslist` 含 `nodownload`、`tabindex="0"`，`src` 是 `<data-clips><章>.mp4`；
+  換章是換同一支 `<video>` 的 `src`（09 裡始終只有一支）；真的播起來（`playing`）才標那一章；一章播完（`ended`）蓋上章尾那一層。點影片、或焦點在影片上按空白鍵（不捲整頁）／Enter／k 暫停與繼續（`data-state` 換成 `paused`／`playing`）。
+  「重播這一段」從頭播這一章、「播下一段」播下一章、「從頭再看一次」播第 01 章。換語言（另一頁）播那一語的 mp4。
 - **結構化資料**：**現在不放 `VideoObject`**（兩種 build 都不放）。規格書 §10.5 的影片要「上傳日期」，Google 的影片標記少了它會報錯，而 ID 本身帶不出上傳日期；要加的時候連同上傳日期放哪裡一起定（todo）。
 
-### 假的 YouTube 播放器（`fake-youtube.js`）的契約
+### 假的 YouTube 播放器（已刪，2026-10-07）
 
-測試**不連 YouTube**。`installFakeYouTube(context)`：
-
-- 頁面載入前（`addInitScript`）把假的 `YT`（`Player`、`PlayerState`）放在 `window.__fakeYT` —— 還不是 `window.YT`，所以網頁要自己去載 `iframe_api`，才量得到「按了才載入」。
-- 用 `context.route` 攔下所有往 YouTube 網域的請求：`https://www.youtube.com/iframe_api` 照真的那一支回一小段腳本 —— 第一次執行設 `YT.loading = 1`、`YT.ready`（排隊）、再載播放器本體 `WIDGET_API`（`…/www-widgetapi.js`）；之後再執行什麼都不做（防重入，不會再叫 `onYouTubeIframeAPIReady`）。
-  `WIDGET_API` 換上假的 `YT.Player`、`PlayerState`，叫 `YT.ready` 排著的、再叫 `onYouTubeIframeAPIReady`。
-  `/embed/<ID>`（播放器的 iframe）回一頁空白；其他（縮圖、統計…）擋掉。每一個請求都記下來（`api`｜`widget`｜`embed`｜`other`）。
-- `new YT.Player(元素或 id, { host, videoId, playerVars, events })`：跟真的一樣把元素換成 iframe（`<host>/embed/<videoId>?enablejsapi=1&<playerVars>`）；給的就是 iframe 時照用、從它的網址讀 ID 與參數。之後 `onReady`，`playerVars.autoplay=1` 就開始播；測試把 `window.__ytNoReady` 設成 `true` 之後建的播放器永遠不 `onReady`、不自己播。
-- 時間跟著頁面的 `Date.now()` 走（測試用 `page.clock` 快轉）：播放中＝起點＋經過的秒數；`playerVars.start`／`end`、`loadVideoById({ startSeconds, endSeconds })` 照真的算，到 `end`（或整支 543 秒）變成「已結束」。
-- 有的方法：`loadVideoById`、`cueVideoById`、`seekTo`（暫停中照樣停著，其他狀態會開始播，跟真的一樣）、`playVideo`、`pauseVideo`、`stopVideo`、`getCurrentTime`、`getPlayerState`、`getDuration`、`getVideoData`、`getVideoUrl`、`getIframe`、`addEventListener`、`destroy`、`mute` 一類（不做事）。
-  狀態變了照真的發 `onStateChange`。頁面上看得到 `window.__ytLog`（每一次呼叫）與 `window.__ytPlayers`（建過的播放器）。
-- 前端用到上面以外的方法，測試會丟「不是函式」—— 要用的話先講，加進假的那一份。
-- 量「播放器程式載不到」（F7.10）時，測試在假的那一層上面再加一層 route 把 `iframe_api` 擋掉（`abort`）或一直不回，重試之前拿掉；一直不回的那幾個在重試之前讓它失敗（瀏覽器可能把同一個網址併進還沒回的請求）。
-  量「晚到」時同樣加一層攔住 `iframe_api`（或 `WIDGET_API`），過了逾時才叫那個 route 的 `fallback()` 交回假的那一層。
-- 量「自己拖進度」（F7.11）時，測試直接叫假播放器的 `seekTo`（網頁不會知道，只看得到 `getCurrentTime()` 變了）。
-- `installFakeYouTube(context, { preloaded: true })`：頁面一打開 `window.YT` 就是載好的樣子（`Player`、`PlayerState`、`loading: 1`、`loaded: 1`），**沒有 `YT.ready`** —— 別的程式先載好了播放器程式。量「已經有 `YT.Player` 就直接用」（F7.10）：拿掉那段的話網頁會插 `iframe_api`（假的那一支看到 `YT.loading` 是 1 什麼都不做）或只等一個不會來的 `YT.ready`，播不起來。
+網站不再嵌 YouTube，`fake-youtube.js` 沒人用了，刪掉。測試改量真的 `<video>`：伺服器（`server.js`）照 `Range` 回 206，測試把 `currentTime` 設到「長度 −0.4 秒」讓它自己播完；載不到用 `context.route('**/media/tutorial/**')` 擋掉或一直不回，`play()` 被拒用 init script 換掉 `HTMLMediaElement.prototype.play`。
 
 ### 案例對應
 
 | 案例 | 檔 | 量什麼 |
 |---|---|---|
-| F7.0 設定 | `tutorial.test.js` | `TUTORIAL_VIDEO_IDS` 在 `app/site.js`、三語是空字串、寫成換得掉的那一行 |
-| F7.1 不按不載入 | `tutorial.test.js` | 兩種 build × 三語 × 有滑鼠 1440、只有手指 390：整頁捲過一遍、捲到 09（有滑鼠再滑過播放鈕）沒有往 YouTube 的請求、沒有 iframe、沒有頁面錯誤；預覽圖看得到；有影片才有播放鈕（aria-label 對）。送出來的 HTML 沒有往 YouTube 的 `<script>`、`<link>`、`<iframe>`；預覽圖 srcset 照 images.json、alt、寬高、lazy。有影片時按播放鈕：剛好一個 `iframe_api` 請求、一個 iframe 在影片框裡、`youtube-nocookie.com/embed/<這一語的 ID>`、`rel=0`、`playsinline=1`、從 0:00 播、標第 01 章 |
-| F7.2 章節 | `tutorial.test.js` | 有影片、三語 × 1440：16 章逐一按 —— 從 `start` 播（±1.5 秒）、這一語的 ID、只標這一章（aria-current＋「正在播放」）；快轉到 `end` 前 1.5 秒還在播、沒蓋；再 2.5 秒：停在 `end` ±1 秒、蓋上章尾那一層（標題、重播、播下一段：下一章的章名；第 16 章停在 8:49、只有從頭再看一次）、焦點在那顆鈕。另外三語：重播、播下一段、Esc、從頭再看一次；中文 → 英文 → 日文（語言切換）各播那一語的 ID |
+| F7.0 設定 | `tutorial.test.js` | `TUTORIAL_VIDEO_IDS` 在 `app/site.js`、三語都是 11 碼的真 ID（不是測試的假 ID）、寫成換得掉的那一行（2026-10-07 改：原本量三語是空字串） |
+| F7.1 不按不載入 | `tutorial.test.js` | 兩種 build × 三語 × 有滑鼠 1440、只有手指 390：整頁捲過一遍、捲到 09（有滑鼠再滑過播放鈕）沒有往 YouTube 的請求、沒有 iframe、09 裡沒有 `<video>`、伺服器沒收到 `/media/tutorial/` 的請求、沒有頁面錯誤；預覽圖看得到；有影片才有播放鈕（aria-label 對）。送出來的 HTML 沒有往 YouTube 的 `<script>`、`<link>`、`<iframe>`，09 裡沒有 `<video>`、`.mp4`（`data-clips` 除外）；預覽圖 srcset 照 images.json、alt、寬高、lazy。一章一支的 mp4 三語 × 16 章都在（開頭是 `ftyp`）。有影片時按播放鈕：09 裡剛好一支 `<video>`、在影片框裡、src 是這一語的 `01.mp4`、伺服器只收到那一支、從頭真的在播、`data-clips` 對、`data-state` playing、標第 01 章、沒有 iframe、沒連 YouTube |
+| F7.2 章節 | `tutorial.test.js` | 有影片、三語 × 1440：16 章逐一按 —— src 是那一章的 mp4、從頭真的在播、`data-state` playing、只標這一章（aria-current＋「正在播放」）、沒蓋、09 裡只有一支 `<video>`；跳到結尾（`currentTime`＝長度 −0.4）自己播完：`ended`、`data-state` ended、蓋上章尾那一層（標題、重播、播下一段：下一章的章名；第 16 章只有從頭再看一次）、焦點在那顆鈕。另外三語：重播、播下一段、Esc、從頭再看一次；中文 → 英文 → 日文（語言切換）各播那一語的 mp4 |
 | F7.3 沒有影片 ID | `tutorial.test.js` | 三語 × 1440、390：沒有播放鈕與「在 YouTube 上看」、大標是 `tutorial.title.noid`、封面那一句、沒有 `button[data-chapter]`；16 章依序、章名與摘要跟資料一樣、寫起點；每一列點了摘要看得到；沒有往 YouTube 的請求、沒有頁面錯誤。06 的八個「看教學 NN」（1440、390）跳到 `#ch-NN` 而且那一章看得到、在畫面裡。有影片：大標 `tutorial.title`、「在 YouTube 上看」連到這一語的影片、16 顆 `button[data-chapter]`、06「看教學 05」從第 05 章播、影片框在畫面裡 |
 | F7.4 清單排法 | `tutorial.test.js` | 兩種 build × 三語：1024、1280、1440 影片在左、章節上下緣對齊影片框、清單捲得動（捲到底看得到第 16 章、整頁不動）、16 章看得到、沒有「看全部」；280～768 影片在上、只看得到 5 章、「看全部」≥ 44×44 是 `<summary>`／`<button>`、讀屏 expanded false → Enter → 16 章、true → 空白鍵 → 5 章；關掉 JS（390、1440）16 章章名與摘要都在、390 點「看全部」16 章 |
 | F7.5 通用 | `tutorial.test.js` | 逐行：有影片 × 十二種寬度跟 `design-lines-09.json` 一樣（`<details>` 全打開）、說明文字的斷行規則；沒有影片：大標、封面那一句、章名、摘要照斷行規則（整段 ≥ 10 字寬時中日文不到 5 字的行、說明超過 25 字、行首標點；英文一個字一行；跟設計稿同一行的不算）。字到邊：章節每一列字到列左緣 ≥ 設計內距的一半、不壓到右邊的摘要開關（≥ 設計稿的距離與 4 取小、減 0.5）、不超出清單；封面那一句離影片框 ≥ 8px。通用（兩種 build × 三語 × 十二種寬度，收著與全打開）：不橫捲、09 的 data-id 區塊不重疊、控件 ≥ 44×44、控件裡的字沒跑出框、減少動態沒有在跑的動畫。章尾那一層（三語 × 十二種寬度，下一章章名最長的那一章）：鈕 ≥ 44、字不跑出鈕、離影片框 ≥ 8px、不出畫面、不橫捲、蓋上前後 09 一樣高。關掉 JS 字都在、沒有播放鈕。SEO：一個 h2、不跳層、沒有 h1、`id="tutorial"`、16 章章名與摘要在 HTML、沒有 VideoObject。GoatCounter：`tutorial-NN` 剛好在那一章的鈕上。錨點：`#tutorial`、`#ch-01`～`#ch-16`、區塊順序 |
@@ -787,12 +774,22 @@ notes/4-4.md 開頭那一節（09 沒有影片那一態的修正）與第 5⁗ �
 | F7.7 手機封面句的位置 | `tutorial.test.js` | 沒有影片 × 三語 × 280、320、360、375、390、430、480、540、639（只有手指、有滑鼠各一次）與 640、768、1024、1280、1440（有滑鼠）：影片框捲到畫面中間，把預覽圖與那一句暫時藏起來拍影片框四周，螢光綠的像素在左下四分之一的外框＝括號角那一塊（防呆：≥ 10×10）；那一句的框（`getBoundingClientRect`）跟它重疊 0 |
 | F7.8 章節摘要的斷行規則 | `tutorial.test.js`、`fixtures/design-lines-09.json` | 逐行跟設計稿一樣在 F7.5（逐行表用 6511462 重量）。沒有影片 × 三語 × 十二種寬度、16 章摘要全打開：中日文每一行估寬（全形 1、拉丁字母與數字 0.55、其他半形字 0.3；標點與空白不算）≥ 5，除了設計稿自己放不下的 5 處（中文 280、320 的第 04 章「一段一筆。」、280 的第 08 章「xlsx、py、md」、第 15 章「「頁面功能」」、第 16 章「（當場檢查）、」）；一行估寬（標點也算）≤ 25；日文第二行起的行首不是 Segmenter 單獨切出來的助詞（をにがはでとのもへや）；英文沒有一個字一行；三語每個字都在摘要的框與清單看得見的範圍裡 |
 | F7.9 06 跳到 09 的落點 | `tutorial.test.js` | 三語 × 只有手指 390、有滑鼠 1024、1440 × 03、07、09（06 的第 1、5、7 張）：先只捲整頁把連結放到畫面中間再點，等整頁與清單都停下來。沒有影片：寬的時候播放器上緣不被蓋住（`elementFromPoint` 在上緣下 2px 拿到的是播放器裡的東西）、離導覽列下緣 0～40px，那一列離清單上緣 ≤ 24px（或清單已捲到底）；窄的時候那一列上緣一樣量；兩種都要看得到那一章的摘要。有影片：從那一章播、播放器上緣同上、寬的時候那一列在清單裡看得到。有影片 × 三語 1440：按清單裡第 07、09、03 章（那一顆在清單捲動範圍外時先只捲清單），整頁 `scrollY` 不變、那一列在清單裡看得到。關掉 JS（兩種 build × 三語 × 390、1440）：`href` 是 `#ch-NN`，點了 `location.hash` 換上、那一章在畫面裡 |
-| F7.10 播放器程式載不到 | `tutorial.test.js` | 有影片 × 三語 × 1440，裝 `page.clock`：`iframe_api` 擋掉、一直不回各一次。按播放鈕（一直不回那次，等的時候再按第 04 章）→ 快轉 10 秒：`data-state` 是 `idle`、播放鈕看得到、沒有 `aria-current`、沒有章寫「正在播放」、影片框裡有看得到的字、「在 YouTube 上看」看得到而且在影片框底下 0～48px、沒蓋章尾那一層；失敗之後（還是載不到）按第 04 章 → 快轉 10 秒，同上；網路好了再按播放鈕要播起來（`data-state` playing）；沒有頁面錯誤（主控台裡 YouTube 網域的載入錯誤不算）。說明那一句的字串 id（`tutorial.apifail`）與三語的字在 F7.14 量。晚到（三語 × 1440）：攔住第一個 `iframe_api`，快轉 10 秒（失敗態同上）再放行 → 不自己建播放器、停在 idle，**先確認播放鈕看得到（看不到就紅在「沒辦法再按」）**，再按播放鈕要播、`iframe_api` 只載一次；攔住 `WIDGET_API`（停在 `YT.loading`）→ 失敗之後先確認播放鈕看得到再按、再放行 → 要播、`iframe_api` 只載一次；兩種都只有一個 iframe。建了沒 ready（三語 × 1440，`__ytNoReady`）：快轉 10 秒失敗態同上、影片框裡沒有留下 iframe、播放鈕中心 `elementFromPoint` 打得到；正常之後再按要播、只有一個 iframe。**已經有 `YT.Player`、沒有 `YT.ready`**（三語 × 1440，假 YT 的 `preloaded`：一開頁 `YT` 就是 `{ loading: 1, loaded: 1, Player, PlayerState }`）：按播放鈕要播起來、`iframe_api` 一次都不載、只有一個 iframe |
-| F7.11 播放中自己拖進度 | `tutorial.test.js` | 有影片 × 三語 × 1440：第 03 章播 2 秒後拖到第 10 章裡（起點＋5 秒）→ 1 秒後還在播、沒蓋章尾那一層、只標第 10 章；第 10 章結尾前 1.5 秒還在播、過了結尾停在 ±1 秒、章尾那一層講第 10 章的章名。第 05 章拖回第 02 章裡，一樣量（要停在第 02 章的結尾，不是第 05 章的） |
+| F7.10 影片載不到 | `tutorial.test.js` | 有影片 × 三語 × 1440：mp4 擋掉（`route.abort`）、一直不回（裝 `page.clock`，快轉 10 秒）、`play()` 被拒（NotAllowedError）各一次。按播放鈕（一直不回那次：等的時候不標任何章，再按第 04 章也不標）→ `data-state` 是 `idle`、播放鈕看得到、`<video>` 拿掉、沒有 `aria-current`、沒有章寫「正在播放」、影片框裡有看得到的字、影片框帶 `data-fail-class`、「在 YouTube 上看」看得到而且在影片框底下 0～48px、沒蓋章尾那一層；失敗之後（還是載不到）按第 04 章，同上；好了之後再按播放鈕要播起來（01.mp4），失敗的樣式與那一句收掉；沒有頁面錯誤（主控台的「載入資源失敗」不算）。另一條（三語）：攔住 03.mp4 → `data-state` loading、不標任何章；放行 → 播起來才標第 03 章。說明那一句的字串 id（`tutorial.apifail`）與三語的字在 F7.14 量。2026-10-07 刪掉：「播放器程式晚到」「建了卻一直沒 ready」「已經有 `YT.Player`」（沒有播放器程式了） |
+| F7.11 播放中自己拖進度 | （2026-10-07 刪掉） | `<video>` 沒有控制列，使用者拖不了進度；一章一支，也沒有「跑到別章」這回事 |
 | F7.12 Esc 之後的焦點 | `tutorial.test.js` | 有影片 × 三語 × 1440：第 03 章播完、按 Esc：章尾那一層收掉，`document.activeElement` 不是 `<body>`，是影片框裡看得到的元素或第 03 章的 `button[data-chapter]`。只有手指 390（三語）：第 05 章播完、焦點在「播下一段」按 Enter → 第 06 章（收在「看全部」裡）從起點播、影片框上緣沒移（±1）→ 播完按 Esc：焦點是第 06 章看得到的 `button[data-chapter]`（或影片框裡看得到的元素） |
-| F7.13 影片 ID 的格式 | `tutorial.test.js` | 暫存複本各 build 一次：zh 填整個網址、en 填 7 個字、ja 填 11 個字但含空白（另外兩語填合格的假 ID）→ build 失敗，輸出有一行同時有「格式」或 format 與那一語的代碼或那個值。三語合格的假 ID（有影片那一份）與三語空字串（現在的 out/）都 build 得過 |
-| F7.14 兩句的版位 | `tutorial.test.js` | 載入失敗（有影片 × 三語 × 只有手指 280、320、390，有滑鼠 640、1024、1440；`iframe_api` 擋掉，用鍵盤在播放鈕上按 Enter）：`[data-api-fail]` 是 `role="status"`、字是 `tutorial.apifail`、字在影片框裡、播放鈕中心 `elementFromPoint` 打得到、播放鈕 ≥ 44×44、焦點在播放鈕；手機那一層離框四邊 0（±1）、底色不透明、字離播放鈕 ≥ 8；640 起那一句離框上 16、左 24（±1）、框離播放鈕 ≥ 8。沒有影片（三語 × 只有手指 280、390，有滑鼠 640、1024、1440）：那一句不在 `[data-player]` 裡；手機離影片框下緣 16、離畫面左邊 16（±1）、離右邊 ≥ 15；640 起離框左 24、下 24（±1）、在框裡 |
-| F7.15 鍵盤按播放鈕之後的焦點 | `tutorial.test.js`、`page-helpers.js` 的 `FOCUS_BEFORE` | 有影片 × 三語 × 1440：焦點放在 09 前面最後一個 Tab 停得到的東西，按 Tab 走到播放鈕、按 Enter —— 剛按下（播放鈕藏起來、載入中）與開始播放之後，`document.activeElement` 不是 `<body>`／`<html>`、看得到、在 `[data-player]` 裡（含播放器的 iframe）。`iframe_api` 擋掉那一次：快轉 10 秒之後焦點在播放鈕；網路好了再按 Enter，剛按下與播起來之後同上 |
+| F7.13 影片 ID 的格式 | `tutorial.test.js` | 暫存複本各 build 一次：zh 填整個網址、en 填 7 個字、ja 填 11 個字但含空白（另外兩語填合格的假 ID）→ build 失敗，輸出有一行同時有「格式」或 format 與那一語的代碼或那個值。三語合格的假 ID（有影片那一份）與三語空字串（沒有影片那一份；2026-10-07 起 out/ 是真的 ID）都 build 得過 |
+| F7.14 兩句的版位 | `tutorial.test.js` | 載入失敗（有影片 × 三語 × 只有手指 280、320、390，有滑鼠 640、1024、1440；mp4 擋掉，用鍵盤在播放鈕上按 Enter）：`[data-api-fail]` 是 `role="status"`、字是 `tutorial.apifail`、字在影片框裡、播放鈕中心 `elementFromPoint` 打得到、播放鈕 ≥ 44×44、焦點在播放鈕；手機那一層離框四邊 0（±1）、底色不透明、字離播放鈕 ≥ 8；640 起那一句離框上 16、左 24（±1）、框離播放鈕 ≥ 8。沒有影片（三語 × 只有手指 280、390，有滑鼠 640、1024、1440）：那一句不在 `[data-player]` 裡；手機離影片框下緣 16、離畫面左邊 16（±1）、離右邊 ≥ 15；640 起離框左 24、下 24（±1）、在框裡 |
+| F7.15 鍵盤按播放鈕之後的焦點 | `tutorial.test.js`、`page-helpers.js` 的 `FOCUS_BEFORE` | 有影片 × 三語 × 1440：焦點放在 09 前面最後一個 Tab 停得到的東西，按 Tab 走到播放鈕、按 Enter —— 剛按下（播放鈕藏起來、載入中）與開始播放之後，`document.activeElement` 不是 `<body>`／`<html>`、看得到、在 `[data-player]` 裡（含 `<video>`）。mp4 擋掉那一次：焦點回到播放鈕；網路好了再按 Enter，剛按下與播起來之後同上 |
+| F7.16 `<video>` 本身 | `tutorial.test.js` | 2026-10-07 加。有影片 × 三語 × 1440，按播放鈕播起來之後：沒有 `controls`（屬性與 property）、`muted`（屬性與 property）、`playsinline`、`disablepictureinpicture`（屬性與 property）、`controlslist` 含 `nodownload`、`tabindex="0"`；點影片 → 暫停（`data-state` paused）、再點 → 繼續（playing）；焦點在影片上按空白鍵 → 暫停而且整頁不捲、Enter → 繼續、k → 暫停、k → 繼續 |
+
+### 放回錯誤驗證（2026-10-07，自己的 `<video>` 與公告條「看過就不再出現」；把整個 repo 複製到暫存資料夾，改複本裡的網站程式，只跑那幾條）
+
+| 放回的錯 | 紅在 |
+|---|---|
+| `<video>` 加上 `controls`（`public/tutorial.js`） | F7.16 三語：「<video> 不能有 controls（瀏覽器內建的控制列不出現），得到屬性 true、property true」 |
+| 開頁就先抓第 01 章（`fetch(clips + '01.mp4')`） | F7.1 不按不載入（有影片）三語 × 兩種寬度：「沒按播放就抓了教學影片（/media/tutorial/zh/01.mp4）」 |
+| 播完不蓋章尾那一層（`ended` 時只換成 paused） | F7.2 章節（zh）16 章都紅：「跳到結尾之後播完、蓋上章尾那一層（5 秒內沒等到；… state paused …）」 |
+| 公告條顯示時不記成看過（`public/bulletin.js` 拿掉那一段） | F3.4 按 ✕：「重新整理：任何一則都不再出現 …，得到『較早的一則公告』」；F3.4 看過就不再出現：「顯示 10-05 時要把 2026-10-05 記成看過，得到 []」 |
 
 ### 放回錯誤驗證（2026-10-03，在暫存複本寫最小的參考實作：09 照設計稿的 HTML 結構與 `home.css` 那一段、章名與摘要的斷行標記照設計稿、一支載入 `iframe_api` 的 `.js`；F7 全綠、整套照跑之後一次放回一種錯）
 
@@ -941,7 +938,7 @@ F7.3～F7.13 全綠（F7.5 逐行用重量過的 `design-lines-09.json`）；之
 | F8.4 支援裝置 | `f8-sections.test.js` | 三語 × 有滑鼠十二種寬度：規格表五列 640 以下標題在上、內容在下、左緣對齊；640 起內容在標題右邊、同一列、內容左緣對齊；規格表自己與整頁都不橫捲。三語關掉 JS：四張卡與「可以用／不行」、十四段字跟字串表一樣；不寫 Linux、Chromebook、Edge、Brave、114 |
 | F8.6 文案 | `f8-sections.test.js`、`fixtures/design-lines-10-16.json` | 三語 × 有滑鼠十二種寬度（13 全打開）：版型裡的每一段字逐行跟設計稿一樣；說明文字中日文每行 5～25 字寬、行首沒有孤標點、斷行不在詞的中間（`Intl.Segmenter`），英文沒有一個字一行（跟設計稿同一行、同一處斷行的不算） |
 | F8.6 版面照設計稿 | `f8-sections.test.js`、`fixtures/design-f8-1d18ae2.json` 的 `boxes` | 三語 × 有滑鼠十二種寬度：每一段字（與 14 的照片）離那一區外框左上角的 x、y、寬、高跟設計稿差 ≤ 1px（13 收著的 2～7 題答案不量） |
-| F8.6 字到框邊 | `f8-sections.test.js`、`f8-content.test.js`、`fixtures/design-f8-1d18ae2.json` 的 `gaps` | 三語 × 有滑鼠十二種寬度：10 的卡片、11 的公告卡、三種標籤、到部落格看更多（現在的內容）；「看更早的」按鈕與四種讀不到的虛線框（content-many，收合全打開）—— 字到框內緣左右、上下各 ≥ 設計稿那一邊的內距 − 1（內距寫 0 的那一邊用設計稿量到的距離 − 1）；14 社群讀不到的虛線框另外比框高與上下內距（10.5），跟設計稿差 ≤ 1px（英文 280、日文 280／320 排兩行是 65 高，其他 44） |
+| F8.6 字到框邊 | `f8-sections.test.js`、`f8-content.test.js`、`fixtures/design-f8-1d18ae2.json` 的 `gaps` | 三語 × 有滑鼠十二種寬度：10 的卡片、11 的公告卡、兩種標籤、到部落格看更多（現在的內容）；「看更早的」按鈕、四種讀不到的虛線框與「置頂」標籤（content-many，收合全打開；置頂 2026-10-07 從現在的內容搬過來：真的內容沒有置頂的公告了）—— 字到框內緣左右、上下各 ≥ 設計稿那一邊的內距 − 1（內距寫 0 的那一邊用設計稿量到的距離 − 1）；14 社群讀不到的虛線框另外比框高與上下內距（10.5），跟設計稿差 ≤ 1px（英文 280、日文 280／320 排兩行是 65 高，其他 44） |
 | F8.6 通用 | `f8-sections.test.js`、`f8-content.test.js` | 現在的內容、content-many（收合與 13 全打開）、bad-entry × 三語 × 十二種寬度、減少動態：每一區捲到之後 —— 字壓到別的東西（`data-id` 與使用者內容的區塊）、控件 < 44×44（句子連結不算）、控件裡的字跑出框、在跑的動畫；整頁橫捲 |
 | F8.6 關掉 JS、順序、錨點 | `f8-sections.test.js` | 三語 × 390、1440 關掉 JS：版型裡的每一段字都在、看得到（收著的答案只量在）；tutorial → devices → news → changelog → faq → author → final → footer；`#devices`、`#news`、`#changelog`、`#faq`、`#author` 是那一區；導覽列連到前四個 |
 | F8.6 使用者的字最後一行 | `f8-sections.test.js`、`f8-content.test.js` | 中文、日文 × 十二種寬度（現在的內容、content-many）：公告標題、內文、更新紀錄每一條的最後一行，不算標點至少兩個字 |
@@ -1077,8 +1074,8 @@ CSS 沒有寫死色碼（F1.5）、HTML 沒有自己寫的內嵌腳本（F3.9）
 
 依據：設計稿 90de030 的 `動態.md`「07 為 AI 做的」最後一列、規格書 §8、§9、§12、§14，與派工人員 2026-10-04 的決定（打哪一段、速度與停頓、游標、框裡的長相、HTML 不變大、測哪些組合）。
 測試在 `typing.test.js`（在 `run.mjs` 單獨一段跑：它量 Long Task 與 layout-shift；整支約 75 秒）。對照資料：
-- `fixtures/typing-f9.json`：`excerpt`＝要打的字、`lines`＝那幾行在原檔的行號、`ranges`、`htmlGzip`＝f8b（c046013）的 HTML 大小。
-- `fixtures/design-f9-90de030.json`：框的位置（`frame`）、框露出原圖的哪一塊（`show`）、靜態大綱圖上第一行字的左緣、上緣、下緣（`imageText`，原圖像素）。用 `tools/measure-design.mjs --only f9` 產生。
+- `fixtures/typing-f9.json`：`excerpt`＝要打的字、`lines`＝那幾行在原檔的行號、`ranges`、`htmlGzip`＝基準的 HTML 大小（2026-10-07 起是 9f0594c；原本是 f8b（c046013），換的原因寫在那份檔的 `source`）。
+- `fixtures/design-f9-c41f0dd.json`（2026-10-07 從 90de030 換成較晚的 c41f0dd 重量：F5.4 用的就是這一份，07 大標在中文 320 排 3 行，跟網站一樣；90de030 排 4 行，中文 320、日文 414、640 的框差 40～60px）：框的位置（`frame`）、框露出原圖的哪一塊（`show`）、靜態大綱圖上第一行字的左緣、上緣、下緣（`imageText`，原圖像素）。用 `tools/measure-design.mjs --only f9` 產生。
 
 **要打的是靜態大綱圖上那一段，不是 outline 的前 12 行**（核對過：圖是教學片第 13 章報告卡的一格，節錄的是 `tutorial/13-ai.js` 的 `REPORT.first`）。
 做法照 `tutorial/engine.js` 的 `fileCard`：在範圍裡的行照原檔順序（`<!--` 開頭的不算、空行照留）、最多 12 行有字的，行與行之間 `\n`。
@@ -1106,7 +1103,7 @@ CSS 沒有寫死色碼（F1.5）、HTML 沒有自己寫的內嵌腳本（F3.9）
 
 ### HTML 大小
 
-`out/<語言>/index.html` 拿掉 `<script>self.__next_f.push(…)</script>`（Next.js 給 React 接手用的資料）之後 gzip，不比 f8b 大 512 位元組以上。為什麼不比整份：
+`out/<語言>/index.html` 拿掉 `<script>self.__next_f.push(…)</script>`（Next.js 給 React 接手用的資料）之後 gzip，不比基準大 512 位元組以上（2026-10-07 基準從 f8b 換成 9f0594c：填了影片 ID 之後 09 多了有影片的標記約 +850，其餘 +682～814 在 01aa2e0 就已經多了；派工人員決定）。為什麼不比整份：
 那幾段資料的切法會隨內容變，參考實作只改游標那一行 CSS，英文頁整份 gzip 就從 +104 變 +514（多出來的標記約 200 位元組）；拿掉之後穩定（三語 +42～+47）。整份的數字照樣印在 `# F9` 那一行。
 
 ### 案例對應

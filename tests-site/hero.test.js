@@ -12,13 +12,21 @@
 //        分享鈕收起、看得到 share.fallback（data-id）的那一句與網址框（translate="no"，字是 https://collector.jerromy.com/<語言>/），焦點移到網址框；
 //        不跳 prompt()／alert() 這類對話框、不浮「已複製」。share 丟出 AbortError（使用者自己取消）→ 什麼都不做。
 //        關掉 JS：不用按，網址框直接看得到、分享鈕看不到（網址寫在 HTML 裡）。
-//   F4.2 桌機 1440×360（宣傳片在第一屏下面）：一開始沒在播、沒抓 mp4；捲到看得到 → 播（靜音、循環、/media/hero-<語言>.mp4）；捲出去 → 停。
+//   F4.2 桌機 1440×360（宣傳片在第一屏下面）：載入畫面期間就開始下載這一語的 mp4，但看不到不播；捲到看得到 → 播（靜音、循環、/media/hero-<語言>.mp4）、
+//        第一次播在首頁出現（collector:loaded）之後；捲出去 → 停。
 //        預覽圖（/images/hero-poster-<語言>-*.webp 或 /media/hero-poster-<語言>.webp）整張顯示、不水平裁切（框是 1920:1080，圖跟框同寬、同左緣）；燒進去的進度條由框裡最下方一條遮罩（框的 ::after，高 50/1080、不擋點擊）蓋住；影片跟預覽圖同一個框（位置與大小一樣）。
-//   F4.2 只有手指 390：開頁 2 秒內沒有抓任何 .mp4；看得到預覽圖與播放鈕（hero.video.play）；按了才抓 mp4、開始播。
+//   F4.2 只有手指 390（宣傳片在第一屏）：一樣自動播 —— <html> 有 video-auto、載入畫面期間抓這一語的 mp4、首頁出現（collector:loaded）之後才開始播、
+//        靜音；鈕是暫停鍵（hero.video.pause）；按下去暫停。
+//   F4.2 載入畫面（public/motion.js 的 html.loading）：有 JS 才有（DOMContentLoaded 時就在）；會自動播宣傳片時等影片能順順播完（canplaythrough），
+//        影片一直不回 → 1.3 秒時還在、2.6 秒內收掉（上限 2 秒＋淡出）；減少動態（不自動播、不等影片）→ 影片一直不回也在 1.3 秒內收掉（上限 1 秒）、不抓 mp4。
 //   F4.2 省流量（navigator.connection.saveData）、減少動態（桌機 1440×900）：不播、不抓 mp4，看得到預覽圖與播放鈕。
 //   F4.2 桌機 1440×900 的 LCP 是預覽圖（hero-poster），而且 ≤ 2.5 秒。
 //   F4.2 影片說明（<details>，summary 的字是 hero.video.label）：鍵盤 Enter 打開、再按一次收起。
 //   F4.2 預覽圖的替代文字（alt）是字串表 hero.video.alt 的純文字（三語）。
+//
+// 2026-10-07 為什麼改（使用者決定：手機也自動播；載入畫面期間就下載首屏影片、canplaythrough 才淡出、最多等 2 秒；淡出那一刻才 play()；public/hero.js、public/motion.js）：
+//   F4.2 桌機「還沒進畫面不能抓 mp4」→「載入畫面期間就抓、看不到不播」；F4.2 手機「開頁不抓 mp4、按了才播」→「一樣自動播、首頁出現之後才播」；
+//   新加載入畫面那一條。開頁之後一律先等載入畫面收掉（它蓋住整頁，最多 2 秒）：F4.1 分享那條按鈕被它擋住時，Playwright 換角度捲動重試，main 的位置就變了。
 //   F4.10 三語 × 有滑鼠 1440、只有手指 390：開頁、等動態 A 播完（2.5 秒）、捲到 04 再等 2 秒（B 播完），整段沒有頁面錯誤（pageerror，
 //        例如 React 的 #418：接手時 DOM 跟伺服器畫的對不上）、主控台沒有 error。紅的時候列出每一則。
 //
@@ -35,7 +43,8 @@ after(() => session?.close());
 
 const TOUCH = { isMobile: true, hasTouch: true };
 
-async function open(lang, { width = 1440, height = 900, context: extra = {}, init = [], hash = '' } = {}) {
+// waitLoaded：開頁之後等載入畫面（html.loading）收掉再交給測試（它蓋住整頁，點擊會被擋）
+async function open(lang, { width = 1440, height = 900, context: extra = {}, init = [], hash = '', waitLoaded = true } = {}) {
     const { site, browser } = await session.get();
     const context = await browser.newContext({ viewport: { width, height }, ...extra });
     await context.route('https://chromewebstore.google.com/**', (route) => route.fulfill({ status: 200, contentType: 'text/html', body: '<title>store</title>' }));
@@ -52,6 +61,7 @@ async function open(lang, { width = 1440, height = 900, context: extra = {}, ini
     page.on('console', (msg) => { if (msg.type() === 'error') consoleErrors.push(`${msg.text()}${msg.location()?.url ? `（${msg.location().url}）` : ''}`); });
     for (const script of init) await page.addInitScript(script);
     await page.goto(`${site.url}/${lang}/${hash}`, { waitUntil: 'load' });
+    if (waitLoaded) await page.waitForFunction(() => !document.documentElement.classList.contains('loading'), null, { timeout: 5000 });
     return { site, page, context, mp4, errors, consoleErrors, h: heroParts(page) };
 }
 
@@ -186,9 +196,25 @@ async function media(page, h) {
     });
 }
 
+// 首頁出現（collector:loaded）與宣傳片第一次 playing 的時刻（performance.now()）；載入畫面什麼時候收掉、DOMContentLoaded 時有沒有載入畫面
+const TIMES = () => {
+    window.__t = { loaded: null, playing: null, loadingAtDcl: null, loadingSeen: false, loadingOff: null };
+    document.addEventListener('collector:loaded', () => { window.__t.loaded ??= performance.now(); }, true);
+    // playing 不會冒泡：在 document 的捕獲階段接（一樣收得到）
+    document.addEventListener('playing', (e) => { if (e.target.closest?.('[data-section="hero"]')) window.__t.playing ??= performance.now(); }, true);
+    document.addEventListener('DOMContentLoaded', () => { window.__t.loadingAtDcl = document.documentElement.classList.contains('loading'); });
+    // 看 document 整棵（init script 跑的時候 <html> 還不是後來那一個，直接看 documentElement 收不到）
+    new MutationObserver(() => {
+        const on = document.documentElement.classList.contains('loading');
+        if (on) window.__t.loadingSeen = true;
+        else if (window.__t.loadingSeen && window.__t.loadingOff === null) window.__t.loadingOff = performance.now();
+    }).observe(document, { attributes: true, subtree: true, attributeFilter: ['class'] });
+};
+const times = (page) => page.evaluate(() => window.__t);
+
 for (const lang of LANGS) {
-    test(`F4.2 桌機（${lang} 1440×360）：看得到才播、靜音循環、捲出去就停；跟語言換那一支；預覽圖與影片同一個裁切`, { skip: pw ? false : why }, async () => {
-        const { page, context, h, mp4 } = await open(lang, { width: 1440, height: 360 });
+    test(`F4.2 桌機（${lang} 1440×360）：載入畫面期間就下載、看不到不播；看得到才播（首頁出現之後）、靜音循環、捲出去就停；跟語言換那一支；預覽圖與影片同一個裁切`, { skip: pw ? false : why }, async () => {
+        const { page, context, h, mp4 } = await open(lang, { width: 1440, height: 360, init: [TIMES] });
         try {
             await page.waitForTimeout(800);
             const first = await media(page, h);
@@ -198,9 +224,11 @@ for (const lang of LANGS) {
             assert.equal(first.fullWidth, true, '預覽圖不水平裁切：跟框同寬、同左緣（粒子版的記號括號與頁數貼近左右邊）');
             assert.ok(first.mask && first.mask.content !== 'none' && first.mask.bottom === '0px' && first.mask.events === 'none'
                 && Math.abs(first.mask.height - first.mask.crop * 50 / 1080) <= 1, `框裡最下方要有一條蓋住進度條的遮罩（高 50/1080、貼底、不擋點擊），得到 ${JSON.stringify(first.mask)}`);
+            assert.equal(await page.evaluate(() => document.documentElement.classList.contains('video-auto')), true, '桌機要自動播（<html> 有 video-auto）');
+            assert.ok(mp4.list.includes(`/media/hero-${lang}.mp4`), `載入畫面期間就要開始下載這一語的 mp4（/media/hero-${lang}.mp4），得到 ${mp4.list.join('、') || '沒有'}`);
+            assert.ok(mp4.list.every((u) => u === `/media/hero-${lang}.mp4`), `只抓這一語那一支，得到 ${[...new Set(mp4.list)].join('、')}`);
             assert.ok(!first.video || first.video.paused, '影片還沒進畫面時不能播');
-            assert.deepEqual(mp4.list, [], `影片還沒進畫面時不能抓 mp4：${mp4.list.join('、')}`);
-            assert.equal(await idle(h), true, '影片還沒進畫面時什麼都還沒載（readyState 0、沒有緩衝）');
+            assert.equal((await times(page)).playing, null, '影片還沒進畫面時不能播過');
             await h.frame.evaluate((e) => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
             await page.waitForFunction(() => { const v = document.querySelector('[data-section="hero"] video'); return v && !v.paused; }, null, { timeout: 4000 }).catch(() => {});
             const playing = await media(page, h);
@@ -209,6 +237,8 @@ for (const lang of LANGS) {
             assert.equal(playing.video.loop, true, '要循環');
             assert.equal(new URL(playing.video.src).pathname, `/media/hero-${lang}.mp4`, '播的是這個語言那一支');
             assert.ok(playing.video.box && first.poster.box && playing.video.box.every((n, i) => Math.abs(n - first.poster.box[i]) <= 1), `影片要跟預覽圖同一個裁切（同大小、同位置），影片 ${playing.video.box}、預覽圖 ${first.poster.box}`);
+            const t = await times(page);
+            assert.ok(t.loaded !== null && t.playing !== null && t.playing >= t.loaded, `第一次播要在首頁出現（collector:loaded）之後，得到 ${JSON.stringify(t)}`);
             await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
             await page.waitForTimeout(800);
             const out = await media(page, h);
@@ -219,25 +249,61 @@ for (const lang of LANGS) {
     });
 }
 
-test('F4.2 只有手指（390，三語）：開頁不抓 mp4；按播放鈕才抓、才播', { skip: pw ? false : why }, async () => {
+test('F4.2 只有手指（390，三語）：一樣自動播 —— 載入畫面期間抓這一語的 mp4、首頁出現之後才播、靜音；鈕是暫停鍵、按下去暫停', { skip: pw ? false : why }, async () => {
     for (const lang of LANGS) {
-        const { page, context, h, mp4 } = await open(lang, { width: 390, height: 844, context: TOUCH });
+        const { page, context, h, mp4 } = await open(lang, { width: 390, height: 844, context: TOUCH, init: [TIMES] });
         try {
-            await page.waitForTimeout(2000);
-            assert.deepEqual(mp4.list, [], `${lang}：手機開頁不能自動下載 mp4`);
-            assert.equal(await idle(h), true, `${lang}：手機開頁時影片什麼都還沒載（readyState 0、沒有緩衝）`);
-            const m = await media(page, h);
-            assert.ok(m.poster && m.poster.visible, `${lang}：看得到預覽圖`);
-            const play = h.hero.getByRole('button', { name: say(lang, 'hero.video.play') });
-            assert.ok(await play.isVisible(), `${lang}：看得到播放鈕（${say(lang, 'hero.video.play')}）`);
-            await play.click();
+            assert.equal(await page.evaluate(() => matchMedia('(hover: none) and (pointer: coarse)').matches), true, '防呆：模擬只有手指沒有生效');
+            assert.equal(await page.evaluate(() => document.documentElement.classList.contains('video-auto')), true, `${lang}：手機也要自動播（<html> 有 video-auto）`);
+            assert.ok(mp4.list.includes(`/media/hero-${lang}.mp4`), `${lang}：載入畫面期間就要開始下載這一語的 mp4，得到 ${mp4.list.join('、') || '沒有'}`);
             await page.waitForFunction(() => { const v = document.querySelector('[data-section="hero"] video'); return v && !v.paused; }, null, { timeout: 5000 }).catch(() => {});
-            const after = await media(page, h);
-            assert.ok(after.video && new URL(after.video.src).pathname === `/media/hero-${lang}.mp4`, `${lang}：按了播放才載入這個語言的 mp4，得到 ${after.video ? after.video.src : '沒有 video'}`);
-            assert.ok(!after.video.paused, `${lang}：按了要開始播`);
+            const m = await media(page, h);
+            assert.ok(m.video && !m.video.paused, `${lang}：首頁出現之後要自己播（宣傳片在第一屏）`);
+            assert.equal(new URL(m.video.src).pathname, `/media/hero-${lang}.mp4`, `${lang}：播的是這一語那一支`);
+            assert.equal(m.video.muted, true, `${lang}：要靜音`);
+            const t = await times(page);
+            assert.ok(t.loaded !== null && t.playing !== null && t.playing >= t.loaded, `${lang}：第一次播要在首頁出現（collector:loaded）之後，得到 ${JSON.stringify(t)}`);
+            const pause = h.hero.getByRole('button', { name: say(lang, 'hero.video.pause') });
+            assert.ok(await pause.isVisible(), `${lang}：播放中的鈕是暫停鍵（${say(lang, 'hero.video.pause')}）`);
+            await pause.click();
+            await page.waitForTimeout(300);
+            assert.equal((await media(page, h)).video.paused, true, `${lang}：按暫停要停`);
         } finally {
             await context.close();
         }
+    }
+});
+
+test('F4.2 載入畫面：有 JS 才有；等宣傳片時影片一直不回最多約 2 秒、不等影片（減少動態）最多約 1 秒（zh 1440×900）', { skip: pw ? false : why }, async () => {
+    for (const [label, extra, min, max] of [['自動播（等影片）', {}, 1300, 2600], ['減少動態（不等影片）', { reducedMotion: 'reduce' }, 0, 1300]]) {
+        const { site, browser } = await session.get();
+        const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, ...extra });
+        await context.route('**/media/hero-*.mp4', () => {});   // 一直不回
+        const page = await context.newPage();
+        try {
+            await page.addInitScript(TIMES);
+            await page.goto(`${site.url}/zh/`, { waitUntil: 'domcontentloaded' });
+            await page.waitForFunction(() => window.__t.loadingOff !== null, null, { timeout: 6000 }).catch(() => {});
+            const t = await times(page);
+            assert.equal(t.loadingAtDcl, true, `${label}：有 JS 時 DOMContentLoaded 那一刻要有載入畫面（html.loading）`);
+            assert.ok(t.loadingOff !== null, `${label}：載入畫面要收掉`);
+            assert.ok(t.loadingOff >= min && t.loadingOff <= max, `${label}：影片一直不回時載入畫面要在 ${min}～${max}ms 之間收掉（從開頁算），得到 ${Math.round(t.loadingOff)}ms`);
+            const auto = await page.evaluate(() => document.documentElement.classList.contains('video-auto'));
+            assert.equal(auto, label.startsWith('自動播'), `${label}：防呆：video-auto 要是 ${label.startsWith('自動播')}`);
+        } finally {
+            await context.close();
+        }
+    }
+    const { site, browser } = await session.get();
+    const off = await browser.newContext({ viewport: { width: 1440, height: 900 }, javaScriptEnabled: false });
+    try {
+        const page = await off.newPage();
+        await page.goto(`${site.url}/zh/`, { waitUntil: 'load' });
+        assert.equal(await page.evaluate(() => document.documentElement.className.includes('loading')), false, '關掉 JS 時沒有載入畫面');
+        const cover = await page.evaluate(() => getComputedStyle(document.documentElement, '::after').content);
+        assert.ok(cover === 'none' || cover === 'normal', `關掉 JS 時 <html> 的 ::after 不能蓋住頁面，得到 content ${cover}`);
+    } finally {
+        await off.close();
     }
 });
 

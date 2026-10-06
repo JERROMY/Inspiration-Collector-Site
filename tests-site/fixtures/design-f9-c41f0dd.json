@@ -1,5 +1,5 @@
 {
- "source": "設計稿 design/homepage/{zh,en,ja}/index.html，commit 90de030；2026-10-04 用 tests-site/tools/measure-design.mjs --only f9 量的（本機伺服器開、Playwright 的 Chromium、減少動態、有滑鼠、高 900，量之前確認 Google Sans Flex 與 JetBrains Mono 都載好了）。frame：07 放大綱圖的框（.forai__shot）離 07 左上角的 [x, y, 寬, 高]；section：07 的 [寬, 高]；show：框露出原圖的哪一塊（窄、640 起）；imageText：靜態大綱圖上第一行字的左緣、上緣、下緣（原圖的像素座標）。",
+ "source": "設計稿 design/homepage/{zh,en,ja}/index.html，commit c41f0dd；2026-10-06 用 tests-site/tools/measure-design.mjs --only f9 量的（本機伺服器開、Playwright 的 Chromium、減少動態、有滑鼠、高 900，量之前確認 Google Sans Flex 與 JetBrains Mono 都載好了）。frame：07 放大綱圖的框（.forai__shot）離 07 左上角的 [x, y, 寬, 高]；section：07 的 [寬, 高]；show：框露出原圖的哪一塊（窄、640 起）；imageText：靜態大綱圖上第一行字的左緣、上緣、下緣（原圖的像素座標）。",
  "frame": {
   "zh": {
    "280": [
@@ -10,7 +10,7 @@
    ],
    "320": [
     16,
-    1234,
+    1194,
     288,
     243.3
    ],
@@ -182,7 +182,7 @@
    ],
    "414": [
     16,
-    1225,
+    1185,
     382,
     322.6
    ],
@@ -194,7 +194,7 @@
    ],
    "640": [
     32,
-    1221,
+    1161,
     576,
     320.3
    ],
@@ -232,7 +232,7 @@
    ],
    "320": [
     320,
-    1597.3
+    1557.3
    ],
    "360": [
     360,
@@ -348,7 +348,7 @@
    ],
    "414": [
     414,
-    1667.6
+    1627.6
    ],
    "430": [
     430,
@@ -356,7 +356,7 @@
    ],
    "640": [
     640,
-    1661.3
+    1601.3
    ],
    "768": [
     768,
