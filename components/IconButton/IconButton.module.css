@@ -1,0 +1,53 @@
+/* 照設計稿 home.css 的 .iconbtn：會按的一律圓；44×44（規格書第 6 節） */
+.iconbtn {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    width: var(--tap);
+    height: var(--tap);
+    padding: 0;
+    border: var(--stroke-hairline) solid var(--color-border-strong);
+    border-radius: var(--radius-full);
+    background: transparent;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: background-color var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out),
+                border-color var(--dur-base) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+
+@media (hover: hover) {
+    .iconbtn:hover {
+        border-color: var(--color-accent-lime-default);
+        background: var(--color-surface-glass);
+        color: var(--color-accent-lime-default);
+    }
+}
+
+/* 手指的「按下」（只有手指的裝置沒有滑過）：跟滑過同一個樣子，只在按著的那一下 */
+@media (hover: none) {
+    .iconbtn:active {
+        border-color: var(--color-accent-lime-default);
+        background: var(--color-surface-glass);
+        color: var(--color-accent-lime-default);
+    }
+}
+
+.iconbtn:active {
+    transform: scale(.98);
+}
+
+.ghost {
+    border-color: transparent;
+}
+
+/* 沒有框的圖示鈕（公告條的 ✕）：滑過、按下也不長出框，字與底照樣轉螢光綠＋玻璃。
+   上面的 .iconbtn:hover、:active 權重跟這兩條一樣，靠排在後面蓋過 */
+@media (hover: hover) {
+    .ghost:hover {
+        border-color: transparent;
+    }
+}
+
+.ghost:active {
+    border-color: transparent;
+}

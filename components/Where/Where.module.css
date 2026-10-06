@@ -1,0 +1,224 @@
+/* 04 能用在哪裡：一條讀數帶，照設計稿 home.css 的「04 能用在哪裡」。
+   左：三家 AI＋一般網頁（只寫字）；右：「擴充本身」三個 0。 */
+.where {
+    padding-block: var(--space-60);
+    border-block: var(--hair);
+    background: var(--color-surface-raised);
+}
+
+.in {
+    --where-one-line: calc(var(--text-md) * 13 / 14); /* 13px：定好的下限；14 時英文 375、日文 375 與 390 都超出右緣 */
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-group);
+}
+
+.on,
+.zerosCol {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: var(--gap-inner);
+    min-width: 0;
+}
+
+/* 等寬的讀數標籤 */
+.label {
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--label-size)/var(--leading-snug) var(--font-mono);
+    letter-spacing: var(--label-track);
+}
+
+/* 手機 2×2：欄寬照名字，「一般のウェブページ」不會被擠成兩行；360 以下放不下 2 欄，一個名字一行。
+   設計稿寫 repeat(2, max-content)；寫成 minmax(0, max-content) 行為一樣，而且不會被最長那一列撐寬（坑 9） */
+.list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, max-content));
+    justify-content: start;
+    gap: var(--gap-tight) var(--space-30);
+    margin: 0;
+    padding: 0;
+    font: var(--weight-medium) var(--text-xl)/var(--leading-tight) var(--font-sans-18);
+    list-style: none;
+}
+
+.list li {
+    white-space: nowrap;
+}
+
+/* 平台圖示：字高（1em）、跟名字綁在同一個 nowrap 的 li 裡（換行時不落單）；往下移到圖示底部貼近基線（Simple Icons 的標誌填滿 24 格，底對齊基線下緣一點點） */
+.list li :global(.i) {
+    width: 1em;
+    height: 1em;
+    margin-right: var(--space-8);
+    vertical-align: -0.125em;
+}
+
+@media (max-width: 359px) {
+    .list {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* 手機：最右邊那條線拿掉（使用者 2026-10-04；640 起三格左右都有線）。三格還是等寬（線先扣掉再平分，第三格少 1px 的線）、0 置中 */
+@media (max-width: 639px) {
+    .zeros li:last-child {
+        border-right: 0;
+    }
+}
+
+/* 英日 280 三格放不下等寬：第一格左邊不留內距，省下的給第三格，字離右緣仍 ≥ 14（中文與 320 起照舊等寬） */
+@media (max-width: 319px) {
+    .zeros:is(:lang(en), :lang(ja)) li:first-child {
+        padding-left: 0;
+    }
+}
+
+/* 360～639：四個排成一行（使用者 2026-10-04 要手機也一行）。18px 三語都排不下，
+   這一排（圖示跟著字，1em）縮到 13（下限），間距 12；360 以下照舊兩欄兩列（＜360 一欄）、不縮字。
+   日文另外把間距收小（見下面），375 也一行；留著換行當安全網：放不下時第四項換到第二行，不橫捲 */
+@media (min-width: 360px) and (max-width: 639px) {
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--gap-tight) var(--space-12);
+        font-size: var(--where-one-line);
+    }
+
+    /* 英日比較寬（13px 時 375 寬約 339～354 ＞ 可用的 343）：間距 12 → 6、圖示與名字 8 → 6，離右邊 ≥ 8 */
+    .list:is(:lang(en), :lang(ja)) {
+        column-gap: var(--space-6);
+    }
+
+    .list:is(:lang(en), :lang(ja)) li :global(.i) {
+        margin-right: var(--space-6);
+    }
+}
+
+/* 日文 360～374：13px 剛好貼到右緣，降到 12（日文的下限） */
+@media (min-width: 360px) and (max-width: 374px) {
+    .list:lang(ja) {
+        font-size: var(--text-base);
+    }
+}
+
+/* 三格等寬、各自置中（使用者 2026-10-04：原本欄寬跟著 servers／accounts／trackers 的字寬走，0 不等距；三格右邊各一條分隔線，看得出一樣大）。
+   三格的盒子完全一樣（左右內距相同、右邊一條線），flex 的基準是 0、一起長 —— 剩下的寬度平分，三格等寬；0 與單位在格子裡水平置中。
+   每一格仍至少放得下自己的字（min-width: max-content，字不壓分隔線、單位不從中間斷）：放不下等寬時（日文 280、320，英文 280）
+   那一格停在自己的字寬，剩下的再平分 —— 那幾個寬度三格放不下等寬，只能不等寬（量過，見回報）。
+   設計稿寫 grid 的 repeat(3, minmax(max-content, 1fr))；這支檔有 nowrap 的字，grid 的欄只能寫 minmax(0, …)（坑 9 的掃描），所以用 flex */
+.zeros {
+    --zero-pad: var(--space-16);
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.zeros li {
+    display: grid;
+    flex: 1 1 0;
+    align-content: start;
+    justify-items: center;
+    gap: var(--gap-tight);
+    min-width: max-content;
+    padding-inline: var(--zero-pad);
+    border-right: var(--hair-strong);
+    text-align: center;
+}
+
+.zero {
+    display: inline-block;
+    font: var(--weight-light) var(--text-4xl)/var(--leading-none) var(--font-mono);
+    font-variant-numeric: tabular-nums;
+}
+
+.digit {
+    display: inline-block;
+}
+
+.unit {
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-md)/var(--lh-body) var(--font-sans-14);
+}
+
+/* 640 起四個也排成一行（使用者 2026-10-04）：640～1279 這一欄窄（1024～1279 跟三個 0 並排），字 18、間距 24；
+   1280 起字 24、間距 30（日文字最寬，1280 起用 18 才放得下）。flex-wrap 留著當安全網 */
+@media (min-width: 640px) {
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--gap-tight) var(--space-24);
+        font-size: var(--text-xl);
+        font-family: var(--font-sans-18);
+    }
+
+    .zeros {
+        --zero-pad: var(--space-30);
+    }
+}
+
+@media (min-width: 1024px) {
+    .where {
+        padding-block: var(--space-80);
+    }
+
+    .in {
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+        column-gap: var(--gap-group);
+        align-items: end;
+    }
+
+    .zerosCol {
+        padding-left: var(--space-60);
+        border-left: var(--hair-strong);
+    }
+
+    .zero {
+        font-size: var(--text-5xl);
+    }
+}
+
+@media (min-width: 1280px) {
+    .list {
+        column-gap: var(--space-30);
+        font-size: var(--text-2xl);
+        font-family: var(--font-sans-24);
+    }
+
+    .list:lang(ja) {
+        font-size: var(--text-xl);
+        font-family: var(--font-sans-18);
+    }
+}
+
+/* 1024～1279 這一欄最窄（約 306）：內距 30 時日文「アカウント」放不下等寬的三格，退回 14（字離分隔線仍 ≥ 14） */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .zeros {
+        --zero-pad: var(--space-14);
+    }
+}
+
+/* 動態 B（設計稿 動態.md）：捲到 04 時一次（public/motion.js 加 data-in）：0 從上面一格滾下來停住，三個依序。
+   減少動態、或 motion.js 沒載到時一開始就在 0 */
+@media (prefers-reduced-motion: no-preference) {
+    :global(.js-motion) .zero {
+        overflow: clip;
+    }
+
+    :global(.js-motion) .digit {
+        transition: translate var(--dur-slow) var(--ease-out);
+    }
+
+    :global(.js-motion) .where:not([data-in]) .digit {
+        translate: 0 -100%;
+    }
+
+    :global(.js-motion) .zeros li:nth-child(2) .digit {
+        transition-delay: var(--dur-fast);
+    }
+
+    :global(.js-motion) .zeros li:nth-child(3) .digit {
+        transition-delay: calc(var(--dur-fast) * 2);
+    }
+}

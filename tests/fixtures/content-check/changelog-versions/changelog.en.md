@@ -1,0 +1,8 @@
+<!-- 測試用（tests/fixtures/content-check/changelog-versions），不是網站真的內容。 -->
+
+## 1.0.4 · 2026-09-30
+- Fixed: Creating a topic for the first time sometimes did nothing
+- Removed: The button that floated up after selecting text
+
+## 1.0.2 · 2026-09-25
+- First public release

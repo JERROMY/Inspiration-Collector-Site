@@ -1,0 +1,338 @@
+/* 網站的全域樣式：三個根版面（app/(menu)/layout.js、app/[lang]/layout.js、app/global-not-found.js）都 import 這一支。
+   先接設計系統的複本（app/styles/nox/，從 clipper/css 原樣複製，不要手改），再補網站自己的幾條。
+   網頁字型 /fonts/fonts.css 不從這裡 import —— 從 CSS import 的話 Next.js 會把字型檔另外複製一份到 _next/，
+   變成同一個字型兩個網址；它由 components/FontLinks.js 用 <link> 接。
+   只用語意 token，不寫死顏色，不碰 --mira-*。 */
+
+@import "./nox/tokens.color.css";
+@import "./nox/tokens.type.css";
+@import "./nox/tokens.scale.css";
+@import "./nox/base.css";
+@import "./fallback-fonts.css";
+
+/* 坑 2：自己寫的 display 權重比瀏覽器預設的 [hidden] 高，會把 hidden 蓋掉 */
+[hidden] {
+    display: none !important;
+}
+
+/* ── 字串表的斷行標記（strings/README.md 的標記表；components/Seg 與 lib/bind-tail.js 產的是字面的 class 名稱，所以寫在全域）──
+   規則照設計稿的 home.css；顏色改用語意 token。 */
+
+/* «…» 斷行單位：不可斷的行內區塊，放不下一行時才在裡面換；連結的底線照樣畫 */
+.u {
+    display: inline-block;
+    max-width: 100%;
+    text-decoration: inherit;
+}
+
+/* {…} 整段不換行（lib/bind-tail.js 綁住的最後三個字也是這個 class） */
+.nw {
+    white-space: nowrap;
+}
+
+/* ⁅…⁆ 320 寬起整段不換行（再窄放不下，只好讓它斷）；¦ 只在 320 以下才開的斷點：用零寬空白，<wbr> 在 nowrap 裡照樣會斷 */
+@media (min-width: 320px) {
+    .nw-wide {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 319px) {
+    .brk-narrow::after {
+        content: "\200B";
+    }
+}
+
+/* 教學章名與摘要（從資料轉進來的字）綁住的那一段，寬到某個螢幕寬才不換行（比那一欄寬就不綁，免得凸出框外） */
+@media (min-width: 320px) {
+    .nw-320 {
+        white-space: nowrap;
+    }
+}
+
+@media (min-width: 360px) {
+    .nw-360 {
+        white-space: nowrap;
+    }
+}
+
+/* ⟨…⟩ 被括號夾住的那半句：本身是一般的行內字；首屏大標要它放得下就自己一行時，在首屏的樣式另外寫 display: inline-block */
+.clamp {
+    display: inline;
+}
+
+/* ⟦ ⟧ 螢光綠的括號（記號 mark.svg 的括號）：兩個空的 span，aria-hidden、不進文字 */
+.brk {
+    display: inline-block;
+    position: relative;
+    width: .26em;
+    height: .92em;
+    vertical-align: -.1em;
+    border: .13em solid var(--color-accent-lime-default);
+    border-radius: var(--radius-xs);
+}
+
+.brk--l {
+    border-right: 0;
+    margin-right: .16em;
+}
+
+.brk--r {
+    border-left: 0;
+    margin-left: .16em;
+}
+
+/* ↵ 分成兩行的大標：前半句灰、後半句白（兩個 span 各占一列由那一區的 grid 排） */
+.forai__l1 {
+    color: var(--color-text-secondary);
+}
+
+.forai__l2 {
+    color: var(--color-text-primary);
+}
+
+/* 回退字型（Google Sans Flex 還沒下載好時用的字）在 fallback-fonts.css：一個字一個字對準寬度，字型換上來時每一段字的行數不變。
+   等寬字的回退在下面（JetBrains Mono Fallback）。 */
+
+/* 等寬字的回退：JetBrains Mono 還沒下載好時用 Courier New（mac、Windows 都有；Liberation Mono 與它同寬）。
+   兩個都是每個字 0.6 個字寬，寬度本來就一樣（量過：同一句 100px 時 5459.9 對 5460.9），所以 size-adjust 100%；
+   上緣、下緣照 JetBrains Mono 的 102%／30%（行距 0）。沒有它的話，等寬的小標會掉到後面的中文字型（比例字），字型換上來時從一行變兩行 */
+@font-face {
+    font-family: "JetBrains Mono Fallback";
+    src: local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono");
+    size-adjust: 100%;
+    ascent-override: 102%;
+    descent-override: 30%;
+    line-gap-override: 0%;
+}
+
+:root {
+    /* base.css 是 dark light：不釘的話捲軸、輸入框這些瀏覽器自己畫的東西，在亮色系統會變白（只有暗色） */
+    color-scheme: dark;
+
+    /* 中文：設計系統的堆疊是 mac 取向，Windows 會掉到細明體 → 補微軟正黑體。
+       Glow Sans TC 網站不放（中文走系統字型，README「字型」），所以不列。
+       --font-sans 也接中文字型：body 用的是它，原本的 system-ui 在 Windows 挑到哪一套不一定 */
+    --font-zh: "PingFang TC", "Microsoft JhengHei UI", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+    --sans-tail: "PingFang TC", "Microsoft JhengHei UI", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+
+    /* 等寬字：設計系統排的是 Glow Sans TC，沒有的話中文會掉到系統隨便挑的字 */
+    --font-mono: "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, "SF Mono", Consolas,
+                 "PingFang TC", "Microsoft JhengHei UI", "Microsoft JhengHei", monospace;
+}
+
+/* 日文用日文字型：中文字型排日文，句號「。」會畫在字的正中間。也照詞組斷行。
+   寫 :lang(ja) 不寫 :root:lang(ja)：/ 與 404 整頁是英文，只有日文那一段標 lang="ja"，那一段也要換。 */
+:lang(ja) {
+    --font-zh: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans JP", sans-serif;
+    --sans-tail: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans JP", sans-serif;
+    --font-mono: "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, "SF Mono", Consolas,
+                 "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", monospace;
+    word-break: auto-phrase;
+}
+
+/* 內文字型的堆疊：Google Sans Flex → 對準那個字級的回退字型（fallback-fonts.css）→ 中文或日文的系統字型（--sans-tail）。
+   --font-sans 給沒有自己寫字級的字（繼承 body，光學尺寸固定 18）；--font-sans-14、-16…給自己寫了 font: 簡寫的元素，
+   照那個元素的字級挑（簡寫會讓光學尺寸跟著字級走，字寬也跟著變）。
+   寫在 :root 與 :lang(ja) 兩邊：var(--sans-tail) 在宣告的那個元素上就換好，日文頁的每個元素要各自用日文的尾巴 */
+:root,
+:lang(ja) {
+    --font-sans: "Google Sans Flex", "Google Sans Flex Fallback", var(--sans-tail);
+    --font-display: var(--font-sans);
+    --font-sans-14: "Google Sans Flex", "Google Sans Flex Fallback 14", var(--sans-tail);
+    --font-sans-16: "Google Sans Flex", "Google Sans Flex Fallback 16", var(--sans-tail);
+    --font-sans-18: "Google Sans Flex", "Google Sans Flex Fallback 18", var(--sans-tail);
+    --font-sans-24: "Google Sans Flex", "Google Sans Flex Fallback 24", var(--sans-tail);
+    --font-sans-32: "Google Sans Flex", "Google Sans Flex Fallback 32", var(--sans-tail);
+    --font-sans-48: "Google Sans Flex", "Google Sans Flex Fallback 48", var(--sans-tail);
+    --font-sans-64: "Google Sans Flex", "Google Sans Flex Fallback 64", var(--sans-tail);
+}
+
+/* 標了 lang="zh-Hant" 的元素（日文頁語言切換的「中」）用回中文字型：字型變數是從整頁繼承的。
+   --font-sans 一起重算：var(--sans-tail) 在宣告的那個元素上就算好了 */
+[lang="zh-Hant"] {
+    --font-zh: "PingFang TC", "Microsoft JhengHei UI", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+    --sans-tail: "PingFang TC", "Microsoft JhengHei UI", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+    --font-mono: "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, "SF Mono", Consolas,
+                 "PingFang TC", "Microsoft JhengHei UI", "Microsoft JhengHei", monospace;
+    --font-sans: "Google Sans Flex", "Google Sans Flex Fallback", var(--sans-tail);
+}
+
+/* 幾段字另外微調過回退字型（fallback-fonts.css 檔尾）：首屏的說明（--font-sub）、手機框的說明與「用的是電腦？」（--font-touch）、手機與平板的大標（--font-title-32、--font-title-48）、公告條的標題（--font-bulletin）、首屏按鈕下面那幾行（--font-meta）。
+   沒有微調的語言就跟同字級的一樣 */
+:root,
+:lang(ja) {
+    --font-sub: var(--font-sans-16);
+    --font-touch: var(--font-sans-14);
+    --font-title-32: var(--font-sans-32);
+    --font-bulletin: var(--font-sans-14);
+    --font-title-48: var(--font-sans-48);
+    --font-meta: var(--font-sans-14);
+}
+
+:lang(en) {
+    --font-sub: "Google Sans Flex", "Google Sans Flex Fallback sub en", var(--sans-tail);
+    --font-touch: "Google Sans Flex", "Google Sans Flex Fallback touch en", var(--sans-tail);
+    --font-title-32: "Google Sans Flex", "Google Sans Flex Fallback title en", var(--sans-tail);
+    --font-bulletin: "Google Sans Flex", "Google Sans Flex Fallback bulletin en", var(--sans-tail);
+    --font-title-48: "Google Sans Flex", "Google Sans Flex Fallback title48 en", var(--sans-tail);
+    --font-meta: "Google Sans Flex", "Google Sans Flex Fallback meta en", var(--sans-tail);
+}
+
+:lang(ja) {
+    --font-sub: "Google Sans Flex", "Google Sans Flex Fallback sub ja", var(--sans-tail);
+}
+
+:lang(zh-Hant) {
+    --font-sub: "Google Sans Flex", "Google Sans Flex Fallback sub zh", var(--sans-tail);
+    --font-bulletin: "Google Sans Flex", "Google Sans Flex Fallback bulletin zh", var(--sans-tail);
+    --font-title-32: "Google Sans Flex", "Google Sans Flex Fallback title zh", var(--sans-tail);
+}
+
+/* 上面換的是變數；字型在 body 就算好、往下繼承，標了 lang="ja" 的那一段要自己再取一次。
+   包 :where() 讓權重是 0：元件的 class 自己寫的 font 照樣蓋得過它 */
+:where([lang="ja"]:not(:root)) {
+    font-family: var(--font-sans);
+}
+
+/* <code> 這類沒指定字型的會落在瀏覽器預設的等寬字，base.css 沒指到 --font-mono */
+code, kbd, pre, samp {
+    font-family: var(--font-mono);
+}
+
+/* ── 版面的尺度（照設計稿 home.css 的「基礎」；token 以外的數字寫了出處）── */
+:root {
+    --tap: 44px;                                        /* 按鈕與圖示的最小點擊尺寸（規格書第 6、12 節） */
+    --max: 1180px;                                      /* 內容最寬（規格書第 5 節） */
+    --gx: var(--space-16);                              /* 兩邊留白：手機 16、640 起 32（規格書第 5 節） */
+    --nav-h: calc(var(--space-60) + var(--space-4));    /* 導覽列高：手機 64、1024 起 72 */
+    /* 留白尺度（設計稿 home.css 開頭；同一層級一律同一個距離；手機／1024 起兩組） */
+    --gap-section: var(--space-120);                    /* 區塊與區塊之間：手機 120、桌機 160 */
+    --gap-group: var(--space-60);                       /* 一區裡的大段落之間：手機 60、桌機 80 */
+    --gap-unit: var(--space-30);                        /* 同一層的單位之間：手機 30、桌機 40 */
+    --gap-inner: var(--space-20);                       /* 單位裡面（標題↔說明）：手機 20、桌機 24 */
+    --gap-tight: var(--space-16);                       /* 緊貼的一對（按鈕↔按鈕、標籤↔它的值） */
+    /* 等寬的小標：中日文同樣 px 看起來小一階，往上帶一階；等寬的整句不加字距 */
+    --label-size: var(--text-base);
+    --label-track: var(--tracking-none);
+    --measure: 25em;                                    /* 說明文字一行最寬約 25 個中文字 */
+    --lh-body: calc(var(--leading-snug) + .1);          /* 內文行高：英文 1.6，中日文 1.75（下面） */
+    --hair: var(--stroke-hairline) solid var(--color-border-default);
+    --hair-strong: var(--stroke-hairline) solid var(--color-border-strong);
+}
+
+@media (min-width: 640px) {
+    :root {
+        --gx: calc(var(--space-16) * 2);
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --nav-h: calc(var(--space-60) + var(--space-12));
+        --gap-section: calc(var(--space-120) + var(--space-40));
+        --gap-group: var(--space-80);
+        --gap-unit: var(--space-40);
+        --gap-inner: var(--space-24);
+    }
+}
+
+:root:lang(zh-Hant), :root:lang(ja), [lang="zh-Hant"], [lang="ja"] {
+    --lh-body: calc((var(--leading-snug) + var(--leading-relaxed)) / 2);
+}
+
+:root:lang(zh-Hant), :root:lang(ja) {
+    --label-size: var(--text-md);
+}
+
+[lang="en"] {
+    --lh-body: calc(var(--leading-snug) + .1);
+}
+
+/* 跳到某一區時，那一區的頂端不被釘住的導覽列蓋住（規格書第 5 節 01） */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-h) + var(--space-12));
+}
+
+body {
+    overflow-wrap: break-word;
+}
+
+/* 內容的版心：最寬 1180、兩邊留白 --gx（規格書第 5 節） */
+.wrap {
+    width: 100%;
+    max-width: calc(var(--max) + var(--gx) * 2);
+    margin-inline: auto;
+    padding-inline: var(--gx);
+}
+
+/* 中文版型裡的字照詞組換行：只在 <wbr>、空白、標點處斷（字串表的 | 與 {…}）。
+   公告條的標題是使用者寫的內容，照一般斷行＋綁最後幾個字（規格書第 7 節），所以公告條不在這裡。
+   日文是上面 :lang(ja) 的 auto-phrase，英文照一般斷行。 */
+:where(header, main, [data-menu]):lang(zh-Hant) {
+    word-break: keep-all;
+}
+
+/* ── 圖示：mask 畫，顏色跟著字色走；每一個用 data-icon 指名字（圖示檔在 public/icons/，出處見 README.md「前端」）。
+   公告條標題的箭頭是 lib/bind-tail.js 插進 HTML 字串的，所以 class 名稱要是全域的 ── */
+.i {
+    display: inline-block;
+    flex: none;
+    width: var(--space-20);
+    height: var(--space-20);
+    background-color: currentColor;
+    -webkit-mask: var(--src) center / contain no-repeat;
+    mask: var(--src) center / contain no-repeat;
+}
+
+[data-icon="list"] { --src: url("/icons/ui-list.svg"); }
+[data-icon="close"] { --src: url("/icons/ui-close.svg"); }
+[data-icon="arrow"] { --src: url("/icons/ui-arrow-right.svg"); }
+[data-icon="blog"] { --src: url("/icons/blog.svg"); }
+[data-icon="facebook"] { --src: url("/icons/facebook.svg"); }
+[data-icon="instagram"] { --src: url("/icons/instagram.svg"); }
+[data-icon="x"] { --src: url("/icons/x.svg"); }
+[data-icon="threads"] { --src: url("/icons/threads.svg"); }
+[data-icon="play"] { --src: url("/icons/ui-play.svg"); }
+[data-icon="pause"] { --src: url("/icons/ui-pause.svg"); }
+[data-icon="share"] { --src: url("/icons/ui-share.svg"); }
+[data-icon="mail"] { --src: url("/icons/ui-mail.svg"); }
+[data-icon="caret"] { --src: url("/icons/ui-caret-down.svg"); }
+[data-icon="check"] { --src: url("/icons/ui-check.svg"); }
+[data-icon="replay"] { --src: url("/icons/ui-replay.svg"); }
+[data-icon="youtube"] { --src: url("/icons/youtube.svg"); }
+[data-icon="feat-article"] { --src: url("/icons/feat-article.svg"); }
+[data-icon="feat-selection"] { --src: url("/icons/feat-selection.svg"); }
+[data-icon="feat-image"] { --src: url("/icons/feat-image.svg"); }
+[data-icon="feat-reply"] { --src: url("/icons/feat-reply.svg"); }
+[data-icon="feat-chat"] { --src: url("/icons/feat-chat.svg"); }
+[data-icon="feat-files"] { --src: url("/icons/feat-files.svg"); }
+[data-icon="feat-topics"] { --src: url("/icons/feat-topics.svg"); }
+[data-icon="feat-once"] { --src: url("/icons/feat-once.svg"); }
+[data-icon="priv-server"] { --src: url("/icons/priv-server.svg"); }
+[data-icon="priv-account"] { --src: url("/icons/priv-account.svg"); }
+[data-icon="priv-tracking"] { --src: url("/icons/priv-tracking.svg"); }
+[data-icon="priv-folder"] { --src: url("/icons/priv-folder.svg"); }
+[data-icon="pin"] { --src: url("/icons/ui-push-pin.svg"); }
+[data-icon="warn"] { --src: url("/icons/ui-warning-circle.svg"); }
+[data-icon="openai"] { --src: url("/icons/openai.svg"); }
+[data-icon="claude"] { --src: url("/icons/claude.svg"); }
+[data-icon="perplexity"] { --src: url("/icons/perplexity.svg"); }
+[data-icon="where-globe"] { --src: url("/icons/where-globe.svg"); }
+[data-icon="windows"] { --src: url("/icons/windows.svg"); }
+[data-icon="apple"] { --src: url("/icons/apple.svg"); }
+[data-icon="device-mobile"] { --src: url("/icons/device-mobile.svg"); }
+[data-icon="device-tablet"] { --src: url("/icons/device-tablet.svg"); }
+[data-icon="firefox"] { --src: url("/icons/firefox.svg"); }
+[data-icon="safari"] { --src: url("/icons/safari.svg"); }
+
+/* 只給讀屏的字（10 支援裝置 ✓／✕ 的「可以用／不行」；設計稿 home.css 的 .sr）。不換行：寬 1px 時一個字一行，會往下長出框外 */
+.sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}

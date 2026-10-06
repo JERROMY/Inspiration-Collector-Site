@@ -1,0 +1,36 @@
+/* 照設計稿 home.css 的 .shead 與 .eyebrow */
+.head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-inner);
+}
+
+.eyebrow {
+    color: var(--color-accent-lime-text);
+    font: var(--weight-medium) var(--text-base)/var(--leading-snug) var(--font-mono);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+}
+
+.title {
+    font: var(--weight-semibold) var(--text-3xl)/var(--leading-tight) var(--font-sans-32);
+}
+
+/* 英文才用 balance（中文的 text-wrap 會把詞拆開） */
+.title:lang(en) {
+    letter-spacing: var(--tracking-tight);
+    text-wrap: balance;
+}
+
+.lead {
+    max-width: var(--measure);
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-lg)/var(--lh-body) var(--font-sans-16);
+}
+
+@media (min-width: 640px) {
+    .title {
+        font-size: var(--text-4xl);
+        font-family: var(--font-sans-48);
+    }
+}

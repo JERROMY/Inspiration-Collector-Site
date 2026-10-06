@@ -1,0 +1,17 @@
+/* 照設計稿 home.css 的 .tag 與 .tag.rel__new */
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-3) var(--space-8);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface-glass);
+    color: var(--color-text-primary);
+    font: var(--weight-medium) var(--label-size)/var(--leading-snug) var(--font-mono);
+    white-space: nowrap;
+}
+
+.outline {
+    border: var(--stroke-hairline) solid var(--color-accent-lime-default);
+    background: transparent;
+    color: var(--color-accent-lime-text);
+}

@@ -1,0 +1,8 @@
+{
+  "ai-outline-zh.png": { "crop": { "x": 297, "y": 140, "width": 1017, "height": 566 }, "widths": [640, 1280, 1920] },
+  "ai-outline-en.png": { "crop": { "x": 297, "y": 140, "width": 1017, "height": 566 }, "widths": [640, 1280, 1920] },
+  "ai-outline-ja.png": { "crop": { "x": 297, "y": 140, "width": 1017, "height": 566 }, "widths": [640, 1280, 1920] },
+  "ai-terminal-zh.png": { "crop": { "x": 277, "y": 137, "width": 781, "height": 657 }, "widths": [640, 1280, 1920] },
+  "ai-terminal-en.png": { "crop": { "x": 277, "y": 137, "width": 805, "height": 657 }, "widths": [640, 1280, 1920] },
+  "ai-terminal-ja.png": { "crop": { "x": 277, "y": 137, "width": 805, "height": 657 }, "widths": [640, 1280, 1920] }
+}

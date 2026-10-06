@@ -1,0 +1,6 @@
+/* 卡片↔卡片底下那一行連結：--gap-unit */
+.body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-unit);
+}

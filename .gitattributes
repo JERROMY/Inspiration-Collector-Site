@@ -1,0 +1,8 @@
+# 換行一律 LF —— 包含 Windows 的工作區。
+#
+# 為什麼：Windows 上的 git 常設成 core.autocrlf=true，會把 checkout 出來的檔案轉成 CRLF。
+# public/_headers、.node-version 變成 CRLF 的話設定值後面會多一個看不見的字元；content/ 的文字檔、tests/ 的比對也會因為換行不同而出問題。
+# 這份搬進公開 repo 之後就是根目錄的 .gitattributes（在 GPTPlugins 裡，根目錄那份也是同一行）。
+# tests/fixtures/crlf-bom/ 自己有一份 .gitattributes（* -text），那裡刻意要 CRLF 與 BOM，不受這一行影響。
+
+* text=auto eol=lf

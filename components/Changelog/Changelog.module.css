@@ -1,0 +1,141 @@
+/* 照設計稿 home.css 的「12 更新紀錄」（第三批 4-3）：一版一段，段與段之間一條髮絲線 */
+.log {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.rel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-inner);
+    min-width: 0;
+    padding-block: var(--gap-unit);
+    border-top: var(--hair-strong);
+}
+
+.rel:first-child {
+    padding-top: 0;
+    border-top: 0;
+}
+
+.rel:last-child {
+    padding-bottom: 0;
+}
+
+.older {
+    padding-top: var(--gap-unit);
+    border-top: var(--hair-strong);
+}
+
+/* 寫壞的一版：整版一個虛線框，靠左 */
+.relBad {
+    justify-items: start;
+}
+
+.head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-8) var(--gap-tight);
+}
+
+/* 版本號：讀數，等寬細字（同 04 的 0） */
+.v {
+    margin: 0;
+    font: var(--weight-light) var(--text-3xl)/var(--leading-none) var(--font-mono);
+    font-variant-numeric: tabular-nums;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-8) var(--gap-tight);
+    margin: 0;
+}
+
+.date {
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--label-size)/var(--leading-snug) var(--font-mono);
+    font-variant-numeric: tabular-nums;
+}
+
+/* 一條一行：左邊類型標記（只有清單裡的短詞），右邊內文；沒有標記的條目內文照樣對齊右欄（subgrid）。
+   標記那一欄是 max-content：標記的字不會被擠到換行（所以不用 nowrap） */
+.items {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    column-gap: var(--gap-tight);
+    row-gap: var(--gap-tight);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.item {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    align-items: baseline;
+    min-width: 0;
+}
+
+.kind {
+    grid-column: 1;
+    color: var(--color-accent-lime-text);
+    font: var(--weight-medium) var(--label-size)/var(--lh-body) var(--font-mono);
+}
+
+/* 使用者寫的字：中文 keep-all（從 main 繼承）＋詞界的 <wbr>；一長串沒有斷點的字要兜底 */
+.text {
+    grid-column: 2;
+    max-width: var(--measure);
+    color: var(--color-text-primary);
+    font: var(--weight-regular) var(--text-lg)/var(--lh-body) var(--font-sans-16);
+    overflow-wrap: anywhere;
+}
+
+/* 寫壞的一條沒有類型標記：虛線框從左邊那一欄開始，整列都是「缺了一塊」，窄的時候字也放得下 */
+.item > p {
+    grid-column: 1 / -1;
+    justify-self: start;
+}
+
+@media (min-width: 1024px) {
+    .rel {
+        grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+        column-gap: var(--gap-group);
+    }
+
+    .head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--gap-tight);
+    }
+
+    .v {
+        font-size: var(--text-4xl);
+    }
+
+    .relBad > p {
+        grid-column: 1 / -1;
+    }
+}
+
+/* 每一版捲進畫面三成時往上 24px 浮出、淡入（規格書 §8，同卡片）；減少動態、沒有 JS 時直接在 */
+@media (prefers-reduced-motion: no-preference) {
+    :global(.js-motion) .rel {
+        transition: opacity var(--dur-slow) var(--ease-out), translate var(--dur-slow) var(--ease-out);
+    }
+
+    :global(.js-motion) .rel:not([data-in]) {
+        opacity: 0;
+        translate: 0 var(--space-24);
+    }
+}
+
+/* 沒有可列的版本：一句 changelog.empty，樣式照 11 的 .empty（news.empty） */
+.empty {
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-lg)/var(--lh-body) var(--font-sans-16);
+}

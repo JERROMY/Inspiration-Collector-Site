@@ -1,0 +1,70 @@
+/* 照設計稿 home.css 的「14 作者與社群」（第三批 4-3） */
+
+/* 照片↔字：--gap-group；1024 起照片在左（div.in：蓋過 Band 那一層的一欄，不靠 CSS 檔的先後） */
+div.in {
+    align-items: start;
+}
+
+@media (min-width: 1024px) {
+    div.in {
+        grid-template-columns: max-content minmax(0, 1fr);
+        column-gap: var(--gap-group);
+    }
+}
+
+/* 手機 96、1024 起 160；圓、髮絲線圈住 */
+.photo {
+    width: calc(var(--space-80) + var(--space-16));
+    height: auto;
+    aspect-ratio: 1;
+    border: var(--hair-strong);
+    border-radius: var(--radius-full);
+}
+
+@media (min-width: 1024px) {
+    .photo {
+        width: calc(var(--space-80) * 2);
+    }
+}
+
+/* 標題組↔按鈕與社群：--gap-unit */
+.text {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-unit);
+    min-width: 0;
+}
+
+/* 名字是拉丁字（三語都是 Jerromy）：三語都收一點字距 */
+.name {
+    letter-spacing: var(--tracking-tight);
+}
+
+.bio {
+    display: grid;
+    gap: var(--space-8);
+    max-width: var(--measure);
+}
+
+.bio p {
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-lg)/var(--lh-body) var(--font-sans-16);
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--gap-tight);
+}
+
+/* 「到部落格看更多」：次要按鈕，字放不下時可以換行，箭頭跟最後一個詞一起換行 */
+a.blog {
+    max-width: 100%;
+    white-space: normal;
+}
+
+.blog :global(.i) {
+    margin-left: var(--space-6);
+    vertical-align: -0.15em;
+}

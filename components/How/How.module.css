@@ -1,0 +1,144 @@
+/* 05 三步驟：照設計稿 home.css 的「05 三步驟」。平板起三欄（subgrid：標題、說明、截圖各自對齊同一條線），手機一欄 */
+.steps {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-group);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.step {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: var(--gap-inner);
+    min-width: 0;
+}
+
+/* 01 ──── 一條軌道 */
+.n {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-tight);
+    color: var(--color-accent-lime-text);
+    font: var(--weight-medium) var(--label-size)/var(--leading-none) var(--font-mono);
+    font-variant-numeric: tabular-nums;
+}
+
+.n::after {
+    content: "";
+    flex: 1;
+    border-top: var(--hair-strong);
+}
+
+.title {
+    font: var(--weight-semibold) var(--text-xl)/var(--leading-tight) var(--font-sans-18);
+}
+
+.body {
+    max-width: var(--measure);
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-md)/var(--lh-body) var(--font-sans-14);
+}
+
+/* 三張截圖的框：髮絲線改成主視覺的螢光綠（使用者 2026-10-04：三張用很細的黃綠線框起來，看起來整齊）。
+   線寬照全站的髮絲線（--stroke-hairline），顏色同括號角（--color-accent-lime-default）。三張的露出比例相同（約 1.19～1.23，見下面 --cw/--ch 與 Crop 的 show），
+   三欄時同一列等高（subgrid 的同一列），一欄時三張同寬 */
+.steps .frame {
+    border-color: var(--color-accent-lime-default);
+}
+
+/* 側邊欄截圖（第 1、2 張）：800 寬的原圖整張，只留中間要的那一塊（--cx --cy 是左上角，--cw --ch 是寬高，--sw 是原圖寬；原圖的像素座標）。
+   第 1 張從大標開始；第 2 張從剛存的那一則到最下面的「已存」。第 3 張是 components/Crop（後端裁好的那一塊） */
+.crop {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: var(--cw) / var(--ch);
+    border-radius: inherit;
+}
+
+.crop > img {
+    position: absolute;
+    top: calc(var(--cy) / var(--ch) * -100%);
+    left: calc(var(--cx) / var(--cw) * -100%);
+    width: calc(var(--sw) / var(--cw) * 100%);
+    max-width: none;
+    height: auto;
+}
+
+.shot1 {
+    --sw: 800;
+    --cx: 0;
+    --cy: 525;
+    --cw: 800;
+    --ch: 672;
+}
+
+/* 第 2 張：右邊 788～799 是側邊欄自己的捲軸，不露出來（使用者 2026-10-04）。卡片在 15～778，左右各留 9：x 6 起、寬 782；
+   高照原本的長寬比（800:672、英日 800:652）少 15，從上面扣（下面的「已存」不動），三張框才一樣高 */
+.shot2 {
+    --sw: 800;
+    --cx: 6;
+    --cy: 832;
+    --cw: 782;
+    --ch: 657;
+}
+
+/* 第 3 張（終端機）右邊淡出表示還有 */
+.fade {
+    -webkit-mask: linear-gradient(to right, var(--color-bg-overlay) 78%, transparent);
+    mask: linear-gradient(to right, var(--color-bg-overlay) 78%, transparent);
+}
+
+.shot1:lang(en) {
+    --cy: 500;
+    --ch: 652;
+}
+
+.shot1:lang(ja) {
+    --cy: 474;
+    --ch: 652;
+}
+
+.shot2:is(:lang(en), :lang(ja)) {
+    --cy: 853;
+    --ch: 637;
+}
+
+@media (min-width: 640px) {
+    .steps {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: repeat(4, auto);
+        column-gap: var(--gap-unit);
+        row-gap: var(--gap-inner);
+    }
+
+    .step {
+        grid-row: span 4;
+        grid-template-rows: subgrid;
+    }
+}
+
+/* 捲進畫面三成時往上 24px 浮出、淡入（同卡片）；640 起三欄時第 2、3 步晚一點 */
+@media (prefers-reduced-motion: no-preference) {
+    :global(.js-motion) .step {
+        --d: 0s;
+        transition: opacity var(--dur-slow) var(--ease-out) var(--d), translate var(--dur-slow) var(--ease-out) var(--d);
+    }
+
+    :global(.js-motion) .step:not([data-in]) {
+        opacity: 0;
+        translate: 0 var(--space-24);
+    }
+
+    @media (min-width: 640px) {
+        :global(.js-motion) .step:nth-child(3n + 2) {
+            --d: var(--dur-instant);
+        }
+
+        :global(.js-motion) .step:nth-child(3n) {
+            --d: calc(var(--dur-instant) * 2);
+        }
+    }
+}

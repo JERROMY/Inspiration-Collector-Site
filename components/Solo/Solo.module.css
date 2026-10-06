@@ -1,0 +1,128 @@
+/* 「/」三語選單頁與 404：一頁很輕的三語並列，照設計稿 home.css 的 .solo。整頁英文為底，中文、日文那幾段各標自己的 lang。
+   標了 lang 的那一段字型在自己身上重算（設計稿 .solo [lang] 那條）：網站由 global.css 的 :lang(ja) 換變數、:where([lang="ja"]:not(:root)) 重算 */
+.solo {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    align-content: center;
+    min-height: 100dvh;
+    padding-block: var(--gap-group);
+}
+
+/* public/pick-lang.js 正在跳轉：不畫字與圖（底色照樣是暗的，不閃白） */
+:global(html.redirecting) .solo {
+    visibility: hidden;
+}
+
+/* 跟首屏同一片光暈 */
+.solo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(ellipse 60% 55% at 78% 62%, color-mix(in srgb, var(--color-accent-lime-default) 7%, transparent), transparent 70%);
+}
+
+.in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-group);
+}
+
+.head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: start;
+    gap: var(--gap-inner);
+}
+
+.mark {
+    width: var(--space-60);
+    height: auto;
+}
+
+/* 404 的等寬讀數（讀屏跳過，大標已經講了） */
+.code {
+    font: var(--weight-light) var(--text-4xl)/var(--leading-none) var(--font-mono);
+    font-variant-numeric: tabular-nums;
+}
+
+.title {
+    display: grid;
+    gap: var(--space-8);
+    font: var(--weight-semibold) var(--text-2xl)/var(--leading-tight) var(--font-sans);
+}
+
+.picks {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-unit);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pick {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: var(--gap-inner);
+    min-width: 0;
+    padding-top: var(--gap-inner);
+    border-top: var(--hair-strong);
+}
+
+.pick p {
+    max-width: var(--measure);
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-md)/var(--lh-body) var(--font-sans);
+}
+
+.pick .btn {
+    justify-self: start;
+}
+
+.pick .btn :global(.i) {
+    width: var(--space-16);
+    height: var(--space-16);
+}
+
+.solo [lang="zh-Hant"] {
+    --lh-body: calc((var(--leading-snug) + var(--leading-relaxed)) / 2);
+    word-break: keep-all;
+}
+
+/* 280、320 寬：「インスピレーション・」32px 一段比一行寬，降一級 */
+@media (min-width: 360px) {
+    .title {
+        font-size: var(--text-3xl);
+    }
+}
+
+@media (min-width: 640px) {
+    .code {
+        font-size: var(--text-5xl);
+    }
+}
+
+/* 三欄的按鈕落在同一條線上（三種語言的說明行數不同）：每一欄是兩列的 subgrid */
+@media (min-width: 768px) {
+    .picks {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: auto auto;
+        column-gap: var(--gap-unit);
+    }
+
+    .pick {
+        grid-row: span 2;
+        grid-template-rows: subgrid;
+    }
+}
+
+/* 48px 從 1024 起：640、768 寬時日文名稱一行放得下（32px），不在「・」斷 */
+@media (min-width: 1024px) {
+    .title {
+        font-size: var(--text-4xl);
+    }
+}

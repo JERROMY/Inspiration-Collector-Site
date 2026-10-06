@@ -1,0 +1,8226 @@
+{
+ "source": "設計稿 design/homepage/{zh,en,ja}/index.html，commit 1d18ae2；2026-10-04 用 tests-site/tools/measure-design.mjs --only f8 量的（本機伺服器開、Playwright 的 Chromium、減少動態、有滑鼠、高 900，量之前確認 Google Sans Flex 與 JetBrains Mono 都載好了）。10、11、12 的標題、13、14、16 版型裡的字每一行（13 的 <details> 全打開）。鍵是字串表的 id；同一個 id 第二次出現寫成 id#2。",
+ "lines": {
+  "zh": {
+   "280": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "支援什麼裝置"
+    ],
+    "devices.lead": [
+     "桌機版 Chrome 就能用。",
+     "手機、iPad、",
+     "Android 平板不行 ——",
+     "上面的 Chrome 不能裝擴充。"
+    ],
+    "devices.win": [
+     "Windows 電腦"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "手機、iPad、",
+     "Android 平板"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "桌機版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "桌機版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "上面的 Chrome",
+     "都不能裝擴充"
+    ],
+    "devices.other.why": [
+     "這個擴充只上架在",
+     "Chrome 線上應用程式商店"
+    ],
+    "devices.tested": [
+     "已實測"
+    ],
+    "devices.tested#2": [
+     "已實測"
+    ],
+    "req.browser.label": [
+     "瀏覽器"
+    ],
+    "req.ai.label": [
+     "AI 網站"
+    ],
+    "req.web.label": [
+     "一般網頁"
+    ],
+    "req.lang.label": [
+     "介面語言"
+    ],
+    "req.price.label": [
+     "費用"
+    ],
+    "req.browser": [
+     "桌機版 Chrome（請更新到最新版）"
+    ],
+    "req.ai": [
+     "ChatGPT、Claude、Perplexity：",
+     "存一則回覆、存整段對話；",
+     "存檔案只有 ChatGPT"
+    ],
+    "req.web": [
+     "一般網站都能存",
+     "整頁、選取的文字、圖片"
+    ],
+    "req.lang": [
+     "繁體中文、English、日本語",
+     "（自動挑選，其他語言顯示英文）"
+    ],
+    "req.price": [
+     "免費"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新公告"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新紀錄"
+    ],
+    "changelog.lead": [
+     "每一版改了什麼。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "常見問題"
+    ],
+    "faq.1.q": [
+     "要錢嗎？"
+    ],
+    "faq.2.q": [
+     "收集的東西存在哪裡？",
+     "會上傳嗎？"
+    ],
+    "faq.3.q": [
+     "為什麼資料夾會「上鎖」？"
+    ],
+    "faq.4.q": [
+     "手機可以用嗎？"
+    ],
+    "faq.5.q": [
+     "要搭配哪一個 AI？"
+    ],
+    "faq.6.q": [
+     "同一頁存兩次，",
+     "會變成兩份嗎？"
+    ],
+    "faq.7.q": [
+     "遇到問題怎麼辦？"
+    ],
+    "faq.1.a": [
+     "免費。沒有付費版、沒有廣告。"
+    ],
+    "faq.2.a": [
+     "存在你自己挑的資料夾。",
+     "沒有伺服器，",
+     "作者收不到任何資料。"
+    ],
+    "faq.3.a": [
+     "閒置一陣子之後，",
+     "Chrome 會把資料夾鎖起來，",
+     "這樣擴充碰不到你的檔案。",
+     "下次要存時按一下解鎖就好 ——",
+     "那是保護，不是故障。"
+    ],
+    "faq.4.a": [
+     "不行。手機上的 Chrome",
+     "不能裝擴充，",
+     "要在電腦上的 Chrome 用。"
+    ],
+    "faq.5.a": [
+     "任何讀得到你電腦上資料夾的",
+     "AI agent 都可以，",
+     "例如 Claude Code、Codex、",
+     "Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "不會。同一頁再存一次，",
+     "是更新原本那一份；",
+     "內容沒變就只會說「已存過」。"
+    ],
+    "faq.7.a": [
+     "按側邊欄頂部的聽診器圖示",
+     "（遇到問題），",
+     "它會當場檢查一遍，",
+     "告訴你哪裡壞了、該按哪一顆。",
+     "也可以把檢查結果",
+     "組成一封信寄給作者 ——",
+     "寄不寄由你。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "在 AI 時代，我關心的不只是效率，",
+     "而是人如何用科技找到",
+     "新的任務、新的入口，",
+     "以及新的連結。"
+    ],
+    "author.bio.2": [
+     "我分享 AI、互動體驗、",
+     "場域數位化、",
+     "小公司放大術與產品創作。"
+    ],
+    "author.blog": [
+     "到部落格看更多"
+    ],
+    "foot.brand": [
+     "靈感收集器"
+    ],
+    "foot.line": [
+     "把網頁收成 AI 讀得懂的素材庫。"
+    ],
+    "foot.product": [
+     "產品"
+    ],
+    "foot.help": [
+     "幫助"
+    ],
+    "foot.store": [
+     "Chrome 線上應用程式商店"
+    ],
+    "foot.tutorial": [
+     "教學影片"
+    ],
+    "foot.changelog": [
+     "更新紀錄"
+    ],
+    "foot.privacy": [
+     "隱私條款"
+    ],
+    "foot.faq": [
+     "常見問題"
+    ],
+    "foot.report": [
+     "回報問題"
+    ],
+    "foot.blog": [
+     "部落格"
+    ],
+    "foot.affiliation": [
+     "本擴充與 OpenAI、Anthropic、",
+     "Perplexity",
+     "沒有任何隸屬關係。"
+    ],
+    "foot.analytics": [
+     "這個網站用 GoatCounter",
+     "計算瀏覽人次，",
+     "不用 cookie、不記錄個人資料；",
+     "擴充本身沒有任何追蹤。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "320": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "支援什麼裝置"
+    ],
+    "devices.lead": [
+     "桌機版 Chrome 就能用。",
+     "手機、iPad、Android 平板不行 ——",
+     "上面的 Chrome 不能裝擴充。"
+    ],
+    "devices.win": [
+     "Windows 電腦"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "手機、iPad、Android 平板"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "桌機版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "桌機版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "上面的 Chrome 都不能裝擴充"
+    ],
+    "devices.other.why": [
+     "這個擴充只上架在",
+     "Chrome 線上應用程式商店"
+    ],
+    "devices.tested": [
+     "已實測"
+    ],
+    "devices.tested#2": [
+     "已實測"
+    ],
+    "req.browser.label": [
+     "瀏覽器"
+    ],
+    "req.ai.label": [
+     "AI 網站"
+    ],
+    "req.web.label": [
+     "一般網頁"
+    ],
+    "req.lang.label": [
+     "介面語言"
+    ],
+    "req.price.label": [
+     "費用"
+    ],
+    "req.browser": [
+     "桌機版 Chrome（請更新到最新版）"
+    ],
+    "req.ai": [
+     "ChatGPT、Claude、Perplexity：",
+     "存一則回覆、存整段對話；",
+     "存檔案只有 ChatGPT"
+    ],
+    "req.web": [
+     "一般網站都能存整頁、選取的文字、圖片"
+    ],
+    "req.lang": [
+     "繁體中文、English、日本語",
+     "（自動挑選，其他語言顯示英文）"
+    ],
+    "req.price": [
+     "免費"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新公告"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新紀錄"
+    ],
+    "changelog.lead": [
+     "每一版改了什麼。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "常見問題"
+    ],
+    "faq.1.q": [
+     "要錢嗎？"
+    ],
+    "faq.2.q": [
+     "收集的東西存在哪裡？",
+     "會上傳嗎？"
+    ],
+    "faq.3.q": [
+     "為什麼資料夾會「上鎖」？"
+    ],
+    "faq.4.q": [
+     "手機可以用嗎？"
+    ],
+    "faq.5.q": [
+     "要搭配哪一個 AI？"
+    ],
+    "faq.6.q": [
+     "同一頁存兩次，會變成兩份嗎？"
+    ],
+    "faq.7.q": [
+     "遇到問題怎麼辦？"
+    ],
+    "faq.1.a": [
+     "免費。沒有付費版、沒有廣告。"
+    ],
+    "faq.2.a": [
+     "存在你自己挑的資料夾。",
+     "沒有伺服器，作者收不到任何資料。"
+    ],
+    "faq.3.a": [
+     "閒置一陣子之後，",
+     "Chrome 會把資料夾鎖起來，",
+     "這樣擴充碰不到你的檔案。",
+     "下次要存時按一下解鎖就好 ——",
+     "那是保護，不是故障。"
+    ],
+    "faq.4.a": [
+     "不行。手機上的 Chrome 不能裝擴充，",
+     "要在電腦上的 Chrome 用。"
+    ],
+    "faq.5.a": [
+     "任何讀得到你電腦上資料夾的",
+     "AI agent 都可以，",
+     "例如 Claude Code、Codex、",
+     "Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "不會。同一頁再存一次，",
+     "是更新原本那一份；",
+     "內容沒變就只會說「已存過」。"
+    ],
+    "faq.7.a": [
+     "按側邊欄頂部的聽診器圖示",
+     "（遇到問題），",
+     "它會當場檢查一遍，",
+     "告訴你哪裡壞了、該按哪一顆。",
+     "也可以把檢查結果",
+     "組成一封信寄給作者 —— 寄不寄由你。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "在 AI 時代，我關心的不只是效率，",
+     "而是人如何用科技找到",
+     "新的任務、新的入口，以及新的連結。"
+    ],
+    "author.bio.2": [
+     "我分享 AI、互動體驗、場域數位化、",
+     "小公司放大術與產品創作。"
+    ],
+    "author.blog": [
+     "到部落格看更多"
+    ],
+    "foot.brand": [
+     "靈感收集器"
+    ],
+    "foot.line": [
+     "把網頁收成 AI 讀得懂的素材庫。"
+    ],
+    "foot.product": [
+     "產品"
+    ],
+    "foot.help": [
+     "幫助"
+    ],
+    "foot.store": [
+     "Chrome 線上應用程式商店"
+    ],
+    "foot.tutorial": [
+     "教學影片"
+    ],
+    "foot.changelog": [
+     "更新紀錄"
+    ],
+    "foot.privacy": [
+     "隱私條款"
+    ],
+    "foot.faq": [
+     "常見問題"
+    ],
+    "foot.report": [
+     "回報問題"
+    ],
+    "foot.blog": [
+     "部落格"
+    ],
+    "foot.affiliation": [
+     "本擴充與 OpenAI、Anthropic、Perplexity",
+     "沒有任何隸屬關係。"
+    ],
+    "foot.analytics": [
+     "這個網站用 GoatCounter 計算瀏覽人次，",
+     "不用 cookie、不記錄個人資料；",
+     "擴充本身沒有任何追蹤。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "360": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "支援什麼裝置"
+    ],
+    "devices.lead": [
+     "桌機版 Chrome 就能用。",
+     "手機、iPad、Android 平板不行 ——",
+     "上面的 Chrome 不能裝擴充。"
+    ],
+    "devices.win": [
+     "Windows 電腦"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "手機、iPad、Android 平板"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "桌機版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "桌機版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "上面的 Chrome 都不能裝擴充"
+    ],
+    "devices.other.why": [
+     "這個擴充只上架在",
+     "Chrome 線上應用程式商店"
+    ],
+    "devices.tested": [
+     "已實測"
+    ],
+    "devices.tested#2": [
+     "已實測"
+    ],
+    "req.browser.label": [
+     "瀏覽器"
+    ],
+    "req.ai.label": [
+     "AI 網站"
+    ],
+    "req.web.label": [
+     "一般網頁"
+    ],
+    "req.lang.label": [
+     "介面語言"
+    ],
+    "req.price.label": [
+     "費用"
+    ],
+    "req.browser": [
+     "桌機版 Chrome（請更新到最新版）"
+    ],
+    "req.ai": [
+     "ChatGPT、Claude、Perplexity：",
+     "存一則回覆、存整段對話；存檔案只有 ChatGPT"
+    ],
+    "req.web": [
+     "一般網站都能存整頁、選取的文字、圖片"
+    ],
+    "req.lang": [
+     "繁體中文、English、日本語",
+     "（自動挑選，其他語言顯示英文）"
+    ],
+    "req.price": [
+     "免費"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新公告"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新紀錄"
+    ],
+    "changelog.lead": [
+     "每一版改了什麼。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "常見問題"
+    ],
+    "faq.1.q": [
+     "要錢嗎？"
+    ],
+    "faq.2.q": [
+     "收集的東西存在哪裡？會上傳嗎？"
+    ],
+    "faq.3.q": [
+     "為什麼資料夾會「上鎖」？"
+    ],
+    "faq.4.q": [
+     "手機可以用嗎？"
+    ],
+    "faq.5.q": [
+     "要搭配哪一個 AI？"
+    ],
+    "faq.6.q": [
+     "同一頁存兩次，會變成兩份嗎？"
+    ],
+    "faq.7.q": [
+     "遇到問題怎麼辦？"
+    ],
+    "faq.1.a": [
+     "免費。沒有付費版、沒有廣告。"
+    ],
+    "faq.2.a": [
+     "存在你自己挑的資料夾。",
+     "沒有伺服器，作者收不到任何資料。"
+    ],
+    "faq.3.a": [
+     "閒置一陣子之後，",
+     "Chrome 會把資料夾鎖起來，",
+     "這樣擴充碰不到你的檔案。",
+     "下次要存時按一下解鎖就好 ——",
+     "那是保護，不是故障。"
+    ],
+    "faq.4.a": [
+     "不行。手機上的 Chrome 不能裝擴充，",
+     "要在電腦上的 Chrome 用。"
+    ],
+    "faq.5.a": [
+     "任何讀得到你電腦上資料夾的",
+     "AI agent 都可以，",
+     "例如 Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "不會。同一頁再存一次，是更新原本那一份；",
+     "內容沒變就只會說「已存過」。"
+    ],
+    "faq.7.a": [
+     "按側邊欄頂部的聽診器圖示（遇到問題），",
+     "它會當場檢查一遍，",
+     "告訴你哪裡壞了、該按哪一顆。",
+     "也可以把檢查結果組成一封信寄給作者 ——",
+     "寄不寄由你。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "在 AI 時代，我關心的不只是效率，",
+     "而是人如何用科技找到新的任務、新的入口，",
+     "以及新的連結。"
+    ],
+    "author.bio.2": [
+     "我分享 AI、互動體驗、場域數位化、",
+     "小公司放大術與產品創作。"
+    ],
+    "author.blog": [
+     "到部落格看更多"
+    ],
+    "foot.brand": [
+     "靈感收集器"
+    ],
+    "foot.line": [
+     "把網頁收成 AI 讀得懂的素材庫。"
+    ],
+    "foot.product": [
+     "產品"
+    ],
+    "foot.help": [
+     "幫助"
+    ],
+    "foot.store": [
+     "Chrome 線上應用程式商店"
+    ],
+    "foot.tutorial": [
+     "教學影片"
+    ],
+    "foot.changelog": [
+     "更新紀錄"
+    ],
+    "foot.privacy": [
+     "隱私條款"
+    ],
+    "foot.faq": [
+     "常見問題"
+    ],
+    "foot.report": [
+     "回報問題"
+    ],
+    "foot.blog": [
+     "部落格"
+    ],
+    "foot.affiliation": [
+     "本擴充與 OpenAI、Anthropic、Perplexity",
+     "沒有任何隸屬關係。"
+    ],
+    "foot.analytics": [
+     "這個網站用 GoatCounter 計算瀏覽人次，",
+     "不用 cookie、不記錄個人資料；",
+     "擴充本身沒有任何追蹤。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "375": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "支援什麼裝置"
+    ],
+    "devices.lead": [
+     "桌機版 Chrome 就能用。",
+     "手機、iPad、Android 平板不行 ——",
+     "上面的 Chrome 不能裝擴充。"
+    ],
+    "devices.win": [
+     "Windows 電腦"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "手機、iPad、Android 平板"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "桌機版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "桌機版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "上面的 Chrome 都不能裝擴充"
+    ],
+    "devices.other.why": [
+     "這個擴充只上架在",
+     "Chrome 線上應用程式商店"
+    ],
+    "devices.tested": [
+     "已實測"
+    ],
+    "devices.tested#2": [
+     "已實測"
+    ],
+    "req.browser.label": [
+     "瀏覽器"
+    ],
+    "req.ai.label": [
+     "AI 網站"
+    ],
+    "req.web.label": [
+     "一般網頁"
+    ],
+    "req.lang.label": [
+     "介面語言"
+    ],
+    "req.price.label": [
+     "費用"
+    ],
+    "req.browser": [
+     "桌機版 Chrome（請更新到最新版）"
+    ],
+    "req.ai": [
+     "ChatGPT、Claude、Perplexity：",
+     "存一則回覆、存整段對話；存檔案只有 ChatGPT"
+    ],
+    "req.web": [
+     "一般網站都能存整頁、選取的文字、圖片"
+    ],
+    "req.lang": [
+     "繁體中文、English、日本語",
+     "（自動挑選，其他語言顯示英文）"
+    ],
+    "req.price": [
+     "免費"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新公告"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新紀錄"
+    ],
+    "changelog.lead": [
+     "每一版改了什麼。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "常見問題"
+    ],
+    "faq.1.q": [
+     "要錢嗎？"
+    ],
+    "faq.2.q": [
+     "收集的東西存在哪裡？會上傳嗎？"
+    ],
+    "faq.3.q": [
+     "為什麼資料夾會「上鎖」？"
+    ],
+    "faq.4.q": [
+     "手機可以用嗎？"
+    ],
+    "faq.5.q": [
+     "要搭配哪一個 AI？"
+    ],
+    "faq.6.q": [
+     "同一頁存兩次，會變成兩份嗎？"
+    ],
+    "faq.7.q": [
+     "遇到問題怎麼辦？"
+    ],
+    "faq.1.a": [
+     "免費。沒有付費版、沒有廣告。"
+    ],
+    "faq.2.a": [
+     "存在你自己挑的資料夾。",
+     "沒有伺服器，作者收不到任何資料。"
+    ],
+    "faq.3.a": [
+     "閒置一陣子之後，Chrome 會把資料夾鎖起來，",
+     "這樣擴充碰不到你的檔案。",
+     "下次要存時按一下解鎖就好 ——",
+     "那是保護，不是故障。"
+    ],
+    "faq.4.a": [
+     "不行。手機上的 Chrome 不能裝擴充，",
+     "要在電腦上的 Chrome 用。"
+    ],
+    "faq.5.a": [
+     "任何讀得到你電腦上資料夾的 AI agent 都可以，",
+     "例如 Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "不會。同一頁再存一次，是更新原本那一份；",
+     "內容沒變就只會說「已存過」。"
+    ],
+    "faq.7.a": [
+     "按側邊欄頂部的聽診器圖示（遇到問題），",
+     "它會當場檢查一遍，",
+     "告訴你哪裡壞了、該按哪一顆。",
+     "也可以把檢查結果組成一封信寄給作者 ——",
+     "寄不寄由你。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "在 AI 時代，我關心的不只是效率，",
+     "而是人如何用科技找到新的任務、新的入口，",
+     "以及新的連結。"
+    ],
+    "author.bio.2": [
+     "我分享 AI、互動體驗、場域數位化、",
+     "小公司放大術與產品創作。"
+    ],
+    "author.blog": [
+     "到部落格看更多"
+    ],
+    "foot.brand": [
+     "靈感收集器"
+    ],
+    "foot.line": [
+     "把網頁收成 AI 讀得懂的素材庫。"
+    ],
+    "foot.product": [
+     "產品"
+    ],
+    "foot.help": [
+     "幫助"
+    ],
+    "foot.store": [
+     "Chrome 線上應用程式商店"
+    ],
+    "foot.tutorial": [
+     "教學影片"
+    ],
+    "foot.changelog": [
+     "更新紀錄"
+    ],
+    "foot.privacy": [
+     "隱私條款"
+    ],
+    "foot.faq": [
+     "常見問題"
+    ],
+    "foot.report": [
+     "回報問題"
+    ],
+    "foot.blog": [
+     "部落格"
+    ],
+    "foot.affiliation": [
+     "本擴充與 OpenAI、Anthropic、Perplexity",
+     "沒有任何隸屬關係。"
+    ],
+    "foot.analytics": [
+     "這個網站用 GoatCounter 計算瀏覽人次，",
+     "不用 cookie、不記錄個人資料；",
+     "擴充本身沒有任何追蹤。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "390": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "支援什麼裝置"
+    ],
+    "devices.lead": [
+     "桌機版 Chrome 就能用。",
+     "手機、iPad、Android 平板不行 ——",
+     "上面的 Chrome 不能裝擴充。"
+    ],
+    "devices.win": [
+     "Windows 電腦"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "手機、iPad、Android 平板"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "桌機版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "桌機版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "上面的 Chrome 都不能裝擴充"
+    ],
+    "devices.other.why": [
+     "這個擴充只上架在 Chrome 線上應用程式商店"
+    ],
+    "devices.tested": [
+     "已實測"
+    ],
+    "devices.tested#2": [
+     "已實測"
+    ],
+    "req.browser.label": [
+     "瀏覽器"
+    ],
+    "req.ai.label": [
+     "AI 網站"
+    ],
+    "req.web.label": [
+     "一般網頁"
+    ],
+    "req.lang.label": [
+     "介面語言"
+    ],
+    "req.price.label": [
+     "費用"
+    ],
+    "req.browser": [
+     "桌機版 Chrome（請更新到最新版）"
+    ],
+    "req.ai": [
+     "ChatGPT、Claude、Perplexity：",
+     "存一則回覆、存整段對話；存檔案只有 ChatGPT"
+    ],
+    "req.web": [
+     "一般網站都能存整頁、選取的文字、圖片"
+    ],
+    "req.lang": [
+     "繁體中文、English、日本語",
+     "（自動挑選，其他語言顯示英文）"
+    ],
+    "req.price": [
+     "免費"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新公告"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新紀錄"
+    ],
+    "changelog.lead": [
+     "每一版改了什麼。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "常見問題"
+    ],
+    "faq.1.q": [
+     "要錢嗎？"
+    ],
+    "faq.2.q": [
+     "收集的東西存在哪裡？會上傳嗎？"
+    ],
+    "faq.3.q": [
+     "為什麼資料夾會「上鎖」？"
+    ],
+    "faq.4.q": [
+     "手機可以用嗎？"
+    ],
+    "faq.5.q": [
+     "要搭配哪一個 AI？"
+    ],
+    "faq.6.q": [
+     "同一頁存兩次，會變成兩份嗎？"
+    ],
+    "faq.7.q": [
+     "遇到問題怎麼辦？"
+    ],
+    "faq.1.a": [
+     "免費。沒有付費版、沒有廣告。"
+    ],
+    "faq.2.a": [
+     "存在你自己挑的資料夾。",
+     "沒有伺服器，作者收不到任何資料。"
+    ],
+    "faq.3.a": [
+     "閒置一陣子之後，Chrome 會把資料夾鎖起來，",
+     "這樣擴充碰不到你的檔案。",
+     "下次要存時按一下解鎖就好 ——",
+     "那是保護，不是故障。"
+    ],
+    "faq.4.a": [
+     "不行。手機上的 Chrome 不能裝擴充，",
+     "要在電腦上的 Chrome 用。"
+    ],
+    "faq.5.a": [
+     "任何讀得到你電腦上資料夾的 AI agent 都可以，",
+     "例如 Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "不會。同一頁再存一次，是更新原本那一份；",
+     "內容沒變就只會說「已存過」。"
+    ],
+    "faq.7.a": [
+     "按側邊欄頂部的聽診器圖示（遇到問題），",
+     "它會當場檢查一遍，",
+     "告訴你哪裡壞了、該按哪一顆。",
+     "也可以把檢查結果組成一封信寄給作者 ——",
+     "寄不寄由你。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "在 AI 時代，我關心的不只是效率，",
+     "而是人如何用科技找到新的任務、新的入口，",
+     "以及新的連結。"
+    ],
+    "author.bio.2": [
+     "我分享 AI、互動體驗、場域數位化、",
+     "小公司放大術與產品創作。"
+    ],
+    "author.blog": [
+     "到部落格看更多"
+    ],
+    "foot.brand": [
+     "靈感收集器"
+    ],
+    "foot.line": [
+     "把網頁收成 AI 讀得懂的素材庫。"
+    ],
+    "foot.product": [
+     "產品"
+    ],
+    "foot.help": [
+     "幫助"
+    ],
+    "foot.store": [
+     "Chrome 線上應用程式商店"
+    ],
+    "foot.tutorial": [
+     "教學影片"
+    ],
+    "foot.changelog": [
+     "更新紀錄"
+    ],
+    "foot.privacy": [
+     "隱私條款"
+    ],
+    "foot.faq": [
+     "常見問題"
+    ],
+    "foot.report": [
+     "回報問題"
+    ],
+    "foot.blog": [
+     "部落格"
+    ],
+    "foot.affiliation": [
+     "本擴充與 OpenAI、Anthropic、Perplexity",
+     "沒有任何隸屬關係。"
+    ],
+    "foot.analytics": [
+     "這個網站用 GoatCounter 計算瀏覽人次，",
+     "不用 cookie、不記錄個人資料；",
+     "擴充本身沒有任何追蹤。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "414": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "支援什麼裝置"
+    ],
+    "devices.lead": [
+     "桌機版 Chrome 就能用。",
+     "手機、iPad、Android 平板不行 ——",
+     "上面的 Chrome 不能裝擴充。"
+    ],
+    "devices.win": [
+     "Windows 電腦"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "手機、iPad、Android 平板"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "桌機版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "桌機版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "上面的 Chrome 都不能裝擴充"
+    ],
+    "devices.other.why": [
+     "這個擴充只上架在 Chrome 線上應用程式商店"
+    ],
+    "devices.tested": [
+     "已實測"
+    ],
+    "devices.tested#2": [
+     "已實測"
+    ],
+    "req.browser.label": [
+     "瀏覽器"
+    ],
+    "req.ai.label": [
+     "AI 網站"
+    ],
+    "req.web.label": [
+     "一般網頁"
+    ],
+    "req.lang.label": [
+     "介面語言"
+    ],
+    "req.price.label": [
+     "費用"
+    ],
+    "req.browser": [
+     "桌機版 Chrome（請更新到最新版）"
+    ],
+    "req.ai": [
+     "ChatGPT、Claude、Perplexity：",
+     "存一則回覆、存整段對話；存檔案只有 ChatGPT"
+    ],
+    "req.web": [
+     "一般網站都能存整頁、選取的文字、圖片"
+    ],
+    "req.lang": [
+     "繁體中文、English、日本語",
+     "（自動挑選，其他語言顯示英文）"
+    ],
+    "req.price": [
+     "免費"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新公告"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新紀錄"
+    ],
+    "changelog.lead": [
+     "每一版改了什麼。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "常見問題"
+    ],
+    "faq.1.q": [
+     "要錢嗎？"
+    ],
+    "faq.2.q": [
+     "收集的東西存在哪裡？會上傳嗎？"
+    ],
+    "faq.3.q": [
+     "為什麼資料夾會「上鎖」？"
+    ],
+    "faq.4.q": [
+     "手機可以用嗎？"
+    ],
+    "faq.5.q": [
+     "要搭配哪一個 AI？"
+    ],
+    "faq.6.q": [
+     "同一頁存兩次，會變成兩份嗎？"
+    ],
+    "faq.7.q": [
+     "遇到問題怎麼辦？"
+    ],
+    "faq.1.a": [
+     "免費。沒有付費版、沒有廣告。"
+    ],
+    "faq.2.a": [
+     "存在你自己挑的資料夾。",
+     "沒有伺服器，作者收不到任何資料。"
+    ],
+    "faq.3.a": [
+     "閒置一陣子之後，Chrome 會把資料夾鎖起來，",
+     "這樣擴充碰不到你的檔案。",
+     "下次要存時按一下解鎖就好 ——",
+     "那是保護，不是故障。"
+    ],
+    "faq.4.a": [
+     "不行。手機上的 Chrome 不能裝擴充，",
+     "要在電腦上的 Chrome 用。"
+    ],
+    "faq.5.a": [
+     "任何讀得到你電腦上資料夾的 AI agent 都可以，",
+     "例如 Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "不會。同一頁再存一次，是更新原本那一份；",
+     "內容沒變就只會說「已存過」。"
+    ],
+    "faq.7.a": [
+     "按側邊欄頂部的聽診器圖示（遇到問題），",
+     "它會當場檢查一遍，告訴你哪裡壞了、該按哪一顆。",
+     "也可以把檢查結果組成一封信寄給作者 ——",
+     "寄不寄由你。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "在 AI 時代，我關心的不只是效率，",
+     "而是人如何用科技找到新的任務、新的入口，",
+     "以及新的連結。"
+    ],
+    "author.bio.2": [
+     "我分享 AI、互動體驗、場域數位化、",
+     "小公司放大術與產品創作。"
+    ],
+    "author.blog": [
+     "到部落格看更多"
+    ],
+    "foot.brand": [
+     "靈感收集器"
+    ],
+    "foot.line": [
+     "把網頁收成 AI 讀得懂的素材庫。"
+    ],
+    "foot.product": [
+     "產品"
+    ],
+    "foot.help": [
+     "幫助"
+    ],
+    "foot.store": [
+     "Chrome 線上應用程式商店"
+    ],
+    "foot.tutorial": [
+     "教學影片"
+    ],
+    "foot.changelog": [
+     "更新紀錄"
+    ],
+    "foot.privacy": [
+     "隱私條款"
+    ],
+    "foot.faq": [
+     "常見問題"
+    ],
+    "foot.report": [
+     "回報問題"
+    ],
+    "foot.blog": [
+     "部落格"
+    ],
+    "foot.affiliation": [
+     "本擴充與 OpenAI、Anthropic、Perplexity",
+     "沒有任何隸屬關係。"
+    ],
+    "foot.analytics": [
+     "這個網站用 GoatCounter 計算瀏覽人次，",
+     "不用 cookie、不記錄個人資料；",
+     "擴充本身沒有任何追蹤。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "430": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "支援什麼裝置"
+    ],
+    "devices.lead": [
+     "桌機版 Chrome 就能用。",
+     "手機、iPad、Android 平板不行 ——",
+     "上面的 Chrome 不能裝擴充。"
+    ],
+    "devices.win": [
+     "Windows 電腦"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "手機、iPad、Android 平板"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "桌機版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "桌機版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "上面的 Chrome 都不能裝擴充"
+    ],
+    "devices.other.why": [
+     "這個擴充只上架在 Chrome 線上應用程式商店"
+    ],
+    "devices.tested": [
+     "已實測"
+    ],
+    "devices.tested#2": [
+     "已實測"
+    ],
+    "req.browser.label": [
+     "瀏覽器"
+    ],
+    "req.ai.label": [
+     "AI 網站"
+    ],
+    "req.web.label": [
+     "一般網頁"
+    ],
+    "req.lang.label": [
+     "介面語言"
+    ],
+    "req.price.label": [
+     "費用"
+    ],
+    "req.browser": [
+     "桌機版 Chrome（請更新到最新版）"
+    ],
+    "req.ai": [
+     "ChatGPT、Claude、Perplexity：",
+     "存一則回覆、存整段對話；存檔案只有 ChatGPT"
+    ],
+    "req.web": [
+     "一般網站都能存整頁、選取的文字、圖片"
+    ],
+    "req.lang": [
+     "繁體中文、English、日本語",
+     "（自動挑選，其他語言顯示英文）"
+    ],
+    "req.price": [
+     "免費"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新公告"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新紀錄"
+    ],
+    "changelog.lead": [
+     "每一版改了什麼。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "常見問題"
+    ],
+    "faq.1.q": [
+     "要錢嗎？"
+    ],
+    "faq.2.q": [
+     "收集的東西存在哪裡？會上傳嗎？"
+    ],
+    "faq.3.q": [
+     "為什麼資料夾會「上鎖」？"
+    ],
+    "faq.4.q": [
+     "手機可以用嗎？"
+    ],
+    "faq.5.q": [
+     "要搭配哪一個 AI？"
+    ],
+    "faq.6.q": [
+     "同一頁存兩次，會變成兩份嗎？"
+    ],
+    "faq.7.q": [
+     "遇到問題怎麼辦？"
+    ],
+    "faq.1.a": [
+     "免費。沒有付費版、沒有廣告。"
+    ],
+    "faq.2.a": [
+     "存在你自己挑的資料夾。",
+     "沒有伺服器，作者收不到任何資料。"
+    ],
+    "faq.3.a": [
+     "閒置一陣子之後，Chrome 會把資料夾鎖起來，",
+     "這樣擴充碰不到你的檔案。",
+     "下次要存時按一下解鎖就好 —— 那是保護，不是故障。"
+    ],
+    "faq.4.a": [
+     "不行。手機上的 Chrome 不能裝擴充，",
+     "要在電腦上的 Chrome 用。"
+    ],
+    "faq.5.a": [
+     "任何讀得到你電腦上資料夾的 AI agent 都可以，",
+     "例如 Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "不會。同一頁再存一次，是更新原本那一份；",
+     "內容沒變就只會說「已存過」。"
+    ],
+    "faq.7.a": [
+     "按側邊欄頂部的聽診器圖示（遇到問題），",
+     "它會當場檢查一遍，告訴你哪裡壞了、該按哪一顆。",
+     "也可以把檢查結果組成一封信寄給作者 ——",
+     "寄不寄由你。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "在 AI 時代，我關心的不只是效率，",
+     "而是人如何用科技找到新的任務、新的入口，",
+     "以及新的連結。"
+    ],
+    "author.bio.2": [
+     "我分享 AI、互動體驗、場域數位化、",
+     "小公司放大術與產品創作。"
+    ],
+    "author.blog": [
+     "到部落格看更多"
+    ],
+    "foot.brand": [
+     "靈感收集器"
+    ],
+    "foot.line": [
+     "把網頁收成 AI 讀得懂的素材庫。"
+    ],
+    "foot.product": [
+     "產品"
+    ],
+    "foot.help": [
+     "幫助"
+    ],
+    "foot.store": [
+     "Chrome 線上應用程式商店"
+    ],
+    "foot.tutorial": [
+     "教學影片"
+    ],
+    "foot.changelog": [
+     "更新紀錄"
+    ],
+    "foot.privacy": [
+     "隱私條款"
+    ],
+    "foot.faq": [
+     "常見問題"
+    ],
+    "foot.report": [
+     "回報問題"
+    ],
+    "foot.blog": [
+     "部落格"
+    ],
+    "foot.affiliation": [
+     "本擴充與 OpenAI、Anthropic、Perplexity",
+     "沒有任何隸屬關係。"
+    ],
+    "foot.analytics": [
+     "這個網站用 GoatCounter 計算瀏覽人次，",
+     "不用 cookie、不記錄個人資料；",
+     "擴充本身沒有任何追蹤。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "640": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "支援什麼裝置"
+    ],
+    "devices.lead": [
+     "桌機版 Chrome 就能用。",
+     "手機、iPad、Android 平板不行 ——",
+     "上面的 Chrome 不能裝擴充。"
+    ],
+    "devices.win": [
+     "Windows 電腦"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "手機、iPad、",
+     "Android 平板"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "桌機版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "桌機版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "上面的 Chrome 都不能裝擴充"
+    ],
+    "devices.other.why": [
+     "這個擴充只上架在",
+     "Chrome 線上應用程式商店"
+    ],
+    "devices.tested": [
+     "已實測"
+    ],
+    "devices.tested#2": [
+     "已實測"
+    ],
+    "req.browser.label": [
+     "瀏覽器"
+    ],
+    "req.ai.label": [
+     "AI 網站"
+    ],
+    "req.web.label": [
+     "一般網頁"
+    ],
+    "req.lang.label": [
+     "介面語言"
+    ],
+    "req.price.label": [
+     "費用"
+    ],
+    "req.browser": [
+     "桌機版 Chrome（請更新到最新版）"
+    ],
+    "req.ai": [
+     "ChatGPT、Claude、Perplexity：",
+     "存一則回覆、存整段對話；存檔案只有 ChatGPT"
+    ],
+    "req.web": [
+     "一般網站都能存整頁、選取的文字、圖片"
+    ],
+    "req.lang": [
+     "繁體中文、English、日本語",
+     "（自動挑選，其他語言顯示英文）"
+    ],
+    "req.price": [
+     "免費"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新公告"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新紀錄"
+    ],
+    "changelog.lead": [
+     "每一版改了什麼。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "常見問題"
+    ],
+    "faq.1.q": [
+     "要錢嗎？"
+    ],
+    "faq.2.q": [
+     "收集的東西存在哪裡？會上傳嗎？"
+    ],
+    "faq.3.q": [
+     "為什麼資料夾會「上鎖」？"
+    ],
+    "faq.4.q": [
+     "手機可以用嗎？"
+    ],
+    "faq.5.q": [
+     "要搭配哪一個 AI？"
+    ],
+    "faq.6.q": [
+     "同一頁存兩次，會變成兩份嗎？"
+    ],
+    "faq.7.q": [
+     "遇到問題怎麼辦？"
+    ],
+    "faq.1.a": [
+     "免費。沒有付費版、沒有廣告。"
+    ],
+    "faq.2.a": [
+     "存在你自己挑的資料夾。",
+     "沒有伺服器，作者收不到任何資料。"
+    ],
+    "faq.3.a": [
+     "閒置一陣子之後，Chrome 會把資料夾鎖起來，",
+     "這樣擴充碰不到你的檔案。",
+     "下次要存時按一下解鎖就好 —— 那是保護，不是故障。"
+    ],
+    "faq.4.a": [
+     "不行。手機上的 Chrome 不能裝擴充，",
+     "要在電腦上的 Chrome 用。"
+    ],
+    "faq.5.a": [
+     "任何讀得到你電腦上資料夾的 AI agent 都可以，",
+     "例如 Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "不會。同一頁再存一次，是更新原本那一份；",
+     "內容沒變就只會說「已存過」。"
+    ],
+    "faq.7.a": [
+     "按側邊欄頂部的聽診器圖示（遇到問題），",
+     "它會當場檢查一遍，告訴你哪裡壞了、該按哪一顆。",
+     "也可以把檢查結果組成一封信寄給作者 ——",
+     "寄不寄由你。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "在 AI 時代，我關心的不只是效率，",
+     "而是人如何用科技找到新的任務、新的入口，",
+     "以及新的連結。"
+    ],
+    "author.bio.2": [
+     "我分享 AI、互動體驗、場域數位化、",
+     "小公司放大術與產品創作。"
+    ],
+    "author.blog": [
+     "到部落格看更多"
+    ],
+    "foot.brand": [
+     "靈感收集器"
+    ],
+    "foot.line": [
+     "把網頁收成 AI 讀得懂的素材庫。"
+    ],
+    "foot.product": [
+     "產品"
+    ],
+    "foot.help": [
+     "幫助"
+    ],
+    "foot.store": [
+     "Chrome 線上應用程式商店"
+    ],
+    "foot.tutorial": [
+     "教學影片"
+    ],
+    "foot.changelog": [
+     "更新紀錄"
+    ],
+    "foot.privacy": [
+     "隱私條款"
+    ],
+    "foot.faq": [
+     "常見問題"
+    ],
+    "foot.report": [
+     "回報問題"
+    ],
+    "foot.blog": [
+     "部落格"
+    ],
+    "foot.affiliation": [
+     "本擴充與 OpenAI、Anthropic、Perplexity",
+     "沒有任何隸屬關係。"
+    ],
+    "foot.analytics": [
+     "這個網站用 GoatCounter 計算瀏覽人次，",
+     "不用 cookie、不記錄個人資料；",
+     "擴充本身沒有任何追蹤。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "768": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "支援什麼裝置"
+    ],
+    "devices.lead": [
+     "桌機版 Chrome 就能用。",
+     "手機、iPad、Android 平板不行 ——",
+     "上面的 Chrome 不能裝擴充。"
+    ],
+    "devices.win": [
+     "Windows 電腦"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "手機、iPad、Android 平板"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "桌機版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "桌機版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "上面的 Chrome 都不能裝擴充"
+    ],
+    "devices.other.why": [
+     "這個擴充只上架在",
+     "Chrome 線上應用程式商店"
+    ],
+    "devices.tested": [
+     "已實測"
+    ],
+    "devices.tested#2": [
+     "已實測"
+    ],
+    "req.browser.label": [
+     "瀏覽器"
+    ],
+    "req.ai.label": [
+     "AI 網站"
+    ],
+    "req.web.label": [
+     "一般網頁"
+    ],
+    "req.lang.label": [
+     "介面語言"
+    ],
+    "req.price.label": [
+     "費用"
+    ],
+    "req.browser": [
+     "桌機版 Chrome（請更新到最新版）"
+    ],
+    "req.ai": [
+     "ChatGPT、Claude、Perplexity：",
+     "存一則回覆、存整段對話；存檔案只有 ChatGPT"
+    ],
+    "req.web": [
+     "一般網站都能存整頁、選取的文字、圖片"
+    ],
+    "req.lang": [
+     "繁體中文、English、日本語",
+     "（自動挑選，其他語言顯示英文）"
+    ],
+    "req.price": [
+     "免費"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新公告"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新紀錄"
+    ],
+    "changelog.lead": [
+     "每一版改了什麼。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "常見問題"
+    ],
+    "faq.1.q": [
+     "要錢嗎？"
+    ],
+    "faq.2.q": [
+     "收集的東西存在哪裡？會上傳嗎？"
+    ],
+    "faq.3.q": [
+     "為什麼資料夾會「上鎖」？"
+    ],
+    "faq.4.q": [
+     "手機可以用嗎？"
+    ],
+    "faq.5.q": [
+     "要搭配哪一個 AI？"
+    ],
+    "faq.6.q": [
+     "同一頁存兩次，會變成兩份嗎？"
+    ],
+    "faq.7.q": [
+     "遇到問題怎麼辦？"
+    ],
+    "faq.1.a": [
+     "免費。沒有付費版、沒有廣告。"
+    ],
+    "faq.2.a": [
+     "存在你自己挑的資料夾。",
+     "沒有伺服器，作者收不到任何資料。"
+    ],
+    "faq.3.a": [
+     "閒置一陣子之後，Chrome 會把資料夾鎖起來，",
+     "這樣擴充碰不到你的檔案。",
+     "下次要存時按一下解鎖就好 —— 那是保護，不是故障。"
+    ],
+    "faq.4.a": [
+     "不行。手機上的 Chrome 不能裝擴充，",
+     "要在電腦上的 Chrome 用。"
+    ],
+    "faq.5.a": [
+     "任何讀得到你電腦上資料夾的 AI agent 都可以，",
+     "例如 Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "不會。同一頁再存一次，是更新原本那一份；",
+     "內容沒變就只會說「已存過」。"
+    ],
+    "faq.7.a": [
+     "按側邊欄頂部的聽診器圖示（遇到問題），",
+     "它會當場檢查一遍，告訴你哪裡壞了、該按哪一顆。",
+     "也可以把檢查結果組成一封信寄給作者 ——",
+     "寄不寄由你。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "在 AI 時代，我關心的不只是效率，",
+     "而是人如何用科技找到新的任務、新的入口，",
+     "以及新的連結。"
+    ],
+    "author.bio.2": [
+     "我分享 AI、互動體驗、場域數位化、",
+     "小公司放大術與產品創作。"
+    ],
+    "author.blog": [
+     "到部落格看更多"
+    ],
+    "foot.brand": [
+     "靈感收集器"
+    ],
+    "foot.line": [
+     "把網頁收成 AI 讀得懂的素材庫。"
+    ],
+    "foot.product": [
+     "產品"
+    ],
+    "foot.help": [
+     "幫助"
+    ],
+    "foot.store": [
+     "Chrome 線上應用程式商店"
+    ],
+    "foot.tutorial": [
+     "教學影片"
+    ],
+    "foot.changelog": [
+     "更新紀錄"
+    ],
+    "foot.privacy": [
+     "隱私條款"
+    ],
+    "foot.faq": [
+     "常見問題"
+    ],
+    "foot.report": [
+     "回報問題"
+    ],
+    "foot.blog": [
+     "部落格"
+    ],
+    "foot.affiliation": [
+     "本擴充與 OpenAI、Anthropic、Perplexity",
+     "沒有任何隸屬關係。"
+    ],
+    "foot.analytics": [
+     "這個網站用 GoatCounter 計算瀏覽人次，",
+     "不用 cookie、不記錄個人資料；",
+     "擴充本身沒有任何追蹤。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "1024": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "支援什麼裝置"
+    ],
+    "devices.lead": [
+     "桌機版 Chrome 就能用。",
+     "手機、iPad、Android 平板不行 ——",
+     "上面的 Chrome 不能裝擴充。"
+    ],
+    "devices.win": [
+     "Windows 電腦"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "手機、iPad、Android 平板"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "桌機版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "桌機版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "上面的 Chrome 都不能裝擴充"
+    ],
+    "devices.other.why": [
+     "這個擴充只上架在 Chrome 線上應用程式商店"
+    ],
+    "devices.tested": [
+     "已實測"
+    ],
+    "devices.tested#2": [
+     "已實測"
+    ],
+    "req.browser.label": [
+     "瀏覽器"
+    ],
+    "req.ai.label": [
+     "AI 網站"
+    ],
+    "req.web.label": [
+     "一般網頁"
+    ],
+    "req.lang.label": [
+     "介面語言"
+    ],
+    "req.price.label": [
+     "費用"
+    ],
+    "req.browser": [
+     "桌機版 Chrome（請更新到最新版）"
+    ],
+    "req.ai": [
+     "ChatGPT、Claude、Perplexity：",
+     "存一則回覆、存整段對話；存檔案只有 ChatGPT"
+    ],
+    "req.web": [
+     "一般網站都能存整頁、選取的文字、圖片"
+    ],
+    "req.lang": [
+     "繁體中文、English、日本語",
+     "（自動挑選，其他語言顯示英文）"
+    ],
+    "req.price": [
+     "免費"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新公告"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新紀錄"
+    ],
+    "changelog.lead": [
+     "每一版改了什麼。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "常見問題"
+    ],
+    "faq.1.q": [
+     "要錢嗎？"
+    ],
+    "faq.2.q": [
+     "收集的東西存在哪裡？會上傳嗎？"
+    ],
+    "faq.3.q": [
+     "為什麼資料夾會「上鎖」？"
+    ],
+    "faq.4.q": [
+     "手機可以用嗎？"
+    ],
+    "faq.5.q": [
+     "要搭配哪一個 AI？"
+    ],
+    "faq.6.q": [
+     "同一頁存兩次，會變成兩份嗎？"
+    ],
+    "faq.7.q": [
+     "遇到問題怎麼辦？"
+    ],
+    "faq.1.a": [
+     "免費。沒有付費版、沒有廣告。"
+    ],
+    "faq.2.a": [
+     "存在你自己挑的資料夾。",
+     "沒有伺服器，作者收不到任何資料。"
+    ],
+    "faq.3.a": [
+     "閒置一陣子之後，Chrome 會把資料夾鎖起來，",
+     "這樣擴充碰不到你的檔案。",
+     "下次要存時按一下解鎖就好 —— 那是保護，不是故障。"
+    ],
+    "faq.4.a": [
+     "不行。手機上的 Chrome 不能裝擴充，",
+     "要在電腦上的 Chrome 用。"
+    ],
+    "faq.5.a": [
+     "任何讀得到你電腦上資料夾的 AI agent 都可以，",
+     "例如 Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "不會。同一頁再存一次，是更新原本那一份；",
+     "內容沒變就只會說「已存過」。"
+    ],
+    "faq.7.a": [
+     "按側邊欄頂部的聽診器圖示（遇到問題），",
+     "它會當場檢查一遍，告訴你哪裡壞了、該按哪一顆。",
+     "也可以把檢查結果組成一封信寄給作者 ——",
+     "寄不寄由你。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "在 AI 時代，我關心的不只是效率，",
+     "而是人如何用科技找到新的任務、新的入口，",
+     "以及新的連結。"
+    ],
+    "author.bio.2": [
+     "我分享 AI、互動體驗、場域數位化、",
+     "小公司放大術與產品創作。"
+    ],
+    "author.blog": [
+     "到部落格看更多"
+    ],
+    "foot.brand": [
+     "靈感收集器"
+    ],
+    "foot.line": [
+     "把網頁收成 AI 讀得懂的素材庫。"
+    ],
+    "foot.product": [
+     "產品"
+    ],
+    "foot.help": [
+     "幫助"
+    ],
+    "foot.store": [
+     "Chrome 線上應用程式商店"
+    ],
+    "foot.tutorial": [
+     "教學影片"
+    ],
+    "foot.changelog": [
+     "更新紀錄"
+    ],
+    "foot.privacy": [
+     "隱私條款"
+    ],
+    "foot.faq": [
+     "常見問題"
+    ],
+    "foot.report": [
+     "回報問題"
+    ],
+    "foot.blog": [
+     "部落格"
+    ],
+    "foot.affiliation": [
+     "本擴充與 OpenAI、Anthropic、Perplexity",
+     "沒有任何隸屬關係。"
+    ],
+    "foot.analytics": [
+     "這個網站用 GoatCounter 計算瀏覽人次，",
+     "不用 cookie、不記錄個人資料；",
+     "擴充本身沒有任何追蹤。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "1280": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "支援什麼裝置"
+    ],
+    "devices.lead": [
+     "桌機版 Chrome 就能用。",
+     "手機、iPad、Android 平板不行 ——",
+     "上面的 Chrome 不能裝擴充。"
+    ],
+    "devices.win": [
+     "Windows 電腦"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "手機、iPad、Android 平板"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "桌機版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "桌機版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "上面的 Chrome 都不能裝擴充"
+    ],
+    "devices.other.why": [
+     "這個擴充只上架在",
+     "Chrome 線上應用程式商店"
+    ],
+    "devices.tested": [
+     "已實測"
+    ],
+    "devices.tested#2": [
+     "已實測"
+    ],
+    "req.browser.label": [
+     "瀏覽器"
+    ],
+    "req.ai.label": [
+     "AI 網站"
+    ],
+    "req.web.label": [
+     "一般網頁"
+    ],
+    "req.lang.label": [
+     "介面語言"
+    ],
+    "req.price.label": [
+     "費用"
+    ],
+    "req.browser": [
+     "桌機版 Chrome（請更新到最新版）"
+    ],
+    "req.ai": [
+     "ChatGPT、Claude、Perplexity：",
+     "存一則回覆、存整段對話；存檔案只有 ChatGPT"
+    ],
+    "req.web": [
+     "一般網站都能存整頁、選取的文字、圖片"
+    ],
+    "req.lang": [
+     "繁體中文、English、日本語",
+     "（自動挑選，其他語言顯示英文）"
+    ],
+    "req.price": [
+     "免費"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新公告"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新紀錄"
+    ],
+    "changelog.lead": [
+     "每一版改了什麼。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "常見問題"
+    ],
+    "faq.1.q": [
+     "要錢嗎？"
+    ],
+    "faq.2.q": [
+     "收集的東西存在哪裡？會上傳嗎？"
+    ],
+    "faq.3.q": [
+     "為什麼資料夾會「上鎖」？"
+    ],
+    "faq.4.q": [
+     "手機可以用嗎？"
+    ],
+    "faq.5.q": [
+     "要搭配哪一個 AI？"
+    ],
+    "faq.6.q": [
+     "同一頁存兩次，會變成兩份嗎？"
+    ],
+    "faq.7.q": [
+     "遇到問題怎麼辦？"
+    ],
+    "faq.1.a": [
+     "免費。沒有付費版、沒有廣告。"
+    ],
+    "faq.2.a": [
+     "存在你自己挑的資料夾。",
+     "沒有伺服器，作者收不到任何資料。"
+    ],
+    "faq.3.a": [
+     "閒置一陣子之後，Chrome 會把資料夾鎖起來，",
+     "這樣擴充碰不到你的檔案。",
+     "下次要存時按一下解鎖就好 —— 那是保護，不是故障。"
+    ],
+    "faq.4.a": [
+     "不行。手機上的 Chrome 不能裝擴充，",
+     "要在電腦上的 Chrome 用。"
+    ],
+    "faq.5.a": [
+     "任何讀得到你電腦上資料夾的 AI agent 都可以，",
+     "例如 Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "不會。同一頁再存一次，是更新原本那一份；",
+     "內容沒變就只會說「已存過」。"
+    ],
+    "faq.7.a": [
+     "按側邊欄頂部的聽診器圖示（遇到問題），",
+     "它會當場檢查一遍，告訴你哪裡壞了、該按哪一顆。",
+     "也可以把檢查結果組成一封信寄給作者 ——",
+     "寄不寄由你。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "在 AI 時代，我關心的不只是效率，",
+     "而是人如何用科技找到新的任務、新的入口，",
+     "以及新的連結。"
+    ],
+    "author.bio.2": [
+     "我分享 AI、互動體驗、場域數位化、",
+     "小公司放大術與產品創作。"
+    ],
+    "author.blog": [
+     "到部落格看更多"
+    ],
+    "foot.brand": [
+     "靈感收集器"
+    ],
+    "foot.line": [
+     "把網頁收成 AI 讀得懂的素材庫。"
+    ],
+    "foot.product": [
+     "產品"
+    ],
+    "foot.help": [
+     "幫助"
+    ],
+    "foot.store": [
+     "Chrome 線上應用程式商店"
+    ],
+    "foot.tutorial": [
+     "教學影片"
+    ],
+    "foot.changelog": [
+     "更新紀錄"
+    ],
+    "foot.privacy": [
+     "隱私條款"
+    ],
+    "foot.faq": [
+     "常見問題"
+    ],
+    "foot.report": [
+     "回報問題"
+    ],
+    "foot.blog": [
+     "部落格"
+    ],
+    "foot.affiliation": [
+     "本擴充與 OpenAI、Anthropic、Perplexity",
+     "沒有任何隸屬關係。"
+    ],
+    "foot.analytics": [
+     "這個網站用 GoatCounter 計算瀏覽人次，",
+     "不用 cookie、不記錄個人資料；",
+     "擴充本身沒有任何追蹤。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "1440": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "支援什麼裝置"
+    ],
+    "devices.lead": [
+     "桌機版 Chrome 就能用。",
+     "手機、iPad、Android 平板不行 ——",
+     "上面的 Chrome 不能裝擴充。"
+    ],
+    "devices.win": [
+     "Windows 電腦"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "手機、iPad、Android 平板"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "桌機版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "桌機版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "上面的 Chrome 都不能裝擴充"
+    ],
+    "devices.other.why": [
+     "這個擴充只上架在",
+     "Chrome 線上應用程式商店"
+    ],
+    "devices.tested": [
+     "已實測"
+    ],
+    "devices.tested#2": [
+     "已實測"
+    ],
+    "req.browser.label": [
+     "瀏覽器"
+    ],
+    "req.ai.label": [
+     "AI 網站"
+    ],
+    "req.web.label": [
+     "一般網頁"
+    ],
+    "req.lang.label": [
+     "介面語言"
+    ],
+    "req.price.label": [
+     "費用"
+    ],
+    "req.browser": [
+     "桌機版 Chrome（請更新到最新版）"
+    ],
+    "req.ai": [
+     "ChatGPT、Claude、Perplexity：",
+     "存一則回覆、存整段對話；存檔案只有 ChatGPT"
+    ],
+    "req.web": [
+     "一般網站都能存整頁、選取的文字、圖片"
+    ],
+    "req.lang": [
+     "繁體中文、English、日本語",
+     "（自動挑選，其他語言顯示英文）"
+    ],
+    "req.price": [
+     "免費"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新公告"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新紀錄"
+    ],
+    "changelog.lead": [
+     "每一版改了什麼。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "常見問題"
+    ],
+    "faq.1.q": [
+     "要錢嗎？"
+    ],
+    "faq.2.q": [
+     "收集的東西存在哪裡？會上傳嗎？"
+    ],
+    "faq.3.q": [
+     "為什麼資料夾會「上鎖」？"
+    ],
+    "faq.4.q": [
+     "手機可以用嗎？"
+    ],
+    "faq.5.q": [
+     "要搭配哪一個 AI？"
+    ],
+    "faq.6.q": [
+     "同一頁存兩次，會變成兩份嗎？"
+    ],
+    "faq.7.q": [
+     "遇到問題怎麼辦？"
+    ],
+    "faq.1.a": [
+     "免費。沒有付費版、沒有廣告。"
+    ],
+    "faq.2.a": [
+     "存在你自己挑的資料夾。",
+     "沒有伺服器，作者收不到任何資料。"
+    ],
+    "faq.3.a": [
+     "閒置一陣子之後，Chrome 會把資料夾鎖起來，",
+     "這樣擴充碰不到你的檔案。",
+     "下次要存時按一下解鎖就好 —— 那是保護，不是故障。"
+    ],
+    "faq.4.a": [
+     "不行。手機上的 Chrome 不能裝擴充，",
+     "要在電腦上的 Chrome 用。"
+    ],
+    "faq.5.a": [
+     "任何讀得到你電腦上資料夾的 AI agent 都可以，",
+     "例如 Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "不會。同一頁再存一次，是更新原本那一份；",
+     "內容沒變就只會說「已存過」。"
+    ],
+    "faq.7.a": [
+     "按側邊欄頂部的聽診器圖示（遇到問題），",
+     "它會當場檢查一遍，告訴你哪裡壞了、該按哪一顆。",
+     "也可以把檢查結果組成一封信寄給作者 ——",
+     "寄不寄由你。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "在 AI 時代，我關心的不只是效率，",
+     "而是人如何用科技找到新的任務、新的入口，",
+     "以及新的連結。"
+    ],
+    "author.bio.2": [
+     "我分享 AI、互動體驗、場域數位化、",
+     "小公司放大術與產品創作。"
+    ],
+    "author.blog": [
+     "到部落格看更多"
+    ],
+    "foot.brand": [
+     "靈感收集器"
+    ],
+    "foot.line": [
+     "把網頁收成 AI 讀得懂的素材庫。"
+    ],
+    "foot.product": [
+     "產品"
+    ],
+    "foot.help": [
+     "幫助"
+    ],
+    "foot.store": [
+     "Chrome 線上應用程式商店"
+    ],
+    "foot.tutorial": [
+     "教學影片"
+    ],
+    "foot.changelog": [
+     "更新紀錄"
+    ],
+    "foot.privacy": [
+     "隱私條款"
+    ],
+    "foot.faq": [
+     "常見問題"
+    ],
+    "foot.report": [
+     "回報問題"
+    ],
+    "foot.blog": [
+     "部落格"
+    ],
+    "foot.affiliation": [
+     "本擴充與 OpenAI、Anthropic、Perplexity",
+     "沒有任何隸屬關係。"
+    ],
+    "foot.analytics": [
+     "這個網站用 GoatCounter 計算瀏覽人次，",
+     "不用 cookie、不記錄個人資料；",
+     "擴充本身沒有任何追蹤。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   }
+  },
+  "en": {
+   "280": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "What it runs on"
+    ],
+    "devices.lead": [
+     "It works in desktop Chrome.",
+     "Not on phones, iPad",
+     "or Android tablets:",
+     "Chrome there",
+     "can’t install extensions."
+    ],
+    "devices.win": [
+     "Windows PC"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "Phones, iPad,",
+     "Android tablets"
+    ],
+    "devices.other": [
+     "Firefox, Safari"
+    ],
+    "devices.chrome": [
+     "Desktop Chrome"
+    ],
+    "devices.chrome#2": [
+     "Desktop Chrome"
+    ],
+    "devices.mobile.why": [
+     "Chrome on these",
+     "can’t install extensions"
+    ],
+    "devices.other.why": [
+     "This extension is only",
+     "on the Chrome Web Store"
+    ],
+    "devices.tested": [
+     "Tested"
+    ],
+    "devices.tested#2": [
+     "Tested"
+    ],
+    "req.browser.label": [
+     "Browser"
+    ],
+    "req.ai.label": [
+     "AI sites"
+    ],
+    "req.web.label": [
+     "Other websites"
+    ],
+    "req.lang.label": [
+     "Interface language"
+    ],
+    "req.price.label": [
+     "Price"
+    ],
+    "req.browser": [
+     "Desktop Chrome (keep it up to date)"
+    ],
+    "req.ai": [
+     "ChatGPT, Claude, Perplexity:",
+     "save one reply or a whole chat.",
+     "“Files” works on ChatGPT only"
+    ],
+    "req.web": [
+     "On ordinary websites:",
+     "whole pages, selected text",
+     "and images"
+    ],
+    "req.lang": [
+     "Traditional Chinese,",
+     "English, Japanese",
+     "(chosen automatically;",
+     "any other language shows English)"
+    ],
+    "req.price": [
+     "Free"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "Latest news"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "Release notes"
+    ],
+    "changelog.lead": [
+     "What changed in each version."
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "Questions",
+     "and answers"
+    ],
+    "faq.1.q": [
+     "Does it cost anything?"
+    ],
+    "faq.2.q": [
+     "Where is everything",
+     "saved?",
+     "Is it uploaded?"
+    ],
+    "faq.3.q": [
+     "Why does the folder",
+     "get “locked”?"
+    ],
+    "faq.4.q": [
+     "Can I use it",
+     "on my phone?"
+    ],
+    "faq.5.q": [
+     "Which AI",
+     "does it work with?"
+    ],
+    "faq.6.q": [
+     "If I save the same page",
+     "twice,",
+     "do I get two copies?"
+    ],
+    "faq.7.q": [
+     "Something’s not",
+     "working.",
+     "What do I do?"
+    ],
+    "faq.1.a": [
+     "No, it’s free.",
+     "There’s no paid version",
+     "and no ads."
+    ],
+    "faq.2.a": [
+     "In a folder you choose yourself.",
+     "There’s no server,",
+     "so the author never",
+     "receives any of it."
+    ],
+    "faq.3.a": [
+     "After a while idle,",
+     "Chrome locks the folder",
+     "so the extension can’t",
+     "touch your files.",
+     "Next time you save,",
+     "click “Unlock folder”.",
+     "That’s the protection working,",
+     "not a bug."
+    ],
+    "faq.4.a": [
+     "No. Chrome on phones",
+     "can’t install extensions, so use it",
+     "in Chrome on your computer."
+    ],
+    "faq.5.a": [
+     "Any AI agent",
+     "that can read a folder",
+     "on your computer,",
+     "such as Claude Code, Codex",
+     "or Gemini CLI."
+    ],
+    "faq.6.a": [
+     "No. Saving the same page again",
+     "updates the copy",
+     "you already have;",
+     "if nothing changed,",
+     "it just says “Already saved”."
+    ],
+    "faq.7.a": [
+     "Click the stethoscope icon",
+     "(“Get help”) at the top",
+     "of the side panel.",
+     "It checks everything on the spot",
+     "and tells you what’s wrong",
+     "and which button to press.",
+     "It can also put the results",
+     "into an email to the author.",
+     "Whether to send it is up to you."
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "In the age of AI,",
+     "I care about more than",
+     "efficiency:",
+     "I care about how people use",
+     "technology",
+     "to find new missions,",
+     "new doorways",
+     "and new connections."
+    ],
+    "author.bio.2": [
+     "I write about AI,",
+     "interactive experiences,",
+     "bringing physical spaces online,",
+     "helping small companies",
+     "punch above their weight,",
+     "and making products."
+    ],
+    "author.blog": [
+     "More on the blog"
+    ],
+    "foot.brand": [
+     "Inspiration Collector"
+    ],
+    "foot.line": [
+     "Turn the web into",
+     "material your AI can read."
+    ],
+    "foot.product": [
+     "Product"
+    ],
+    "foot.help": [
+     "Help"
+    ],
+    "foot.store": [
+     "Chrome Web Store"
+    ],
+    "foot.tutorial": [
+     "Tutorial"
+    ],
+    "foot.changelog": [
+     "Changelog"
+    ],
+    "foot.privacy": [
+     "Privacy policy"
+    ],
+    "foot.faq": [
+     "FAQ"
+    ],
+    "foot.report": [
+     "Report a problem"
+    ],
+    "foot.blog": [
+     "Blog"
+    ],
+    "foot.affiliation": [
+     "This extension is not affiliated",
+     "with OpenAI, Anthropic or Perplexity."
+    ],
+    "foot.analytics": [
+     "This website counts visits",
+     "with GoatCounter, with no cookies",
+     "and no personal data.",
+     "The extension itself",
+     "has no tracking at all."
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "320": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "What it runs on"
+    ],
+    "devices.lead": [
+     "It works in desktop Chrome.",
+     "Not on phones, iPad",
+     "or Android tablets:",
+     "Chrome there can’t install extensions."
+    ],
+    "devices.win": [
+     "Windows PC"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "Phones, iPad,",
+     "Android tablets"
+    ],
+    "devices.other": [
+     "Firefox, Safari"
+    ],
+    "devices.chrome": [
+     "Desktop Chrome"
+    ],
+    "devices.chrome#2": [
+     "Desktop Chrome"
+    ],
+    "devices.mobile.why": [
+     "Chrome on these",
+     "can’t install extensions"
+    ],
+    "devices.other.why": [
+     "This extension is only",
+     "on the Chrome Web Store"
+    ],
+    "devices.tested": [
+     "Tested"
+    ],
+    "devices.tested#2": [
+     "Tested"
+    ],
+    "req.browser.label": [
+     "Browser"
+    ],
+    "req.ai.label": [
+     "AI sites"
+    ],
+    "req.web.label": [
+     "Other websites"
+    ],
+    "req.lang.label": [
+     "Interface language"
+    ],
+    "req.price.label": [
+     "Price"
+    ],
+    "req.browser": [
+     "Desktop Chrome (keep it up to date)"
+    ],
+    "req.ai": [
+     "ChatGPT, Claude, Perplexity:",
+     "save one reply or a whole chat.",
+     "“Files” works on ChatGPT only"
+    ],
+    "req.web": [
+     "On ordinary websites:",
+     "whole pages, selected text and images"
+    ],
+    "req.lang": [
+     "Traditional Chinese, English, Japanese",
+     "(chosen automatically;",
+     "any other language shows English)"
+    ],
+    "req.price": [
+     "Free"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "Latest news"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "Release notes"
+    ],
+    "changelog.lead": [
+     "What changed in each version."
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "Questions",
+     "and answers"
+    ],
+    "faq.1.q": [
+     "Does it cost anything?"
+    ],
+    "faq.2.q": [
+     "Where is everything saved?",
+     "Is it uploaded?"
+    ],
+    "faq.3.q": [
+     "Why does the folder",
+     "get “locked”?"
+    ],
+    "faq.4.q": [
+     "Can I use it on my phone?"
+    ],
+    "faq.5.q": [
+     "Which AI does it work with?"
+    ],
+    "faq.6.q": [
+     "If I save the same page twice,",
+     "do I get two copies?"
+    ],
+    "faq.7.q": [
+     "Something’s not working.",
+     "What do I do?"
+    ],
+    "faq.1.a": [
+     "No, it’s free.",
+     "There’s no paid version and no ads."
+    ],
+    "faq.2.a": [
+     "In a folder you choose yourself.",
+     "There’s no server, so the author never",
+     "receives any of it."
+    ],
+    "faq.3.a": [
+     "After a while idle,",
+     "Chrome locks the folder",
+     "so the extension can’t touch your files.",
+     "Next time you save,",
+     "click “Unlock folder”.",
+     "That’s the protection working,",
+     "not a bug."
+    ],
+    "faq.4.a": [
+     "No. Chrome on phones",
+     "can’t install extensions, so use it",
+     "in Chrome on your computer."
+    ],
+    "faq.5.a": [
+     "Any AI agent that can read a folder",
+     "on your computer,",
+     "such as Claude Code, Codex",
+     "or Gemini CLI."
+    ],
+    "faq.6.a": [
+     "No. Saving the same page again",
+     "updates the copy you already have;",
+     "if nothing changed,",
+     "it just says “Already saved”."
+    ],
+    "faq.7.a": [
+     "Click the stethoscope icon",
+     "(“Get help”) at the top",
+     "of the side panel.",
+     "It checks everything on the spot",
+     "and tells you what’s wrong",
+     "and which button to press.",
+     "It can also put the results",
+     "into an email to the author.",
+     "Whether to send it is up to you."
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "In the age of AI,",
+     "I care about more than efficiency:",
+     "I care about how people use",
+     "technology",
+     "to find new missions, new doorways",
+     "and new connections."
+    ],
+    "author.bio.2": [
+     "I write about AI,",
+     "interactive experiences,",
+     "bringing physical spaces online,",
+     "helping small companies",
+     "punch above their weight,",
+     "and making products."
+    ],
+    "author.blog": [
+     "More on the blog"
+    ],
+    "foot.brand": [
+     "Inspiration Collector"
+    ],
+    "foot.line": [
+     "Turn the web into",
+     "material your AI can read."
+    ],
+    "foot.product": [
+     "Product"
+    ],
+    "foot.help": [
+     "Help"
+    ],
+    "foot.store": [
+     "Chrome Web Store"
+    ],
+    "foot.tutorial": [
+     "Tutorial"
+    ],
+    "foot.changelog": [
+     "Changelog"
+    ],
+    "foot.privacy": [
+     "Privacy policy"
+    ],
+    "foot.faq": [
+     "FAQ"
+    ],
+    "foot.report": [
+     "Report a problem"
+    ],
+    "foot.blog": [
+     "Blog"
+    ],
+    "foot.affiliation": [
+     "This extension is not affiliated",
+     "with OpenAI, Anthropic or Perplexity."
+    ],
+    "foot.analytics": [
+     "This website counts visits",
+     "with GoatCounter, with no cookies",
+     "and no personal data.",
+     "The extension itself has no tracking at all."
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "360": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "What it runs on"
+    ],
+    "devices.lead": [
+     "It works in desktop Chrome.",
+     "Not on phones, iPad or Android tablets:",
+     "Chrome there can’t install extensions."
+    ],
+    "devices.win": [
+     "Windows PC"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "Phones, iPad, Android tablets"
+    ],
+    "devices.other": [
+     "Firefox, Safari"
+    ],
+    "devices.chrome": [
+     "Desktop Chrome"
+    ],
+    "devices.chrome#2": [
+     "Desktop Chrome"
+    ],
+    "devices.mobile.why": [
+     "Chrome on these",
+     "can’t install extensions"
+    ],
+    "devices.other.why": [
+     "This extension is only",
+     "on the Chrome Web Store"
+    ],
+    "devices.tested": [
+     "Tested"
+    ],
+    "devices.tested#2": [
+     "Tested"
+    ],
+    "req.browser.label": [
+     "Browser"
+    ],
+    "req.ai.label": [
+     "AI sites"
+    ],
+    "req.web.label": [
+     "Other websites"
+    ],
+    "req.lang.label": [
+     "Interface language"
+    ],
+    "req.price.label": [
+     "Price"
+    ],
+    "req.browser": [
+     "Desktop Chrome (keep it up to date)"
+    ],
+    "req.ai": [
+     "ChatGPT, Claude, Perplexity:",
+     "save one reply or a whole chat.",
+     "“Files” works on ChatGPT only"
+    ],
+    "req.web": [
+     "On ordinary websites:",
+     "whole pages, selected text and images"
+    ],
+    "req.lang": [
+     "Traditional Chinese, English, Japanese",
+     "(chosen automatically;",
+     "any other language shows English)"
+    ],
+    "req.price": [
+     "Free"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "Latest news"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "Release notes"
+    ],
+    "changelog.lead": [
+     "What changed in each version."
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "Questions",
+     "and answers"
+    ],
+    "faq.1.q": [
+     "Does it cost anything?"
+    ],
+    "faq.2.q": [
+     "Where is everything saved?",
+     "Is it uploaded?"
+    ],
+    "faq.3.q": [
+     "Why does the folder get “locked”?"
+    ],
+    "faq.4.q": [
+     "Can I use it on my phone?"
+    ],
+    "faq.5.q": [
+     "Which AI does it work with?"
+    ],
+    "faq.6.q": [
+     "If I save the same page twice,",
+     "do I get two copies?"
+    ],
+    "faq.7.q": [
+     "Something’s not working.",
+     "What do I do?"
+    ],
+    "faq.1.a": [
+     "No, it’s free.",
+     "There’s no paid version and no ads."
+    ],
+    "faq.2.a": [
+     "In a folder you choose yourself.",
+     "There’s no server, so the author never",
+     "receives any of it."
+    ],
+    "faq.3.a": [
+     "After a while idle, Chrome locks the folder",
+     "so the extension can’t touch your files.",
+     "Next time you save, click “Unlock folder”.",
+     "That’s the protection working, not a bug."
+    ],
+    "faq.4.a": [
+     "No. Chrome on phones",
+     "can’t install extensions, so use it",
+     "in Chrome on your computer."
+    ],
+    "faq.5.a": [
+     "Any AI agent that can read a folder",
+     "on your computer,",
+     "such as Claude Code, Codex or Gemini CLI."
+    ],
+    "faq.6.a": [
+     "No. Saving the same page again",
+     "updates the copy you already have;",
+     "if nothing changed,",
+     "it just says “Already saved”."
+    ],
+    "faq.7.a": [
+     "Click the stethoscope icon",
+     "(“Get help”) at the top of the side panel.",
+     "It checks everything on the spot",
+     "and tells you what’s wrong",
+     "and which button to press.",
+     "It can also put the results",
+     "into an email to the author.",
+     "Whether to send it is up to you."
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "In the age of AI,",
+     "I care about more than efficiency:",
+     "I care about how people use technology",
+     "to find new missions, new doorways",
+     "and new connections."
+    ],
+    "author.bio.2": [
+     "I write about AI, interactive experiences,",
+     "bringing physical spaces online,",
+     "helping small companies",
+     "punch above their weight,",
+     "and making products."
+    ],
+    "author.blog": [
+     "More on the blog"
+    ],
+    "foot.brand": [
+     "Inspiration Collector"
+    ],
+    "foot.line": [
+     "Turn the web into material your AI can read."
+    ],
+    "foot.product": [
+     "Product"
+    ],
+    "foot.help": [
+     "Help"
+    ],
+    "foot.store": [
+     "Chrome Web Store"
+    ],
+    "foot.tutorial": [
+     "Tutorial"
+    ],
+    "foot.changelog": [
+     "Changelog"
+    ],
+    "foot.privacy": [
+     "Privacy policy"
+    ],
+    "foot.faq": [
+     "FAQ"
+    ],
+    "foot.report": [
+     "Report a problem"
+    ],
+    "foot.blog": [
+     "Blog"
+    ],
+    "foot.affiliation": [
+     "This extension is not affiliated",
+     "with OpenAI, Anthropic or Perplexity."
+    ],
+    "foot.analytics": [
+     "This website counts visits with GoatCounter,",
+     "with no cookies and no personal data.",
+     "The extension itself has no tracking at all."
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "375": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "What it runs on"
+    ],
+    "devices.lead": [
+     "It works in desktop Chrome.",
+     "Not on phones, iPad or Android tablets:",
+     "Chrome there can’t install extensions."
+    ],
+    "devices.win": [
+     "Windows PC"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "Phones, iPad, Android tablets"
+    ],
+    "devices.other": [
+     "Firefox, Safari"
+    ],
+    "devices.chrome": [
+     "Desktop Chrome"
+    ],
+    "devices.chrome#2": [
+     "Desktop Chrome"
+    ],
+    "devices.mobile.why": [
+     "Chrome on these can’t install extensions"
+    ],
+    "devices.other.why": [
+     "This extension is only",
+     "on the Chrome Web Store"
+    ],
+    "devices.tested": [
+     "Tested"
+    ],
+    "devices.tested#2": [
+     "Tested"
+    ],
+    "req.browser.label": [
+     "Browser"
+    ],
+    "req.ai.label": [
+     "AI sites"
+    ],
+    "req.web.label": [
+     "Other websites"
+    ],
+    "req.lang.label": [
+     "Interface language"
+    ],
+    "req.price.label": [
+     "Price"
+    ],
+    "req.browser": [
+     "Desktop Chrome (keep it up to date)"
+    ],
+    "req.ai": [
+     "ChatGPT, Claude, Perplexity:",
+     "save one reply or a whole chat.",
+     "“Files” works on ChatGPT only"
+    ],
+    "req.web": [
+     "On ordinary websites:",
+     "whole pages, selected text and images"
+    ],
+    "req.lang": [
+     "Traditional Chinese, English, Japanese",
+     "(chosen automatically;",
+     "any other language shows English)"
+    ],
+    "req.price": [
+     "Free"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "Latest news"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "Release notes"
+    ],
+    "changelog.lead": [
+     "What changed in each version."
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "Questions",
+     "and answers"
+    ],
+    "faq.1.q": [
+     "Does it cost anything?"
+    ],
+    "faq.2.q": [
+     "Where is everything saved?",
+     "Is it uploaded?"
+    ],
+    "faq.3.q": [
+     "Why does the folder get “locked”?"
+    ],
+    "faq.4.q": [
+     "Can I use it on my phone?"
+    ],
+    "faq.5.q": [
+     "Which AI does it work with?"
+    ],
+    "faq.6.q": [
+     "If I save the same page twice,",
+     "do I get two copies?"
+    ],
+    "faq.7.q": [
+     "Something’s not working.",
+     "What do I do?"
+    ],
+    "faq.1.a": [
+     "No, it’s free.",
+     "There’s no paid version and no ads."
+    ],
+    "faq.2.a": [
+     "In a folder you choose yourself.",
+     "There’s no server, so the author never",
+     "receives any of it."
+    ],
+    "faq.3.a": [
+     "After a while idle, Chrome locks the folder",
+     "so the extension can’t touch your files.",
+     "Next time you save, click “Unlock folder”.",
+     "That’s the protection working, not a bug."
+    ],
+    "faq.4.a": [
+     "No. Chrome on phones",
+     "can’t install extensions, so use it",
+     "in Chrome on your computer."
+    ],
+    "faq.5.a": [
+     "Any AI agent that can read a folder",
+     "on your computer,",
+     "such as Claude Code, Codex or Gemini CLI."
+    ],
+    "faq.6.a": [
+     "No. Saving the same page again",
+     "updates the copy you already have;",
+     "if nothing changed,",
+     "it just says “Already saved”."
+    ],
+    "faq.7.a": [
+     "Click the stethoscope icon",
+     "(“Get help”) at the top of the side panel.",
+     "It checks everything on the spot",
+     "and tells you what’s wrong",
+     "and which button to press.",
+     "It can also put the results",
+     "into an email to the author.",
+     "Whether to send it is up to you."
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "In the age of AI,",
+     "I care about more than efficiency:",
+     "I care about how people use technology",
+     "to find new missions, new doorways",
+     "and new connections."
+    ],
+    "author.bio.2": [
+     "I write about AI, interactive experiences,",
+     "bringing physical spaces online,",
+     "helping small companies",
+     "punch above their weight,",
+     "and making products."
+    ],
+    "author.blog": [
+     "More on the blog"
+    ],
+    "foot.brand": [
+     "Inspiration Collector"
+    ],
+    "foot.line": [
+     "Turn the web into material your AI can read."
+    ],
+    "foot.product": [
+     "Product"
+    ],
+    "foot.help": [
+     "Help"
+    ],
+    "foot.store": [
+     "Chrome Web Store"
+    ],
+    "foot.tutorial": [
+     "Tutorial"
+    ],
+    "foot.changelog": [
+     "Changelog"
+    ],
+    "foot.privacy": [
+     "Privacy policy"
+    ],
+    "foot.faq": [
+     "FAQ"
+    ],
+    "foot.report": [
+     "Report a problem"
+    ],
+    "foot.blog": [
+     "Blog"
+    ],
+    "foot.affiliation": [
+     "This extension is not affiliated",
+     "with OpenAI, Anthropic or Perplexity."
+    ],
+    "foot.analytics": [
+     "This website counts visits with GoatCounter,",
+     "with no cookies and no personal data.",
+     "The extension itself has no tracking at all."
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "390": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "What it runs on"
+    ],
+    "devices.lead": [
+     "It works in desktop Chrome.",
+     "Not on phones, iPad or Android tablets:",
+     "Chrome there can’t install extensions."
+    ],
+    "devices.win": [
+     "Windows PC"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "Phones, iPad, Android tablets"
+    ],
+    "devices.other": [
+     "Firefox, Safari"
+    ],
+    "devices.chrome": [
+     "Desktop Chrome"
+    ],
+    "devices.chrome#2": [
+     "Desktop Chrome"
+    ],
+    "devices.mobile.why": [
+     "Chrome on these can’t install extensions"
+    ],
+    "devices.other.why": [
+     "This extension is only",
+     "on the Chrome Web Store"
+    ],
+    "devices.tested": [
+     "Tested"
+    ],
+    "devices.tested#2": [
+     "Tested"
+    ],
+    "req.browser.label": [
+     "Browser"
+    ],
+    "req.ai.label": [
+     "AI sites"
+    ],
+    "req.web.label": [
+     "Other websites"
+    ],
+    "req.lang.label": [
+     "Interface language"
+    ],
+    "req.price.label": [
+     "Price"
+    ],
+    "req.browser": [
+     "Desktop Chrome (keep it up to date)"
+    ],
+    "req.ai": [
+     "ChatGPT, Claude, Perplexity:",
+     "save one reply or a whole chat.",
+     "“Files” works on ChatGPT only"
+    ],
+    "req.web": [
+     "On ordinary websites:",
+     "whole pages, selected text and images"
+    ],
+    "req.lang": [
+     "Traditional Chinese, English, Japanese",
+     "(chosen automatically;",
+     "any other language shows English)"
+    ],
+    "req.price": [
+     "Free"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "Latest news"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "Release notes"
+    ],
+    "changelog.lead": [
+     "What changed in each version."
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "Questions and answers"
+    ],
+    "faq.1.q": [
+     "Does it cost anything?"
+    ],
+    "faq.2.q": [
+     "Where is everything saved?",
+     "Is it uploaded?"
+    ],
+    "faq.3.q": [
+     "Why does the folder get “locked”?"
+    ],
+    "faq.4.q": [
+     "Can I use it on my phone?"
+    ],
+    "faq.5.q": [
+     "Which AI does it work with?"
+    ],
+    "faq.6.q": [
+     "If I save the same page twice,",
+     "do I get two copies?"
+    ],
+    "faq.7.q": [
+     "Something’s not working.",
+     "What do I do?"
+    ],
+    "faq.1.a": [
+     "No, it’s free. There’s no paid version and no ads."
+    ],
+    "faq.2.a": [
+     "In a folder you choose yourself.",
+     "There’s no server, so the author never",
+     "receives any of it."
+    ],
+    "faq.3.a": [
+     "After a while idle, Chrome locks the folder",
+     "so the extension can’t touch your files.",
+     "Next time you save, click “Unlock folder”.",
+     "That’s the protection working, not a bug."
+    ],
+    "faq.4.a": [
+     "No. Chrome on phones can’t install extensions,",
+     "so use it in Chrome on your computer."
+    ],
+    "faq.5.a": [
+     "Any AI agent that can read a folder",
+     "on your computer, such as Claude Code, Codex",
+     "or Gemini CLI."
+    ],
+    "faq.6.a": [
+     "No. Saving the same page again",
+     "updates the copy you already have;",
+     "if nothing changed, it just says “Already saved”."
+    ],
+    "faq.7.a": [
+     "Click the stethoscope icon",
+     "(“Get help”) at the top of the side panel.",
+     "It checks everything on the spot",
+     "and tells you what’s wrong",
+     "and which button to press.",
+     "It can also put the results",
+     "into an email to the author.",
+     "Whether to send it is up to you."
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "In the age of AI,",
+     "I care about more than efficiency:",
+     "I care about how people use technology",
+     "to find new missions, new doorways",
+     "and new connections."
+    ],
+    "author.bio.2": [
+     "I write about AI, interactive experiences,",
+     "bringing physical spaces online,",
+     "helping small companies",
+     "punch above their weight,",
+     "and making products."
+    ],
+    "author.blog": [
+     "More on the blog"
+    ],
+    "foot.brand": [
+     "Inspiration Collector"
+    ],
+    "foot.line": [
+     "Turn the web into material your AI can read."
+    ],
+    "foot.product": [
+     "Product"
+    ],
+    "foot.help": [
+     "Help"
+    ],
+    "foot.store": [
+     "Chrome Web Store"
+    ],
+    "foot.tutorial": [
+     "Tutorial"
+    ],
+    "foot.changelog": [
+     "Changelog"
+    ],
+    "foot.privacy": [
+     "Privacy policy"
+    ],
+    "foot.faq": [
+     "FAQ"
+    ],
+    "foot.report": [
+     "Report a problem"
+    ],
+    "foot.blog": [
+     "Blog"
+    ],
+    "foot.affiliation": [
+     "This extension is not affiliated",
+     "with OpenAI, Anthropic or Perplexity."
+    ],
+    "foot.analytics": [
+     "This website counts visits with GoatCounter,",
+     "with no cookies and no personal data.",
+     "The extension itself has no tracking at all."
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "414": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "What it runs on"
+    ],
+    "devices.lead": [
+     "It works in desktop Chrome.",
+     "Not on phones, iPad or Android tablets:",
+     "Chrome there can’t install extensions."
+    ],
+    "devices.win": [
+     "Windows PC"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "Phones, iPad, Android tablets"
+    ],
+    "devices.other": [
+     "Firefox, Safari"
+    ],
+    "devices.chrome": [
+     "Desktop Chrome"
+    ],
+    "devices.chrome#2": [
+     "Desktop Chrome"
+    ],
+    "devices.mobile.why": [
+     "Chrome on these can’t install extensions"
+    ],
+    "devices.other.why": [
+     "This extension is only on the Chrome Web Store"
+    ],
+    "devices.tested": [
+     "Tested"
+    ],
+    "devices.tested#2": [
+     "Tested"
+    ],
+    "req.browser.label": [
+     "Browser"
+    ],
+    "req.ai.label": [
+     "AI sites"
+    ],
+    "req.web.label": [
+     "Other websites"
+    ],
+    "req.lang.label": [
+     "Interface language"
+    ],
+    "req.price.label": [
+     "Price"
+    ],
+    "req.browser": [
+     "Desktop Chrome (keep it up to date)"
+    ],
+    "req.ai": [
+     "ChatGPT, Claude, Perplexity:",
+     "save one reply or a whole chat.",
+     "“Files” works on ChatGPT only"
+    ],
+    "req.web": [
+     "On ordinary websites:",
+     "whole pages, selected text and images"
+    ],
+    "req.lang": [
+     "Traditional Chinese, English, Japanese",
+     "(chosen automatically;",
+     "any other language shows English)"
+    ],
+    "req.price": [
+     "Free"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "Latest news"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "Release notes"
+    ],
+    "changelog.lead": [
+     "What changed in each version."
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "Questions and answers"
+    ],
+    "faq.1.q": [
+     "Does it cost anything?"
+    ],
+    "faq.2.q": [
+     "Where is everything saved?",
+     "Is it uploaded?"
+    ],
+    "faq.3.q": [
+     "Why does the folder get “locked”?"
+    ],
+    "faq.4.q": [
+     "Can I use it on my phone?"
+    ],
+    "faq.5.q": [
+     "Which AI does it work with?"
+    ],
+    "faq.6.q": [
+     "If I save the same page twice,",
+     "do I get two copies?"
+    ],
+    "faq.7.q": [
+     "Something’s not working. What do I do?"
+    ],
+    "faq.1.a": [
+     "No, it’s free. There’s no paid version and no ads."
+    ],
+    "faq.2.a": [
+     "In a folder you choose yourself.",
+     "There’s no server, so the author never",
+     "receives any of it."
+    ],
+    "faq.3.a": [
+     "After a while idle, Chrome locks the folder",
+     "so the extension can’t touch your files.",
+     "Next time you save, click “Unlock folder”.",
+     "That’s the protection working, not a bug."
+    ],
+    "faq.4.a": [
+     "No. Chrome on phones can’t install extensions,",
+     "so use it in Chrome on your computer."
+    ],
+    "faq.5.a": [
+     "Any AI agent that can read a folder",
+     "on your computer, such as Claude Code, Codex",
+     "or Gemini CLI."
+    ],
+    "faq.6.a": [
+     "No. Saving the same page again",
+     "updates the copy you already have;",
+     "if nothing changed, it just says “Already saved”."
+    ],
+    "faq.7.a": [
+     "Click the stethoscope icon (“Get help”) at the top",
+     "of the side panel.",
+     "It checks everything on the spot",
+     "and tells you what’s wrong",
+     "and which button to press.",
+     "It can also put the results",
+     "into an email to the author.",
+     "Whether to send it is up to you."
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "In the age of AI,",
+     "I care about more than efficiency:",
+     "I care about how people use technology",
+     "to find new missions, new doorways",
+     "and new connections."
+    ],
+    "author.bio.2": [
+     "I write about AI, interactive experiences,",
+     "bringing physical spaces online,",
+     "helping small companies",
+     "punch above their weight,",
+     "and making products."
+    ],
+    "author.blog": [
+     "More on the blog"
+    ],
+    "foot.brand": [
+     "Inspiration Collector"
+    ],
+    "foot.line": [
+     "Turn the web into material your AI can read."
+    ],
+    "foot.product": [
+     "Product"
+    ],
+    "foot.help": [
+     "Help"
+    ],
+    "foot.store": [
+     "Chrome Web Store"
+    ],
+    "foot.tutorial": [
+     "Tutorial"
+    ],
+    "foot.changelog": [
+     "Changelog"
+    ],
+    "foot.privacy": [
+     "Privacy policy"
+    ],
+    "foot.faq": [
+     "FAQ"
+    ],
+    "foot.report": [
+     "Report a problem"
+    ],
+    "foot.blog": [
+     "Blog"
+    ],
+    "foot.affiliation": [
+     "This extension is not affiliated",
+     "with OpenAI, Anthropic or Perplexity."
+    ],
+    "foot.analytics": [
+     "This website counts visits with GoatCounter,",
+     "with no cookies and no personal data.",
+     "The extension itself has no tracking at all."
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "430": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "What it runs on"
+    ],
+    "devices.lead": [
+     "It works in desktop Chrome.",
+     "Not on phones, iPad or Android tablets:",
+     "Chrome there can’t install extensions."
+    ],
+    "devices.win": [
+     "Windows PC"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "Phones, iPad, Android tablets"
+    ],
+    "devices.other": [
+     "Firefox, Safari"
+    ],
+    "devices.chrome": [
+     "Desktop Chrome"
+    ],
+    "devices.chrome#2": [
+     "Desktop Chrome"
+    ],
+    "devices.mobile.why": [
+     "Chrome on these can’t install extensions"
+    ],
+    "devices.other.why": [
+     "This extension is only on the Chrome Web Store"
+    ],
+    "devices.tested": [
+     "Tested"
+    ],
+    "devices.tested#2": [
+     "Tested"
+    ],
+    "req.browser.label": [
+     "Browser"
+    ],
+    "req.ai.label": [
+     "AI sites"
+    ],
+    "req.web.label": [
+     "Other websites"
+    ],
+    "req.lang.label": [
+     "Interface language"
+    ],
+    "req.price.label": [
+     "Price"
+    ],
+    "req.browser": [
+     "Desktop Chrome (keep it up to date)"
+    ],
+    "req.ai": [
+     "ChatGPT, Claude, Perplexity:",
+     "save one reply or a whole chat.",
+     "“Files” works on ChatGPT only"
+    ],
+    "req.web": [
+     "On ordinary websites:",
+     "whole pages, selected text and images"
+    ],
+    "req.lang": [
+     "Traditional Chinese, English, Japanese",
+     "(chosen automatically;",
+     "any other language shows English)"
+    ],
+    "req.price": [
+     "Free"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "Latest news"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "Release notes"
+    ],
+    "changelog.lead": [
+     "What changed in each version."
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "Questions and answers"
+    ],
+    "faq.1.q": [
+     "Does it cost anything?"
+    ],
+    "faq.2.q": [
+     "Where is everything saved? Is it uploaded?"
+    ],
+    "faq.3.q": [
+     "Why does the folder get “locked”?"
+    ],
+    "faq.4.q": [
+     "Can I use it on my phone?"
+    ],
+    "faq.5.q": [
+     "Which AI does it work with?"
+    ],
+    "faq.6.q": [
+     "If I save the same page twice,",
+     "do I get two copies?"
+    ],
+    "faq.7.q": [
+     "Something’s not working. What do I do?"
+    ],
+    "faq.1.a": [
+     "No, it’s free. There’s no paid version and no ads."
+    ],
+    "faq.2.a": [
+     "In a folder you choose yourself.",
+     "There’s no server, so the author never",
+     "receives any of it."
+    ],
+    "faq.3.a": [
+     "After a while idle, Chrome locks the folder",
+     "so the extension can’t touch your files.",
+     "Next time you save, click “Unlock folder”.",
+     "That’s the protection working, not a bug."
+    ],
+    "faq.4.a": [
+     "No. Chrome on phones can’t install extensions,",
+     "so use it in Chrome on your computer."
+    ],
+    "faq.5.a": [
+     "Any AI agent that can read a folder on your computer,",
+     "such as Claude Code, Codex or Gemini CLI."
+    ],
+    "faq.6.a": [
+     "No. Saving the same page again",
+     "updates the copy you already have;",
+     "if nothing changed, it just says “Already saved”."
+    ],
+    "faq.7.a": [
+     "Click the stethoscope icon (“Get help”) at the top",
+     "of the side panel.",
+     "It checks everything on the spot",
+     "and tells you what’s wrong and which button to press.",
+     "It can also put the results into an email to the author.",
+     "Whether to send it is up to you."
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "In the age of AI,",
+     "I care about more than efficiency:",
+     "I care about how people use technology",
+     "to find new missions, new doorways",
+     "and new connections."
+    ],
+    "author.bio.2": [
+     "I write about AI, interactive experiences,",
+     "bringing physical spaces online,",
+     "helping small companies",
+     "punch above their weight,",
+     "and making products."
+    ],
+    "author.blog": [
+     "More on the blog"
+    ],
+    "foot.brand": [
+     "Inspiration Collector"
+    ],
+    "foot.line": [
+     "Turn the web into material your AI can read."
+    ],
+    "foot.product": [
+     "Product"
+    ],
+    "foot.help": [
+     "Help"
+    ],
+    "foot.store": [
+     "Chrome Web Store"
+    ],
+    "foot.tutorial": [
+     "Tutorial"
+    ],
+    "foot.changelog": [
+     "Changelog"
+    ],
+    "foot.privacy": [
+     "Privacy policy"
+    ],
+    "foot.faq": [
+     "FAQ"
+    ],
+    "foot.report": [
+     "Report a problem"
+    ],
+    "foot.blog": [
+     "Blog"
+    ],
+    "foot.affiliation": [
+     "This extension is not affiliated",
+     "with OpenAI, Anthropic or Perplexity."
+    ],
+    "foot.analytics": [
+     "This website counts visits with GoatCounter,",
+     "with no cookies and no personal data.",
+     "The extension itself has no tracking at all."
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "640": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "What it runs on"
+    ],
+    "devices.lead": [
+     "It works in desktop Chrome.",
+     "Not on phones, iPad or Android tablets:",
+     "Chrome there can’t install extensions."
+    ],
+    "devices.win": [
+     "Windows PC"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "Phones, iPad,",
+     "Android tablets"
+    ],
+    "devices.other": [
+     "Firefox, Safari"
+    ],
+    "devices.chrome": [
+     "Desktop Chrome"
+    ],
+    "devices.chrome#2": [
+     "Desktop Chrome"
+    ],
+    "devices.mobile.why": [
+     "Chrome on these",
+     "can’t install extensions"
+    ],
+    "devices.other.why": [
+     "This extension is only",
+     "on the Chrome Web Store"
+    ],
+    "devices.tested": [
+     "Tested"
+    ],
+    "devices.tested#2": [
+     "Tested"
+    ],
+    "req.browser.label": [
+     "Browser"
+    ],
+    "req.ai.label": [
+     "AI sites"
+    ],
+    "req.web.label": [
+     "Other websites"
+    ],
+    "req.lang.label": [
+     "Interface language"
+    ],
+    "req.price.label": [
+     "Price"
+    ],
+    "req.browser": [
+     "Desktop Chrome (keep it up to date)"
+    ],
+    "req.ai": [
+     "ChatGPT, Claude, Perplexity:",
+     "save one reply or a whole chat.",
+     "“Files” works on ChatGPT only"
+    ],
+    "req.web": [
+     "On ordinary websites:",
+     "whole pages, selected text and images"
+    ],
+    "req.lang": [
+     "Traditional Chinese, English, Japanese",
+     "(chosen automatically;",
+     "any other language shows English)"
+    ],
+    "req.price": [
+     "Free"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "Latest news"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "Release notes"
+    ],
+    "changelog.lead": [
+     "What changed in each version."
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "Questions and answers"
+    ],
+    "faq.1.q": [
+     "Does it cost anything?"
+    ],
+    "faq.2.q": [
+     "Where is everything saved? Is it uploaded?"
+    ],
+    "faq.3.q": [
+     "Why does the folder get “locked”?"
+    ],
+    "faq.4.q": [
+     "Can I use it on my phone?"
+    ],
+    "faq.5.q": [
+     "Which AI does it work with?"
+    ],
+    "faq.6.q": [
+     "If I save the same page twice, do I get two copies?"
+    ],
+    "faq.7.q": [
+     "Something’s not working. What do I do?"
+    ],
+    "faq.1.a": [
+     "No, it’s free. There’s no paid version and no ads."
+    ],
+    "faq.2.a": [
+     "In a folder you choose yourself.",
+     "There’s no server, so the author never",
+     "receives any of it."
+    ],
+    "faq.3.a": [
+     "After a while idle, Chrome locks the folder",
+     "so the extension can’t touch your files.",
+     "Next time you save, click “Unlock folder”.",
+     "That’s the protection working, not a bug."
+    ],
+    "faq.4.a": [
+     "No. Chrome on phones can’t install extensions,",
+     "so use it in Chrome on your computer."
+    ],
+    "faq.5.a": [
+     "Any AI agent that can read a folder on your computer,",
+     "such as Claude Code, Codex or Gemini CLI."
+    ],
+    "faq.6.a": [
+     "No. Saving the same page again",
+     "updates the copy you already have;",
+     "if nothing changed, it just says “Already saved”."
+    ],
+    "faq.7.a": [
+     "Click the stethoscope icon (“Get help”) at the top",
+     "of the side panel.",
+     "It checks everything on the spot",
+     "and tells you what’s wrong and which button to press.",
+     "It can also put the results into an email to the author.",
+     "Whether to send it is up to you."
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "In the age of AI,",
+     "I care about more than efficiency:",
+     "I care about how people use technology",
+     "to find new missions, new doorways",
+     "and new connections."
+    ],
+    "author.bio.2": [
+     "I write about AI, interactive experiences,",
+     "bringing physical spaces online,",
+     "helping small companies",
+     "punch above their weight,",
+     "and making products."
+    ],
+    "author.blog": [
+     "More on the blog"
+    ],
+    "foot.brand": [
+     "Inspiration Collector"
+    ],
+    "foot.line": [
+     "Turn the web into material your AI can read."
+    ],
+    "foot.product": [
+     "Product"
+    ],
+    "foot.help": [
+     "Help"
+    ],
+    "foot.store": [
+     "Chrome Web Store"
+    ],
+    "foot.tutorial": [
+     "Tutorial"
+    ],
+    "foot.changelog": [
+     "Changelog"
+    ],
+    "foot.privacy": [
+     "Privacy policy"
+    ],
+    "foot.faq": [
+     "FAQ"
+    ],
+    "foot.report": [
+     "Report a problem"
+    ],
+    "foot.blog": [
+     "Blog"
+    ],
+    "foot.affiliation": [
+     "This extension is not affiliated",
+     "with OpenAI, Anthropic or Perplexity."
+    ],
+    "foot.analytics": [
+     "This website counts visits with GoatCounter,",
+     "with no cookies and no personal data.",
+     "The extension itself has no tracking at all."
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "768": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "What it runs on"
+    ],
+    "devices.lead": [
+     "It works in desktop Chrome.",
+     "Not on phones, iPad or Android tablets:",
+     "Chrome there can’t install extensions."
+    ],
+    "devices.win": [
+     "Windows PC"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "Phones, iPad, Android tablets"
+    ],
+    "devices.other": [
+     "Firefox, Safari"
+    ],
+    "devices.chrome": [
+     "Desktop Chrome"
+    ],
+    "devices.chrome#2": [
+     "Desktop Chrome"
+    ],
+    "devices.mobile.why": [
+     "Chrome on these can’t install extensions"
+    ],
+    "devices.other.why": [
+     "This extension is only",
+     "on the Chrome Web Store"
+    ],
+    "devices.tested": [
+     "Tested"
+    ],
+    "devices.tested#2": [
+     "Tested"
+    ],
+    "req.browser.label": [
+     "Browser"
+    ],
+    "req.ai.label": [
+     "AI sites"
+    ],
+    "req.web.label": [
+     "Other websites"
+    ],
+    "req.lang.label": [
+     "Interface language"
+    ],
+    "req.price.label": [
+     "Price"
+    ],
+    "req.browser": [
+     "Desktop Chrome (keep it up to date)"
+    ],
+    "req.ai": [
+     "ChatGPT, Claude, Perplexity:",
+     "save one reply or a whole chat.",
+     "“Files” works on ChatGPT only"
+    ],
+    "req.web": [
+     "On ordinary websites:",
+     "whole pages, selected text and images"
+    ],
+    "req.lang": [
+     "Traditional Chinese, English, Japanese",
+     "(chosen automatically;",
+     "any other language shows English)"
+    ],
+    "req.price": [
+     "Free"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "Latest news"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "Release notes"
+    ],
+    "changelog.lead": [
+     "What changed in each version."
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "Questions and answers"
+    ],
+    "faq.1.q": [
+     "Does it cost anything?"
+    ],
+    "faq.2.q": [
+     "Where is everything saved? Is it uploaded?"
+    ],
+    "faq.3.q": [
+     "Why does the folder get “locked”?"
+    ],
+    "faq.4.q": [
+     "Can I use it on my phone?"
+    ],
+    "faq.5.q": [
+     "Which AI does it work with?"
+    ],
+    "faq.6.q": [
+     "If I save the same page twice, do I get two copies?"
+    ],
+    "faq.7.q": [
+     "Something’s not working. What do I do?"
+    ],
+    "faq.1.a": [
+     "No, it’s free. There’s no paid version and no ads."
+    ],
+    "faq.2.a": [
+     "In a folder you choose yourself.",
+     "There’s no server, so the author never",
+     "receives any of it."
+    ],
+    "faq.3.a": [
+     "After a while idle, Chrome locks the folder",
+     "so the extension can’t touch your files.",
+     "Next time you save, click “Unlock folder”.",
+     "That’s the protection working, not a bug."
+    ],
+    "faq.4.a": [
+     "No. Chrome on phones can’t install extensions,",
+     "so use it in Chrome on your computer."
+    ],
+    "faq.5.a": [
+     "Any AI agent that can read a folder on your computer,",
+     "such as Claude Code, Codex or Gemini CLI."
+    ],
+    "faq.6.a": [
+     "No. Saving the same page again",
+     "updates the copy you already have;",
+     "if nothing changed, it just says “Already saved”."
+    ],
+    "faq.7.a": [
+     "Click the stethoscope icon (“Get help”) at the top",
+     "of the side panel.",
+     "It checks everything on the spot",
+     "and tells you what’s wrong and which button to press.",
+     "It can also put the results into an email to the author.",
+     "Whether to send it is up to you."
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "In the age of AI,",
+     "I care about more than efficiency:",
+     "I care about how people use technology",
+     "to find new missions, new doorways",
+     "and new connections."
+    ],
+    "author.bio.2": [
+     "I write about AI, interactive experiences,",
+     "bringing physical spaces online,",
+     "helping small companies",
+     "punch above their weight,",
+     "and making products."
+    ],
+    "author.blog": [
+     "More on the blog"
+    ],
+    "foot.brand": [
+     "Inspiration Collector"
+    ],
+    "foot.line": [
+     "Turn the web into material your AI can read."
+    ],
+    "foot.product": [
+     "Product"
+    ],
+    "foot.help": [
+     "Help"
+    ],
+    "foot.store": [
+     "Chrome Web Store"
+    ],
+    "foot.tutorial": [
+     "Tutorial"
+    ],
+    "foot.changelog": [
+     "Changelog"
+    ],
+    "foot.privacy": [
+     "Privacy policy"
+    ],
+    "foot.faq": [
+     "FAQ"
+    ],
+    "foot.report": [
+     "Report a problem"
+    ],
+    "foot.blog": [
+     "Blog"
+    ],
+    "foot.affiliation": [
+     "This extension is not affiliated",
+     "with OpenAI, Anthropic or Perplexity."
+    ],
+    "foot.analytics": [
+     "This website counts visits with GoatCounter,",
+     "with no cookies and no personal data.",
+     "The extension itself has no tracking at all."
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "1024": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "What it runs on"
+    ],
+    "devices.lead": [
+     "It works in desktop Chrome.",
+     "Not on phones, iPad or Android tablets:",
+     "Chrome there can’t install extensions."
+    ],
+    "devices.win": [
+     "Windows PC"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "Phones, iPad, Android tablets"
+    ],
+    "devices.other": [
+     "Firefox, Safari"
+    ],
+    "devices.chrome": [
+     "Desktop Chrome"
+    ],
+    "devices.chrome#2": [
+     "Desktop Chrome"
+    ],
+    "devices.mobile.why": [
+     "Chrome on these can’t install extensions"
+    ],
+    "devices.other.why": [
+     "This extension is only on the Chrome Web Store"
+    ],
+    "devices.tested": [
+     "Tested"
+    ],
+    "devices.tested#2": [
+     "Tested"
+    ],
+    "req.browser.label": [
+     "Browser"
+    ],
+    "req.ai.label": [
+     "AI sites"
+    ],
+    "req.web.label": [
+     "Other websites"
+    ],
+    "req.lang.label": [
+     "Interface language"
+    ],
+    "req.price.label": [
+     "Price"
+    ],
+    "req.browser": [
+     "Desktop Chrome (keep it up to date)"
+    ],
+    "req.ai": [
+     "ChatGPT, Claude, Perplexity:",
+     "save one reply or a whole chat.",
+     "“Files” works on ChatGPT only"
+    ],
+    "req.web": [
+     "On ordinary websites:",
+     "whole pages, selected text and images"
+    ],
+    "req.lang": [
+     "Traditional Chinese, English, Japanese",
+     "(chosen automatically;",
+     "any other language shows English)"
+    ],
+    "req.price": [
+     "Free"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "Latest news"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "Release notes"
+    ],
+    "changelog.lead": [
+     "What changed in each version."
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "Questions",
+     "and answers"
+    ],
+    "faq.1.q": [
+     "Does it cost anything?"
+    ],
+    "faq.2.q": [
+     "Where is everything saved? Is it uploaded?"
+    ],
+    "faq.3.q": [
+     "Why does the folder get “locked”?"
+    ],
+    "faq.4.q": [
+     "Can I use it on my phone?"
+    ],
+    "faq.5.q": [
+     "Which AI does it work with?"
+    ],
+    "faq.6.q": [
+     "If I save the same page twice, do I get two copies?"
+    ],
+    "faq.7.q": [
+     "Something’s not working. What do I do?"
+    ],
+    "faq.1.a": [
+     "No, it’s free. There’s no paid version and no ads."
+    ],
+    "faq.2.a": [
+     "In a folder you choose yourself.",
+     "There’s no server, so the author never",
+     "receives any of it."
+    ],
+    "faq.3.a": [
+     "After a while idle, Chrome locks the folder",
+     "so the extension can’t touch your files.",
+     "Next time you save, click “Unlock folder”.",
+     "That’s the protection working, not a bug."
+    ],
+    "faq.4.a": [
+     "No. Chrome on phones can’t install extensions,",
+     "so use it in Chrome on your computer."
+    ],
+    "faq.5.a": [
+     "Any AI agent that can read a folder on your computer,",
+     "such as Claude Code, Codex or Gemini CLI."
+    ],
+    "faq.6.a": [
+     "No. Saving the same page again",
+     "updates the copy you already have;",
+     "if nothing changed, it just says “Already saved”."
+    ],
+    "faq.7.a": [
+     "Click the stethoscope icon (“Get help”) at the top",
+     "of the side panel.",
+     "It checks everything on the spot",
+     "and tells you what’s wrong and which button to press.",
+     "It can also put the results into an email to the author.",
+     "Whether to send it is up to you."
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "In the age of AI,",
+     "I care about more than efficiency:",
+     "I care about how people use technology",
+     "to find new missions, new doorways",
+     "and new connections."
+    ],
+    "author.bio.2": [
+     "I write about AI, interactive experiences,",
+     "bringing physical spaces online,",
+     "helping small companies",
+     "punch above their weight,",
+     "and making products."
+    ],
+    "author.blog": [
+     "More on the blog"
+    ],
+    "foot.brand": [
+     "Inspiration Collector"
+    ],
+    "foot.line": [
+     "Turn the web into material your AI can read."
+    ],
+    "foot.product": [
+     "Product"
+    ],
+    "foot.help": [
+     "Help"
+    ],
+    "foot.store": [
+     "Chrome Web Store"
+    ],
+    "foot.tutorial": [
+     "Tutorial"
+    ],
+    "foot.changelog": [
+     "Changelog"
+    ],
+    "foot.privacy": [
+     "Privacy policy"
+    ],
+    "foot.faq": [
+     "FAQ"
+    ],
+    "foot.report": [
+     "Report a problem"
+    ],
+    "foot.blog": [
+     "Blog"
+    ],
+    "foot.affiliation": [
+     "This extension is not affiliated",
+     "with OpenAI, Anthropic or Perplexity."
+    ],
+    "foot.analytics": [
+     "This website counts visits with GoatCounter,",
+     "with no cookies and no personal data.",
+     "The extension itself has no tracking at all."
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "1280": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "What it runs on"
+    ],
+    "devices.lead": [
+     "It works in desktop Chrome.",
+     "Not on phones, iPad or Android tablets:",
+     "Chrome there can’t install extensions."
+    ],
+    "devices.win": [
+     "Windows PC"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "Phones, iPad,",
+     "Android tablets"
+    ],
+    "devices.other": [
+     "Firefox, Safari"
+    ],
+    "devices.chrome": [
+     "Desktop Chrome"
+    ],
+    "devices.chrome#2": [
+     "Desktop Chrome"
+    ],
+    "devices.mobile.why": [
+     "Chrome on these",
+     "can’t install extensions"
+    ],
+    "devices.other.why": [
+     "This extension is only",
+     "on the Chrome Web Store"
+    ],
+    "devices.tested": [
+     "Tested"
+    ],
+    "devices.tested#2": [
+     "Tested"
+    ],
+    "req.browser.label": [
+     "Browser"
+    ],
+    "req.ai.label": [
+     "AI sites"
+    ],
+    "req.web.label": [
+     "Other websites"
+    ],
+    "req.lang.label": [
+     "Interface language"
+    ],
+    "req.price.label": [
+     "Price"
+    ],
+    "req.browser": [
+     "Desktop Chrome (keep it up to date)"
+    ],
+    "req.ai": [
+     "ChatGPT, Claude, Perplexity:",
+     "save one reply or a whole chat.",
+     "“Files” works on ChatGPT only"
+    ],
+    "req.web": [
+     "On ordinary websites:",
+     "whole pages, selected text and images"
+    ],
+    "req.lang": [
+     "Traditional Chinese, English, Japanese",
+     "(chosen automatically;",
+     "any other language shows English)"
+    ],
+    "req.price": [
+     "Free"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "Latest news"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "Release notes"
+    ],
+    "changelog.lead": [
+     "What changed in each version."
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "Questions",
+     "and answers"
+    ],
+    "faq.1.q": [
+     "Does it cost anything?"
+    ],
+    "faq.2.q": [
+     "Where is everything saved? Is it uploaded?"
+    ],
+    "faq.3.q": [
+     "Why does the folder get “locked”?"
+    ],
+    "faq.4.q": [
+     "Can I use it on my phone?"
+    ],
+    "faq.5.q": [
+     "Which AI does it work with?"
+    ],
+    "faq.6.q": [
+     "If I save the same page twice, do I get two copies?"
+    ],
+    "faq.7.q": [
+     "Something’s not working. What do I do?"
+    ],
+    "faq.1.a": [
+     "No, it’s free. There’s no paid version and no ads."
+    ],
+    "faq.2.a": [
+     "In a folder you choose yourself.",
+     "There’s no server, so the author never",
+     "receives any of it."
+    ],
+    "faq.3.a": [
+     "After a while idle, Chrome locks the folder",
+     "so the extension can’t touch your files.",
+     "Next time you save, click “Unlock folder”.",
+     "That’s the protection working, not a bug."
+    ],
+    "faq.4.a": [
+     "No. Chrome on phones can’t install extensions,",
+     "so use it in Chrome on your computer."
+    ],
+    "faq.5.a": [
+     "Any AI agent that can read a folder on your computer,",
+     "such as Claude Code, Codex or Gemini CLI."
+    ],
+    "faq.6.a": [
+     "No. Saving the same page again",
+     "updates the copy you already have;",
+     "if nothing changed, it just says “Already saved”."
+    ],
+    "faq.7.a": [
+     "Click the stethoscope icon (“Get help”) at the top",
+     "of the side panel.",
+     "It checks everything on the spot",
+     "and tells you what’s wrong and which button to press.",
+     "It can also put the results into an email to the author.",
+     "Whether to send it is up to you."
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "In the age of AI,",
+     "I care about more than efficiency:",
+     "I care about how people use technology",
+     "to find new missions, new doorways",
+     "and new connections."
+    ],
+    "author.bio.2": [
+     "I write about AI, interactive experiences,",
+     "bringing physical spaces online,",
+     "helping small companies",
+     "punch above their weight,",
+     "and making products."
+    ],
+    "author.blog": [
+     "More on the blog"
+    ],
+    "foot.brand": [
+     "Inspiration Collector"
+    ],
+    "foot.line": [
+     "Turn the web into material your AI can read."
+    ],
+    "foot.product": [
+     "Product"
+    ],
+    "foot.help": [
+     "Help"
+    ],
+    "foot.store": [
+     "Chrome Web Store"
+    ],
+    "foot.tutorial": [
+     "Tutorial"
+    ],
+    "foot.changelog": [
+     "Changelog"
+    ],
+    "foot.privacy": [
+     "Privacy policy"
+    ],
+    "foot.faq": [
+     "FAQ"
+    ],
+    "foot.report": [
+     "Report a problem"
+    ],
+    "foot.blog": [
+     "Blog"
+    ],
+    "foot.affiliation": [
+     "This extension is not affiliated",
+     "with OpenAI, Anthropic or Perplexity."
+    ],
+    "foot.analytics": [
+     "This website counts visits with GoatCounter,",
+     "with no cookies and no personal data.",
+     "The extension itself has no tracking at all."
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "1440": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "What it runs on"
+    ],
+    "devices.lead": [
+     "It works in desktop Chrome.",
+     "Not on phones, iPad or Android tablets:",
+     "Chrome there can’t install extensions."
+    ],
+    "devices.win": [
+     "Windows PC"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "Phones, iPad,",
+     "Android tablets"
+    ],
+    "devices.other": [
+     "Firefox, Safari"
+    ],
+    "devices.chrome": [
+     "Desktop Chrome"
+    ],
+    "devices.chrome#2": [
+     "Desktop Chrome"
+    ],
+    "devices.mobile.why": [
+     "Chrome on these",
+     "can’t install extensions"
+    ],
+    "devices.other.why": [
+     "This extension is only",
+     "on the Chrome Web Store"
+    ],
+    "devices.tested": [
+     "Tested"
+    ],
+    "devices.tested#2": [
+     "Tested"
+    ],
+    "req.browser.label": [
+     "Browser"
+    ],
+    "req.ai.label": [
+     "AI sites"
+    ],
+    "req.web.label": [
+     "Other websites"
+    ],
+    "req.lang.label": [
+     "Interface language"
+    ],
+    "req.price.label": [
+     "Price"
+    ],
+    "req.browser": [
+     "Desktop Chrome (keep it up to date)"
+    ],
+    "req.ai": [
+     "ChatGPT, Claude, Perplexity:",
+     "save one reply or a whole chat.",
+     "“Files” works on ChatGPT only"
+    ],
+    "req.web": [
+     "On ordinary websites:",
+     "whole pages, selected text and images"
+    ],
+    "req.lang": [
+     "Traditional Chinese, English, Japanese",
+     "(chosen automatically;",
+     "any other language shows English)"
+    ],
+    "req.price": [
+     "Free"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "Latest news"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "Release notes"
+    ],
+    "changelog.lead": [
+     "What changed in each version."
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "Questions",
+     "and answers"
+    ],
+    "faq.1.q": [
+     "Does it cost anything?"
+    ],
+    "faq.2.q": [
+     "Where is everything saved? Is it uploaded?"
+    ],
+    "faq.3.q": [
+     "Why does the folder get “locked”?"
+    ],
+    "faq.4.q": [
+     "Can I use it on my phone?"
+    ],
+    "faq.5.q": [
+     "Which AI does it work with?"
+    ],
+    "faq.6.q": [
+     "If I save the same page twice, do I get two copies?"
+    ],
+    "faq.7.q": [
+     "Something’s not working. What do I do?"
+    ],
+    "faq.1.a": [
+     "No, it’s free. There’s no paid version and no ads."
+    ],
+    "faq.2.a": [
+     "In a folder you choose yourself.",
+     "There’s no server, so the author never",
+     "receives any of it."
+    ],
+    "faq.3.a": [
+     "After a while idle, Chrome locks the folder",
+     "so the extension can’t touch your files.",
+     "Next time you save, click “Unlock folder”.",
+     "That’s the protection working, not a bug."
+    ],
+    "faq.4.a": [
+     "No. Chrome on phones can’t install extensions,",
+     "so use it in Chrome on your computer."
+    ],
+    "faq.5.a": [
+     "Any AI agent that can read a folder on your computer,",
+     "such as Claude Code, Codex or Gemini CLI."
+    ],
+    "faq.6.a": [
+     "No. Saving the same page again",
+     "updates the copy you already have;",
+     "if nothing changed, it just says “Already saved”."
+    ],
+    "faq.7.a": [
+     "Click the stethoscope icon (“Get help”) at the top",
+     "of the side panel.",
+     "It checks everything on the spot",
+     "and tells you what’s wrong and which button to press.",
+     "It can also put the results into an email to the author.",
+     "Whether to send it is up to you."
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "In the age of AI,",
+     "I care about more than efficiency:",
+     "I care about how people use technology",
+     "to find new missions, new doorways",
+     "and new connections."
+    ],
+    "author.bio.2": [
+     "I write about AI, interactive experiences,",
+     "bringing physical spaces online,",
+     "helping small companies",
+     "punch above their weight,",
+     "and making products."
+    ],
+    "author.blog": [
+     "More on the blog"
+    ],
+    "foot.brand": [
+     "Inspiration Collector"
+    ],
+    "foot.line": [
+     "Turn the web into material your AI can read."
+    ],
+    "foot.product": [
+     "Product"
+    ],
+    "foot.help": [
+     "Help"
+    ],
+    "foot.store": [
+     "Chrome Web Store"
+    ],
+    "foot.tutorial": [
+     "Tutorial"
+    ],
+    "foot.changelog": [
+     "Changelog"
+    ],
+    "foot.privacy": [
+     "Privacy policy"
+    ],
+    "foot.faq": [
+     "FAQ"
+    ],
+    "foot.report": [
+     "Report a problem"
+    ],
+    "foot.blog": [
+     "Blog"
+    ],
+    "foot.affiliation": [
+     "This extension is not affiliated",
+     "with OpenAI, Anthropic or Perplexity."
+    ],
+    "foot.analytics": [
+     "This website counts visits with GoatCounter,",
+     "with no cookies and no personal data.",
+     "The extension itself has no tracking at all."
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   }
+  },
+  "ja": {
+   "280": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "動作環境"
+    ],
+    "devices.lead": [
+     "デスクトップ版 Chrome で",
+     "使えます。",
+     "スマートフォン、iPad、",
+     "Android タブレットでは",
+     "使えません。",
+     "そこの Chrome には",
+     "拡張機能を",
+     "入れられないためです。"
+    ],
+    "devices.win": [
+     "Windows パソコン"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "スマートフォン、",
+     "iPad、",
+     "Android タブレット"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "これらの Chrome には",
+     "拡張機能を入れられません"
+    ],
+    "devices.other.why": [
+     "この拡張機能は",
+     "Chrome ウェブストアでのみ",
+     "公開しています"
+    ],
+    "devices.tested": [
+     "動作確認済み"
+    ],
+    "devices.tested#2": [
+     "動作確認済み"
+    ],
+    "req.browser.label": [
+     "ブラウザー"
+    ],
+    "req.ai.label": [
+     "AI サイト"
+    ],
+    "req.web.label": [
+     "一般のウェブページ"
+    ],
+    "req.lang.label": [
+     "表示言語"
+    ],
+    "req.price.label": [
+     "料金"
+    ],
+    "req.browser": [
+     "デスクトップ版 Chrome（最新版に",
+     "更新してください）"
+    ],
+    "req.ai": [
+     "ChatGPT・Claude・Perplexity：",
+     "返信 1 件、会話まるごとを保存。",
+     "「ファイル」は ChatGPT のみ"
+    ],
+    "req.web": [
+     "一般的なサイトなら、",
+     "ページ全体・選択したテキスト・",
+     "画像を保存できます"
+    ],
+    "req.lang": [
+     "繁体字中国語・英語・日本語",
+     "（自動で選択、",
+     "その他の言語は英語で表示）"
+    ],
+    "req.price": [
+     "無料"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新のお知らせ"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新履歴"
+    ],
+    "changelog.lead": [
+     "バージョンごとの変更点。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "よくある質問"
+    ],
+    "faq.1.q": [
+     "料金はかかりますか？"
+    ],
+    "faq.2.q": [
+     "集めたものは",
+     "どこに保存されますか？",
+     "アップロードされますか？"
+    ],
+    "faq.3.q": [
+     "なぜフォルダーが",
+     "「ロック」",
+     "されるのですか？"
+    ],
+    "faq.4.q": [
+     "スマートフォンで",
+     "使えますか？"
+    ],
+    "faq.5.q": [
+     "どの AI と",
+     "組み合わせれば",
+     "いいですか？"
+    ],
+    "faq.6.q": [
+     "同じページを",
+     "2 回保存すると、",
+     "2 つになりますか？"
+    ],
+    "faq.7.q": [
+     "うまく動かないときは？"
+    ],
+    "faq.1.a": [
+     "無料です。有料版も広告も",
+     "ありません。"
+    ],
+    "faq.2.a": [
+     "あなたが選んだフォルダーに",
+     "保存されます。",
+     "サーバーがないので、",
+     "作者には何も届きません。"
+    ],
+    "faq.3.a": [
+     "しばらく操作しないと、",
+     "Chrome がフォルダーを",
+     "ロックし、",
+     "拡張機能がファイルに",
+     "触れられないようにします。",
+     "次に保存するときに",
+     "「ロックを解除」を押すだけ。",
+     "故障ではなく、",
+     "保護が働いている状態です。"
+    ],
+    "faq.4.a": [
+     "使えません。スマートフォンの",
+     "Chrome には",
+     "拡張機能を入れられないので、",
+     "パソコンの Chrome で",
+     "使ってください。"
+    ],
+    "faq.5.a": [
+     "パソコン上のフォルダーを読める",
+     "AI エージェントなら、",
+     "どれでも使えます。",
+     "たとえば Claude Code、",
+     "Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "なりません。もう一度保存すると",
+     "元のものを更新します。",
+     "内容が同じなら",
+     "「保存済み」と",
+     "表示されるだけです。"
+    ],
+    "faq.7.a": [
+     "サイドパネル上部の",
+     "聴診器アイコン",
+     "（「困ったときは」）を押すと、",
+     "その場で各所を点検し、",
+     "どこが悪いか、",
+     "どのボタンを押せばいいかを",
+     "教えてくれます。",
+     "点検結果を作者宛てのメールに",
+     "まとめることもできます。",
+     "送るかどうかは",
+     "あなたが決めます。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "AI の時代に私が",
+     "大切にしているのは、",
+     "効率だけではありません。",
+     "人がテクノロジーで",
+     "新しい役割、新しい入り口、",
+     "そして新しいつながりを",
+     "見つけていくことです。"
+    ],
+    "author.bio.2": [
+     "AI、インタラクティブ体験、",
+     "空間のデジタル化、",
+     "小さな会社を大きく伸ばす方法、",
+     "ものづくりについて",
+     "発信しています。"
+    ],
+    "author.blog": [
+     "ブログでもっと読む"
+    ],
+    "foot.brand": [
+     "インスピレーション・",
+     "コレクター"
+    ],
+    "foot.line": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに。"
+    ],
+    "foot.product": [
+     "製品"
+    ],
+    "foot.help": [
+     "ヘルプ"
+    ],
+    "foot.store": [
+     "Chrome ウェブストア"
+    ],
+    "foot.tutorial": [
+     "使い方動画"
+    ],
+    "foot.changelog": [
+     "更新履歴"
+    ],
+    "foot.privacy": [
+     "プライバシーポリシー"
+    ],
+    "foot.faq": [
+     "よくある質問"
+    ],
+    "foot.report": [
+     "不具合を報告"
+    ],
+    "foot.blog": [
+     "ブログ"
+    ],
+    "foot.affiliation": [
+     "この拡張機能は",
+     "OpenAI、Anthropic、Perplexity とは",
+     "関係ありません。"
+    ],
+    "foot.analytics": [
+     "このサイトは GoatCounter で",
+     "閲覧数を数えています。",
+     "Cookie は使わず、",
+     "個人情報も記録しません。",
+     "拡張機能そのものには",
+     "追跡は一切ありません。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "320": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "動作環境"
+    ],
+    "devices.lead": [
+     "デスクトップ版 Chrome で使えます。",
+     "スマートフォン、iPad、",
+     "Android タブレットでは使えません。",
+     "そこの Chrome には",
+     "拡張機能を入れられないためです。"
+    ],
+    "devices.win": [
+     "Windows パソコン"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "スマートフォン、iPad、",
+     "Android タブレット"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "これらの Chrome には",
+     "拡張機能を入れられません"
+    ],
+    "devices.other.why": [
+     "この拡張機能は",
+     "Chrome ウェブストアでのみ",
+     "公開しています"
+    ],
+    "devices.tested": [
+     "動作確認済み"
+    ],
+    "devices.tested#2": [
+     "動作確認済み"
+    ],
+    "req.browser.label": [
+     "ブラウザー"
+    ],
+    "req.ai.label": [
+     "AI サイト"
+    ],
+    "req.web.label": [
+     "一般のウェブページ"
+    ],
+    "req.lang.label": [
+     "表示言語"
+    ],
+    "req.price.label": [
+     "料金"
+    ],
+    "req.browser": [
+     "デスクトップ版 Chrome（最新版に",
+     "更新してください）"
+    ],
+    "req.ai": [
+     "ChatGPT・Claude・Perplexity：",
+     "返信 1 件、会話まるごとを保存。",
+     "「ファイル」は ChatGPT のみ"
+    ],
+    "req.web": [
+     "一般的なサイトなら、",
+     "ページ全体・選択したテキスト・",
+     "画像を保存できます"
+    ],
+    "req.lang": [
+     "繁体字中国語・英語・日本語",
+     "（自動で選択、その他の言語は英語で表示）"
+    ],
+    "req.price": [
+     "無料"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新のお知らせ"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新履歴"
+    ],
+    "changelog.lead": [
+     "バージョンごとの変更点。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "よくある質問"
+    ],
+    "faq.1.q": [
+     "料金はかかりますか？"
+    ],
+    "faq.2.q": [
+     "集めたものは",
+     "どこに保存されますか？",
+     "アップロードされますか？"
+    ],
+    "faq.3.q": [
+     "なぜフォルダーが",
+     "「ロック」されるのですか？"
+    ],
+    "faq.4.q": [
+     "スマートフォンで使えますか？"
+    ],
+    "faq.5.q": [
+     "どの AI と",
+     "組み合わせればいいですか？"
+    ],
+    "faq.6.q": [
+     "同じページを 2 回保存すると、",
+     "2 つになりますか？"
+    ],
+    "faq.7.q": [
+     "うまく動かないときは？"
+    ],
+    "faq.1.a": [
+     "無料です。有料版も広告もありません。"
+    ],
+    "faq.2.a": [
+     "あなたが選んだフォルダーに",
+     "保存されます。",
+     "サーバーがないので、",
+     "作者には何も届きません。"
+    ],
+    "faq.3.a": [
+     "しばらく操作しないと、",
+     "Chrome がフォルダーをロックし、",
+     "拡張機能がファイルに",
+     "触れられないようにします。",
+     "次に保存するときに",
+     "「ロックを解除」を押すだけ。",
+     "故障ではなく、",
+     "保護が働いている状態です。"
+    ],
+    "faq.4.a": [
+     "使えません。スマートフォンの",
+     "Chrome には",
+     "拡張機能を入れられないので、",
+     "パソコンの Chrome で",
+     "使ってください。"
+    ],
+    "faq.5.a": [
+     "パソコン上のフォルダーを読める",
+     "AI エージェントなら、",
+     "どれでも使えます。",
+     "たとえば Claude Code、",
+     "Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "なりません。もう一度保存すると",
+     "元のものを更新します。",
+     "内容が同じなら",
+     "「保存済み」と表示されるだけです。"
+    ],
+    "faq.7.a": [
+     "サイドパネル上部の聴診器アイコン",
+     "（「困ったときは」）を押すと、",
+     "その場で各所を点検し、どこが悪いか、",
+     "どのボタンを押せばいいかを",
+     "教えてくれます。",
+     "点検結果を作者宛てのメールに",
+     "まとめることもできます。",
+     "送るかどうかはあなたが決めます。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "AI の時代に私が大切にしているのは、",
+     "効率だけではありません。",
+     "人がテクノロジーで",
+     "新しい役割、新しい入り口、",
+     "そして新しいつながりを",
+     "見つけていくことです。"
+    ],
+    "author.bio.2": [
+     "AI、インタラクティブ体験、",
+     "空間のデジタル化、",
+     "小さな会社を大きく伸ばす方法、",
+     "ものづくりについて発信しています。"
+    ],
+    "author.blog": [
+     "ブログでもっと読む"
+    ],
+    "foot.brand": [
+     "インスピレーション・コレクター"
+    ],
+    "foot.line": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに。"
+    ],
+    "foot.product": [
+     "製品"
+    ],
+    "foot.help": [
+     "ヘルプ"
+    ],
+    "foot.store": [
+     "Chrome ウェブストア"
+    ],
+    "foot.tutorial": [
+     "使い方動画"
+    ],
+    "foot.changelog": [
+     "更新履歴"
+    ],
+    "foot.privacy": [
+     "プライバシーポリシー"
+    ],
+    "foot.faq": [
+     "よくある質問"
+    ],
+    "foot.report": [
+     "不具合を報告"
+    ],
+    "foot.blog": [
+     "ブログ"
+    ],
+    "foot.affiliation": [
+     "この拡張機能は",
+     "OpenAI、Anthropic、Perplexity とは",
+     "関係ありません。"
+    ],
+    "foot.analytics": [
+     "このサイトは GoatCounter で",
+     "閲覧数を数えています。",
+     "Cookie は使わず、個人情報も記録しません。",
+     "拡張機能そのものには",
+     "追跡は一切ありません。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "360": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "動作環境"
+    ],
+    "devices.lead": [
+     "デスクトップ版 Chrome で使えます。",
+     "スマートフォン、iPad、",
+     "Android タブレットでは使えません。",
+     "そこの Chrome には",
+     "拡張機能を入れられないためです。"
+    ],
+    "devices.win": [
+     "Windows パソコン"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "スマートフォン、iPad、",
+     "Android タブレット"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "これらの Chrome には",
+     "拡張機能を入れられません"
+    ],
+    "devices.other.why": [
+     "この拡張機能は",
+     "Chrome ウェブストアでのみ",
+     "公開しています"
+    ],
+    "devices.tested": [
+     "動作確認済み"
+    ],
+    "devices.tested#2": [
+     "動作確認済み"
+    ],
+    "req.browser.label": [
+     "ブラウザー"
+    ],
+    "req.ai.label": [
+     "AI サイト"
+    ],
+    "req.web.label": [
+     "一般のウェブページ"
+    ],
+    "req.lang.label": [
+     "表示言語"
+    ],
+    "req.price.label": [
+     "料金"
+    ],
+    "req.browser": [
+     "デスクトップ版 Chrome（最新版に",
+     "更新してください）"
+    ],
+    "req.ai": [
+     "ChatGPT・Claude・Perplexity：",
+     "返信 1 件、会話まるごとを保存。",
+     "「ファイル」は ChatGPT のみ"
+    ],
+    "req.web": [
+     "一般的なサイトなら、",
+     "ページ全体・選択したテキスト・",
+     "画像を保存できます"
+    ],
+    "req.lang": [
+     "繁体字中国語・英語・日本語",
+     "（自動で選択、その他の言語は英語で表示）"
+    ],
+    "req.price": [
+     "無料"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新のお知らせ"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新履歴"
+    ],
+    "changelog.lead": [
+     "バージョンごとの変更点。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "よくある質問"
+    ],
+    "faq.1.q": [
+     "料金はかかりますか？"
+    ],
+    "faq.2.q": [
+     "集めたものは",
+     "どこに保存されますか？",
+     "アップロードされますか？"
+    ],
+    "faq.3.q": [
+     "なぜフォルダーが",
+     "「ロック」されるのですか？"
+    ],
+    "faq.4.q": [
+     "スマートフォンで使えますか？"
+    ],
+    "faq.5.q": [
+     "どの AI と",
+     "組み合わせればいいですか？"
+    ],
+    "faq.6.q": [
+     "同じページを 2 回保存すると、",
+     "2 つになりますか？"
+    ],
+    "faq.7.q": [
+     "うまく動かないときは？"
+    ],
+    "faq.1.a": [
+     "無料です。有料版も広告もありません。"
+    ],
+    "faq.2.a": [
+     "あなたが選んだフォルダーに保存されます。",
+     "サーバーがないので、",
+     "作者には何も届きません。"
+    ],
+    "faq.3.a": [
+     "しばらく操作しないと、",
+     "Chrome がフォルダーをロックし、",
+     "拡張機能がファイルに",
+     "触れられないようにします。",
+     "次に保存するときに",
+     "「ロックを解除」を押すだけ。",
+     "故障ではなく、保護が働いている状態です。"
+    ],
+    "faq.4.a": [
+     "使えません。スマートフォンの Chrome には",
+     "拡張機能を入れられないので、",
+     "パソコンの Chrome で使ってください。"
+    ],
+    "faq.5.a": [
+     "パソコン上のフォルダーを読める",
+     "AI エージェントなら、どれでも使えます。",
+     "たとえば Claude Code、",
+     "Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "なりません。もう一度保存すると",
+     "元のものを更新します。",
+     "内容が同じなら",
+     "「保存済み」と表示されるだけです。"
+    ],
+    "faq.7.a": [
+     "サイドパネル上部の聴診器アイコン",
+     "（「困ったときは」）を押すと、",
+     "その場で各所を点検し、どこが悪いか、",
+     "どのボタンを押せばいいかを",
+     "教えてくれます。",
+     "点検結果を作者宛てのメールに",
+     "まとめることもできます。",
+     "送るかどうかはあなたが決めます。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "AI の時代に私が大切にしているのは、",
+     "効率だけではありません。",
+     "人がテクノロジーで",
+     "新しい役割、新しい入り口、",
+     "そして新しいつながりを",
+     "見つけていくことです。"
+    ],
+    "author.bio.2": [
+     "AI、インタラクティブ体験、",
+     "空間のデジタル化、",
+     "小さな会社を大きく伸ばす方法、",
+     "ものづくりについて発信しています。"
+    ],
+    "author.blog": [
+     "ブログでもっと読む"
+    ],
+    "foot.brand": [
+     "インスピレーション・コレクター"
+    ],
+    "foot.line": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに。"
+    ],
+    "foot.product": [
+     "製品"
+    ],
+    "foot.help": [
+     "ヘルプ"
+    ],
+    "foot.store": [
+     "Chrome ウェブストア"
+    ],
+    "foot.tutorial": [
+     "使い方動画"
+    ],
+    "foot.changelog": [
+     "更新履歴"
+    ],
+    "foot.privacy": [
+     "プライバシーポリシー"
+    ],
+    "foot.faq": [
+     "よくある質問"
+    ],
+    "foot.report": [
+     "不具合を報告"
+    ],
+    "foot.blog": [
+     "ブログ"
+    ],
+    "foot.affiliation": [
+     "この拡張機能は",
+     "OpenAI、Anthropic、Perplexity とは",
+     "関係ありません。"
+    ],
+    "foot.analytics": [
+     "このサイトは GoatCounter で",
+     "閲覧数を数えています。",
+     "Cookie は使わず、個人情報も記録しません。",
+     "拡張機能そのものには追跡は一切ありません。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "375": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "動作環境"
+    ],
+    "devices.lead": [
+     "デスクトップ版 Chrome で使えます。",
+     "スマートフォン、iPad、",
+     "Android タブレットでは使えません。",
+     "そこの Chrome には",
+     "拡張機能を入れられないためです。"
+    ],
+    "devices.win": [
+     "Windows パソコン"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "スマートフォン、iPad、",
+     "Android タブレット"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "これらの Chrome には",
+     "拡張機能を入れられません"
+    ],
+    "devices.other.why": [
+     "この拡張機能は",
+     "Chrome ウェブストアでのみ公開しています"
+    ],
+    "devices.tested": [
+     "動作確認済み"
+    ],
+    "devices.tested#2": [
+     "動作確認済み"
+    ],
+    "req.browser.label": [
+     "ブラウザー"
+    ],
+    "req.ai.label": [
+     "AI サイト"
+    ],
+    "req.web.label": [
+     "一般のウェブページ"
+    ],
+    "req.lang.label": [
+     "表示言語"
+    ],
+    "req.price.label": [
+     "料金"
+    ],
+    "req.browser": [
+     "デスクトップ版 Chrome（最新版に更新してください）"
+    ],
+    "req.ai": [
+     "ChatGPT・Claude・Perplexity：",
+     "返信 1 件、会話まるごとを保存。",
+     "「ファイル」は ChatGPT のみ"
+    ],
+    "req.web": [
+     "一般的なサイトなら、",
+     "ページ全体・選択したテキスト・画像を保存できます"
+    ],
+    "req.lang": [
+     "繁体字中国語・英語・日本語",
+     "（自動で選択、その他の言語は英語で表示）"
+    ],
+    "req.price": [
+     "無料"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新のお知らせ"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新履歴"
+    ],
+    "changelog.lead": [
+     "バージョンごとの変更点。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "よくある質問"
+    ],
+    "faq.1.q": [
+     "料金はかかりますか？"
+    ],
+    "faq.2.q": [
+     "集めたものはどこに保存されますか？",
+     "アップロードされますか？"
+    ],
+    "faq.3.q": [
+     "なぜフォルダーが",
+     "「ロック」されるのですか？"
+    ],
+    "faq.4.q": [
+     "スマートフォンで使えますか？"
+    ],
+    "faq.5.q": [
+     "どの AI と",
+     "組み合わせればいいですか？"
+    ],
+    "faq.6.q": [
+     "同じページを 2 回保存すると、",
+     "2 つになりますか？"
+    ],
+    "faq.7.q": [
+     "うまく動かないときは？"
+    ],
+    "faq.1.a": [
+     "無料です。有料版も広告もありません。"
+    ],
+    "faq.2.a": [
+     "あなたが選んだフォルダーに保存されます。",
+     "サーバーがないので、",
+     "作者には何も届きません。"
+    ],
+    "faq.3.a": [
+     "しばらく操作しないと、",
+     "Chrome がフォルダーをロックし、",
+     "拡張機能がファイルに",
+     "触れられないようにします。",
+     "次に保存するときに",
+     "「ロックを解除」を押すだけ。",
+     "故障ではなく、保護が働いている状態です。"
+    ],
+    "faq.4.a": [
+     "使えません。スマートフォンの Chrome には",
+     "拡張機能を入れられないので、",
+     "パソコンの Chrome で使ってください。"
+    ],
+    "faq.5.a": [
+     "パソコン上のフォルダーを読める",
+     "AI エージェントなら、どれでも使えます。",
+     "たとえば Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "なりません。もう一度保存すると",
+     "元のものを更新します。",
+     "内容が同じなら",
+     "「保存済み」と表示されるだけです。"
+    ],
+    "faq.7.a": [
+     "サイドパネル上部の聴診器アイコン",
+     "（「困ったときは」）を押すと、",
+     "その場で各所を点検し、どこが悪いか、",
+     "どのボタンを押せばいいかを教えてくれます。",
+     "点検結果を作者宛てのメールに",
+     "まとめることもできます。",
+     "送るかどうかはあなたが決めます。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "AI の時代に私が大切にしているのは、",
+     "効率だけではありません。",
+     "人がテクノロジーで",
+     "新しい役割、新しい入り口、",
+     "そして新しいつながりを",
+     "見つけていくことです。"
+    ],
+    "author.bio.2": [
+     "AI、インタラクティブ体験、",
+     "空間のデジタル化、",
+     "小さな会社を大きく伸ばす方法、",
+     "ものづくりについて発信しています。"
+    ],
+    "author.blog": [
+     "ブログでもっと読む"
+    ],
+    "foot.brand": [
+     "インスピレーション・コレクター"
+    ],
+    "foot.line": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに。"
+    ],
+    "foot.product": [
+     "製品"
+    ],
+    "foot.help": [
+     "ヘルプ"
+    ],
+    "foot.store": [
+     "Chrome ウェブストア"
+    ],
+    "foot.tutorial": [
+     "使い方動画"
+    ],
+    "foot.changelog": [
+     "更新履歴"
+    ],
+    "foot.privacy": [
+     "プライバシーポリシー"
+    ],
+    "foot.faq": [
+     "よくある質問"
+    ],
+    "foot.report": [
+     "不具合を報告"
+    ],
+    "foot.blog": [
+     "ブログ"
+    ],
+    "foot.affiliation": [
+     "この拡張機能は",
+     "OpenAI、Anthropic、Perplexity とは",
+     "関係ありません。"
+    ],
+    "foot.analytics": [
+     "このサイトは GoatCounter で",
+     "閲覧数を数えています。",
+     "Cookie は使わず、個人情報も記録しません。",
+     "拡張機能そのものには追跡は一切ありません。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "390": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "動作環境"
+    ],
+    "devices.lead": [
+     "デスクトップ版 Chrome で使えます。",
+     "スマートフォン、iPad、",
+     "Android タブレットでは使えません。",
+     "そこの Chrome には",
+     "拡張機能を入れられないためです。"
+    ],
+    "devices.win": [
+     "Windows パソコン"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "スマートフォン、iPad、",
+     "Android タブレット"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "これらの Chrome には",
+     "拡張機能を入れられません"
+    ],
+    "devices.other.why": [
+     "この拡張機能は Chrome ウェブストアでのみ",
+     "公開しています"
+    ],
+    "devices.tested": [
+     "動作確認済み"
+    ],
+    "devices.tested#2": [
+     "動作確認済み"
+    ],
+    "req.browser.label": [
+     "ブラウザー"
+    ],
+    "req.ai.label": [
+     "AI サイト"
+    ],
+    "req.web.label": [
+     "一般のウェブページ"
+    ],
+    "req.lang.label": [
+     "表示言語"
+    ],
+    "req.price.label": [
+     "料金"
+    ],
+    "req.browser": [
+     "デスクトップ版 Chrome（最新版に更新してください）"
+    ],
+    "req.ai": [
+     "ChatGPT・Claude・Perplexity：",
+     "返信 1 件、会話まるごとを保存。",
+     "「ファイル」は ChatGPT のみ"
+    ],
+    "req.web": [
+     "一般的なサイトなら、ページ全体・選択したテキスト・",
+     "画像を保存できます"
+    ],
+    "req.lang": [
+     "繁体字中国語・英語・日本語",
+     "（自動で選択、その他の言語は英語で表示）"
+    ],
+    "req.price": [
+     "無料"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新のお知らせ"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新履歴"
+    ],
+    "changelog.lead": [
+     "バージョンごとの変更点。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "よくある質問"
+    ],
+    "faq.1.q": [
+     "料金はかかりますか？"
+    ],
+    "faq.2.q": [
+     "集めたものはどこに保存されますか？",
+     "アップロードされますか？"
+    ],
+    "faq.3.q": [
+     "なぜフォルダーが",
+     "「ロック」されるのですか？"
+    ],
+    "faq.4.q": [
+     "スマートフォンで使えますか？"
+    ],
+    "faq.5.q": [
+     "どの AI と組み合わせればいいですか？"
+    ],
+    "faq.6.q": [
+     "同じページを 2 回保存すると、",
+     "2 つになりますか？"
+    ],
+    "faq.7.q": [
+     "うまく動かないときは？"
+    ],
+    "faq.1.a": [
+     "無料です。有料版も広告もありません。"
+    ],
+    "faq.2.a": [
+     "あなたが選んだフォルダーに保存されます。",
+     "サーバーがないので、作者には何も届きません。"
+    ],
+    "faq.3.a": [
+     "しばらく操作しないと、",
+     "Chrome がフォルダーをロックし、",
+     "拡張機能がファイルに",
+     "触れられないようにします。",
+     "次に保存するときに",
+     "「ロックを解除」を押すだけ。",
+     "故障ではなく、保護が働いている状態です。"
+    ],
+    "faq.4.a": [
+     "使えません。スマートフォンの Chrome には",
+     "拡張機能を入れられないので、",
+     "パソコンの Chrome で使ってください。"
+    ],
+    "faq.5.a": [
+     "パソコン上のフォルダーを読める",
+     "AI エージェントなら、どれでも使えます。",
+     "たとえば Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "なりません。もう一度保存すると",
+     "元のものを更新します。",
+     "内容が同じなら",
+     "「保存済み」と表示されるだけです。"
+    ],
+    "faq.7.a": [
+     "サイドパネル上部の聴診器アイコン",
+     "（「困ったときは」）を押すと、",
+     "その場で各所を点検し、どこが悪いか、",
+     "どのボタンを押せばいいかを教えてくれます。",
+     "点検結果を作者宛てのメールに",
+     "まとめることもできます。",
+     "送るかどうかはあなたが決めます。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "AI の時代に私が大切にしているのは、",
+     "効率だけではありません。",
+     "人がテクノロジーで新しい役割、新しい入り口、",
+     "そして新しいつながりを見つけていくことです。"
+    ],
+    "author.bio.2": [
+     "AI、インタラクティブ体験、空間のデジタル化、",
+     "小さな会社を大きく伸ばす方法、",
+     "ものづくりについて発信しています。"
+    ],
+    "author.blog": [
+     "ブログでもっと読む"
+    ],
+    "foot.brand": [
+     "インスピレーション・コレクター"
+    ],
+    "foot.line": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに。"
+    ],
+    "foot.product": [
+     "製品"
+    ],
+    "foot.help": [
+     "ヘルプ"
+    ],
+    "foot.store": [
+     "Chrome ウェブストア"
+    ],
+    "foot.tutorial": [
+     "使い方動画"
+    ],
+    "foot.changelog": [
+     "更新履歴"
+    ],
+    "foot.privacy": [
+     "プライバシーポリシー"
+    ],
+    "foot.faq": [
+     "よくある質問"
+    ],
+    "foot.report": [
+     "不具合を報告"
+    ],
+    "foot.blog": [
+     "ブログ"
+    ],
+    "foot.affiliation": [
+     "この拡張機能は OpenAI、Anthropic、Perplexity とは",
+     "関係ありません。"
+    ],
+    "foot.analytics": [
+     "このサイトは GoatCounter で閲覧数を数えています。",
+     "Cookie は使わず、個人情報も記録しません。",
+     "拡張機能そのものには追跡は一切ありません。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "414": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "動作環境"
+    ],
+    "devices.lead": [
+     "デスクトップ版 Chrome で使えます。",
+     "スマートフォン、iPad、",
+     "Android タブレットでは使えません。",
+     "そこの Chrome には",
+     "拡張機能を入れられないためです。"
+    ],
+    "devices.win": [
+     "Windows パソコン"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "スマートフォン、iPad、",
+     "Android タブレット"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "これらの Chrome には拡張機能を入れられません"
+    ],
+    "devices.other.why": [
+     "この拡張機能は Chrome ウェブストアでのみ",
+     "公開しています"
+    ],
+    "devices.tested": [
+     "動作確認済み"
+    ],
+    "devices.tested#2": [
+     "動作確認済み"
+    ],
+    "req.browser.label": [
+     "ブラウザー"
+    ],
+    "req.ai.label": [
+     "AI サイト"
+    ],
+    "req.web.label": [
+     "一般のウェブページ"
+    ],
+    "req.lang.label": [
+     "表示言語"
+    ],
+    "req.price.label": [
+     "料金"
+    ],
+    "req.browser": [
+     "デスクトップ版 Chrome（最新版に更新してください）"
+    ],
+    "req.ai": [
+     "ChatGPT・Claude・Perplexity：",
+     "返信 1 件、会話まるごとを保存。",
+     "「ファイル」は ChatGPT のみ"
+    ],
+    "req.web": [
+     "一般的なサイトなら、ページ全体・選択したテキスト・",
+     "画像を保存できます"
+    ],
+    "req.lang": [
+     "繁体字中国語・英語・日本語",
+     "（自動で選択、その他の言語は英語で表示）"
+    ],
+    "req.price": [
+     "無料"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新のお知らせ"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新履歴"
+    ],
+    "changelog.lead": [
+     "バージョンごとの変更点。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "よくある質問"
+    ],
+    "faq.1.q": [
+     "料金はかかりますか？"
+    ],
+    "faq.2.q": [
+     "集めたものはどこに保存されますか？",
+     "アップロードされますか？"
+    ],
+    "faq.3.q": [
+     "なぜフォルダーが",
+     "「ロック」されるのですか？"
+    ],
+    "faq.4.q": [
+     "スマートフォンで使えますか？"
+    ],
+    "faq.5.q": [
+     "どの AI と組み合わせればいいですか？"
+    ],
+    "faq.6.q": [
+     "同じページを 2 回保存すると、",
+     "2 つになりますか？"
+    ],
+    "faq.7.q": [
+     "うまく動かないときは？"
+    ],
+    "faq.1.a": [
+     "無料です。有料版も広告もありません。"
+    ],
+    "faq.2.a": [
+     "あなたが選んだフォルダーに保存されます。",
+     "サーバーがないので、作者には何も届きません。"
+    ],
+    "faq.3.a": [
+     "しばらく操作しないと、",
+     "Chrome がフォルダーをロックし、",
+     "拡張機能がファイルに触れられないようにします。",
+     "次に保存するときに「ロックを解除」を押すだけ。",
+     "故障ではなく、保護が働いている状態です。"
+    ],
+    "faq.4.a": [
+     "使えません。スマートフォンの Chrome には",
+     "拡張機能を入れられないので、",
+     "パソコンの Chrome で使ってください。"
+    ],
+    "faq.5.a": [
+     "パソコン上のフォルダーを読める",
+     "AI エージェントなら、どれでも使えます。",
+     "たとえば Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "なりません。もう一度保存すると",
+     "元のものを更新します。",
+     "内容が同じなら",
+     "「保存済み」と表示されるだけです。"
+    ],
+    "faq.7.a": [
+     "サイドパネル上部の聴診器アイコン",
+     "（「困ったときは」）を押すと、",
+     "その場で各所を点検し、どこが悪いか、",
+     "どのボタンを押せばいいかを教えてくれます。",
+     "点検結果を作者宛てのメールに",
+     "まとめることもできます。",
+     "送るかどうかはあなたが決めます。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "AI の時代に私が大切にしているのは、",
+     "効率だけではありません。",
+     "人がテクノロジーで新しい役割、新しい入り口、",
+     "そして新しいつながりを見つけていくことです。"
+    ],
+    "author.bio.2": [
+     "AI、インタラクティブ体験、空間のデジタル化、",
+     "小さな会社を大きく伸ばす方法、",
+     "ものづくりについて発信しています。"
+    ],
+    "author.blog": [
+     "ブログでもっと読む"
+    ],
+    "foot.brand": [
+     "インスピレーション・コレクター"
+    ],
+    "foot.line": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに。"
+    ],
+    "foot.product": [
+     "製品"
+    ],
+    "foot.help": [
+     "ヘルプ"
+    ],
+    "foot.store": [
+     "Chrome ウェブストア"
+    ],
+    "foot.tutorial": [
+     "使い方動画"
+    ],
+    "foot.changelog": [
+     "更新履歴"
+    ],
+    "foot.privacy": [
+     "プライバシーポリシー"
+    ],
+    "foot.faq": [
+     "よくある質問"
+    ],
+    "foot.report": [
+     "不具合を報告"
+    ],
+    "foot.blog": [
+     "ブログ"
+    ],
+    "foot.affiliation": [
+     "この拡張機能は OpenAI、Anthropic、Perplexity とは",
+     "関係ありません。"
+    ],
+    "foot.analytics": [
+     "このサイトは GoatCounter で閲覧数を数えています。",
+     "Cookie は使わず、個人情報も記録しません。",
+     "拡張機能そのものには追跡は一切ありません。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "430": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "動作環境"
+    ],
+    "devices.lead": [
+     "デスクトップ版 Chrome で使えます。",
+     "スマートフォン、iPad、",
+     "Android タブレットでは使えません。",
+     "そこの Chrome には",
+     "拡張機能を入れられないためです。"
+    ],
+    "devices.win": [
+     "Windows パソコン"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "スマートフォン、iPad、",
+     "Android タブレット"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "これらの Chrome には拡張機能を入れられません"
+    ],
+    "devices.other.why": [
+     "この拡張機能は Chrome ウェブストアでのみ",
+     "公開しています"
+    ],
+    "devices.tested": [
+     "動作確認済み"
+    ],
+    "devices.tested#2": [
+     "動作確認済み"
+    ],
+    "req.browser.label": [
+     "ブラウザー"
+    ],
+    "req.ai.label": [
+     "AI サイト"
+    ],
+    "req.web.label": [
+     "一般のウェブページ"
+    ],
+    "req.lang.label": [
+     "表示言語"
+    ],
+    "req.price.label": [
+     "料金"
+    ],
+    "req.browser": [
+     "デスクトップ版 Chrome（最新版に更新してください）"
+    ],
+    "req.ai": [
+     "ChatGPT・Claude・Perplexity：",
+     "返信 1 件、会話まるごとを保存。",
+     "「ファイル」は ChatGPT のみ"
+    ],
+    "req.web": [
+     "一般的なサイトなら、ページ全体・選択したテキスト・",
+     "画像を保存できます"
+    ],
+    "req.lang": [
+     "繁体字中国語・英語・日本語",
+     "（自動で選択、その他の言語は英語で表示）"
+    ],
+    "req.price": [
+     "無料"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新のお知らせ"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新履歴"
+    ],
+    "changelog.lead": [
+     "バージョンごとの変更点。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "よくある質問"
+    ],
+    "faq.1.q": [
+     "料金はかかりますか？"
+    ],
+    "faq.2.q": [
+     "集めたものはどこに保存されますか？",
+     "アップロードされますか？"
+    ],
+    "faq.3.q": [
+     "なぜフォルダーが",
+     "「ロック」されるのですか？"
+    ],
+    "faq.4.q": [
+     "スマートフォンで使えますか？"
+    ],
+    "faq.5.q": [
+     "どの AI と組み合わせればいいですか？"
+    ],
+    "faq.6.q": [
+     "同じページを 2 回保存すると、",
+     "2 つになりますか？"
+    ],
+    "faq.7.q": [
+     "うまく動かないときは？"
+    ],
+    "faq.1.a": [
+     "無料です。有料版も広告もありません。"
+    ],
+    "faq.2.a": [
+     "あなたが選んだフォルダーに保存されます。",
+     "サーバーがないので、作者には何も届きません。"
+    ],
+    "faq.3.a": [
+     "しばらく操作しないと、",
+     "Chrome がフォルダーをロックし、",
+     "拡張機能がファイルに触れられないようにします。",
+     "次に保存するときに「ロックを解除」を押すだけ。",
+     "故障ではなく、保護が働いている状態です。"
+    ],
+    "faq.4.a": [
+     "使えません。スマートフォンの Chrome には",
+     "拡張機能を入れられないので、",
+     "パソコンの Chrome で使ってください。"
+    ],
+    "faq.5.a": [
+     "パソコン上のフォルダーを読める",
+     "AI エージェントなら、どれでも使えます。",
+     "たとえば Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "なりません。もう一度保存すると",
+     "元のものを更新します。",
+     "内容が同じなら「保存済み」と表示されるだけです。"
+    ],
+    "faq.7.a": [
+     "サイドパネル上部の聴診器アイコン",
+     "（「困ったときは」）を押すと、",
+     "その場で各所を点検し、どこが悪いか、",
+     "どのボタンを押せばいいかを教えてくれます。",
+     "点検結果を作者宛てのメールに",
+     "まとめることもできます。",
+     "送るかどうかはあなたが決めます。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "AI の時代に私が大切にしているのは、",
+     "効率だけではありません。",
+     "人がテクノロジーで新しい役割、新しい入り口、",
+     "そして新しいつながりを見つけていくことです。"
+    ],
+    "author.bio.2": [
+     "AI、インタラクティブ体験、空間のデジタル化、",
+     "小さな会社を大きく伸ばす方法、",
+     "ものづくりについて発信しています。"
+    ],
+    "author.blog": [
+     "ブログでもっと読む"
+    ],
+    "foot.brand": [
+     "インスピレーション・コレクター"
+    ],
+    "foot.line": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに。"
+    ],
+    "foot.product": [
+     "製品"
+    ],
+    "foot.help": [
+     "ヘルプ"
+    ],
+    "foot.store": [
+     "Chrome ウェブストア"
+    ],
+    "foot.tutorial": [
+     "使い方動画"
+    ],
+    "foot.changelog": [
+     "更新履歴"
+    ],
+    "foot.privacy": [
+     "プライバシーポリシー"
+    ],
+    "foot.faq": [
+     "よくある質問"
+    ],
+    "foot.report": [
+     "不具合を報告"
+    ],
+    "foot.blog": [
+     "ブログ"
+    ],
+    "foot.affiliation": [
+     "この拡張機能は OpenAI、Anthropic、Perplexity とは",
+     "関係ありません。"
+    ],
+    "foot.analytics": [
+     "このサイトは GoatCounter で閲覧数を数えています。",
+     "Cookie は使わず、個人情報も記録しません。",
+     "拡張機能そのものには追跡は一切ありません。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "640": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "動作環境"
+    ],
+    "devices.lead": [
+     "デスクトップ版 Chrome で使えます。",
+     "スマートフォン、iPad、",
+     "Android タブレットでは使えません。",
+     "そこの Chrome には",
+     "拡張機能を入れられないためです。"
+    ],
+    "devices.win": [
+     "Windows パソコン"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "スマートフォン、iPad、",
+     "Android タブレット"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "これらの Chrome には",
+     "拡張機能を入れられません"
+    ],
+    "devices.other.why": [
+     "この拡張機能は",
+     "Chrome ウェブストアでのみ",
+     "公開しています"
+    ],
+    "devices.tested": [
+     "動作確認済み"
+    ],
+    "devices.tested#2": [
+     "動作確認済み"
+    ],
+    "req.browser.label": [
+     "ブラウザー"
+    ],
+    "req.ai.label": [
+     "AI サイト"
+    ],
+    "req.web.label": [
+     "一般のウェブページ"
+    ],
+    "req.lang.label": [
+     "表示言語"
+    ],
+    "req.price.label": [
+     "料金"
+    ],
+    "req.browser": [
+     "デスクトップ版 Chrome（最新版に更新してください）"
+    ],
+    "req.ai": [
+     "ChatGPT・Claude・Perplexity：",
+     "返信 1 件、会話まるごとを保存。",
+     "「ファイル」は ChatGPT のみ"
+    ],
+    "req.web": [
+     "一般的なサイトなら、ページ全体・選択したテキスト・",
+     "画像を保存できます"
+    ],
+    "req.lang": [
+     "繁体字中国語・英語・日本語",
+     "（自動で選択、その他の言語は英語で表示）"
+    ],
+    "req.price": [
+     "無料"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新のお知らせ"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新履歴"
+    ],
+    "changelog.lead": [
+     "バージョンごとの変更点。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "よくある質問"
+    ],
+    "faq.1.q": [
+     "料金はかかりますか？"
+    ],
+    "faq.2.q": [
+     "集めたものはどこに保存されますか？",
+     "アップロードされますか？"
+    ],
+    "faq.3.q": [
+     "なぜフォルダーが「ロック」されるのですか？"
+    ],
+    "faq.4.q": [
+     "スマートフォンで使えますか？"
+    ],
+    "faq.5.q": [
+     "どの AI と組み合わせればいいですか？"
+    ],
+    "faq.6.q": [
+     "同じページを 2 回保存すると、2 つになりますか？"
+    ],
+    "faq.7.q": [
+     "うまく動かないときは？"
+    ],
+    "faq.1.a": [
+     "無料です。有料版も広告もありません。"
+    ],
+    "faq.2.a": [
+     "あなたが選んだフォルダーに保存されます。",
+     "サーバーがないので、作者には何も届きません。"
+    ],
+    "faq.3.a": [
+     "しばらく操作しないと、",
+     "Chrome がフォルダーをロックし、",
+     "拡張機能がファイルに触れられないようにします。",
+     "次に保存するときに「ロックを解除」を押すだけ。",
+     "故障ではなく、保護が働いている状態です。"
+    ],
+    "faq.4.a": [
+     "使えません。スマートフォンの Chrome には",
+     "拡張機能を入れられないので、",
+     "パソコンの Chrome で使ってください。"
+    ],
+    "faq.5.a": [
+     "パソコン上のフォルダーを読める",
+     "AI エージェントなら、どれでも使えます。",
+     "たとえば Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "なりません。もう一度保存すると",
+     "元のものを更新します。",
+     "内容が同じなら「保存済み」と表示されるだけです。"
+    ],
+    "faq.7.a": [
+     "サイドパネル上部の聴診器アイコン",
+     "（「困ったときは」）を押すと、",
+     "その場で各所を点検し、どこが悪いか、",
+     "どのボタンを押せばいいかを教えてくれます。",
+     "点検結果を作者宛てのメールに",
+     "まとめることもできます。",
+     "送るかどうかはあなたが決めます。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "AI の時代に私が大切にしているのは、",
+     "効率だけではありません。",
+     "人がテクノロジーで新しい役割、新しい入り口、",
+     "そして新しいつながりを見つけていくことです。"
+    ],
+    "author.bio.2": [
+     "AI、インタラクティブ体験、空間のデジタル化、",
+     "小さな会社を大きく伸ばす方法、",
+     "ものづくりについて発信しています。"
+    ],
+    "author.blog": [
+     "ブログでもっと読む"
+    ],
+    "foot.brand": [
+     "インスピレーション・コレクター"
+    ],
+    "foot.line": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに。"
+    ],
+    "foot.product": [
+     "製品"
+    ],
+    "foot.help": [
+     "ヘルプ"
+    ],
+    "foot.store": [
+     "Chrome ウェブストア"
+    ],
+    "foot.tutorial": [
+     "使い方動画"
+    ],
+    "foot.changelog": [
+     "更新履歴"
+    ],
+    "foot.privacy": [
+     "プライバシーポリシー"
+    ],
+    "foot.faq": [
+     "よくある質問"
+    ],
+    "foot.report": [
+     "不具合を報告"
+    ],
+    "foot.blog": [
+     "ブログ"
+    ],
+    "foot.affiliation": [
+     "この拡張機能は OpenAI、Anthropic、Perplexity とは",
+     "関係ありません。"
+    ],
+    "foot.analytics": [
+     "このサイトは GoatCounter で閲覧数を数えています。",
+     "Cookie は使わず、個人情報も記録しません。",
+     "拡張機能そのものには追跡は一切ありません。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "768": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "動作環境"
+    ],
+    "devices.lead": [
+     "デスクトップ版 Chrome で使えます。",
+     "スマートフォン、iPad、",
+     "Android タブレットでは使えません。",
+     "そこの Chrome には",
+     "拡張機能を入れられないためです。"
+    ],
+    "devices.win": [
+     "Windows パソコン"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "スマートフォン、iPad、",
+     "Android タブレット"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "これらの Chrome には",
+     "拡張機能を入れられません"
+    ],
+    "devices.other.why": [
+     "この拡張機能は",
+     "Chrome ウェブストアでのみ公開しています"
+    ],
+    "devices.tested": [
+     "動作確認済み"
+    ],
+    "devices.tested#2": [
+     "動作確認済み"
+    ],
+    "req.browser.label": [
+     "ブラウザー"
+    ],
+    "req.ai.label": [
+     "AI サイト"
+    ],
+    "req.web.label": [
+     "一般のウェブページ"
+    ],
+    "req.lang.label": [
+     "表示言語"
+    ],
+    "req.price.label": [
+     "料金"
+    ],
+    "req.browser": [
+     "デスクトップ版 Chrome（最新版に更新してください）"
+    ],
+    "req.ai": [
+     "ChatGPT・Claude・Perplexity：",
+     "返信 1 件、会話まるごとを保存。",
+     "「ファイル」は ChatGPT のみ"
+    ],
+    "req.web": [
+     "一般的なサイトなら、ページ全体・選択したテキスト・",
+     "画像を保存できます"
+    ],
+    "req.lang": [
+     "繁体字中国語・英語・日本語",
+     "（自動で選択、その他の言語は英語で表示）"
+    ],
+    "req.price": [
+     "無料"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新のお知らせ"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新履歴"
+    ],
+    "changelog.lead": [
+     "バージョンごとの変更点。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "よくある質問"
+    ],
+    "faq.1.q": [
+     "料金はかかりますか？"
+    ],
+    "faq.2.q": [
+     "集めたものはどこに保存されますか？",
+     "アップロードされますか？"
+    ],
+    "faq.3.q": [
+     "なぜフォルダーが「ロック」されるのですか？"
+    ],
+    "faq.4.q": [
+     "スマートフォンで使えますか？"
+    ],
+    "faq.5.q": [
+     "どの AI と組み合わせればいいですか？"
+    ],
+    "faq.6.q": [
+     "同じページを 2 回保存すると、2 つになりますか？"
+    ],
+    "faq.7.q": [
+     "うまく動かないときは？"
+    ],
+    "faq.1.a": [
+     "無料です。有料版も広告もありません。"
+    ],
+    "faq.2.a": [
+     "あなたが選んだフォルダーに保存されます。",
+     "サーバーがないので、作者には何も届きません。"
+    ],
+    "faq.3.a": [
+     "しばらく操作しないと、",
+     "Chrome がフォルダーをロックし、",
+     "拡張機能がファイルに触れられないようにします。",
+     "次に保存するときに「ロックを解除」を押すだけ。",
+     "故障ではなく、保護が働いている状態です。"
+    ],
+    "faq.4.a": [
+     "使えません。スマートフォンの Chrome には",
+     "拡張機能を入れられないので、",
+     "パソコンの Chrome で使ってください。"
+    ],
+    "faq.5.a": [
+     "パソコン上のフォルダーを読める",
+     "AI エージェントなら、どれでも使えます。",
+     "たとえば Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "なりません。もう一度保存すると",
+     "元のものを更新します。",
+     "内容が同じなら「保存済み」と表示されるだけです。"
+    ],
+    "faq.7.a": [
+     "サイドパネル上部の聴診器アイコン",
+     "（「困ったときは」）を押すと、",
+     "その場で各所を点検し、どこが悪いか、",
+     "どのボタンを押せばいいかを教えてくれます。",
+     "点検結果を作者宛てのメールに",
+     "まとめることもできます。",
+     "送るかどうかはあなたが決めます。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "AI の時代に私が大切にしているのは、",
+     "効率だけではありません。",
+     "人がテクノロジーで新しい役割、新しい入り口、",
+     "そして新しいつながりを見つけていくことです。"
+    ],
+    "author.bio.2": [
+     "AI、インタラクティブ体験、空間のデジタル化、",
+     "小さな会社を大きく伸ばす方法、",
+     "ものづくりについて発信しています。"
+    ],
+    "author.blog": [
+     "ブログでもっと読む"
+    ],
+    "foot.brand": [
+     "インスピレーション・コレクター"
+    ],
+    "foot.line": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに。"
+    ],
+    "foot.product": [
+     "製品"
+    ],
+    "foot.help": [
+     "ヘルプ"
+    ],
+    "foot.store": [
+     "Chrome ウェブストア"
+    ],
+    "foot.tutorial": [
+     "使い方動画"
+    ],
+    "foot.changelog": [
+     "更新履歴"
+    ],
+    "foot.privacy": [
+     "プライバシーポリシー"
+    ],
+    "foot.faq": [
+     "よくある質問"
+    ],
+    "foot.report": [
+     "不具合を報告"
+    ],
+    "foot.blog": [
+     "ブログ"
+    ],
+    "foot.affiliation": [
+     "この拡張機能は OpenAI、Anthropic、Perplexity とは",
+     "関係ありません。"
+    ],
+    "foot.analytics": [
+     "このサイトは GoatCounter で閲覧数を数えています。",
+     "Cookie は使わず、個人情報も記録しません。",
+     "拡張機能そのものには追跡は一切ありません。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "1024": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "動作環境"
+    ],
+    "devices.lead": [
+     "デスクトップ版 Chrome で使えます。",
+     "スマートフォン、iPad、",
+     "Android タブレットでは使えません。",
+     "そこの Chrome には",
+     "拡張機能を入れられないためです。"
+    ],
+    "devices.win": [
+     "Windows パソコン"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "スマートフォン、iPad、Android タブレット"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "これらの Chrome には拡張機能を入れられません"
+    ],
+    "devices.other.why": [
+     "この拡張機能は Chrome ウェブストアでのみ",
+     "公開しています"
+    ],
+    "devices.tested": [
+     "動作確認済み"
+    ],
+    "devices.tested#2": [
+     "動作確認済み"
+    ],
+    "req.browser.label": [
+     "ブラウザー"
+    ],
+    "req.ai.label": [
+     "AI サイト"
+    ],
+    "req.web.label": [
+     "一般のウェブページ"
+    ],
+    "req.lang.label": [
+     "表示言語"
+    ],
+    "req.price.label": [
+     "料金"
+    ],
+    "req.browser": [
+     "デスクトップ版 Chrome（最新版に更新してください）"
+    ],
+    "req.ai": [
+     "ChatGPT・Claude・Perplexity：",
+     "返信 1 件、会話まるごとを保存。",
+     "「ファイル」は ChatGPT のみ"
+    ],
+    "req.web": [
+     "一般的なサイトなら、ページ全体・選択したテキスト・",
+     "画像を保存できます"
+    ],
+    "req.lang": [
+     "繁体字中国語・英語・日本語",
+     "（自動で選択、その他の言語は英語で表示）"
+    ],
+    "req.price": [
+     "無料"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新のお知らせ"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新履歴"
+    ],
+    "changelog.lead": [
+     "バージョンごとの変更点。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "よくある質問"
+    ],
+    "faq.1.q": [
+     "料金はかかりますか？"
+    ],
+    "faq.2.q": [
+     "集めたものはどこに保存されますか？",
+     "アップロードされますか？"
+    ],
+    "faq.3.q": [
+     "なぜフォルダーが「ロック」されるのですか？"
+    ],
+    "faq.4.q": [
+     "スマートフォンで使えますか？"
+    ],
+    "faq.5.q": [
+     "どの AI と組み合わせればいいですか？"
+    ],
+    "faq.6.q": [
+     "同じページを 2 回保存すると、2 つになりますか？"
+    ],
+    "faq.7.q": [
+     "うまく動かないときは？"
+    ],
+    "faq.1.a": [
+     "無料です。有料版も広告もありません。"
+    ],
+    "faq.2.a": [
+     "あなたが選んだフォルダーに保存されます。",
+     "サーバーがないので、作者には何も届きません。"
+    ],
+    "faq.3.a": [
+     "しばらく操作しないと、",
+     "Chrome がフォルダーをロックし、",
+     "拡張機能がファイルに触れられないようにします。",
+     "次に保存するときに「ロックを解除」を押すだけ。",
+     "故障ではなく、保護が働いている状態です。"
+    ],
+    "faq.4.a": [
+     "使えません。スマートフォンの Chrome には",
+     "拡張機能を入れられないので、",
+     "パソコンの Chrome で使ってください。"
+    ],
+    "faq.5.a": [
+     "パソコン上のフォルダーを読める",
+     "AI エージェントなら、どれでも使えます。",
+     "たとえば Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "なりません。もう一度保存すると",
+     "元のものを更新します。",
+     "内容が同じなら「保存済み」と表示されるだけです。"
+    ],
+    "faq.7.a": [
+     "サイドパネル上部の聴診器アイコン",
+     "（「困ったときは」）を押すと、",
+     "その場で各所を点検し、どこが悪いか、",
+     "どのボタンを押せばいいかを教えてくれます。",
+     "点検結果を作者宛てのメールに",
+     "まとめることもできます。",
+     "送るかどうかはあなたが決めます。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "AI の時代に私が大切にしているのは、",
+     "効率だけではありません。",
+     "人がテクノロジーで新しい役割、新しい入り口、",
+     "そして新しいつながりを見つけていくことです。"
+    ],
+    "author.bio.2": [
+     "AI、インタラクティブ体験、空間のデジタル化、",
+     "小さな会社を大きく伸ばす方法、",
+     "ものづくりについて発信しています。"
+    ],
+    "author.blog": [
+     "ブログでもっと読む"
+    ],
+    "foot.brand": [
+     "インスピレーション・コレクター"
+    ],
+    "foot.line": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに。"
+    ],
+    "foot.product": [
+     "製品"
+    ],
+    "foot.help": [
+     "ヘルプ"
+    ],
+    "foot.store": [
+     "Chrome ウェブストア"
+    ],
+    "foot.tutorial": [
+     "使い方動画"
+    ],
+    "foot.changelog": [
+     "更新履歴"
+    ],
+    "foot.privacy": [
+     "プライバシーポリシー"
+    ],
+    "foot.faq": [
+     "よくある質問"
+    ],
+    "foot.report": [
+     "不具合を報告"
+    ],
+    "foot.blog": [
+     "ブログ"
+    ],
+    "foot.affiliation": [
+     "この拡張機能は OpenAI、Anthropic、Perplexity とは",
+     "関係ありません。"
+    ],
+    "foot.analytics": [
+     "このサイトは GoatCounter で閲覧数を数えています。",
+     "Cookie は使わず、個人情報も記録しません。",
+     "拡張機能そのものには追跡は一切ありません。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "1280": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "動作環境"
+    ],
+    "devices.lead": [
+     "デスクトップ版 Chrome で使えます。",
+     "スマートフォン、iPad、",
+     "Android タブレットでは使えません。",
+     "そこの Chrome には",
+     "拡張機能を入れられないためです。"
+    ],
+    "devices.win": [
+     "Windows パソコン"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "スマートフォン、iPad、",
+     "Android タブレット"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "これらの Chrome には",
+     "拡張機能を入れられません"
+    ],
+    "devices.other.why": [
+     "この拡張機能は",
+     "Chrome ウェブストアでのみ",
+     "公開しています"
+    ],
+    "devices.tested": [
+     "動作確認済み"
+    ],
+    "devices.tested#2": [
+     "動作確認済み"
+    ],
+    "req.browser.label": [
+     "ブラウザー"
+    ],
+    "req.ai.label": [
+     "AI サイト"
+    ],
+    "req.web.label": [
+     "一般のウェブページ"
+    ],
+    "req.lang.label": [
+     "表示言語"
+    ],
+    "req.price.label": [
+     "料金"
+    ],
+    "req.browser": [
+     "デスクトップ版 Chrome（最新版に",
+     "更新してください）"
+    ],
+    "req.ai": [
+     "ChatGPT・Claude・Perplexity：",
+     "返信 1 件、会話まるごとを保存。",
+     "「ファイル」は ChatGPT のみ"
+    ],
+    "req.web": [
+     "一般的なサイトなら、",
+     "ページ全体・選択したテキスト・",
+     "画像を保存できます"
+    ],
+    "req.lang": [
+     "繁体字中国語・英語・日本語",
+     "（自動で選択、その他の言語は英語で表示）"
+    ],
+    "req.price": [
+     "無料"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新のお知らせ"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新履歴"
+    ],
+    "changelog.lead": [
+     "バージョンごとの変更点。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "よくある質問"
+    ],
+    "faq.1.q": [
+     "料金はかかりますか？"
+    ],
+    "faq.2.q": [
+     "集めたものはどこに保存されますか？",
+     "アップロードされますか？"
+    ],
+    "faq.3.q": [
+     "なぜフォルダーが「ロック」されるのですか？"
+    ],
+    "faq.4.q": [
+     "スマートフォンで使えますか？"
+    ],
+    "faq.5.q": [
+     "どの AI と組み合わせればいいですか？"
+    ],
+    "faq.6.q": [
+     "同じページを 2 回保存すると、2 つになりますか？"
+    ],
+    "faq.7.q": [
+     "うまく動かないときは？"
+    ],
+    "faq.1.a": [
+     "無料です。有料版も広告もありません。"
+    ],
+    "faq.2.a": [
+     "あなたが選んだフォルダーに保存されます。",
+     "サーバーがないので、作者には何も届きません。"
+    ],
+    "faq.3.a": [
+     "しばらく操作しないと、",
+     "Chrome がフォルダーをロックし、",
+     "拡張機能がファイルに触れられないようにします。",
+     "次に保存するときに「ロックを解除」を押すだけ。",
+     "故障ではなく、保護が働いている状態です。"
+    ],
+    "faq.4.a": [
+     "使えません。スマートフォンの Chrome には",
+     "拡張機能を入れられないので、",
+     "パソコンの Chrome で使ってください。"
+    ],
+    "faq.5.a": [
+     "パソコン上のフォルダーを読める",
+     "AI エージェントなら、どれでも使えます。",
+     "たとえば Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "なりません。もう一度保存すると",
+     "元のものを更新します。",
+     "内容が同じなら「保存済み」と表示されるだけです。"
+    ],
+    "faq.7.a": [
+     "サイドパネル上部の聴診器アイコン",
+     "（「困ったときは」）を押すと、",
+     "その場で各所を点検し、どこが悪いか、",
+     "どのボタンを押せばいいかを教えてくれます。",
+     "点検結果を作者宛てのメールに",
+     "まとめることもできます。",
+     "送るかどうかはあなたが決めます。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "AI の時代に私が大切にしているのは、",
+     "効率だけではありません。",
+     "人がテクノロジーで新しい役割、新しい入り口、",
+     "そして新しいつながりを見つけていくことです。"
+    ],
+    "author.bio.2": [
+     "AI、インタラクティブ体験、空間のデジタル化、",
+     "小さな会社を大きく伸ばす方法、",
+     "ものづくりについて発信しています。"
+    ],
+    "author.blog": [
+     "ブログでもっと読む"
+    ],
+    "foot.brand": [
+     "インスピレーション・コレクター"
+    ],
+    "foot.line": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに。"
+    ],
+    "foot.product": [
+     "製品"
+    ],
+    "foot.help": [
+     "ヘルプ"
+    ],
+    "foot.store": [
+     "Chrome ウェブストア"
+    ],
+    "foot.tutorial": [
+     "使い方動画"
+    ],
+    "foot.changelog": [
+     "更新履歴"
+    ],
+    "foot.privacy": [
+     "プライバシーポリシー"
+    ],
+    "foot.faq": [
+     "よくある質問"
+    ],
+    "foot.report": [
+     "不具合を報告"
+    ],
+    "foot.blog": [
+     "ブログ"
+    ],
+    "foot.affiliation": [
+     "この拡張機能は OpenAI、Anthropic、Perplexity とは",
+     "関係ありません。"
+    ],
+    "foot.analytics": [
+     "このサイトは GoatCounter で閲覧数を数えています。",
+     "Cookie は使わず、個人情報も記録しません。",
+     "拡張機能そのものには追跡は一切ありません。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   },
+   "1440": {
+    "devices.eyebrow": [
+     "Requirements"
+    ],
+    "devices.title": [
+     "動作環境"
+    ],
+    "devices.lead": [
+     "デスクトップ版 Chrome で使えます。",
+     "スマートフォン、iPad、",
+     "Android タブレットでは使えません。",
+     "そこの Chrome には",
+     "拡張機能を入れられないためです。"
+    ],
+    "devices.win": [
+     "Windows パソコン"
+    ],
+    "devices.mac": [
+     "Mac"
+    ],
+    "devices.mobile": [
+     "スマートフォン、iPad、",
+     "Android タブレット"
+    ],
+    "devices.other": [
+     "Firefox、Safari"
+    ],
+    "devices.chrome": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.chrome#2": [
+     "デスクトップ版 Chrome"
+    ],
+    "devices.mobile.why": [
+     "これらの Chrome には",
+     "拡張機能を入れられません"
+    ],
+    "devices.other.why": [
+     "この拡張機能は",
+     "Chrome ウェブストアでのみ",
+     "公開しています"
+    ],
+    "devices.tested": [
+     "動作確認済み"
+    ],
+    "devices.tested#2": [
+     "動作確認済み"
+    ],
+    "req.browser.label": [
+     "ブラウザー"
+    ],
+    "req.ai.label": [
+     "AI サイト"
+    ],
+    "req.web.label": [
+     "一般のウェブページ"
+    ],
+    "req.lang.label": [
+     "表示言語"
+    ],
+    "req.price.label": [
+     "料金"
+    ],
+    "req.browser": [
+     "デスクトップ版 Chrome（最新版に",
+     "更新してください）"
+    ],
+    "req.ai": [
+     "ChatGPT・Claude・Perplexity：",
+     "返信 1 件、会話まるごとを保存。",
+     "「ファイル」は ChatGPT のみ"
+    ],
+    "req.web": [
+     "一般的なサイトなら、",
+     "ページ全体・選択したテキスト・",
+     "画像を保存できます"
+    ],
+    "req.lang": [
+     "繁体字中国語・英語・日本語",
+     "（自動で選択、その他の言語は英語で表示）"
+    ],
+    "req.price": [
+     "無料"
+    ],
+    "news.eyebrow": [
+     "News"
+    ],
+    "news.title": [
+     "最新のお知らせ"
+    ],
+    "changelog.eyebrow": [
+     "Changelog"
+    ],
+    "changelog.title": [
+     "更新履歴"
+    ],
+    "changelog.lead": [
+     "バージョンごとの変更点。"
+    ],
+    "faq.eyebrow": [
+     "FAQ"
+    ],
+    "faq.title": [
+     "よくある質問"
+    ],
+    "faq.1.q": [
+     "料金はかかりますか？"
+    ],
+    "faq.2.q": [
+     "集めたものはどこに保存されますか？",
+     "アップロードされますか？"
+    ],
+    "faq.3.q": [
+     "なぜフォルダーが「ロック」されるのですか？"
+    ],
+    "faq.4.q": [
+     "スマートフォンで使えますか？"
+    ],
+    "faq.5.q": [
+     "どの AI と組み合わせればいいですか？"
+    ],
+    "faq.6.q": [
+     "同じページを 2 回保存すると、2 つになりますか？"
+    ],
+    "faq.7.q": [
+     "うまく動かないときは？"
+    ],
+    "faq.1.a": [
+     "無料です。有料版も広告もありません。"
+    ],
+    "faq.2.a": [
+     "あなたが選んだフォルダーに保存されます。",
+     "サーバーがないので、作者には何も届きません。"
+    ],
+    "faq.3.a": [
+     "しばらく操作しないと、",
+     "Chrome がフォルダーをロックし、",
+     "拡張機能がファイルに触れられないようにします。",
+     "次に保存するときに「ロックを解除」を押すだけ。",
+     "故障ではなく、保護が働いている状態です。"
+    ],
+    "faq.4.a": [
+     "使えません。スマートフォンの Chrome には",
+     "拡張機能を入れられないので、",
+     "パソコンの Chrome で使ってください。"
+    ],
+    "faq.5.a": [
+     "パソコン上のフォルダーを読める",
+     "AI エージェントなら、どれでも使えます。",
+     "たとえば Claude Code、Codex、Gemini CLI。"
+    ],
+    "faq.6.a": [
+     "なりません。もう一度保存すると",
+     "元のものを更新します。",
+     "内容が同じなら「保存済み」と表示されるだけです。"
+    ],
+    "faq.7.a": [
+     "サイドパネル上部の聴診器アイコン",
+     "（「困ったときは」）を押すと、",
+     "その場で各所を点検し、どこが悪いか、",
+     "どのボタンを押せばいいかを教えてくれます。",
+     "点検結果を作者宛てのメールに",
+     "まとめることもできます。",
+     "送るかどうかはあなたが決めます。"
+    ],
+    "author.eyebrow": [
+     "Made by"
+    ],
+    "author.name": [
+     "Jerromy"
+    ],
+    "author.bio.1": [
+     "AI の時代に私が大切にしているのは、",
+     "効率だけではありません。",
+     "人がテクノロジーで新しい役割、新しい入り口、",
+     "そして新しいつながりを見つけていくことです。"
+    ],
+    "author.bio.2": [
+     "AI、インタラクティブ体験、空間のデジタル化、",
+     "小さな会社を大きく伸ばす方法、",
+     "ものづくりについて発信しています。"
+    ],
+    "author.blog": [
+     "ブログでもっと読む"
+    ],
+    "foot.brand": [
+     "インスピレーション・コレクター"
+    ],
+    "foot.line": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに。"
+    ],
+    "foot.product": [
+     "製品"
+    ],
+    "foot.help": [
+     "ヘルプ"
+    ],
+    "foot.store": [
+     "Chrome ウェブストア"
+    ],
+    "foot.tutorial": [
+     "使い方動画"
+    ],
+    "foot.changelog": [
+     "更新履歴"
+    ],
+    "foot.privacy": [
+     "プライバシーポリシー"
+    ],
+    "foot.faq": [
+     "よくある質問"
+    ],
+    "foot.report": [
+     "不具合を報告"
+    ],
+    "foot.blog": [
+     "ブログ"
+    ],
+    "foot.affiliation": [
+     "この拡張機能は OpenAI、Anthropic、Perplexity とは",
+     "関係ありません。"
+    ],
+    "foot.analytics": [
+     "このサイトは GoatCounter で閲覧数を数えています。",
+     "Cookie は使わず、個人情報も記録しません。",
+     "拡張機能そのものには追跡は一切ありません。"
+    ],
+    "foot.copyright": [
+     "© 2026 Jerromy"
+    ]
+   }
+  }
+ }
+}

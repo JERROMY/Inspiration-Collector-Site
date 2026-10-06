@@ -1,0 +1,40 @@
+/* 照設計稿 home.css 的 .frame 與 .corners */
+.frame {
+    position: relative;
+    margin: 0;
+    border: var(--hair);
+    border-radius: var(--radius-lg);
+    background: var(--color-bg-overlay);
+}
+
+.corners::after {
+    --c: var(--color-accent-lime-default);
+    --l: var(--space-20);
+    --w: var(--stroke-thick);
+    content: "";
+    position: absolute;
+    inset: calc(var(--space-8) * -1);
+    pointer-events: none;
+    background:
+        linear-gradient(var(--c), var(--c)) left top / var(--l) var(--w),
+        linear-gradient(var(--c), var(--c)) left top / var(--w) var(--l),
+        linear-gradient(var(--c), var(--c)) right top / var(--l) var(--w),
+        linear-gradient(var(--c), var(--c)) right top / var(--w) var(--l),
+        linear-gradient(var(--c), var(--c)) left bottom / var(--l) var(--w),
+        linear-gradient(var(--c), var(--c)) left bottom / var(--w) var(--l),
+        linear-gradient(var(--c), var(--c)) right bottom / var(--l) var(--w),
+        linear-gradient(var(--c), var(--c)) right bottom / var(--w) var(--l);
+    background-repeat: no-repeat;
+}
+
+/* 動態 D（設計稿 動態.md）：捲進畫面三成時，括號角從框外收到框邊並淡入，一次 */
+@media (prefers-reduced-motion: no-preference) {
+    :global(.js-motion) .corners::after {
+        transition: scale var(--dur-slow) var(--ease-out), opacity var(--dur-slow) var(--ease-out);
+    }
+
+    :global(.js-motion) .corners:not([data-in])::after {
+        scale: 1.03;
+        opacity: 0;
+    }
+}

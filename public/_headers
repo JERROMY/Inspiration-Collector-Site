@@ -1,0 +1,15 @@
+# Cloudflare Pages 的回應標頭（官方說明：https://developers.cloudflare.com/pages/configuration/headers/）。
+# Next.js 產生網頁時把 public/ 原樣放進 out/，Cloudflare 讀 out/_headers；這支檔本身不會被當成網頁。
+
+# xxx.pages.dev 與每一次部署的預覽網址都能打開，內容跟 collector.jerromy.com 一模一樣：
+# 叫搜尋引擎不要收錄它們，免得變成兩份重複的網站（每一頁也有 canonical 指到正式網址）。寫法照官方文件的範例。
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+# Next.js 產生的 JS 與 CSS 檔名帶著內容的雜湊，內容一變檔名就變，所以可以讓瀏覽器放一年不再問。
+# 其他檔（HTML、字型、圖片、影片）檔名不變，照 Cloudflare 預設每次都問一下有沒有更新。
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable

@@ -1,0 +1,157 @@
+/* Mirameta / nO.X — 色彩 token
+   由 DesignSystem.fig 的 Figma Variables 自動生成，請勿手改。
+   Primitives 37 色 · Semantic 26 組 (dark / light) */
+
+:root {
+  /* ── 原始色階 Primitives ─────────────────── */
+  /* neutral */
+  --mira-neutral-50: #f5f5f7;
+  --mira-neutral-100: #f0f0f3;
+  --mira-neutral-200: #d1d2d7;
+  --mira-neutral-300: #b1b2b9;
+  --mira-neutral-400: #878992;
+  --mira-neutral-500: #686a74;
+  --mira-neutral-600: #595b64;
+  --mira-neutral-700: #484a54;
+  --mira-neutral-750: #3b3d47;
+  --mira-neutral-800: #2f313a;
+  --mira-neutral-850: #252730;
+  --mira-neutral-900: #1b1d24;
+  --mira-neutral-950: #0c0e14;
+  --mira-neutral-black: #000000;
+  --mira-neutral-white: #ffffff;
+  /* lime */
+  --mira-lime-200: #f7ffdc;
+  --mira-lime-400: #e0ff98;
+  --mira-lime-700: #d5f87a;
+  --mira-lime-800: #c3f33f;
+  --mira-lime-900: #9bd300;
+  --mira-lime-950: #7eab00;
+  /* cyan */
+  --mira-cyan-200: #e8fafc;
+  --mira-cyan-400: #a8f3f6;
+  --mira-cyan-700: #64cbcf;
+  --mira-cyan-900: #3b9e9f;
+  /* purple */
+  --mira-purple-200: #e8e5ff;
+  --mira-purple-400: #bfb8ff;
+  --mira-purple-700: #9185ff;
+  --mira-purple-900: #594ebe;
+  /* pink */
+  --mira-pink-200: #ffdceb;
+  --mira-pink-400: #ffc4dd;
+  --mira-pink-700: #ff98c4;
+  --mira-pink-900: #b74a73;
+  /* gold */
+  --mira-gold-200: #fffaeb;
+  --mira-gold-400: #fae6aa;
+  --mira-gold-700: #b9a25f;
+  --mira-gold-900: #9c780c;
+}
+
+:root, [data-theme="dark"] {
+  /* bg */
+  --color-bg-elevated: var(--mira-neutral-800);
+  --color-bg-overlay: var(--mira-neutral-black);
+  --color-bg-primary: var(--mira-neutral-900);
+  /* surface */
+  --color-surface-glass: var(--mira-neutral-750);
+  --color-surface-raised: var(--mira-neutral-850);
+  /* text */
+  --color-text-inverse: var(--mira-neutral-950);
+  --color-text-on-accent: var(--mira-neutral-950);
+  --color-text-primary: var(--mira-neutral-white);
+  --color-text-secondary: var(--mira-neutral-300);
+  /* border */
+  --color-border-default: var(--mira-neutral-750);
+  --color-border-strong: var(--mira-neutral-600);
+  /* icon */
+  --color-icon-primary: var(--mira-neutral-white);
+  /* accent */
+  --color-accent-cyan-default: var(--mira-cyan-400);
+  --color-accent-cyan-hover: var(--mira-cyan-200);
+  --color-accent-cyan-text: var(--mira-cyan-400);
+  --color-accent-gold-default: var(--mira-gold-400);
+  --color-accent-gold-hover: var(--mira-gold-200);
+  --color-accent-lime-default: var(--mira-lime-400);
+  --color-accent-lime-hover: var(--mira-lime-200);
+  --color-accent-lime-text: var(--mira-lime-400);
+  --color-accent-pink-default: var(--mira-pink-400);
+  --color-accent-pink-hover: var(--mira-pink-200);
+  --color-accent-pink-text: var(--mira-pink-400);
+  --color-accent-purple-default: var(--mira-purple-400);
+  --color-accent-purple-hover: var(--mira-purple-200);
+  --color-accent-purple-text: var(--mira-purple-400);
+}
+
+[data-theme="light"] {
+  /* bg */
+  --color-bg-elevated: var(--mira-neutral-white);
+  --color-bg-overlay: var(--mira-neutral-950);
+  --color-bg-primary: var(--mira-neutral-white);
+  /* surface */
+  --color-surface-glass: var(--mira-neutral-200);
+  --color-surface-raised: var(--mira-neutral-50);
+  /* text */
+  --color-text-inverse: var(--mira-neutral-white);
+  --color-text-on-accent: var(--mira-neutral-950);
+  --color-text-primary: var(--mira-neutral-950);
+  --color-text-secondary: var(--mira-neutral-600);
+  /* border */
+  --color-border-default: var(--mira-neutral-200);
+  --color-border-strong: var(--mira-neutral-400);
+  /* icon */
+  --color-icon-primary: var(--mira-neutral-950);
+  /* accent */
+  --color-accent-cyan-default: var(--mira-cyan-700);
+  --color-accent-cyan-hover: var(--mira-cyan-400);
+  --color-accent-cyan-text: var(--mira-cyan-900);
+  --color-accent-gold-default: var(--mira-gold-700);
+  --color-accent-gold-hover: var(--mira-gold-400);
+  --color-accent-lime-default: var(--mira-lime-800);
+  --color-accent-lime-hover: var(--mira-lime-700);
+  --color-accent-lime-text: var(--mira-lime-900);
+  --color-accent-pink-default: var(--mira-pink-700);
+  --color-accent-pink-hover: var(--mira-pink-400);
+  --color-accent-pink-text: var(--mira-pink-900);
+  --color-accent-purple-default: var(--mira-purple-700);
+  --color-accent-purple-hover: var(--mira-purple-400);
+  --color-accent-purple-text: var(--mira-purple-900);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    /* bg */
+    --color-bg-elevated: var(--mira-neutral-white);
+    --color-bg-overlay: var(--mira-neutral-950);
+    --color-bg-primary: var(--mira-neutral-white);
+    /* surface */
+    --color-surface-glass: var(--mira-neutral-200);
+    --color-surface-raised: var(--mira-neutral-50);
+    /* text */
+    --color-text-inverse: var(--mira-neutral-white);
+    --color-text-on-accent: var(--mira-neutral-950);
+    --color-text-primary: var(--mira-neutral-950);
+    --color-text-secondary: var(--mira-neutral-600);
+    /* border */
+    --color-border-default: var(--mira-neutral-200);
+    --color-border-strong: var(--mira-neutral-400);
+    /* icon */
+    --color-icon-primary: var(--mira-neutral-950);
+    /* accent */
+    --color-accent-cyan-default: var(--mira-cyan-700);
+    --color-accent-cyan-hover: var(--mira-cyan-400);
+    --color-accent-cyan-text: var(--mira-cyan-900);
+    --color-accent-gold-default: var(--mira-gold-700);
+    --color-accent-gold-hover: var(--mira-gold-400);
+    --color-accent-lime-default: var(--mira-lime-800);
+    --color-accent-lime-hover: var(--mira-lime-700);
+    --color-accent-lime-text: var(--mira-lime-900);
+    --color-accent-pink-default: var(--mira-pink-700);
+    --color-accent-pink-hover: var(--mira-pink-400);
+    --color-accent-pink-text: var(--mira-pink-900);
+    --color-accent-purple-default: var(--mira-purple-700);
+    --color-accent-purple-hover: var(--mira-purple-400);
+    --color-accent-purple-text: var(--mira-purple-900);
+  }
+}

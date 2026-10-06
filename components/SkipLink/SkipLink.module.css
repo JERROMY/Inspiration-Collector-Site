@@ -1,0 +1,20 @@
+/* 照設計稿 home.css 的 .skip：平常在畫面上緣外面，拿到鍵盤焦點才滑進來 */
+.skip {
+    position: absolute;
+    top: var(--space-10);
+    left: var(--gx);
+    z-index: var(--z-overlay);
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tap);
+    padding: 0 var(--space-20);
+    border-radius: var(--radius-full);
+    background: var(--color-text-primary);
+    color: var(--color-text-inverse);
+    font: var(--weight-medium) var(--text-md)/var(--leading-none) var(--font-sans-14);
+    translate: 0 calc(-100% - var(--space-20));
+}
+
+.skip:focus-visible {
+    translate: 0 0;
+}

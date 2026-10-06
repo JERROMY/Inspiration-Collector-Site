@@ -1,0 +1,469 @@
+/* 03 首屏，照設計稿 home.css 的「03 首屏」（數字的出處寫在設計稿檔首的表）。
+   桌機：大標橫跨整個內容寬，底下左字右片。手機、平板一欄：字 → 按鈕 → 影片。 */
+.hero {
+    position: relative;
+    padding-block: var(--space-40) var(--gap-section);
+    isolation: isolate;
+}
+
+/* 氛圍光（跟記號背後那團光同一個顏色）：螢光綠 7%、橢圓 60%×55%、圓心在右下影片那一側、70% 淡到沒有 */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(ellipse 60% 55% at 78% 62%, color-mix(in srgb, var(--color-accent-lime-default) 7%, transparent), transparent 70%);
+}
+
+/* 手機：大標↔說明用 --gap-unit（390×844 第一屏才看得到主要按鈕）；640 起換成 --gap-group */
+.in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--gap-unit);
+}
+
+.h1 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-inner);
+    font-weight: var(--weight-semibold);
+}
+
+.kicker {
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--label-size)/var(--leading-snug) var(--font-mono);
+    letter-spacing: var(--label-track);
+}
+
+.title {
+    font: var(--weight-semibold) var(--text-3xl)/var(--leading-tight) var(--font-title-32);
+}
+
+.title:lang(en) {
+    letter-spacing: var(--tracking-tight);
+}
+
+/* 大標：夾住的那半句放得下就自己一行（整塊換行），放不下才在詞與詞之間斷 */
+.title :global(.clamp) {
+    display: inline-block;
+}
+
+.body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: var(--gap-unit);
+    min-width: 0;
+}
+
+.sub {
+    max-width: var(--measure);
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-lg)/var(--lh-body) var(--font-sub);
+}
+
+.ctas {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-tight);
+}
+
+.meta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: start;
+    gap: var(--space-4);
+}
+
+.meta p {
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-md)/var(--lh-body) var(--font-meta);
+}
+
+.meta .devices {
+    margin-top: var(--space-8);
+}
+
+/* 只有手指的手機（主要動作是手指框，要在第一屏）：首屏上方內距與大標↔說明再收一點，字級不動 */
+@media (hover: none) and (pointer: coarse) and (max-width: 639px) {
+    .hero {
+        padding-top: var(--space-24);
+    }
+
+    .in {
+        row-gap: var(--space-20);
+    }
+
+    .body {
+        gap: var(--space-20);
+    }
+}
+
+/* 中文大標 360 以下：夾住的那半句跟前面接著排（「把網頁收成 AI」／「讀得懂的素材庫」兩行，不然是三行） */
+@media (max-width: 359px) {
+    .title:lang(zh-Hant) :global(.clamp) {
+        display: inline;
+    }
+}
+
+/* 日文大標 360～639：夾住的那半句不硬換到新的一行（三行，原本四行）；320 以下照舊整塊換行 */
+@media (min-width: 360px) and (max-width: 639px) {
+    .title:lang(ja) :global(.clamp) {
+        display: inline;
+    }
+}
+
+.media {
+    min-width: 0;
+    margin: 0;
+}
+
+/* 媒體框：髮絲框、8px 圓角；觀景窗的四個括號角（框住「收進來的東西」）畫在 ::after */
+.frame {
+    position: relative;
+    border: var(--hair);
+    border-radius: var(--radius-lg);
+    background: var(--color-bg-overlay);
+}
+
+.frame::after {
+    --c: var(--color-accent-lime-default);
+    --l: var(--space-20);
+    --w: var(--stroke-thick);
+    content: "";
+    position: absolute;
+    inset: calc(var(--space-8) * -1);
+    pointer-events: none;
+    background:
+        linear-gradient(var(--c), var(--c)) left top / var(--l) var(--w),
+        linear-gradient(var(--c), var(--c)) left top / var(--w) var(--l),
+        linear-gradient(var(--c), var(--c)) right top / var(--l) var(--w),
+        linear-gradient(var(--c), var(--c)) right top / var(--w) var(--l),
+        linear-gradient(var(--c), var(--c)) left bottom / var(--l) var(--w),
+        linear-gradient(var(--c), var(--c)) left bottom / var(--w) var(--l),
+        linear-gradient(var(--c), var(--c)) right bottom / var(--l) var(--w),
+        linear-gradient(var(--c), var(--c)) right bottom / var(--w) var(--l);
+    background-repeat: no-repeat;
+}
+
+/* 素材是 1920×1080，整張顯示（不裁：粒子版左邊的記號括號、右上的頁數、右下的標題都貼近邊）。
+   底下燒著一條進度條（y 1040～1042，x 64～1856），用 ::after 一條遮罩蓋住：框高的 50/1080（素材的 y 1030 起），
+   由透明到實色、y 1037 起全實。顏色是素材底部的底色 #0c0e14（量過：第 0～60 秒每 10 秒一格、三種語言，y 960～1079 除了進度條全是這個色），
+   設計系統暗色裡等於它的語意 token 只有 --color-text-inverse（neutral-950）。遮罩在框裡、不佔版面、不擋點擊；播放鈕在框外層，疊在它上面。影片跟預覽圖同一個位置 */
+.crop {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1920 / 1080;
+    border-radius: inherit;
+}
+
+.crop > img,
+.crop > video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    aspect-ratio: 1920 / 1080;
+}
+
+.crop::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: calc(50 / 1080 * 100%);
+    background: linear-gradient(transparent, var(--color-text-inverse) 14%);
+    pointer-events: none;
+}
+
+/* 影片還沒播之前不蓋住預覽圖（hero.js 開始播時加 data-playing） */
+.crop > video:not([data-playing]) {
+    opacity: 0;
+}
+
+/* 播放鈕／暫停鍵（同一顆）：玻璃圓，放影片框左下角、離框邊 24（不蓋住預覽圖正中間的記號）。
+   72%：影片左下角最壞是全白時，白色圖示對玻璃底仍有約 6.6:1。
+   狀態（public/hero.js 換 data-state）：idle 是大的播放鈕（桌機 72、手機 56）；loading、playing、paused 是 44×44 的圖示鈕。
+   大小一下換過去（不做寬高動畫），大小與圖示同一幀換；鈕疊在影片上，換大小不推動版面 */
+.play {
+    position: absolute;
+    left: var(--space-24);
+    bottom: var(--space-24);
+    display: grid;
+    place-items: center;
+    width: calc(var(--space-60) + var(--space-12));
+    height: calc(var(--space-60) + var(--space-12));
+    border: var(--stroke-hairline) solid var(--color-text-secondary);
+    border-radius: var(--radius-full);
+    background: color-mix(in srgb, var(--color-bg-primary) 72%, transparent);
+    -webkit-backdrop-filter: blur(var(--blur-glass));
+    backdrop-filter: blur(var(--blur-glass));
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: background-color var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out),
+                border-color var(--dur-base) var(--ease-out), scale var(--dur-fast) var(--ease-out);
+}
+
+.play :global(.i) {
+    width: var(--space-24);
+    height: var(--space-24);
+    margin-left: var(--space-3);
+}
+
+/* 兩個圖示都在鈕裡，照狀態顯示一個：idle、paused 是播放，loading、playing 是暫停 */
+.play :global([data-icon="pause"]),
+.play[data-state="loading"] :global([data-icon="play"]),
+.play[data-state="playing"] :global([data-icon="play"]),
+:global(html.video-auto) .play[data-state="idle"] :global([data-icon="play"]) {
+    display: none;
+}
+
+.play[data-state="loading"] :global([data-icon="pause"]),
+.play[data-state="playing"] :global([data-icon="pause"]),
+:global(html.video-auto) .play[data-state="idle"] :global([data-icon="pause"]) {
+    display: inline-block;
+}
+
+/* 播過之後（與桌機會自動播的開頁：<head> 的 motion.js 加 html.video-auto，第一次畫就是 44 的暫停鍵，不先閃大的）一律 44×44。
+   自動播被擋時 hero.js 拿掉 video-auto，回到大的播放鈕。兩個 class 以上：壓過手機那條 56 */
+.frame .play[data-state="loading"],
+.frame .play[data-state="playing"],
+.frame .play[data-state="paused"],
+:global(html.video-auto) .frame .play[data-state="idle"] {
+    width: var(--tap);
+    height: var(--tap);
+}
+
+.frame .play[data-state="loading"] :global(.i),
+.frame .play[data-state="playing"] :global(.i),
+.frame .play[data-state="paused"] :global(.i),
+:global(html.video-auto) .frame .play[data-state="idle"] :global(.i) {
+    width: var(--space-20);
+    height: var(--space-20);
+    margin-left: 0;
+}
+
+/* 三角形的重心偏左，往右推 2px 才看起來置中 */
+.frame .play[data-state="paused"] :global([data-icon="play"]) {
+    margin-left: var(--space-2);
+}
+
+/* 關掉 JS：按了不會載入影片，鈕整顆不放（預覽圖與底下的影片說明照樣在） */
+:global(html:not(.js)) .play {
+    display: none;
+}
+
+@media (hover: hover) {
+    .play:hover {
+        border-color: var(--color-accent-lime-default);
+        background: var(--color-accent-lime-default);
+        color: var(--color-text-on-accent);
+    }
+}
+
+/* 手指的「按下」（只有手指的裝置沒有滑過）：跟滑過同一個樣子，只在按著的那一下 */
+@media (hover: none) {
+    .play:active {
+        border-color: var(--color-accent-lime-default);
+        background: var(--color-accent-lime-default);
+        color: var(--color-text-on-accent);
+    }
+}
+
+.play:active {
+    scale: .98;
+}
+
+/* 影片說明：收起來的一段字（重要的話不能只在影片裡、影片要有文字說明） */
+.vdesc {
+    margin-top: var(--gap-tight);
+}
+
+.vdesc summary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-8);
+    min-height: var(--tap);
+    border-radius: var(--radius-full);
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--label-size)/var(--leading-snug) var(--font-mono);
+    letter-spacing: var(--label-track);
+    list-style: none;
+    cursor: pointer;
+    transition: color var(--dur-fast) var(--ease-out);
+}
+
+.vdesc summary::-webkit-details-marker {
+    display: none;
+}
+
+@media (hover: hover) {
+    .vdesc summary:hover {
+        color: var(--color-accent-lime-default);
+    }
+}
+
+/* 手指的「按下」（只有手指的裝置沒有滑過）：跟滑過同一個樣子，只在按著的那一下 */
+@media (hover: none) {
+    .vdesc summary:active {
+        color: var(--color-accent-lime-default);
+    }
+}
+
+.vdesc summary :global(.i) {
+    width: var(--space-14);
+    height: var(--space-14);
+    transition: rotate var(--dur-base) var(--ease-out);
+}
+
+.vdesc[open] summary :global(.i) {
+    rotate: 180deg;
+}
+
+.vdesc p {
+    max-width: var(--measure);
+    padding-block: var(--space-6) var(--space-12);
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-md)/var(--lh-body) var(--font-sans-14);
+}
+
+/* 手機：影片框跟桌機同一個關係（使用者 2026-10-04）—— 框在版心裡、有框線與圓角，括號角在框外 8（離視窗邊 8 ＝ 版心內距的一半）；
+   原本貼齊兩邊、括號角收進框裡，括號角會落在影片畫面上 */
+@media (max-width: 639px) {
+    .play {
+        width: calc(var(--space-40) + var(--space-16));
+        height: calc(var(--space-40) + var(--space-16));
+    }
+}
+
+@media (min-width: 640px) {
+    .hero {
+        padding-block: var(--space-60) var(--gap-section);
+    }
+
+    .in {
+        row-gap: var(--gap-group);
+    }
+
+    .title {
+        font-size: var(--text-4xl);
+        font-family: var(--font-title-48);
+    }
+
+    /* 同一排放得下就同一排；放不下就換行，每一顆撐滿整欄（從 0 平分：同一排兩顆一樣寬） */
+    .ctas {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .ctas > * {
+        flex: 1 1 0;
+    }
+}
+
+/* 只有手指（手機、平板）：按鈕組與底下那一行換成手指框（規格書第 5 節 03「按鈕（手機、平板）換成一個框」）。
+   這一段一定要排在上面 640 那條後面：640 那條把 .ctas 設回 flex，排在前面會被它蓋掉，只有手指的平板兩樣會同時出現 */
+@media (hover: none) and (pointer: coarse) {
+    .ctas,
+    .meta {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero {
+        padding-block: var(--space-80) var(--gap-section);
+    }
+
+    .in {
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        column-gap: var(--gap-group);
+        row-gap: var(--gap-group);
+    }
+
+    .h1 {
+        grid-column: 1 / -1;
+    }
+
+    .title {
+        font-size: var(--text-5xl);
+        font-family: var(--font-sans-64);
+    }
+
+    .media {
+        padding-top: var(--space-6);
+    }
+}
+
+/* 「已複製」：畫面下方中央浮出（往上 8px＋淡入），不推動版面；停 --dur-breathe（3.2 秒）後淡出、字清空（hero.js）；減少動態時 base.css 讓它直接出現、直接消失 */
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: var(--space-24);
+    z-index: var(--z-toast);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-10);
+    min-height: var(--tap);
+    padding: 0 var(--space-20);
+    border: var(--stroke-hairline) solid var(--color-accent-lime-default);
+    border-radius: var(--radius-full);
+    background: var(--color-bg-elevated);
+    box-shadow: var(--shadow-card);
+    color: var(--color-text-primary);
+    font: var(--weight-medium) var(--text-md)/var(--leading-none) var(--font-sans-14);
+    opacity: 0;
+    translate: -50% var(--space-8);
+    pointer-events: none;
+    transition: opacity var(--dur-base) var(--ease-out), translate var(--dur-base) var(--ease-out);
+}
+
+/* 沒有字的時候（平常）不佔畫面：字是空的、看不見，但元素一直在 DOM 裡（讀屏念得到之後換上的字） */
+.toast:empty {
+    padding: 0;
+    border-width: 0;
+}
+
+.toast[data-show] {
+    opacity: 1;
+    translate: -50% 0;
+}
+
+.toast :global(.i) {
+    color: var(--color-accent-lime-default);
+}
+
+/* 動態 A：括號不動，只有括號裡那半句的字以隨機順序冒出來一次（先螢光綠＝剛被收進來，再轉白），之後靜止。
+   public/motion.js 拆字（data-char，各帶 0～1 的 --k）、在 <html> 加 js-motion／chars-split／motion-a；時間全用 token。
+   只動透明度與顏色：字是行內的，不能用位移（吃不到）、也不能用 top（算進 CLS）。減少動態、或 motion.js 沒載到時這些都不套用。
+   D：媒體框的括號角從框外（1.03 倍）收到框邊、淡入；捲進畫面三成時一次（data-in）。 */
+@media (prefers-reduced-motion: no-preference) {
+    :global(.js-motion:not(.chars-split)) .title :global(.clamp) {
+        color: transparent;
+    }
+
+    :global(.js-motion) .title [data-char] {
+        opacity: 0;
+        color: var(--color-accent-lime-text);
+    }
+
+    :global(.js-motion.motion-a) .title [data-char] {
+        --a-window: calc(var(--dur-slow) + var(--dur-base));
+        --t: calc(var(--k) * var(--a-window));
+        opacity: 1;
+        color: var(--color-text-primary);
+        transition: opacity var(--dur-fast) var(--ease-out) var(--t),
+                    color var(--dur-slow) var(--ease-out) calc(var(--t) + var(--dur-fast));
+    }
+
+    :global(.js-motion) .frame::after {
+        transition: scale var(--dur-slow) var(--ease-out), opacity var(--dur-slow) var(--ease-out);
+    }
+
+    :global(.js-motion) .frame:not([data-in])::after {
+        scale: 1.03;
+        opacity: 0;
+    }
+}

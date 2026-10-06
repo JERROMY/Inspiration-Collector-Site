@@ -1,0 +1,22 @@
+# 網站 repo 的 .gitignore（搬進公開 repo 之後它就是根目錄那份）。
+# /out/ 與 /.next/ 開頭的斜線是「只管最上層」：免得之後哪個資料夾剛好叫 out 或 .next 就被整個擋掉。
+
+# 套件（npm ci 會裝回來）
+node_modules/
+
+# Next.js 產生的東西：.next/ 是建置時的暫存，out/ 是 npm run build 產生的靜態網頁（上線的就是它，每次重新產生，不進 git）
+/out/
+/.next/
+
+# 這台電腦自己的檔案與紀錄
+.DS_Store
+Thumbs.db
+*.log
+
+# 編輯器的設定（例如 VS Code 的 Live Server 設定）
+.vscode/
+.idea/
+
+# 環境變數（這個網站目前沒有用到，萬一加了，密碼不進 git）
+.env
+.env*.local

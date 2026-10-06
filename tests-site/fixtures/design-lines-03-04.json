@@ -1,0 +1,2602 @@
+{
+ "source": "設計稿 design/homepage/{zh,en,ja}/index.html，commit c41f0dd；2026-10-04 用 tests-site/tools/measure-design.mjs 量的（本機伺服器開、Playwright 的 Chromium、減少動態，量之前確認 Google Sans Flex 與 JetBrains Mono 都載好了）。lines：有滑鼠，三語 × 十二種寬度（高 900）；touch：只有手指（isMobile＋hasTouch，高 844），320～430 六種寬度頁面上的手指框。<details> 全打開。鍵是字串表的 id。",
+ "lines": {
+  "zh": {
+   "280": {
+    "hero.kicker": [
+     "靈感收集器 · 給 AI 讀的網頁剪藏"
+    ],
+    "hero.title": [
+     "把網頁收成 AI",
+     "讀得懂的素材庫"
+    ],
+    "hero.sub": [
+     "網頁、選取的文字、圖片，",
+     "還有 ChatGPT、Claude、",
+     "Perplexity 的對話，",
+     "按一下就存進你自己",
+     "電腦裡的資料夾。"
+    ],
+    "hero.meta.free": [
+     "免費的 Chrome 擴充"
+    ],
+    "hero.meta.os": [
+     "支援 Windows、Mac 桌機版"
+    ],
+    "hero.meta.devices": [
+     "看支援裝置"
+    ],
+    "hero.video.label": [
+     "63 秒宣傳片"
+    ],
+    "hero.video.desc": [
+     "宣傳片在演什麼：",
+     "網路上看到的東西散在書籤、截圖、",
+     "下載和聊天視窗；",
+     "整頁、選取的一段、一張圖或 AI 的",
+     "一則回覆，",
+     "按一下就落進你自己電腦的資料夾，",
+     "分成專題；",
+     "沒有伺服器、沒有帳號；",
+     "最後叫 Claude Code、Codex",
+     "或 Gemini CLI 讀那個資料夾，",
+     "每一筆都帶著出處。"
+    ],
+    "where.label": [
+     "可以在這些地方用"
+    ],
+    "zeros.cap": [
+     "擴充本身"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "網站"
+    ],
+    "zeros.server": [
+     "伺服器"
+    ],
+    "zeros.account": [
+     "帳號"
+    ],
+    "zeros.tracking": [
+     "追蹤"
+    ]
+   },
+   "320": {
+    "hero.kicker": [
+     "靈感收集器 · 給 AI 讀的網頁剪藏"
+    ],
+    "hero.title": [
+     "把網頁收成 AI",
+     "讀得懂的素材庫"
+    ],
+    "hero.sub": [
+     "網頁、選取的文字、圖片，",
+     "還有 ChatGPT、Claude、",
+     "Perplexity 的對話，",
+     "按一下就存進你自己電腦裡的資料夾。"
+    ],
+    "hero.meta.free": [
+     "免費的 Chrome 擴充"
+    ],
+    "hero.meta.os": [
+     "支援 Windows、Mac 桌機版"
+    ],
+    "hero.meta.devices": [
+     "看支援裝置"
+    ],
+    "hero.video.label": [
+     "63 秒宣傳片"
+    ],
+    "hero.video.desc": [
+     "宣傳片在演什麼：",
+     "網路上看到的東西散在書籤、截圖、下載和",
+     "聊天視窗；",
+     "整頁、選取的一段、一張圖或 AI 的一則回覆，",
+     "按一下就落進你自己電腦的資料夾，",
+     "分成專題；",
+     "沒有伺服器、沒有帳號；",
+     "最後叫 Claude Code、Codex 或 Gemini CLI",
+     "讀那個資料夾，",
+     "每一筆都帶著出處。"
+    ],
+    "where.label": [
+     "可以在這些地方用"
+    ],
+    "zeros.cap": [
+     "擴充本身"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "網站"
+    ],
+    "zeros.server": [
+     "伺服器"
+    ],
+    "zeros.account": [
+     "帳號"
+    ],
+    "zeros.tracking": [
+     "追蹤"
+    ]
+   },
+   "360": {
+    "hero.kicker": [
+     "靈感收集器 · 給 AI 讀的網頁剪藏"
+    ],
+    "hero.title": [
+     "把網頁收成",
+     "AI 讀得懂的素材庫"
+    ],
+    "hero.sub": [
+     "網頁、選取的文字、圖片，",
+     "還有 ChatGPT、Claude、",
+     "Perplexity 的對話，",
+     "按一下就存進你自己電腦裡的資料夾。"
+    ],
+    "hero.meta.free": [
+     "免費的 Chrome 擴充"
+    ],
+    "hero.meta.os": [
+     "支援 Windows、Mac 桌機版"
+    ],
+    "hero.meta.devices": [
+     "看支援裝置"
+    ],
+    "hero.video.label": [
+     "63 秒宣傳片"
+    ],
+    "hero.video.desc": [
+     "宣傳片在演什麼：",
+     "網路上看到的東西散在書籤、截圖、下載和",
+     "聊天視窗；",
+     "整頁、選取的一段、一張圖或 AI 的一則回覆，",
+     "按一下就落進你自己電腦的資料夾，分成專題；",
+     "沒有伺服器、沒有帳號；",
+     "最後叫 Claude Code、Codex 或 Gemini CLI",
+     "讀那個資料夾，",
+     "每一筆都帶著出處。"
+    ],
+    "where.label": [
+     "可以在這些地方用"
+    ],
+    "zeros.cap": [
+     "擴充本身"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "網站"
+    ],
+    "zeros.server": [
+     "伺服器"
+    ],
+    "zeros.account": [
+     "帳號"
+    ],
+    "zeros.tracking": [
+     "追蹤"
+    ]
+   },
+   "375": {
+    "hero.kicker": [
+     "靈感收集器 · 給 AI 讀的網頁剪藏"
+    ],
+    "hero.title": [
+     "把網頁收成",
+     "AI 讀得懂的素材庫"
+    ],
+    "hero.sub": [
+     "網頁、選取的文字、圖片，",
+     "還有 ChatGPT、Claude、Perplexity 的對話，",
+     "按一下就存進你自己電腦裡的資料夾。"
+    ],
+    "hero.meta.free": [
+     "免費的 Chrome 擴充"
+    ],
+    "hero.meta.os": [
+     "支援 Windows、Mac 桌機版"
+    ],
+    "hero.meta.devices": [
+     "看支援裝置"
+    ],
+    "hero.video.label": [
+     "63 秒宣傳片"
+    ],
+    "hero.video.desc": [
+     "宣傳片在演什麼：",
+     "網路上看到的東西散在書籤、截圖、下載和聊天視窗；",
+     "整頁、選取的一段、一張圖或 AI 的一則回覆，",
+     "按一下就落進你自己電腦的資料夾，分成專題；",
+     "沒有伺服器、沒有帳號；",
+     "最後叫 Claude Code、Codex 或 Gemini CLI",
+     "讀那個資料夾，",
+     "每一筆都帶著出處。"
+    ],
+    "where.label": [
+     "可以在這些地方用"
+    ],
+    "zeros.cap": [
+     "擴充本身"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "網站"
+    ],
+    "zeros.server": [
+     "伺服器"
+    ],
+    "zeros.account": [
+     "帳號"
+    ],
+    "zeros.tracking": [
+     "追蹤"
+    ]
+   },
+   "390": {
+    "hero.kicker": [
+     "靈感收集器 · 給 AI 讀的網頁剪藏"
+    ],
+    "hero.title": [
+     "把網頁收成",
+     "AI 讀得懂的素材庫"
+    ],
+    "hero.sub": [
+     "網頁、選取的文字、圖片，",
+     "還有 ChatGPT、Claude、Perplexity 的對話，",
+     "按一下就存進你自己電腦裡的資料夾。"
+    ],
+    "hero.meta.free": [
+     "免費的 Chrome 擴充"
+    ],
+    "hero.meta.os": [
+     "支援 Windows、Mac 桌機版"
+    ],
+    "hero.meta.devices": [
+     "看支援裝置"
+    ],
+    "hero.video.label": [
+     "63 秒宣傳片"
+    ],
+    "hero.video.desc": [
+     "宣傳片在演什麼：",
+     "網路上看到的東西散在書籤、截圖、下載和聊天視窗；",
+     "整頁、選取的一段、一張圖或 AI 的一則回覆，",
+     "按一下就落進你自己電腦的資料夾，分成專題；",
+     "沒有伺服器、沒有帳號；",
+     "最後叫 Claude Code、Codex 或 Gemini CLI",
+     "讀那個資料夾，",
+     "每一筆都帶著出處。"
+    ],
+    "where.label": [
+     "可以在這些地方用"
+    ],
+    "zeros.cap": [
+     "擴充本身"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "網站"
+    ],
+    "zeros.server": [
+     "伺服器"
+    ],
+    "zeros.account": [
+     "帳號"
+    ],
+    "zeros.tracking": [
+     "追蹤"
+    ]
+   },
+   "414": {
+    "hero.kicker": [
+     "靈感收集器 · 給 AI 讀的網頁剪藏"
+    ],
+    "hero.title": [
+     "把網頁收成",
+     "AI 讀得懂的素材庫"
+    ],
+    "hero.sub": [
+     "網頁、選取的文字、圖片，",
+     "還有 ChatGPT、Claude、Perplexity 的對話，",
+     "按一下就存進你自己電腦裡的資料夾。"
+    ],
+    "hero.meta.free": [
+     "免費的 Chrome 擴充"
+    ],
+    "hero.meta.os": [
+     "支援 Windows、Mac 桌機版"
+    ],
+    "hero.meta.devices": [
+     "看支援裝置"
+    ],
+    "hero.video.label": [
+     "63 秒宣傳片"
+    ],
+    "hero.video.desc": [
+     "宣傳片在演什麼：",
+     "網路上看到的東西散在書籤、截圖、下載和聊天視窗；",
+     "整頁、選取的一段、一張圖或 AI 的一則回覆，",
+     "按一下就落進你自己電腦的資料夾，分成專題；",
+     "沒有伺服器、沒有帳號；",
+     "最後叫 Claude Code、Codex 或 Gemini CLI",
+     "讀那個資料夾，",
+     "每一筆都帶著出處。"
+    ],
+    "where.label": [
+     "可以在這些地方用"
+    ],
+    "zeros.cap": [
+     "擴充本身"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "網站"
+    ],
+    "zeros.server": [
+     "伺服器"
+    ],
+    "zeros.account": [
+     "帳號"
+    ],
+    "zeros.tracking": [
+     "追蹤"
+    ]
+   },
+   "430": {
+    "hero.kicker": [
+     "靈感收集器 · 給 AI 讀的網頁剪藏"
+    ],
+    "hero.title": [
+     "把網頁收成",
+     "AI 讀得懂的素材庫"
+    ],
+    "hero.sub": [
+     "網頁、選取的文字、圖片，",
+     "還有 ChatGPT、Claude、Perplexity 的對話，",
+     "按一下就存進你自己電腦裡的資料夾。"
+    ],
+    "hero.meta.free": [
+     "免費的 Chrome 擴充"
+    ],
+    "hero.meta.os": [
+     "支援 Windows、Mac 桌機版"
+    ],
+    "hero.meta.devices": [
+     "看支援裝置"
+    ],
+    "hero.video.label": [
+     "63 秒宣傳片"
+    ],
+    "hero.video.desc": [
+     "宣傳片在演什麼：",
+     "網路上看到的東西散在書籤、截圖、下載和聊天視窗；",
+     "整頁、選取的一段、一張圖或 AI 的一則回覆，",
+     "按一下就落進你自己電腦的資料夾，分成專題；",
+     "沒有伺服器、沒有帳號；",
+     "最後叫 Claude Code、Codex 或 Gemini CLI",
+     "讀那個資料夾，",
+     "每一筆都帶著出處。"
+    ],
+    "where.label": [
+     "可以在這些地方用"
+    ],
+    "zeros.cap": [
+     "擴充本身"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "網站"
+    ],
+    "zeros.server": [
+     "伺服器"
+    ],
+    "zeros.account": [
+     "帳號"
+    ],
+    "zeros.tracking": [
+     "追蹤"
+    ]
+   },
+   "640": {
+    "hero.kicker": [
+     "靈感收集器 · 給 AI 讀的網頁剪藏"
+    ],
+    "hero.title": [
+     "把網頁收成",
+     "AI 讀得懂的素材庫"
+    ],
+    "hero.sub": [
+     "網頁、選取的文字、圖片，",
+     "還有 ChatGPT、Claude、Perplexity 的對話，",
+     "按一下就存進你自己電腦裡的資料夾。"
+    ],
+    "hero.meta.free": [
+     "免費的 Chrome 擴充"
+    ],
+    "hero.meta.os": [
+     "支援 Windows、Mac 桌機版"
+    ],
+    "hero.meta.devices": [
+     "看支援裝置"
+    ],
+    "hero.video.label": [
+     "63 秒宣傳片"
+    ],
+    "hero.video.desc": [
+     "宣傳片在演什麼：",
+     "網路上看到的東西散在書籤、截圖、下載和聊天視窗；",
+     "整頁、選取的一段、一張圖或 AI 的一則回覆，",
+     "按一下就落進你自己電腦的資料夾，分成專題；",
+     "沒有伺服器、沒有帳號；",
+     "最後叫 Claude Code、Codex 或 Gemini CLI",
+     "讀那個資料夾，",
+     "每一筆都帶著出處。"
+    ],
+    "where.label": [
+     "可以在這些地方用"
+    ],
+    "zeros.cap": [
+     "擴充本身"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "網站"
+    ],
+    "zeros.server": [
+     "伺服器"
+    ],
+    "zeros.account": [
+     "帳號"
+    ],
+    "zeros.tracking": [
+     "追蹤"
+    ]
+   },
+   "768": {
+    "hero.kicker": [
+     "靈感收集器 · 給 AI 讀的網頁剪藏"
+    ],
+    "hero.title": [
+     "把網頁收成 AI 讀得懂的素材庫"
+    ],
+    "hero.sub": [
+     "網頁、選取的文字、圖片，",
+     "還有 ChatGPT、Claude、Perplexity 的對話，",
+     "按一下就存進你自己電腦裡的資料夾。"
+    ],
+    "hero.meta.free": [
+     "免費的 Chrome 擴充"
+    ],
+    "hero.meta.os": [
+     "支援 Windows、Mac 桌機版"
+    ],
+    "hero.meta.devices": [
+     "看支援裝置"
+    ],
+    "hero.video.label": [
+     "63 秒宣傳片"
+    ],
+    "hero.video.desc": [
+     "宣傳片在演什麼：",
+     "網路上看到的東西散在書籤、截圖、下載和聊天視窗；",
+     "整頁、選取的一段、一張圖或 AI 的一則回覆，",
+     "按一下就落進你自己電腦的資料夾，分成專題；",
+     "沒有伺服器、沒有帳號；",
+     "最後叫 Claude Code、Codex 或 Gemini CLI",
+     "讀那個資料夾，",
+     "每一筆都帶著出處。"
+    ],
+    "where.label": [
+     "可以在這些地方用"
+    ],
+    "zeros.cap": [
+     "擴充本身"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "網站"
+    ],
+    "zeros.server": [
+     "伺服器"
+    ],
+    "zeros.account": [
+     "帳號"
+    ],
+    "zeros.tracking": [
+     "追蹤"
+    ]
+   },
+   "1024": {
+    "hero.kicker": [
+     "靈感收集器 · 給 AI 讀的網頁剪藏"
+    ],
+    "hero.title": [
+     "把網頁收成 AI 讀得懂的素材庫"
+    ],
+    "hero.sub": [
+     "網頁、選取的文字、圖片，",
+     "還有 ChatGPT、Claude、Perplexity 的對話，",
+     "按一下就存進你自己電腦裡的資料夾。"
+    ],
+    "hero.meta.free": [
+     "免費的 Chrome 擴充"
+    ],
+    "hero.meta.os": [
+     "支援 Windows、Mac 桌機版"
+    ],
+    "hero.meta.devices": [
+     "看支援裝置"
+    ],
+    "hero.video.label": [
+     "63 秒宣傳片"
+    ],
+    "hero.video.desc": [
+     "宣傳片在演什麼：",
+     "網路上看到的東西散在書籤、截圖、下載和聊天視窗；",
+     "整頁、選取的一段、一張圖或 AI 的一則回覆，",
+     "按一下就落進你自己電腦的資料夾，分成專題；",
+     "沒有伺服器、沒有帳號；",
+     "最後叫 Claude Code、Codex 或 Gemini CLI",
+     "讀那個資料夾，",
+     "每一筆都帶著出處。"
+    ],
+    "where.label": [
+     "可以在這些地方用"
+    ],
+    "zeros.cap": [
+     "擴充本身"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "網站"
+    ],
+    "zeros.server": [
+     "伺服器"
+    ],
+    "zeros.account": [
+     "帳號"
+    ],
+    "zeros.tracking": [
+     "追蹤"
+    ]
+   },
+   "1280": {
+    "hero.kicker": [
+     "靈感收集器 · 給 AI 讀的網頁剪藏"
+    ],
+    "hero.title": [
+     "把網頁收成 AI 讀得懂的素材庫"
+    ],
+    "hero.sub": [
+     "網頁、選取的文字、圖片，",
+     "還有 ChatGPT、Claude、Perplexity 的對話，",
+     "按一下就存進你自己電腦裡的資料夾。"
+    ],
+    "hero.meta.free": [
+     "免費的 Chrome 擴充"
+    ],
+    "hero.meta.os": [
+     "支援 Windows、Mac 桌機版"
+    ],
+    "hero.meta.devices": [
+     "看支援裝置"
+    ],
+    "hero.video.label": [
+     "63 秒宣傳片"
+    ],
+    "hero.video.desc": [
+     "宣傳片在演什麼：",
+     "網路上看到的東西散在書籤、截圖、下載和聊天視窗；",
+     "整頁、選取的一段、一張圖或 AI 的一則回覆，",
+     "按一下就落進你自己電腦的資料夾，分成專題；",
+     "沒有伺服器、沒有帳號；",
+     "最後叫 Claude Code、Codex 或 Gemini CLI",
+     "讀那個資料夾，",
+     "每一筆都帶著出處。"
+    ],
+    "where.label": [
+     "可以在這些地方用"
+    ],
+    "zeros.cap": [
+     "擴充本身"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "網站"
+    ],
+    "zeros.server": [
+     "伺服器"
+    ],
+    "zeros.account": [
+     "帳號"
+    ],
+    "zeros.tracking": [
+     "追蹤"
+    ]
+   },
+   "1440": {
+    "hero.kicker": [
+     "靈感收集器 · 給 AI 讀的網頁剪藏"
+    ],
+    "hero.title": [
+     "把網頁收成 AI 讀得懂的素材庫"
+    ],
+    "hero.sub": [
+     "網頁、選取的文字、圖片，",
+     "還有 ChatGPT、Claude、Perplexity 的對話，",
+     "按一下就存進你自己電腦裡的資料夾。"
+    ],
+    "hero.meta.free": [
+     "免費的 Chrome 擴充"
+    ],
+    "hero.meta.os": [
+     "支援 Windows、Mac 桌機版"
+    ],
+    "hero.meta.devices": [
+     "看支援裝置"
+    ],
+    "hero.video.label": [
+     "63 秒宣傳片"
+    ],
+    "hero.video.desc": [
+     "宣傳片在演什麼：",
+     "網路上看到的東西散在書籤、截圖、下載和聊天視窗；",
+     "整頁、選取的一段、一張圖或 AI 的一則回覆，",
+     "按一下就落進你自己電腦的資料夾，分成專題；",
+     "沒有伺服器、沒有帳號；",
+     "最後叫 Claude Code、Codex 或 Gemini CLI",
+     "讀那個資料夾，",
+     "每一筆都帶著出處。"
+    ],
+    "where.label": [
+     "可以在這些地方用"
+    ],
+    "zeros.cap": [
+     "擴充本身"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "網站"
+    ],
+    "zeros.server": [
+     "伺服器"
+    ],
+    "zeros.account": [
+     "帳號"
+    ],
+    "zeros.tracking": [
+     "追蹤"
+    ]
+   }
+  },
+  "en": {
+   "280": {
+    "hero.kicker": [
+     "Inspiration Collector ·",
+     "Web clipper for AI agents"
+    ],
+    "hero.title": [
+     "Turn the",
+     "web into",
+     "material your AI",
+     "can read"
+    ],
+    "hero.sub": [
+     "Web pages, selected",
+     "text, images",
+     "and ChatGPT, Claude",
+     "or Perplexity chats.",
+     "One click saves them",
+     "to a folder on your",
+     "own computer."
+    ],
+    "hero.meta.free": [
+     "Free Chrome extension"
+    ],
+    "hero.meta.os": [
+     "Desktop Chrome on Windows",
+     "and Mac"
+    ],
+    "hero.meta.devices": [
+     "See requirements"
+    ],
+    "hero.video.label": [
+     "63-second intro video"
+    ],
+    "hero.video.desc": [
+     "What the video shows:",
+     "things you find online",
+     "end up scattered across",
+     "bookmarks, screenshots,",
+     "downloads and chat windows.",
+     "A page, a selection, an image",
+     "or one AI reply:",
+     "one click drops it into a folder",
+     "on your own computer,",
+     "sorted by topic.",
+     "No server, no account.",
+     "Then Claude Code, Codex",
+     "or Gemini CLI reads that folder,",
+     "with a source for every item."
+    ],
+    "where.label": [
+     "Works on"
+    ],
+    "zeros.cap": [
+     "The extension itself"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Website"
+    ],
+    "zeros.server": [
+     "servers"
+    ],
+    "zeros.account": [
+     "accounts"
+    ],
+    "zeros.tracking": [
+     "trackers"
+    ]
+   },
+   "320": {
+    "hero.kicker": [
+     "Inspiration Collector ·",
+     "Web clipper for AI agents"
+    ],
+    "hero.title": [
+     "Turn the web into",
+     "material your AI",
+     "can read"
+    ],
+    "hero.sub": [
+     "Web pages, selected text, images",
+     "and ChatGPT, Claude",
+     "or Perplexity chats.",
+     "One click saves them",
+     "to a folder on your own computer."
+    ],
+    "hero.meta.free": [
+     "Free Chrome extension"
+    ],
+    "hero.meta.os": [
+     "Desktop Chrome on Windows and Mac"
+    ],
+    "hero.meta.devices": [
+     "See requirements"
+    ],
+    "hero.video.label": [
+     "63-second intro video"
+    ],
+    "hero.video.desc": [
+     "What the video shows:",
+     "things you find online",
+     "end up scattered across",
+     "bookmarks, screenshots,",
+     "downloads and chat windows.",
+     "A page, a selection, an image",
+     "or one AI reply:",
+     "one click drops it into a folder",
+     "on your own computer, sorted by topic.",
+     "No server, no account.",
+     "Then Claude Code, Codex",
+     "or Gemini CLI reads that folder,",
+     "with a source for every item."
+    ],
+    "where.label": [
+     "Works on"
+    ],
+    "zeros.cap": [
+     "The extension itself"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Website"
+    ],
+    "zeros.server": [
+     "servers"
+    ],
+    "zeros.account": [
+     "accounts"
+    ],
+    "zeros.tracking": [
+     "trackers"
+    ]
+   },
+   "360": {
+    "hero.kicker": [
+     "Inspiration Collector ·",
+     "Web clipper for AI agents"
+    ],
+    "hero.title": [
+     "Turn the web into",
+     "material your AI",
+     "can read"
+    ],
+    "hero.sub": [
+     "Web pages, selected text, images",
+     "and ChatGPT, Claude or Perplexity chats.",
+     "One click saves them",
+     "to a folder on your own computer."
+    ],
+    "hero.meta.free": [
+     "Free Chrome extension"
+    ],
+    "hero.meta.os": [
+     "Desktop Chrome on Windows and Mac"
+    ],
+    "hero.meta.devices": [
+     "See requirements"
+    ],
+    "hero.video.label": [
+     "63-second intro video"
+    ],
+    "hero.video.desc": [
+     "What the video shows: things you find online",
+     "end up scattered across",
+     "bookmarks, screenshots,",
+     "downloads and chat windows.",
+     "A page, a selection, an image or one AI reply:",
+     "one click drops it into a folder",
+     "on your own computer, sorted by topic.",
+     "No server, no account. Then Claude Code, Codex",
+     "or Gemini CLI reads that folder,",
+     "with a source for every item."
+    ],
+    "where.label": [
+     "Works on"
+    ],
+    "zeros.cap": [
+     "The extension itself"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Website"
+    ],
+    "zeros.server": [
+     "servers"
+    ],
+    "zeros.account": [
+     "accounts"
+    ],
+    "zeros.tracking": [
+     "trackers"
+    ]
+   },
+   "375": {
+    "hero.kicker": [
+     "Inspiration Collector ·",
+     "Web clipper for AI agents"
+    ],
+    "hero.title": [
+     "Turn the web into",
+     "material your AI",
+     "can read"
+    ],
+    "hero.sub": [
+     "Web pages, selected text, images",
+     "and ChatGPT, Claude or Perplexity chats.",
+     "One click saves them",
+     "to a folder on your own computer."
+    ],
+    "hero.meta.free": [
+     "Free Chrome extension"
+    ],
+    "hero.meta.os": [
+     "Desktop Chrome on Windows and Mac"
+    ],
+    "hero.meta.devices": [
+     "See requirements"
+    ],
+    "hero.video.label": [
+     "63-second intro video"
+    ],
+    "hero.video.desc": [
+     "What the video shows: things you find online",
+     "end up scattered across bookmarks, screenshots,",
+     "downloads and chat windows.",
+     "A page, a selection, an image or one AI reply:",
+     "one click drops it into a folder",
+     "on your own computer, sorted by topic.",
+     "No server, no account. Then Claude Code, Codex",
+     "or Gemini CLI reads that folder,",
+     "with a source for every item."
+    ],
+    "where.label": [
+     "Works on"
+    ],
+    "zeros.cap": [
+     "The extension itself"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Website"
+    ],
+    "zeros.server": [
+     "servers"
+    ],
+    "zeros.account": [
+     "accounts"
+    ],
+    "zeros.tracking": [
+     "trackers"
+    ]
+   },
+   "390": {
+    "hero.kicker": [
+     "Inspiration Collector · Web clipper for AI agents"
+    ],
+    "hero.title": [
+     "Turn the web into",
+     "material your AI",
+     "can read"
+    ],
+    "hero.sub": [
+     "Web pages, selected text, images",
+     "and ChatGPT, Claude or Perplexity chats.",
+     "One click saves them",
+     "to a folder on your own computer."
+    ],
+    "hero.meta.free": [
+     "Free Chrome extension"
+    ],
+    "hero.meta.os": [
+     "Desktop Chrome on Windows and Mac"
+    ],
+    "hero.meta.devices": [
+     "See requirements"
+    ],
+    "hero.video.label": [
+     "63-second intro video"
+    ],
+    "hero.video.desc": [
+     "What the video shows: things you find online",
+     "end up scattered across bookmarks, screenshots,",
+     "downloads and chat windows.",
+     "A page, a selection, an image or one AI reply:",
+     "one click drops it into a folder",
+     "on your own computer, sorted by topic.",
+     "No server, no account. Then Claude Code, Codex",
+     "or Gemini CLI reads that folder,",
+     "with a source for every item."
+    ],
+    "where.label": [
+     "Works on"
+    ],
+    "zeros.cap": [
+     "The extension itself"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Website"
+    ],
+    "zeros.server": [
+     "servers"
+    ],
+    "zeros.account": [
+     "accounts"
+    ],
+    "zeros.tracking": [
+     "trackers"
+    ]
+   },
+   "414": {
+    "hero.kicker": [
+     "Inspiration Collector · Web clipper for AI agents"
+    ],
+    "hero.title": [
+     "Turn the web into",
+     "material your AI",
+     "can read"
+    ],
+    "hero.sub": [
+     "Web pages, selected text, images",
+     "and ChatGPT, Claude or Perplexity chats.",
+     "One click saves them",
+     "to a folder on your own computer."
+    ],
+    "hero.meta.free": [
+     "Free Chrome extension"
+    ],
+    "hero.meta.os": [
+     "Desktop Chrome on Windows and Mac"
+    ],
+    "hero.meta.devices": [
+     "See requirements"
+    ],
+    "hero.video.label": [
+     "63-second intro video"
+    ],
+    "hero.video.desc": [
+     "What the video shows: things you find online",
+     "end up scattered across bookmarks, screenshots,",
+     "downloads and chat windows.",
+     "A page, a selection, an image or one AI reply:",
+     "one click drops it into a folder",
+     "on your own computer, sorted by topic.",
+     "No server, no account. Then Claude Code, Codex",
+     "or Gemini CLI reads that folder,",
+     "with a source for every item."
+    ],
+    "where.label": [
+     "Works on"
+    ],
+    "zeros.cap": [
+     "The extension itself"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Website"
+    ],
+    "zeros.server": [
+     "servers"
+    ],
+    "zeros.account": [
+     "accounts"
+    ],
+    "zeros.tracking": [
+     "trackers"
+    ]
+   },
+   "430": {
+    "hero.kicker": [
+     "Inspiration Collector · Web clipper for AI agents"
+    ],
+    "hero.title": [
+     "Turn the web into",
+     "material your AI can read"
+    ],
+    "hero.sub": [
+     "Web pages, selected text, images",
+     "and ChatGPT, Claude or Perplexity chats.",
+     "One click saves them",
+     "to a folder on your own computer."
+    ],
+    "hero.meta.free": [
+     "Free Chrome extension"
+    ],
+    "hero.meta.os": [
+     "Desktop Chrome on Windows and Mac"
+    ],
+    "hero.meta.devices": [
+     "See requirements"
+    ],
+    "hero.video.label": [
+     "63-second intro video"
+    ],
+    "hero.video.desc": [
+     "What the video shows: things you find online",
+     "end up scattered across bookmarks, screenshots,",
+     "downloads and chat windows.",
+     "A page, a selection, an image or one AI reply:",
+     "one click drops it into a folder",
+     "on your own computer, sorted by topic.",
+     "No server, no account. Then Claude Code, Codex",
+     "or Gemini CLI reads that folder,",
+     "with a source for every item."
+    ],
+    "where.label": [
+     "Works on"
+    ],
+    "zeros.cap": [
+     "The extension itself"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Website"
+    ],
+    "zeros.server": [
+     "servers"
+    ],
+    "zeros.account": [
+     "accounts"
+    ],
+    "zeros.tracking": [
+     "trackers"
+    ]
+   },
+   "640": {
+    "hero.kicker": [
+     "Inspiration Collector · Web clipper for AI agents"
+    ],
+    "hero.title": [
+     "Turn the web into",
+     "material your AI",
+     "can read"
+    ],
+    "hero.sub": [
+     "Web pages, selected text, images",
+     "and ChatGPT, Claude or Perplexity chats.",
+     "One click saves them",
+     "to a folder on your own computer."
+    ],
+    "hero.meta.free": [
+     "Free Chrome extension"
+    ],
+    "hero.meta.os": [
+     "Desktop Chrome on Windows and Mac"
+    ],
+    "hero.meta.devices": [
+     "See requirements"
+    ],
+    "hero.video.label": [
+     "63-second intro video"
+    ],
+    "hero.video.desc": [
+     "What the video shows: things you find online",
+     "end up scattered across bookmarks, screenshots,",
+     "downloads and chat windows.",
+     "A page, a selection, an image or one AI reply:",
+     "one click drops it into a folder",
+     "on your own computer, sorted by topic.",
+     "No server, no account. Then Claude Code, Codex",
+     "or Gemini CLI reads that folder,",
+     "with a source for every item."
+    ],
+    "where.label": [
+     "Works on"
+    ],
+    "zeros.cap": [
+     "The extension itself"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Website"
+    ],
+    "zeros.server": [
+     "servers"
+    ],
+    "zeros.account": [
+     "accounts"
+    ],
+    "zeros.tracking": [
+     "trackers"
+    ]
+   },
+   "768": {
+    "hero.kicker": [
+     "Inspiration Collector · Web clipper for AI agents"
+    ],
+    "hero.title": [
+     "Turn the web into",
+     "material your AI can read"
+    ],
+    "hero.sub": [
+     "Web pages, selected text, images",
+     "and ChatGPT, Claude or Perplexity chats.",
+     "One click saves them",
+     "to a folder on your own computer."
+    ],
+    "hero.meta.free": [
+     "Free Chrome extension"
+    ],
+    "hero.meta.os": [
+     "Desktop Chrome on Windows and Mac"
+    ],
+    "hero.meta.devices": [
+     "See requirements"
+    ],
+    "hero.video.label": [
+     "63-second intro video"
+    ],
+    "hero.video.desc": [
+     "What the video shows: things you find online",
+     "end up scattered across bookmarks, screenshots,",
+     "downloads and chat windows.",
+     "A page, a selection, an image or one AI reply:",
+     "one click drops it into a folder",
+     "on your own computer, sorted by topic.",
+     "No server, no account. Then Claude Code, Codex",
+     "or Gemini CLI reads that folder,",
+     "with a source for every item."
+    ],
+    "where.label": [
+     "Works on"
+    ],
+    "zeros.cap": [
+     "The extension itself"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Website"
+    ],
+    "zeros.server": [
+     "servers"
+    ],
+    "zeros.account": [
+     "accounts"
+    ],
+    "zeros.tracking": [
+     "trackers"
+    ]
+   },
+   "1024": {
+    "hero.kicker": [
+     "Inspiration Collector · Web clipper for AI agents"
+    ],
+    "hero.title": [
+     "Turn the web into",
+     "material your AI can read"
+    ],
+    "hero.sub": [
+     "Web pages, selected text, images",
+     "and ChatGPT, Claude or Perplexity chats.",
+     "One click saves them",
+     "to a folder on your own computer."
+    ],
+    "hero.meta.free": [
+     "Free Chrome extension"
+    ],
+    "hero.meta.os": [
+     "Desktop Chrome on Windows and Mac"
+    ],
+    "hero.meta.devices": [
+     "See requirements"
+    ],
+    "hero.video.label": [
+     "63-second intro video"
+    ],
+    "hero.video.desc": [
+     "What the video shows: things you find online",
+     "end up scattered across bookmarks, screenshots,",
+     "downloads and chat windows.",
+     "A page, a selection, an image or one AI reply:",
+     "one click drops it into a folder",
+     "on your own computer, sorted by topic.",
+     "No server, no account. Then Claude Code, Codex",
+     "or Gemini CLI reads that folder,",
+     "with a source for every item."
+    ],
+    "where.label": [
+     "Works on"
+    ],
+    "zeros.cap": [
+     "The extension itself"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Website"
+    ],
+    "zeros.server": [
+     "servers"
+    ],
+    "zeros.account": [
+     "accounts"
+    ],
+    "zeros.tracking": [
+     "trackers"
+    ]
+   },
+   "1280": {
+    "hero.kicker": [
+     "Inspiration Collector · Web clipper for AI agents"
+    ],
+    "hero.title": [
+     "Turn the web into",
+     "material your AI can read"
+    ],
+    "hero.sub": [
+     "Web pages, selected text, images",
+     "and ChatGPT, Claude or Perplexity chats.",
+     "One click saves them",
+     "to a folder on your own computer."
+    ],
+    "hero.meta.free": [
+     "Free Chrome extension"
+    ],
+    "hero.meta.os": [
+     "Desktop Chrome on Windows and Mac"
+    ],
+    "hero.meta.devices": [
+     "See requirements"
+    ],
+    "hero.video.label": [
+     "63-second intro video"
+    ],
+    "hero.video.desc": [
+     "What the video shows: things you find online",
+     "end up scattered across bookmarks, screenshots,",
+     "downloads and chat windows.",
+     "A page, a selection, an image or one AI reply:",
+     "one click drops it into a folder",
+     "on your own computer, sorted by topic.",
+     "No server, no account. Then Claude Code, Codex",
+     "or Gemini CLI reads that folder,",
+     "with a source for every item."
+    ],
+    "where.label": [
+     "Works on"
+    ],
+    "zeros.cap": [
+     "The extension itself"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Website"
+    ],
+    "zeros.server": [
+     "servers"
+    ],
+    "zeros.account": [
+     "accounts"
+    ],
+    "zeros.tracking": [
+     "trackers"
+    ]
+   },
+   "1440": {
+    "hero.kicker": [
+     "Inspiration Collector · Web clipper for AI agents"
+    ],
+    "hero.title": [
+     "Turn the web into",
+     "material your AI can read"
+    ],
+    "hero.sub": [
+     "Web pages, selected text, images",
+     "and ChatGPT, Claude or Perplexity chats.",
+     "One click saves them",
+     "to a folder on your own computer."
+    ],
+    "hero.meta.free": [
+     "Free Chrome extension"
+    ],
+    "hero.meta.os": [
+     "Desktop Chrome on Windows and Mac"
+    ],
+    "hero.meta.devices": [
+     "See requirements"
+    ],
+    "hero.video.label": [
+     "63-second intro video"
+    ],
+    "hero.video.desc": [
+     "What the video shows: things you find online",
+     "end up scattered across bookmarks, screenshots,",
+     "downloads and chat windows.",
+     "A page, a selection, an image or one AI reply:",
+     "one click drops it into a folder",
+     "on your own computer, sorted by topic.",
+     "No server, no account. Then Claude Code, Codex",
+     "or Gemini CLI reads that folder,",
+     "with a source for every item."
+    ],
+    "where.label": [
+     "Works on"
+    ],
+    "zeros.cap": [
+     "The extension itself"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Website"
+    ],
+    "zeros.server": [
+     "servers"
+    ],
+    "zeros.account": [
+     "accounts"
+    ],
+    "zeros.tracking": [
+     "trackers"
+    ]
+   }
+  },
+  "ja": {
+   "280": {
+    "hero.kicker": [
+     "インスピレーション・コレクター ·",
+     "AI 向けウェブクリッパー"
+    ],
+    "hero.title": [
+     "ウェブで",
+     "見つけた",
+     "ものを、",
+     "AI が読める素材",
+     "ライブラリに"
+    ],
+    "hero.sub": [
+     "ウェブページ、",
+     "選択したテキスト、画像、",
+     "ChatGPT・Claude・",
+     "Perplexity の会話を、",
+     "ワンクリックで自分のパソコンの",
+     "フォルダーへ。"
+    ],
+    "hero.meta.free": [
+     "無料の Chrome 拡張機能"
+    ],
+    "hero.meta.os": [
+     "Windows・Mac の",
+     "デスクトップ版に対応"
+    ],
+    "hero.meta.devices": [
+     "動作環境を見る"
+    ],
+    "hero.video.label": [
+     "63 秒の紹介動画"
+    ],
+    "hero.video.desc": [
+     "動画の内容：",
+     "ウェブで見つけたものは、",
+     "ブックマーク、スクリーンショット、",
+     "ダウンロード、チャットに",
+     "散らばりがちです。",
+     "ページ、選んだ部分、画像、AI の",
+     "返信ひとつを、",
+     "ワンクリックで自分のパソコンの",
+     "フォルダーへ。",
+     "テーマ別に整理され、",
+     "サーバーもアカウントもありません。",
+     "あとは Claude Code、Codex、",
+     "Gemini CLI が",
+     "そのフォルダーを読みます。",
+     "どの項目にも出典付きです。"
+    ],
+    "where.label": [
+     "使える場所"
+    ],
+    "zeros.cap": [
+     "拡張機能そのもの"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Webサイト"
+    ],
+    "zeros.server": [
+     "サーバー"
+    ],
+    "zeros.account": [
+     "アカウント"
+    ],
+    "zeros.tracking": [
+     "追跡"
+    ]
+   },
+   "320": {
+    "hero.kicker": [
+     "インスピレーション・コレクター ·",
+     "AI 向けウェブクリッパー"
+    ],
+    "hero.title": [
+     "ウェブで見つけた",
+     "ものを、",
+     "AI が読める",
+     "素材ライブラリに"
+    ],
+    "hero.sub": [
+     "ウェブページ、",
+     "選択したテキスト、画像、",
+     "ChatGPT・Claude・",
+     "Perplexity の会話を、",
+     "ワンクリックで自分のパソコンの",
+     "フォルダーへ。"
+    ],
+    "hero.meta.free": [
+     "無料の Chrome 拡張機能"
+    ],
+    "hero.meta.os": [
+     "Windows・Mac のデスクトップ版に対応"
+    ],
+    "hero.meta.devices": [
+     "動作環境を見る"
+    ],
+    "hero.video.label": [
+     "63 秒の紹介動画"
+    ],
+    "hero.video.desc": [
+     "動画の内容：ウェブで見つけたものは、",
+     "ブックマーク、スクリーンショット、",
+     "ダウンロード、チャットに",
+     "散らばりがちです。",
+     "ページ、選んだ部分、画像、AI の",
+     "返信ひとつを、",
+     "ワンクリックで自分のパソコンの",
+     "フォルダーへ。",
+     "テーマ別に整理され、",
+     "サーバーもアカウントもありません。",
+     "あとは Claude Code、Codex、",
+     "Gemini CLI が",
+     "そのフォルダーを読みます。",
+     "どの項目にも出典付きです。"
+    ],
+    "where.label": [
+     "使える場所"
+    ],
+    "zeros.cap": [
+     "拡張機能そのもの"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Webサイト"
+    ],
+    "zeros.server": [
+     "サーバー"
+    ],
+    "zeros.account": [
+     "アカウント"
+    ],
+    "zeros.tracking": [
+     "追跡"
+    ]
+   },
+   "360": {
+    "hero.kicker": [
+     "インスピレーション・コレクター ·",
+     "AI 向けウェブクリッパー"
+    ],
+    "hero.title": [
+     "ウェブで見つけた",
+     "ものを、AI が読める",
+     "素材ライブラリに"
+    ],
+    "hero.sub": [
+     "ウェブページ、選択したテキスト、画像、",
+     "ChatGPT・Claude・Perplexity の会話を、",
+     "ワンクリックで自分のパソコンの",
+     "フォルダーへ。"
+    ],
+    "hero.meta.free": [
+     "無料の Chrome 拡張機能"
+    ],
+    "hero.meta.os": [
+     "Windows・Mac のデスクトップ版に対応"
+    ],
+    "hero.meta.devices": [
+     "動作環境を見る"
+    ],
+    "hero.video.label": [
+     "63 秒の紹介動画"
+    ],
+    "hero.video.desc": [
+     "動画の内容：ウェブで見つけたものは、",
+     "ブックマーク、スクリーンショット、",
+     "ダウンロード、チャットに散らばりがちです。",
+     "ページ、選んだ部分、画像、AI の返信ひとつを、",
+     "ワンクリックで自分のパソコンのフォルダーへ。",
+     "テーマ別に整理され、",
+     "サーバーもアカウントもありません。",
+     "あとは Claude Code、Codex、Gemini CLI が",
+     "そのフォルダーを読みます。",
+     "どの項目にも出典付きです。"
+    ],
+    "where.label": [
+     "使える場所"
+    ],
+    "zeros.cap": [
+     "拡張機能そのもの"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Webサイト"
+    ],
+    "zeros.server": [
+     "サーバー"
+    ],
+    "zeros.account": [
+     "アカウント"
+    ],
+    "zeros.tracking": [
+     "追跡"
+    ]
+   },
+   "375": {
+    "hero.kicker": [
+     "インスピレーション・コレクター ·",
+     "AI 向けウェブクリッパー"
+    ],
+    "hero.title": [
+     "ウェブで見つけた",
+     "ものを、AI が読める",
+     "素材ライブラリに"
+    ],
+    "hero.sub": [
+     "ウェブページ、選択したテキスト、画像、",
+     "ChatGPT・Claude・Perplexity の会話を、",
+     "ワンクリックで自分のパソコンの",
+     "フォルダーへ。"
+    ],
+    "hero.meta.free": [
+     "無料の Chrome 拡張機能"
+    ],
+    "hero.meta.os": [
+     "Windows・Mac のデスクトップ版に対応"
+    ],
+    "hero.meta.devices": [
+     "動作環境を見る"
+    ],
+    "hero.video.label": [
+     "63 秒の紹介動画"
+    ],
+    "hero.video.desc": [
+     "動画の内容：ウェブで見つけたものは、",
+     "ブックマーク、スクリーンショット、ダウンロード、",
+     "チャットに散らばりがちです。",
+     "ページ、選んだ部分、画像、AI の返信ひとつを、",
+     "ワンクリックで自分のパソコンのフォルダーへ。",
+     "テーマ別に整理され、",
+     "サーバーもアカウントもありません。",
+     "あとは Claude Code、Codex、Gemini CLI が",
+     "そのフォルダーを読みます。",
+     "どの項目にも出典付きです。"
+    ],
+    "where.label": [
+     "使える場所"
+    ],
+    "zeros.cap": [
+     "拡張機能そのもの"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Webサイト"
+    ],
+    "zeros.server": [
+     "サーバー"
+    ],
+    "zeros.account": [
+     "アカウント"
+    ],
+    "zeros.tracking": [
+     "追跡"
+    ]
+   },
+   "390": {
+    "hero.kicker": [
+     "インスピレーション・コレクター ·",
+     "AI 向けウェブクリッパー"
+    ],
+    "hero.title": [
+     "ウェブで見つけた",
+     "ものを、AI が読める",
+     "素材ライブラリに"
+    ],
+    "hero.sub": [
+     "ウェブページ、選択したテキスト、画像、",
+     "ChatGPT・Claude・Perplexity の会話を、",
+     "ワンクリックで自分のパソコンのフォルダーへ。"
+    ],
+    "hero.meta.free": [
+     "無料の Chrome 拡張機能"
+    ],
+    "hero.meta.os": [
+     "Windows・Mac のデスクトップ版に対応"
+    ],
+    "hero.meta.devices": [
+     "動作環境を見る"
+    ],
+    "hero.video.label": [
+     "63 秒の紹介動画"
+    ],
+    "hero.video.desc": [
+     "動画の内容：ウェブで見つけたものは、",
+     "ブックマーク、スクリーンショット、ダウンロード、",
+     "チャットに散らばりがちです。",
+     "ページ、選んだ部分、画像、AI の返信ひとつを、",
+     "ワンクリックで自分のパソコンのフォルダーへ。",
+     "テーマ別に整理され、",
+     "サーバーもアカウントもありません。",
+     "あとは Claude Code、Codex、Gemini CLI が",
+     "そのフォルダーを読みます。",
+     "どの項目にも出典付きです。"
+    ],
+    "where.label": [
+     "使える場所"
+    ],
+    "zeros.cap": [
+     "拡張機能そのもの"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Webサイト"
+    ],
+    "zeros.server": [
+     "サーバー"
+    ],
+    "zeros.account": [
+     "アカウント"
+    ],
+    "zeros.tracking": [
+     "追跡"
+    ]
+   },
+   "414": {
+    "hero.kicker": [
+     "インスピレーション・コレクター ·",
+     "AI 向けウェブクリッパー"
+    ],
+    "hero.title": [
+     "ウェブで見つけた",
+     "ものを、AI が読める",
+     "素材ライブラリに"
+    ],
+    "hero.sub": [
+     "ウェブページ、選択したテキスト、画像、",
+     "ChatGPT・Claude・Perplexity の会話を、",
+     "ワンクリックで自分のパソコンのフォルダーへ。"
+    ],
+    "hero.meta.free": [
+     "無料の Chrome 拡張機能"
+    ],
+    "hero.meta.os": [
+     "Windows・Mac のデスクトップ版に対応"
+    ],
+    "hero.meta.devices": [
+     "動作環境を見る"
+    ],
+    "hero.video.label": [
+     "63 秒の紹介動画"
+    ],
+    "hero.video.desc": [
+     "動画の内容：ウェブで見つけたものは、",
+     "ブックマーク、スクリーンショット、ダウンロード、",
+     "チャットに散らばりがちです。",
+     "ページ、選んだ部分、画像、AI の返信ひとつを、",
+     "ワンクリックで自分のパソコンのフォルダーへ。",
+     "テーマ別に整理され、",
+     "サーバーもアカウントもありません。",
+     "あとは Claude Code、Codex、Gemini CLI が",
+     "そのフォルダーを読みます。",
+     "どの項目にも出典付きです。"
+    ],
+    "where.label": [
+     "使える場所"
+    ],
+    "zeros.cap": [
+     "拡張機能そのもの"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Webサイト"
+    ],
+    "zeros.server": [
+     "サーバー"
+    ],
+    "zeros.account": [
+     "アカウント"
+    ],
+    "zeros.tracking": [
+     "追跡"
+    ]
+   },
+   "430": {
+    "hero.kicker": [
+     "インスピレーション・コレクター ·",
+     "AI 向けウェブクリッパー"
+    ],
+    "hero.title": [
+     "ウェブで見つけたものを、",
+     "AI が読める",
+     "素材ライブラリに"
+    ],
+    "hero.sub": [
+     "ウェブページ、選択したテキスト、画像、",
+     "ChatGPT・Claude・Perplexity の会話を、",
+     "ワンクリックで自分のパソコンのフォルダーへ。"
+    ],
+    "hero.meta.free": [
+     "無料の Chrome 拡張機能"
+    ],
+    "hero.meta.os": [
+     "Windows・Mac のデスクトップ版に対応"
+    ],
+    "hero.meta.devices": [
+     "動作環境を見る"
+    ],
+    "hero.video.label": [
+     "63 秒の紹介動画"
+    ],
+    "hero.video.desc": [
+     "動画の内容：ウェブで見つけたものは、",
+     "ブックマーク、スクリーンショット、ダウンロード、",
+     "チャットに散らばりがちです。",
+     "ページ、選んだ部分、画像、AI の返信ひとつを、",
+     "ワンクリックで自分のパソコンのフォルダーへ。",
+     "テーマ別に整理され、",
+     "サーバーもアカウントもありません。",
+     "あとは Claude Code、Codex、Gemini CLI が",
+     "そのフォルダーを読みます。",
+     "どの項目にも出典付きです。"
+    ],
+    "where.label": [
+     "使える場所"
+    ],
+    "zeros.cap": [
+     "拡張機能そのもの"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Webサイト"
+    ],
+    "zeros.server": [
+     "サーバー"
+    ],
+    "zeros.account": [
+     "アカウント"
+    ],
+    "zeros.tracking": [
+     "追跡"
+    ]
+   },
+   "640": {
+    "hero.kicker": [
+     "インスピレーション・コレクター · AI 向けウェブクリッパー"
+    ],
+    "hero.title": [
+     "ウェブで見つけたものを、",
+     "AI が読める",
+     "素材ライブラリに"
+    ],
+    "hero.sub": [
+     "ウェブページ、選択したテキスト、画像、",
+     "ChatGPT・Claude・Perplexity の会話を、",
+     "ワンクリックで自分のパソコンのフォルダーへ。"
+    ],
+    "hero.meta.free": [
+     "無料の Chrome 拡張機能"
+    ],
+    "hero.meta.os": [
+     "Windows・Mac のデスクトップ版に対応"
+    ],
+    "hero.meta.devices": [
+     "動作環境を見る"
+    ],
+    "hero.video.label": [
+     "63 秒の紹介動画"
+    ],
+    "hero.video.desc": [
+     "動画の内容：ウェブで見つけたものは、",
+     "ブックマーク、スクリーンショット、ダウンロード、",
+     "チャットに散らばりがちです。",
+     "ページ、選んだ部分、画像、AI の返信ひとつを、",
+     "ワンクリックで自分のパソコンのフォルダーへ。",
+     "テーマ別に整理され、",
+     "サーバーもアカウントもありません。",
+     "あとは Claude Code、Codex、Gemini CLI が",
+     "そのフォルダーを読みます。",
+     "どの項目にも出典付きです。"
+    ],
+    "where.label": [
+     "使える場所"
+    ],
+    "zeros.cap": [
+     "拡張機能そのもの"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Webサイト"
+    ],
+    "zeros.server": [
+     "サーバー"
+    ],
+    "zeros.account": [
+     "アカウント"
+    ],
+    "zeros.tracking": [
+     "追跡"
+    ]
+   },
+   "768": {
+    "hero.kicker": [
+     "インスピレーション・コレクター · AI 向けウェブクリッパー"
+    ],
+    "hero.title": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに"
+    ],
+    "hero.sub": [
+     "ウェブページ、選択したテキスト、画像、",
+     "ChatGPT・Claude・Perplexity の会話を、",
+     "ワンクリックで自分のパソコンのフォルダーへ。"
+    ],
+    "hero.meta.free": [
+     "無料の Chrome 拡張機能"
+    ],
+    "hero.meta.os": [
+     "Windows・Mac のデスクトップ版に対応"
+    ],
+    "hero.meta.devices": [
+     "動作環境を見る"
+    ],
+    "hero.video.label": [
+     "63 秒の紹介動画"
+    ],
+    "hero.video.desc": [
+     "動画の内容：ウェブで見つけたものは、",
+     "ブックマーク、スクリーンショット、ダウンロード、",
+     "チャットに散らばりがちです。",
+     "ページ、選んだ部分、画像、AI の返信ひとつを、",
+     "ワンクリックで自分のパソコンのフォルダーへ。",
+     "テーマ別に整理され、",
+     "サーバーもアカウントもありません。",
+     "あとは Claude Code、Codex、Gemini CLI が",
+     "そのフォルダーを読みます。",
+     "どの項目にも出典付きです。"
+    ],
+    "where.label": [
+     "使える場所"
+    ],
+    "zeros.cap": [
+     "拡張機能そのもの"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Webサイト"
+    ],
+    "zeros.server": [
+     "サーバー"
+    ],
+    "zeros.account": [
+     "アカウント"
+    ],
+    "zeros.tracking": [
+     "追跡"
+    ]
+   },
+   "1024": {
+    "hero.kicker": [
+     "インスピレーション・コレクター · AI 向けウェブクリッパー"
+    ],
+    "hero.title": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに"
+    ],
+    "hero.sub": [
+     "ウェブページ、選択したテキスト、画像、",
+     "ChatGPT・Claude・Perplexity の会話を、",
+     "ワンクリックで自分のパソコンのフォルダーへ。"
+    ],
+    "hero.meta.free": [
+     "無料の Chrome 拡張機能"
+    ],
+    "hero.meta.os": [
+     "Windows・Mac のデスクトップ版に対応"
+    ],
+    "hero.meta.devices": [
+     "動作環境を見る"
+    ],
+    "hero.video.label": [
+     "63 秒の紹介動画"
+    ],
+    "hero.video.desc": [
+     "動画の内容：ウェブで見つけたものは、",
+     "ブックマーク、スクリーンショット、ダウンロード、",
+     "チャットに散らばりがちです。",
+     "ページ、選んだ部分、画像、AI の返信ひとつを、",
+     "ワンクリックで自分のパソコンのフォルダーへ。",
+     "テーマ別に整理され、",
+     "サーバーもアカウントもありません。",
+     "あとは Claude Code、Codex、Gemini CLI が",
+     "そのフォルダーを読みます。",
+     "どの項目にも出典付きです。"
+    ],
+    "where.label": [
+     "使える場所"
+    ],
+    "zeros.cap": [
+     "拡張機能そのもの"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Webサイト"
+    ],
+    "zeros.server": [
+     "サーバー"
+    ],
+    "zeros.account": [
+     "アカウント"
+    ],
+    "zeros.tracking": [
+     "追跡"
+    ]
+   },
+   "1280": {
+    "hero.kicker": [
+     "インスピレーション・コレクター · AI 向けウェブクリッパー"
+    ],
+    "hero.title": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに"
+    ],
+    "hero.sub": [
+     "ウェブページ、選択したテキスト、画像、",
+     "ChatGPT・Claude・Perplexity の会話を、",
+     "ワンクリックで自分のパソコンのフォルダーへ。"
+    ],
+    "hero.meta.free": [
+     "無料の Chrome 拡張機能"
+    ],
+    "hero.meta.os": [
+     "Windows・Mac のデスクトップ版に対応"
+    ],
+    "hero.meta.devices": [
+     "動作環境を見る"
+    ],
+    "hero.video.label": [
+     "63 秒の紹介動画"
+    ],
+    "hero.video.desc": [
+     "動画の内容：ウェブで見つけたものは、",
+     "ブックマーク、スクリーンショット、ダウンロード、",
+     "チャットに散らばりがちです。",
+     "ページ、選んだ部分、画像、AI の返信ひとつを、",
+     "ワンクリックで自分のパソコンのフォルダーへ。",
+     "テーマ別に整理され、",
+     "サーバーもアカウントもありません。",
+     "あとは Claude Code、Codex、Gemini CLI が",
+     "そのフォルダーを読みます。",
+     "どの項目にも出典付きです。"
+    ],
+    "where.label": [
+     "使える場所"
+    ],
+    "zeros.cap": [
+     "拡張機能そのもの"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Webサイト"
+    ],
+    "zeros.server": [
+     "サーバー"
+    ],
+    "zeros.account": [
+     "アカウント"
+    ],
+    "zeros.tracking": [
+     "追跡"
+    ]
+   },
+   "1440": {
+    "hero.kicker": [
+     "インスピレーション・コレクター · AI 向けウェブクリッパー"
+    ],
+    "hero.title": [
+     "ウェブで見つけたものを、",
+     "AI が読める素材ライブラリに"
+    ],
+    "hero.sub": [
+     "ウェブページ、選択したテキスト、画像、",
+     "ChatGPT・Claude・Perplexity の会話を、",
+     "ワンクリックで自分のパソコンのフォルダーへ。"
+    ],
+    "hero.meta.free": [
+     "無料の Chrome 拡張機能"
+    ],
+    "hero.meta.os": [
+     "Windows・Mac のデスクトップ版に対応"
+    ],
+    "hero.meta.devices": [
+     "動作環境を見る"
+    ],
+    "hero.video.label": [
+     "63 秒の紹介動画"
+    ],
+    "hero.video.desc": [
+     "動画の内容：ウェブで見つけたものは、",
+     "ブックマーク、スクリーンショット、ダウンロード、",
+     "チャットに散らばりがちです。",
+     "ページ、選んだ部分、画像、AI の返信ひとつを、",
+     "ワンクリックで自分のパソコンのフォルダーへ。",
+     "テーマ別に整理され、",
+     "サーバーもアカウントもありません。",
+     "あとは Claude Code、Codex、Gemini CLI が",
+     "そのフォルダーを読みます。",
+     "どの項目にも出典付きです。"
+    ],
+    "where.label": [
+     "使える場所"
+    ],
+    "zeros.cap": [
+     "拡張機能そのもの"
+    ],
+    "where.chatgpt": [
+     "ChatGPT"
+    ],
+    "where.claude": [
+     "Claude"
+    ],
+    "where.perplexity": [
+     "Perplexity"
+    ],
+    "where.web": [
+     "Webサイト"
+    ],
+    "zeros.server": [
+     "サーバー"
+    ],
+    "zeros.account": [
+     "アカウント"
+    ],
+    "zeros.tracking": [
+     "追跡"
+    ]
+   }
+  }
+ },
+ "touch": {
+  "zh": {
+   "320": {
+    "hero.mobile.text": [
+     "這是電腦版 Chrome 的免費擴充，",
+     "手機上裝不了。把網址傳到",
+     "電腦上再裝："
+    ],
+    "hero.pc": [
+     "用的是電腦？直接加到 Chrome"
+    ]
+   },
+   "360": {
+    "hero.mobile.text": [
+     "這是電腦版 Chrome 的免費擴充，手機上",
+     "裝不了。把網址傳到電腦上再裝："
+    ],
+    "hero.pc": [
+     "用的是電腦？直接加到 Chrome"
+    ]
+   },
+   "375": {
+    "hero.mobile.text": [
+     "這是電腦版 Chrome 的免費擴充，",
+     "手機上裝不了。把網址傳到電腦上再裝："
+    ],
+    "hero.pc": [
+     "用的是電腦？直接加到 Chrome"
+    ]
+   },
+   "390": {
+    "hero.mobile.text": [
+     "這是電腦版 Chrome 的免費擴充，",
+     "手機上裝不了。把網址傳到電腦上再裝："
+    ],
+    "hero.pc": [
+     "用的是電腦？直接加到 Chrome"
+    ]
+   },
+   "414": {
+    "hero.mobile.text": [
+     "這是電腦版 Chrome 的免費擴充，手機上裝不了。",
+     "把網址傳到電腦上再裝："
+    ],
+    "hero.pc": [
+     "用的是電腦？直接加到 Chrome"
+    ]
+   },
+   "430": {
+    "hero.mobile.text": [
+     "這是電腦版 Chrome 的免費擴充，手機上裝不了。",
+     "把網址傳到電腦上再裝："
+    ],
+    "hero.pc": [
+     "用的是電腦？直接加到 Chrome"
+    ]
+   }
+  },
+  "en": {
+   "320": {
+    "hero.mobile.text": [
+     "This is a free extension for",
+     "Chrome on a computer. It can’t be",
+     "installed on a phone, so send the",
+     "link to your computer and",
+     "install it there:"
+    ],
+    "hero.pc": [
+     "On a computer?",
+     "Add to Chrome directly"
+    ]
+   },
+   "360": {
+    "hero.mobile.text": [
+     "This is a free extension for Chrome",
+     "on a computer. It can’t be installed",
+     "on a phone, so send the link to",
+     "your computer and install it there:"
+    ],
+    "hero.pc": [
+     "On a computer?",
+     "Add to Chrome directly"
+    ]
+   },
+   "375": {
+    "hero.mobile.text": [
+     "This is a free extension",
+     "for Chrome on a computer.",
+     "It can’t be installed on a phone,",
+     "so send the link to your computer",
+     "and install it there:"
+    ],
+    "hero.pc": [
+     "On a computer?",
+     "Add to Chrome directly"
+    ]
+   },
+   "390": {
+    "hero.mobile.text": [
+     "This is a free extension",
+     "for Chrome on a computer.",
+     "It can’t be installed on a phone,",
+     "so send the link to your computer",
+     "and install it there:"
+    ],
+    "hero.pc": [
+     "On a computer? Add to Chrome directly"
+    ]
+   },
+   "414": {
+    "hero.mobile.text": [
+     "This is a free extension",
+     "for Chrome on a computer.",
+     "It can’t be installed on a phone, so send the link",
+     "to your computer and install it there:"
+    ],
+    "hero.pc": [
+     "On a computer? Add to Chrome directly"
+    ]
+   },
+   "430": {
+    "hero.mobile.text": [
+     "This is a free extension",
+     "for Chrome on a computer.",
+     "It can’t be installed on a phone, so send the link",
+     "to your computer and install it there:"
+    ],
+    "hero.pc": [
+     "On a computer? Add to Chrome directly"
+    ]
+   }
+  },
+  "ja": {
+   "320": {
+    "hero.mobile.text": [
+     "パソコン版 Chrome 用の",
+     "無料拡張機能です。",
+     "スマートフォンには",
+     "インストールできません。URL を",
+     "パソコンに送って、そちらで",
+     "追加してください："
+    ],
+    "hero.pc": [
+     "パソコンなら、",
+     "そのまま Chrome に追加"
+    ]
+   },
+   "360": {
+    "hero.mobile.text": [
+     "パソコン版 Chrome 用の",
+     "無料拡張機能です。スマートフォンには",
+     "インストールできません。URL を",
+     "パソコンに送って、そちらで",
+     "追加してください："
+    ],
+    "hero.pc": [
+     "パソコンなら、",
+     "そのまま Chrome に追加"
+    ]
+   },
+   "375": {
+    "hero.mobile.text": [
+     "パソコン版 Chrome 用の無料拡張機能です。",
+     "スマートフォンにはインストールできません。",
+     "URL をパソコンに送って、",
+     "そちらで追加してください："
+    ],
+    "hero.pc": [
+     "パソコンなら、そのまま Chrome に追加"
+    ]
+   },
+   "390": {
+    "hero.mobile.text": [
+     "パソコン版 Chrome 用の無料拡張機能です。",
+     "スマートフォンにはインストールできません。",
+     "URL をパソコンに送って、",
+     "そちらで追加してください："
+    ],
+    "hero.pc": [
+     "パソコンなら、そのまま Chrome に追加"
+    ]
+   },
+   "414": {
+    "hero.mobile.text": [
+     "パソコン版 Chrome 用の無料拡張機能です。",
+     "スマートフォンにはインストールできません。",
+     "URL をパソコンに送って、",
+     "そちらで追加してください："
+    ],
+    "hero.pc": [
+     "パソコンなら、そのまま Chrome に追加"
+    ]
+   },
+   "430": {
+    "hero.mobile.text": [
+     "パソコン版 Chrome 用の無料拡張機能です。",
+     "スマートフォンにはインストールできません。",
+     "URL をパソコンに送って、",
+     "そちらで追加してください："
+    ],
+    "hero.pc": [
+     "パソコンなら、そのまま Chrome に追加"
+    ]
+   }
+  }
+ }
+}

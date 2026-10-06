@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="靈感收集器">
+  <!-- 方括號夾住的不是一顆點，是一疊收好的素材。
+       括號是設計系統自己的記號 —— components.css 的 .btn-filter 就是用
+       `[    ]` 當開闔指示。夾住 = 收進來了。
+       裡面兩條左緣對齊、長短不一：那是一份清單，不是色塊。
+       顏色沿用面板的型別色（lime = AI 回覆、cyan = 網頁文字）。
+       深海儀器的語彙：暗底、髮絲線、lime glow。
+
+       **這一份是 32px 以上用的。** 16px 與側邊欄的 18px 另有一份 ——
+       兩條 11.5 高、間距 11 的橫條縮到 16px 只剩 1.4px 與 1.4px，
+       會糊成一團。量過，見 release/_icons.py。 -->
+  <defs>
+    <radialGradient id="glow">
+      <stop offset="0%" stop-color="#e0ff98" stop-opacity=".45"/>
+      <stop offset="55%" stop-color="#e0ff98" stop-opacity=".1"/>
+      <stop offset="100%" stop-color="#e0ff98" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="128" height="128" rx="30" fill="#0c0e14"/>
+  <rect x="1" y="1" width="126" height="126" rx="29" fill="none"
+        stroke="#3a4050" stroke-width="2"/>
+
+  <circle cx="64" cy="64" r="38" fill="url(#glow)"/>
+
+  <path d="M45 33 H29 V95 H45" fill="none" stroke="#e0ff98"
+        stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M83 33 H99 V95 H83" fill="none" stroke="#e0ff98"
+        stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="45" y="47" width="38" height="11.5" rx="5.75" fill="#e0ff98"/>
+  <rect x="45" y="69.5" width="25.5" height="11.5" rx="5.75" fill="#a8f3f6"/>
+</svg>

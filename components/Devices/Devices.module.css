@@ -1,0 +1,106 @@
+/* 照設計稿 home.css 的「10 支援裝置」：卡片＋規格表；左右分從 1280 起（1024 時右欄只剩約 370px，規格表的內容一行剩 14 個字左右，日文會斷出「保存。」這種短行） */
+.body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-group);
+}
+
+@media (min-width: 1280px) {
+    .body {
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+        column-gap: var(--gap-group);
+        align-items: start;
+    }
+}
+
+/* 卡片最上面一行：✓／✕ 在左、平台圖示一組靠右（同 06、08 圖示靠右）；整行佔卡片寬 */
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-tight);
+    align-self: stretch;
+}
+
+/* 平台圖示：次要文字色、跟 ✓ 同大（24：比它大會把整行撐高、下面的字全往下移）；兩個的綁成一組，不拆行 */
+.platforms {
+    display: inline-flex;
+    flex: none;
+    gap: var(--space-8);
+    color: var(--color-text-secondary);
+}
+
+.platforms :global(.i) {
+    width: var(--space-24);
+    height: var(--space-24);
+}
+
+/* ✓／✕：只有圖示。✓ 螢光綠（成功），✕ 灰（不是錯誤，是平台本身做不到） */
+.mark {
+    display: inline-grid;
+    place-items: center;
+}
+
+.mark :global(.i) {
+    width: var(--space-24);
+    height: var(--space-24);
+}
+
+.yes {
+    color: var(--color-accent-lime-default);
+}
+
+.no {
+    color: var(--color-text-secondary);
+}
+
+/* 規格表：只在列與列之間一條髮絲線；手機標題在上、內容在下，640 起兩欄（subgrid：標題欄寬照最長的那個） */
+.req {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    margin: 0;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+    min-width: 0;
+    padding-block: var(--gap-inner);
+}
+
+.row:first-child {
+    padding-top: 0;
+}
+
+.row + .row {
+    border-top: var(--hair);
+}
+
+.req dt {
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--label-size)/var(--leading-snug) var(--font-mono);
+    letter-spacing: var(--label-track);
+}
+
+.req dd {
+    max-width: var(--measure);
+    margin: 0;
+    color: var(--color-text-primary);
+    font: var(--weight-regular) var(--text-md)/var(--lh-body) var(--font-sans-14);
+    text-spacing-trim: trim-start;
+}
+
+@media (min-width: 640px) {
+    .req {
+        grid-template-columns: max-content minmax(0, 1fr);
+        column-gap: var(--gap-unit);
+    }
+
+    .row {
+        grid-column: 1 / -1;
+        grid-template-columns: subgrid;
+        column-gap: var(--gap-unit);
+        align-items: baseline;
+    }
+}

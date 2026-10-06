@@ -1,0 +1,146 @@
+/* 照設計稿 home.css 的「16 頁尾」（第三批 4-3）：淺底；1024 起左（記號、一句、社群）右（產品、幫助）兩半，最下面一條髮絲線 */
+.foot {
+    padding-block: var(--gap-group);
+    border-top: var(--hair);
+    background: var(--color-surface-raised);
+}
+
+.in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-group);
+}
+
+.brandCol {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    justify-items: start;
+    gap: var(--gap-inner);
+}
+
+/* 記號＋名稱（同導覽列那一個；名稱可以換行：日文的名稱在 280 寬比一行長） */
+.brand {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-10);
+    min-width: var(--tap);
+    min-height: var(--tap);
+    margin-right: auto;
+}
+
+.mark {
+    flex: none;
+    width: calc(var(--space-24) + var(--space-4));
+    height: auto;
+}
+
+.name {
+    font: var(--weight-semibold) var(--text-lg)/var(--leading-none) var(--font-sans-16);
+}
+
+.line {
+    max-width: var(--measure);
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-md)/var(--lh-body) var(--font-sans-14);
+}
+
+/* 產品｜幫助：360 起兩欄 */
+.cols {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-unit);
+}
+
+@media (min-width: 360px) {
+    .cols {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.col {
+    min-width: 0;
+}
+
+.h {
+    margin-bottom: var(--space-8);
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--label-size)/var(--leading-snug) var(--font-mono);
+    letter-spacing: var(--label-track);
+}
+
+.list {
+    display: grid;
+    justify-items: start;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list li {
+    max-width: 100%;
+}
+
+/* 連結 44 高（字會換行，所以是一般的文字行＋上下內距） */
+.link {
+    display: inline-block;
+    max-width: 100%;
+    min-width: var(--tap);
+    min-height: var(--tap);
+    padding-block: var(--space-12);
+    border-radius: var(--radius-full);
+    color: var(--color-text-primary);
+    font: var(--weight-medium) var(--text-md)/var(--leading-tight) var(--font-sans-14);
+    transition: color var(--dur-fast) var(--ease-out);
+}
+
+@media (hover: hover) {
+    .link:hover {
+        color: var(--color-accent-lime-default);
+    }
+}
+
+/* 手指的「按下」（只有手指的裝置沒有滑過）：跟滑過同一個樣子，只在按著的那一下 */
+@media (hover: none) {
+    .link:active {
+        color: var(--color-accent-lime-default);
+    }
+}
+
+.bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-unit);
+    padding-top: var(--gap-unit);
+    border-top: var(--hair);
+}
+
+.legal {
+    display: grid;
+    gap: var(--space-8);
+}
+
+.legal p {
+    max-width: var(--measure);
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-md)/var(--lh-body) var(--font-sans-14);
+}
+
+.lang {
+    justify-self: start;
+}
+
+@media (min-width: 1024px) {
+    .in {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: var(--gap-group);
+    }
+
+    .bottom {
+        grid-column: 1 / -1;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+        column-gap: var(--gap-group);
+    }
+}

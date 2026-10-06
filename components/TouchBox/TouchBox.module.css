@@ -1,0 +1,103 @@
+/* 只有手指的裝置：主要動作換成「把網址帶到電腦上」的框（規格書第 5 節 03、15）。有滑鼠時藏起來，檔尾的 (hover: none) and (pointer: coarse) 才顯示 */
+.touch {
+    display: none;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-tight);
+    padding: var(--space-24);
+    border: var(--hair-strong);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface-raised);
+}
+
+.touch p {
+    max-width: var(--measure);
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-md)/var(--lh-body) var(--font-touch);
+}
+
+.touch b {
+    color: var(--color-text-primary);
+    font-weight: var(--weight-semibold);
+}
+
+.touch .btn {
+    width: 100%;
+    white-space: normal;
+}
+
+/* 「用的是電腦？」會換行（280 寬），所以不用文字連結的 inline-flex（會把字拆成好幾段、底線斷開）：一般的文字行＋上下內距湊到 44 高。
+   字型跟手機框的說明同一組（--font-touch：英文的回退字型另外微調過，375 寬換字型時才不會一行變兩行） */
+.touch .pc {
+    display: block;
+    justify-self: center;
+    max-width: 100%;
+    padding-block: var(--space-12);
+    font-family: var(--font-touch);
+    line-height: var(--leading-tight);
+    text-align: center;
+}
+
+/* 底線：.u 是行內區塊，靠 text-decoration: inherit 拿 <a> 的底線；中間包的那層（data-id）也要 inherit，不然 .u 繼承到的是 none */
+.touch .pc [data-id] {
+    text-decoration: inherit;
+}
+
+.touch .pc :global(.i) {
+    margin-left: var(--space-6);
+    vertical-align: -.15em;
+}
+
+/* 「分享這個網址」的退路：關掉 JS（<html> 沒有 js class）、
+   或分享選單與剪貼簿都不能用（hero.js 在手指框加字面的 class touch--noshare）→ 分享鈕收起，直接顯示網址，長按複製 */
+.url {
+    display: none;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+}
+
+/* 12px：網址整段 33 個等寬字，360 寬起一行放得下；更窄只在 https:// 後面斷 */
+.touch .urlbox {
+    padding: var(--space-12) var(--space-16);
+    border: var(--hair-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font: var(--weight-regular) var(--text-base)/var(--leading-snug) var(--font-mono);
+    overflow-wrap: anywhere;
+    -webkit-user-select: all;
+    user-select: all;
+}
+
+/* 280 寬：框的內距 24 → 16、網址框左右 16 → 12，網址框裡放得下「collector.jerromy.com/zh/」一行（→「https://」／網址兩行，不剩「zh/」一行） */
+@media (max-width: 319px) {
+    .touch {
+        padding: var(--space-16);
+    }
+
+    .touch .urlbox {
+        padding-inline: var(--space-12);
+    }
+}
+
+:global(html:not(.js)) .touch .share,
+:global(.touch--noshare) .share {
+    display: none;
+}
+
+:global(html:not(.js)) .url,
+:global(.touch--noshare) .url {
+    display: grid;
+}
+
+/* 手指框的說明在窄的手機上不一個單位一行，照一般文字排（兩個短單位可以排在同一行） */
+@media (max-width: 374px) {
+    .touch p :global(.u) {
+        display: inline;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .touch {
+        display: grid;
+    }
+}

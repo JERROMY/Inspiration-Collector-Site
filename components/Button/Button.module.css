@@ -1,0 +1,122 @@
+/* 照設計稿 home.css 的 .btn、.btn--primary、.btn--secondary。
+   1.1em：括號比字高一點、夾得住字；.98／1px：按下去縮一點、往下沉一點（設計稿的出處表）。 */
+.btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-10);
+    min-height: var(--tap);
+    padding: 0 var(--space-24);
+    border: var(--stroke-hairline) solid transparent;
+    border-radius: var(--radius-full);
+    font: var(--weight-medium) var(--text-md)/var(--leading-tight) var(--font-sans-14);
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out),
+                border-color var(--dur-base) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+
+.btn:active {
+    transform: translateY(1px) scale(.98);
+}
+
+.primary {
+    padding-inline: var(--space-30);
+    background: var(--color-text-primary);
+    color: var(--color-text-inverse);
+}
+
+@media (hover: hover) {
+    .primary:hover {
+        background: var(--color-accent-lime-default);
+        color: var(--color-text-on-accent);
+    }
+}
+
+/* 手指的「按下」（只有手指的裝置沒有滑過）：跟滑過同一個樣子，只在按著的那一下 */
+@media (hover: none) {
+    .primary:active {
+        background: var(--color-accent-lime-default);
+        color: var(--color-text-on-accent);
+    }
+}
+
+/* 括號：滑過前透明、在外側；滑過時淡入、滑到定位夾住字（減少動態時 base.css 把時間壓成 0，直接到位） */
+.primary::before,
+.primary::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: var(--space-5);
+    height: 1.1em;
+    border: var(--stroke-thick) solid currentColor;
+    opacity: 0;
+    transition: opacity var(--dur-base) var(--ease-out), translate var(--dur-base) var(--ease-out);
+}
+
+.primary::before {
+    left: var(--space-12);
+    border-right: 0;
+    translate: calc(var(--space-6) * -1) -50%;
+}
+
+.primary::after {
+    right: var(--space-12);
+    border-left: 0;
+    translate: var(--space-6) -50%;
+}
+
+@media (hover: hover) {
+    .primary:hover::before,
+    .primary:hover::after {
+        opacity: 1;
+        translate: 0 -50%;
+    }
+}
+
+/* 手指的「按下」（只有手指的裝置沒有滑過）：跟滑過同一個樣子，只在按著的那一下 */
+@media (hover: none) {
+    .primary:active::before, .primary:active::after {
+        opacity: 1;
+        translate: 0 -50%;
+    }
+}
+
+.secondary {
+    border-color: var(--color-text-secondary);
+    background: transparent;
+    color: var(--color-text-primary);
+}
+
+@media (hover: hover) {
+    .secondary:hover {
+        border-color: var(--color-text-primary);
+        background: var(--color-surface-glass);
+    }
+}
+
+/* 手指的「按下」（只有手指的裝置沒有滑過）：跟滑過同一個樣子，只在按著的那一下 */
+@media (hover: none) {
+    .secondary:active {
+        border-color: var(--color-text-primary);
+        background: var(--color-surface-glass);
+    }
+}
+
+/* 大顆（首屏）：52 高、16px 字；主要按鈕的括號往內挪一點，跟次要按鈕同一個內距（同一排時兩顆一樣寬） */
+.lg {
+    min-height: calc(var(--space-40) + var(--space-12));
+    padding-inline: var(--space-30);
+    font-size: var(--text-lg);
+    font-family: var(--font-sans-16);
+}
+
+.primary.lg::before {
+    left: var(--space-18);
+}
+
+.primary.lg::after {
+    right: var(--space-18);
+}

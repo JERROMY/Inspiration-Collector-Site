@@ -1,0 +1,380 @@
+{
+  "ai-outline-en.png": {
+    "width": 1920,
+    "height": 1080,
+    "crop": {
+      "x": 297,
+      "y": 140,
+      "width": 1017,
+      "height": 566
+    },
+    "sizes": [
+      {
+        "file": "ai-outline-en-640.webp",
+        "width": 640,
+        "height": 356,
+        "bytes": 90942
+      },
+      {
+        "file": "ai-outline-en-1017.webp",
+        "width": 1017,
+        "height": 566,
+        "bytes": 102096
+      }
+    ]
+  },
+  "ai-outline-ja.png": {
+    "width": 1920,
+    "height": 1080,
+    "crop": {
+      "x": 297,
+      "y": 140,
+      "width": 1017,
+      "height": 566
+    },
+    "sizes": [
+      {
+        "file": "ai-outline-ja-640.webp",
+        "width": 640,
+        "height": 356,
+        "bytes": 90310
+      },
+      {
+        "file": "ai-outline-ja-1017.webp",
+        "width": 1017,
+        "height": 566,
+        "bytes": 107900
+      }
+    ]
+  },
+  "ai-outline-zh.png": {
+    "width": 1920,
+    "height": 1080,
+    "crop": {
+      "x": 297,
+      "y": 140,
+      "width": 1017,
+      "height": 566
+    },
+    "sizes": [
+      {
+        "file": "ai-outline-zh-640.webp",
+        "width": 640,
+        "height": 356,
+        "bytes": 109108
+      },
+      {
+        "file": "ai-outline-zh-1017.webp",
+        "width": 1017,
+        "height": 566,
+        "bytes": 135606
+      }
+    ]
+  },
+  "ai-terminal-en.png": {
+    "width": 1920,
+    "height": 1080,
+    "crop": {
+      "x": 277,
+      "y": 137,
+      "width": 805,
+      "height": 657
+    },
+    "sizes": [
+      {
+        "file": "ai-terminal-en-640.webp",
+        "width": 640,
+        "height": 522,
+        "bytes": 151736
+      },
+      {
+        "file": "ai-terminal-en-805.webp",
+        "width": 805,
+        "height": 657,
+        "bytes": 172046
+      }
+    ]
+  },
+  "ai-terminal-ja.png": {
+    "width": 1920,
+    "height": 1080,
+    "crop": {
+      "x": 277,
+      "y": 137,
+      "width": 805,
+      "height": 657
+    },
+    "sizes": [
+      {
+        "file": "ai-terminal-ja-640.webp",
+        "width": 640,
+        "height": 522,
+        "bytes": 151250
+      },
+      {
+        "file": "ai-terminal-ja-805.webp",
+        "width": 805,
+        "height": 657,
+        "bytes": 172646
+      }
+    ]
+  },
+  "ai-terminal-zh.png": {
+    "width": 1920,
+    "height": 1080,
+    "crop": {
+      "x": 277,
+      "y": 137,
+      "width": 781,
+      "height": 657
+    },
+    "sizes": [
+      {
+        "file": "ai-terminal-zh-640.webp",
+        "width": 640,
+        "height": 538,
+        "bytes": 159128
+      },
+      {
+        "file": "ai-terminal-zh-781.webp",
+        "width": 781,
+        "height": 657,
+        "bytes": 175290
+      }
+    ]
+  },
+  "author-jerromy.jpg": {
+    "width": 1280,
+    "height": 1280,
+    "sizes": [
+      {
+        "file": "author-jerromy-640.webp",
+        "width": 640,
+        "height": 640,
+        "bytes": 10824
+      },
+      {
+        "file": "author-jerromy-1280.webp",
+        "width": 1280,
+        "height": 1280,
+        "bytes": 25822
+      }
+    ]
+  },
+  "hero-poster-en.png": {
+    "width": 1920,
+    "height": 1080,
+    "sizes": [
+      {
+        "file": "hero-poster-en-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 19872
+      },
+      {
+        "file": "hero-poster-en-1280.webp",
+        "width": 1280,
+        "height": 720,
+        "bytes": 69034
+      }
+    ]
+  },
+  "hero-poster-ja.png": {
+    "width": 1920,
+    "height": 1080,
+    "sizes": [
+      {
+        "file": "hero-poster-ja-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 20418
+      },
+      {
+        "file": "hero-poster-ja-1280.webp",
+        "width": 1280,
+        "height": 720,
+        "bytes": 70828
+      }
+    ]
+  },
+  "hero-poster-zh.png": {
+    "width": 1920,
+    "height": 1080,
+    "sizes": [
+      {
+        "file": "hero-poster-zh-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 19894
+      },
+      {
+        "file": "hero-poster-zh-1280.webp",
+        "width": 1280,
+        "height": 720,
+        "bytes": 69060
+      }
+    ]
+  },
+  "step1-setup-en.png": {
+    "width": 800,
+    "height": 1520,
+    "sizes": [
+      {
+        "file": "step1-setup-en-640.webp",
+        "width": 640,
+        "height": 1216,
+        "bytes": 43660
+      },
+      {
+        "file": "step1-setup-en-800.webp",
+        "width": 800,
+        "height": 1520,
+        "bytes": 29788
+      }
+    ]
+  },
+  "step1-setup-ja.png": {
+    "width": 800,
+    "height": 1520,
+    "sizes": [
+      {
+        "file": "step1-setup-ja-640.webp",
+        "width": 640,
+        "height": 1216,
+        "bytes": 50752
+      },
+      {
+        "file": "step1-setup-ja-800.webp",
+        "width": 800,
+        "height": 1520,
+        "bytes": 38944
+      }
+    ]
+  },
+  "step1-setup-zh.png": {
+    "width": 800,
+    "height": 1520,
+    "sizes": [
+      {
+        "file": "step1-setup-zh-640.webp",
+        "width": 640,
+        "height": 1216,
+        "bytes": 48484
+      },
+      {
+        "file": "step1-setup-zh-800.webp",
+        "width": 800,
+        "height": 1520,
+        "bytes": 37368
+      }
+    ]
+  },
+  "step2-saved-en.png": {
+    "width": 800,
+    "height": 1520,
+    "sizes": [
+      {
+        "file": "step2-saved-en-640.webp",
+        "width": 640,
+        "height": 1216,
+        "bytes": 76870
+      },
+      {
+        "file": "step2-saved-en-800.webp",
+        "width": 800,
+        "height": 1520,
+        "bytes": 66170
+      }
+    ]
+  },
+  "step2-saved-ja.png": {
+    "width": 800,
+    "height": 1520,
+    "sizes": [
+      {
+        "file": "step2-saved-ja-640.webp",
+        "width": 640,
+        "height": 1216,
+        "bytes": 79928
+      },
+      {
+        "file": "step2-saved-ja-800.webp",
+        "width": 800,
+        "height": 1520,
+        "bytes": 72550
+      }
+    ]
+  },
+  "step2-saved-zh.png": {
+    "width": 800,
+    "height": 1520,
+    "sizes": [
+      {
+        "file": "step2-saved-zh-640.webp",
+        "width": 640,
+        "height": 1216,
+        "bytes": 83220
+      },
+      {
+        "file": "step2-saved-zh-800.webp",
+        "width": 800,
+        "height": 1520,
+        "bytes": 78270
+      }
+    ]
+  },
+  "tutorial-poster-en.png": {
+    "width": 1920,
+    "height": 1080,
+    "sizes": [
+      {
+        "file": "tutorial-poster-en-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 22158
+      },
+      {
+        "file": "tutorial-poster-en-1280.webp",
+        "width": 1280,
+        "height": 720,
+        "bytes": 74074
+      }
+    ]
+  },
+  "tutorial-poster-ja.png": {
+    "width": 1920,
+    "height": 1080,
+    "sizes": [
+      {
+        "file": "tutorial-poster-ja-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 22078
+      },
+      {
+        "file": "tutorial-poster-ja-1280.webp",
+        "width": 1280,
+        "height": 720,
+        "bytes": 74610
+      }
+    ]
+  },
+  "tutorial-poster-zh.png": {
+    "width": 1920,
+    "height": 1080,
+    "sizes": [
+      {
+        "file": "tutorial-poster-zh-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 21924
+      },
+      {
+        "file": "tutorial-poster-zh-1280.webp",
+        "width": 1280,
+        "height": 720,
+        "bytes": 73142
+      }
+    ]
+  }
+}

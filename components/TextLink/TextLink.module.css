@@ -1,0 +1,55 @@
+/* 照設計稿 home.css 的 .link：會按的一律膠囊（焦點框跟著變膠囊），所以也要 44 高 */
+.link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-6);
+    min-height: var(--tap);
+    border-radius: var(--radius-full);
+    color: var(--color-text-primary);
+    font: var(--weight-medium) var(--text-md)/var(--leading-snug) var(--font-sans-14);
+    text-decoration: underline;
+    text-decoration-thickness: var(--stroke-hairline);
+    text-decoration-color: var(--color-text-secondary);
+    text-underline-offset: var(--space-5);
+    transition: color var(--dur-fast) var(--ease-out), text-decoration-color var(--dur-fast) var(--ease-out);
+}
+
+.link :global(.i) {
+    width: var(--space-16);
+    height: var(--space-16);
+    transition: translate var(--dur-base) var(--ease-out);
+}
+
+/* 字會換行的連結：一般的文字行＋上下內距湊到 44 高，箭頭跟最後一個詞一起換行 */
+.wrap {
+    display: inline-block;
+    max-width: 100%;
+    padding-block: var(--space-12);
+    line-height: var(--leading-tight);
+}
+
+.wrap :global(.i) {
+    margin-left: var(--space-6);
+    vertical-align: -.15em;
+}
+
+@media (hover: hover) {
+    .link:hover {
+        color: var(--color-accent-lime-default);
+        text-decoration-color: var(--color-accent-lime-default);
+    }
+}
+
+/* 手指的「按下」（只有手指的裝置沒有滑過）：跟滑過同一個樣子，只在按著的那一下 */
+@media (hover: none) {
+    .link:active {
+        color: var(--color-accent-lime-default);
+        text-decoration-color: var(--color-accent-lime-default);
+    }
+}
+
+@media (hover: hover) {
+    .link:hover :global(.i) {
+        translate: var(--space-4) 0;
+    }
+}

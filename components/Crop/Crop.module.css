@@ -1,0 +1,32 @@
+/* 框只露出原圖的一塊：--cx --cy --cw --ch 是要露出的那一塊（style 給 -s 那一組，640 起有 -w 那一組就換）、--ox --oy --sw 是檔案那一塊
+   （都是原圖的像素座標，Crop.js 從 images.json 與設計稿的數字放進 style）。
+   圖的寬＝檔案那一塊的寬 ÷ 露出的寬；往左上移＝兩塊左上角的差 ÷ 露出的寬高 */
+.crop {
+    --cx: var(--cx-s);
+    --cy: var(--cy-s);
+    --cw: var(--cw-s);
+    --ch: var(--ch-s);
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: var(--cw) / var(--ch);
+    border-radius: inherit;
+}
+
+.crop > img {
+    position: absolute;
+    top: calc((var(--cy) - var(--oy)) / var(--ch) * -100%);
+    left: calc((var(--cx) - var(--ox)) / var(--cw) * -100%);
+    width: calc(var(--sw) / var(--cw) * 100%);
+    max-width: none;
+    height: auto;
+}
+
+/* 640 起換成另一塊（給了 wide 才有這個 class） */
+@media (min-width: 640px) {
+    .switch {
+        --cx: var(--cx-w);
+        --cy: var(--cy-w);
+        --cw: var(--cw-w);
+        --ch: var(--ch-w);
+    }
+}

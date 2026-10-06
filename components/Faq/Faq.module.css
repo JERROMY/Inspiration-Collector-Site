@@ -1,0 +1,116 @@
+/* 照設計稿 home.css 的「13 常見問題」（第三批 4-3）：一題一列，題與題之間一條髮絲線 */
+
+/* 1024 起標題在左（4）、題目在右（8）（div.in：蓋過 Band 那一層的一欄，不靠 CSS 檔的先後） */
+@media (min-width: 1024px) {
+    div.in {
+        grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+        column-gap: var(--gap-group);
+        align-items: start;
+    }
+
+    .head {
+        position: sticky;
+        top: calc(var(--nav-h) + var(--gap-unit));
+    }
+}
+
+.qas {
+    min-width: 0;
+    border-bottom: var(--hair);
+}
+
+.qa {
+    border-top: var(--hair);
+}
+
+.q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-tight);
+    min-height: calc(var(--tap) + var(--space-16));
+    padding-block: var(--gap-inner);
+    border-radius: var(--radius-lg);
+    list-style: none;
+    cursor: pointer;
+}
+
+.q::-webkit-details-marker {
+    display: none;
+}
+
+.h {
+    min-width: 0;
+    max-width: var(--measure);
+    margin: 0;
+    font: var(--weight-semibold) var(--text-xl)/var(--leading-snug) var(--font-sans-18);
+}
+
+.icon {
+    display: inline-flex;
+    flex: none;
+    color: var(--color-text-secondary);
+    transition: rotate var(--dur-base) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.icon :global(.i) {
+    width: var(--space-16);
+    height: var(--space-16);
+}
+
+.qa[open] > .q .icon {
+    rotate: 180deg;
+}
+
+@media (hover: hover) {
+    .q:hover .icon {
+        color: var(--color-accent-lime-default);
+    }
+}
+
+/* 手指的「按下」（只有手指的裝置沒有滑過）：箭頭轉螢光綠 */
+@media (hover: none) {
+    .q:active .icon {
+        color: var(--color-accent-lime-default);
+    }
+}
+
+/* 按下：問題的字暗一階 */
+.q:active .h {
+    color: var(--color-text-secondary);
+}
+
+.a {
+    padding-bottom: var(--gap-unit);
+}
+
+.a p {
+    max-width: var(--measure);
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-lg)/var(--lh-body) var(--font-sans-16);
+}
+
+/* 句子裡的連結：跟著字換行，不湊 44 高（規格書 §6：句子裡的文字連結除外） */
+.tlink {
+    border-radius: var(--radius-sm);
+    color: var(--color-text-primary);
+    text-decoration: underline;
+    text-decoration-thickness: var(--stroke-hairline);
+    text-decoration-color: var(--color-text-secondary);
+    text-underline-offset: var(--space-4);
+    transition: color var(--dur-fast) var(--ease-out), text-decoration-color var(--dur-fast) var(--ease-out);
+}
+
+@media (hover: hover) {
+    .tlink:hover {
+        color: var(--color-accent-lime-default);
+        text-decoration-color: var(--color-accent-lime-default);
+    }
+}
+
+@media (hover: none) {
+    .tlink:active {
+        color: var(--color-accent-lime-default);
+        text-decoration-color: var(--color-accent-lime-default);
+    }
+}

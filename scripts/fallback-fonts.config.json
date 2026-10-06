@@ -1,0 +1,26 @@
+{
+  "roles": [
+    { "suffix": "", "size": 14, "opsz": 18, "weights": [400, 500, 600] },
+    { "suffix": " 14", "size": 14, "opsz": "auto", "weights": [400, 500, 600] },
+    { "suffix": " 16", "size": 16, "opsz": "auto", "weights": [400, 500, 600] },
+    { "suffix": " 18", "size": 18, "opsz": "auto", "weights": [400, 500] },
+    { "suffix": " 24", "size": 24, "opsz": "auto", "weights": [500] },
+    { "suffix": " 32", "size": 32, "opsz": "auto", "weights": [600] },
+    { "suffix": " 48", "size": 48, "opsz": "auto", "weights": [600] },
+    { "suffix": " 64", "size": 64, "opsz": "auto", "weights": [600] }
+  ],
+  "factors": [
+    { "family": "Google Sans Flex Fallback sub en", "from": "Google Sans Flex Fallback 16", "weight": "100 449", "k": 1.0264, "spaceK": 0.7125 },
+    { "family": "Google Sans Flex Fallback sub ja", "from": "Google Sans Flex Fallback 16", "weight": "100 449", "k": 1.0075 },
+    { "family": "Google Sans Flex Fallback sub zh", "from": "Google Sans Flex Fallback 16", "weight": "100 449", "k": 1.0074 },
+    { "family": "Google Sans Flex Fallback touch en", "from": "Google Sans Flex Fallback 14", "weight": "100 449", "k": 1.0138 },
+    { "family": "Google Sans Flex Fallback touch en", "from": "Google Sans Flex Fallback 14", "weight": "450 599", "k": 1.01 },
+    { "family": "Google Sans Flex Fallback touch en", "from": "Google Sans Flex Fallback 14", "weight": "600 900", "k": 0.9975 },
+    { "family": "Google Sans Flex Fallback title en", "from": "Google Sans Flex Fallback 32", "weight": "600 900", "k": 0.9935, "spaceK": 1.035 },
+    { "family": "Google Sans Flex Fallback title zh", "from": "Google Sans Flex Fallback 32", "weight": "600 900", "k": 0.985 },
+    { "family": "Google Sans Flex Fallback bulletin en", "from": "Google Sans Flex Fallback 14", "weight": "100 449", "k": 1.0082 },
+    { "family": "Google Sans Flex Fallback bulletin zh", "from": "Google Sans Flex Fallback 14", "weight": "100 449", "k": 1.01 },
+    { "family": "Google Sans Flex Fallback title48 en", "from": "Google Sans Flex Fallback 48", "weight": "600 900", "k": 0.9988 },
+    { "family": "Google Sans Flex Fallback meta en", "from": "Google Sans Flex Fallback 14", "weight": "100 449", "k": 1.0025 }
+  ]
+}

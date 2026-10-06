@@ -1,0 +1,37 @@
+/* 照設計稿 home.css 的 .lang */
+.lang {
+    display: inline-flex;
+    flex: none;
+    border: var(--stroke-hairline) solid var(--color-border-strong);
+    border-radius: var(--radius-full);
+}
+
+.lang a {
+    display: inline-grid;
+    place-items: center;
+    min-width: var(--tap);
+    min-height: var(--tap);
+    padding-inline: var(--space-6);
+    border-radius: var(--radius-full);
+    color: var(--color-text-secondary);
+    font: var(--weight-medium) var(--text-md)/var(--leading-none) var(--font-mono);
+    transition: color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+}
+
+@media (hover: hover) {
+    .lang a:hover {
+        color: var(--color-accent-lime-default);
+    }
+}
+
+/* 手指的「按下」（只有手指的裝置沒有滑過）：跟滑過同一個樣子，只在按著的那一下 */
+@media (hover: none) {
+    .lang a:active {
+        color: var(--color-accent-lime-default);
+    }
+}
+
+.lang a[aria-current] {
+    background: var(--color-text-primary);
+    color: var(--color-text-inverse);
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "id": "01",
+    "name": "Install it in Chrome",
+    "desc": "Search the Chrome Web Store for “Inspiration Collector”, add it to Chrome, then pin it to the toolbar.",
+    "start": 0,
+    "end": 35
+  },
+  {
+    "id": "02",
+    "name": "Open the panel, pick a folder",
+    "desc": "Click the toolbar icon to open the side panel. The first time, pick a folder and allow it once in Chrome.",
+    "start": 35,
+    "end": 61
+  },
+  {
+    "id": "03",
+    "name": "Save a whole page",
+    "desc": "“Save page” in the side panel saves the whole article as one item. Saving the same page twice still leaves one copy.",
+    "start": 61,
+    "end": 85
+  },
+  {
+    "id": "04",
+    "name": "Save a passage",
+    "desc": "Select a few sentences, right-click the highlight and choose “Save selection to Collector”. One passage, one item.",
+    "start": 85,
+    "end": 112
+  },
+  {
+    "id": "05",
+    "name": "Save images",
+    "desc": "Right-click to save one image at full size; use “Images” to pick several. Small icons are skipped.",
+    "start": 112,
+    "end": 147
+  },
+  {
+    "id": "06",
+    "name": "Save one AI reply",
+    "desc": "“Save this”, at the end of each reply in ChatGPT, Claude and Perplexity, saves just that reply.",
+    "start": 147,
+    "end": 171
+  },
+  {
+    "id": "07",
+    "name": "Save a whole AI chat",
+    "desc": "“Save page” on a chat saves the whole conversation, marked with who said what. Perplexity keeps its sources too.",
+    "start": 171,
+    "end": 202
+  },
+  {
+    "id": "08",
+    "name": "Save files ChatGPT made",
+    "desc": "“Files” saves the original xlsx, py and md files ChatGPT made into assets/. It is greyed out on other sites.",
+    "start": 202,
+    "end": 233
+  },
+  {
+    "id": "09",
+    "name": "Sort with topics",
+    "desc": "“New topic” makes a folder and a sentence on what it is for, written to MATERIAL.md. You can change it any time.",
+    "start": 233,
+    "end": 279
+  },
+  {
+    "id": "10",
+    "name": "Move between topics",
+    "desc": "Breadcrumbs show where you are, and every level is clickable. “Switch topic” changes topic; “Change folder” changes where everything is saved.",
+    "start": 279,
+    "end": 312
+  },
+  {
+    "id": "11",
+    "name": "Tidy the list",
+    "desc": "“List” or “Grid”, ALL / TXT / IMG / FILE, search and “On this page”. Delete takes two clicks.",
+    "start": 312,
+    "end": 350
+  },
+  {
+    "id": "12",
+    "name": "What is in the folder",
+    "desc": "One .md per item, original files in assets/. Every item records its source at the top; MATERIAL.md explains the folder to your AI.",
+    "start": 350,
+    "end": 381
+  },
+  {
+    "id": "13",
+    "name": "Hand it to your AI",
+    "desc": "After five items, “hand it to your AI” appears: paste the path, copy the prompt and paste it into Claude Code. It reads everything and returns a sourced outline (from a real run).",
+    "start": 381,
+    "end": 424
+  },
+  {
+    "id": "14",
+    "name": "When the folder is locked",
+    "desc": "Left idle, the folder locks: click “Unlock folder”. If the side panel cannot unlock it, the lock icon at the top opens a separate page.",
+    "start": 424,
+    "end": 456
+  },
+  {
+    "id": "15",
+    "name": "Page tools off, clearing data",
+    "desc": "Turning “Page tools” off removes the buttons on web pages; the side panel still saves. The trash icon shows what will be deleted first.",
+    "start": 456,
+    "end": 493
+  },
+  {
+    "id": "16",
+    "name": "Help and support",
+    "desc": "“How it works”, “Get help” (checks everything on the spot), “Privacy” and “About me”.",
+    "start": 493,
+    "end": 529
+  }
+]

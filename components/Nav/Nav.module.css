@@ -1,0 +1,268 @@
+/* 01 導覽列，照設計稿 home.css 的「01 導覽列」。
+   88%：導覽列玻璃 —— 白色按鈕捲到底下時，導覽連結的灰字仍有 5.6:1（量過的對比度）。 */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    border-bottom: var(--hair);
+    background: color-mix(in srgb, var(--color-bg-primary) 88%, transparent);
+    -webkit-backdrop-filter: blur(var(--blur-sm));
+    backdrop-filter: blur(var(--blur-sm));
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-16);
+    width: 100%;
+    max-width: calc(var(--max) + var(--gx) * 2);
+    min-height: var(--nav-h);
+    margin-inline: auto;
+    padding-inline: var(--gx);
+}
+
+/* 280 寬：記號 44＋「Add to Chrome」約 128＋☰ 44 只剩 32px 給兩個間隔，收回 12（設計稿量的） */
+@media (max-width: 319px) {
+    .inner {
+        gap: var(--space-12);
+    }
+}
+
+.brand {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-10);
+    min-width: var(--tap);
+    min-height: var(--tap);
+    margin-right: auto;
+}
+
+.mark {
+    flex: none;
+    width: calc(var(--space-24) + var(--space-4));
+    height: auto;
+}
+
+/* 收起來（預設）：名字只給讀螢幕軟體，畫面上只留記號 */
+.name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    font: var(--weight-semibold) var(--text-lg)/var(--leading-none) var(--font-sans-16);
+    white-space: nowrap;
+}
+
+.links {
+    display: none;
+    align-items: center;
+    gap: var(--space-20);
+}
+
+.links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--tap);
+    min-height: var(--tap);
+    border-radius: var(--radius-full);
+    color: var(--color-text-secondary);
+    font: var(--weight-medium) var(--text-md)/var(--leading-none) var(--font-sans-14);
+    white-space: nowrap;
+    transition: color var(--dur-fast) var(--ease-out);
+}
+
+@media (hover: hover) {
+    .links a:hover {
+        color: var(--color-accent-lime-default);
+    }
+}
+
+/* 手指的「按下」（只有手指的裝置沒有滑過）：跟滑過同一個樣子，只在按著的那一下 */
+@media (hover: none) {
+    .links a:active {
+        color: var(--color-accent-lime-default);
+    }
+}
+
+.barLang {
+    display: none;
+}
+
+/* 導覽列的按鈕收窄一點：280 寬時記號（44）＋這顆＋☰（44）要放得下（兩個 class：蓋過 Button 自己的內距） */
+.inner .cta {
+    flex: none;
+    padding-inline: var(--space-20);
+}
+
+.inner .cta::before {
+    left: var(--space-8);
+}
+
+.inner .cta::after {
+    right: var(--space-8);
+}
+
+.iconList,
+.iconClose {
+    display: inline-flex;
+}
+
+/* ☰ 打開時圖示換成 ✕：原生 popover 開著（沒有 JS 也對），或不支援 popover 時 nav.js 設的 aria-expanded */
+.iconClose,
+:global(body):has(.menu:popover-open) .iconList,
+.menuButton[aria-expanded="true"] .iconList {
+    display: none;
+}
+
+:global(body):has(.menu:popover-open) .iconClose,
+.menuButton[aria-expanded="true"] .iconClose {
+    display: inline-flex;
+}
+
+/* 只有手指：不放「加到 Chrome」（手機裝不了），名字回來 */
+@media (hover: none) and (pointer: coarse) {
+    .inner .cta {
+        display: none;
+    }
+
+    .name {
+        position: static;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip-path: none;
+    }
+}
+
+/* …但名字放不下時（跟 ☰ 之間不到 12px）還是只留記號：英文 < 320、日文 < 375 */
+@media (hover: none) and (pointer: coarse) and (max-width: 319px) {
+    .en .name {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+    }
+}
+
+@media (hover: none) and (pointer: coarse) and (max-width: 374px) {
+    .ja .name {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+    }
+}
+
+/* 一整排：中文 1024 起，英文、日文 1280 起（什麼寬度收成 ☰ 照各語言量，規格書第 4 節） */
+@media (min-width: 1024px) {
+    .zh .links,
+    .zh .barLang {
+        display: flex;
+    }
+
+    .zh .inner .menuButton {
+        display: none;
+    }
+
+    .zh .name {
+        position: static;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip-path: none;
+    }
+}
+
+@media (min-width: 1280px) {
+    .links,
+    .barLang {
+        display: flex;
+    }
+
+    .inner .menuButton {
+        display: none;
+    }
+
+    .name {
+        position: static;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip-path: none;
+    }
+}
+
+/* ☰ 打開：導覽列底下一整片，比畫面高時自己捲（手機橫拿碰得到最下面那排圖示）。
+   沒開時不畫；原生 popover 開著是 :popover-open，不支援 popover 時 nav.js 加 data-open */
+.menu {
+    position: fixed;
+    inset: var(--nav-h) 0 0 0;
+    z-index: var(--z-overlay);
+    display: none;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    margin: 0;
+    padding: var(--space-20) var(--gx) var(--space-60);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border: 0;
+    border-bottom: var(--hair);
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+}
+
+.menu:popover-open,
+.menu[data-open] {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gap-unit);
+}
+
+.menuLinks {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+}
+
+.menuLinks a {
+    display: flex;
+    align-items: center;
+    min-height: calc(var(--tap) + var(--space-8));
+    border-bottom: var(--hair);
+    font: var(--weight-medium) var(--text-2xl)/var(--leading-tight) var(--font-sans-24);
+    transition: color var(--dur-fast) var(--ease-out);
+}
+
+@media (hover: hover) {
+    .menuLinks a:hover {
+        color: var(--color-accent-lime-default);
+    }
+}
+
+/* 手指的「按下」（只有手指的裝置沒有滑過）：跟滑過同一個樣子，只在按著的那一下 */
+@media (hover: none) {
+    .menuLinks a:active {
+        color: var(--color-accent-lime-default);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .menu:popover-open,
+    .menu[data-open] {
+        animation: menuIn var(--dur-base) var(--ease-out);
+    }
+}
+
+@keyframes menuIn {
+    from {
+        opacity: 0;
+        translate: 0 calc(var(--space-8) * -1);
+    }
+}

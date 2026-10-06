@@ -1,0 +1,18 @@
+/* 照設計稿 home.css 的 .how／.features／.privacy、.sec--raised、.sec__in */
+.band {
+    padding-block: var(--gap-section);
+}
+
+/* 淺的那一層：卡片在淺底上反過來用深底 */
+.raised {
+    --card-bg: var(--color-bg-primary);
+    border-block: var(--hair);
+    background: var(--color-surface-raised);
+}
+
+/* 標題組↔內容 */
+.in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-group);
+}

@@ -1,0 +1,55 @@
+/* 照設計稿 home.css 的 .older、.older__btn（第三批 4-3）：按鈕跟 09「看全部 16 章」同一種，只是靠左、照字寬 */
+.older {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-tight);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-self: start;
+    gap: var(--space-10);
+    min-height: var(--tap);
+    padding-inline: var(--space-24);
+    border: var(--stroke-hairline) solid var(--color-text-secondary);
+    border-radius: var(--radius-full);
+    color: var(--color-text-primary);
+    font: var(--weight-medium) var(--text-md)/var(--leading-tight) var(--font-sans-14);
+    list-style: none;
+    cursor: pointer;
+    transition: border-color var(--dur-base) var(--ease-out), background-color var(--dur-base) var(--ease-out);
+}
+
+.btn::-webkit-details-marker {
+    display: none;
+}
+
+.btn :global(.i) {
+    width: var(--space-14);
+    height: var(--space-14);
+    transition: rotate var(--dur-base) var(--ease-out);
+}
+
+.older[open] > .btn :global(.i) {
+    rotate: 180deg;
+}
+
+@media (hover: hover) {
+    .btn:hover {
+        border-color: var(--color-text-primary);
+        background: var(--color-surface-glass);
+    }
+}
+
+/* 手指的「按下」（只有手指的裝置沒有滑過）：跟滑過同一個樣子，只在按著的那一下 */
+@media (hover: none) {
+    .btn:active {
+        border-color: var(--color-text-primary);
+        background: var(--color-surface-glass);
+    }
+}
+
+.btn:active {
+    scale: .98;
+}

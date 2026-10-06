@@ -1,0 +1,32 @@
+{
+  "name": "collector-homepage",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.9"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:pages": "npm run content:check || echo \"警告：內容有寫壞的地方：看上面 content:check 的輸出，修好後存檔。網站照樣部署，寫壞的那一條顯示「這一條讀不到」。\" && npm run build",
+    "test:site": "npm run build && node tests-site/run.mjs",
+    "test": "node scripts/test.mjs",
+    "chapters": "node scripts/chapters.mjs",
+    "media": "node scripts/media.mjs",
+    "content:check": "node scripts/content-check.mjs",
+    "fonts": "node scripts/fonts.mjs",
+    "fonts:budget": "node scripts/fonts-budget.mjs",
+    "images": "node scripts/images.mjs",
+    "og": "node scripts/og.mjs",
+    "strings": "node scripts/strings.mjs",
+    "agent-data": "node scripts/agent-data.mjs",
+    "fallback-fonts": "node scripts/fallback-fonts.mjs",
+    "fallback-sweep": "node scripts/fallback-sweep.mjs",
+    "favicon": "node scripts/favicon.mjs"
+  },
+  "dependencies": {
+    "next": "16.3.8",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  }
+}

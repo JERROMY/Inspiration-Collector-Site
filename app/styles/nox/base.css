@@ -1,0 +1,45 @@
+/* Mirameta / nO.X — 基礎層 */
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  color-scheme: dark light;
+}
+
+body {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font: var(--weight-regular) var(--text-md)/var(--leading-snug) var(--font-sans);
+  font-variation-settings:
+    "opsz" var(--gsf-opsz), "wdth" var(--gsf-wdth),
+    "GRAD" var(--gsf-grad), "ROND" var(--gsf-rond);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+img, svg, video, canvas { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+
+:focus-visible {
+  outline: var(--stroke-thick) solid var(--color-accent-lime-default);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-accent-lime-default);
+  color: var(--color-text-on-accent);
+}
+
+/* 深海敘事大量依賴動態；務必尊重使用者的減少動態偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

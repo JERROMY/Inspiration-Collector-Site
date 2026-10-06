@@ -1,0 +1,22 @@
+/* 照設計稿 home.css 的 .socials */
+.socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-10);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.socials a :global(.i) {
+    width: var(--space-18);
+    height: var(--space-18);
+}
+
+/* 還沒有圖示檔的新代號：用名字當字的文字膠囊，一樣 44 高（設計稿的 .iconbtn--text）；兩個 class 才蓋得過圖示鈕自己的寬 */
+.socials .text {
+    width: auto;
+    min-width: var(--tap);
+    padding-inline: var(--space-14);
+    font: var(--weight-medium) var(--text-md)/var(--leading-none) var(--font-mono);
+}

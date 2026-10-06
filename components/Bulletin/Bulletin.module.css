@@ -1,0 +1,118 @@
+/* 02 公告條，照設計稿 home.css 的「02 公告條」。不釘住；字太長就換行，不截斷。
+   沒有 JS 時只看得到產生網頁時挑的那條；有 JS 時 public/bulletin.js 在 <head> 插一段樣式蓋掉這條（!important）。 */
+.bulletin {
+    display: block;
+    border-bottom: var(--hair);
+    background: var(--color-surface-raised);
+}
+
+.bulletin:not([data-default]) {
+    display: none;
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-16);
+    width: 100%;
+    max-width: calc(var(--max) + var(--gx) * 2);
+    min-height: calc(var(--tap) + var(--space-16));
+    margin-inline: auto;
+    padding-block: var(--space-4);
+    padding-inline: var(--gx);
+}
+
+/* 不會按的標籤：方角 3px，跟膠囊按鈕分得開（設計稿 .tag）；中日文同樣 px 看起來小一階，往上帶一階 */
+.label {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    padding: var(--space-3) var(--space-8);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface-glass);
+    color: var(--color-text-primary);
+    font: var(--weight-medium) var(--text-base)/var(--leading-snug) var(--font-mono);
+    white-space: nowrap;
+}
+
+.label:lang(zh-Hant),
+.label:lang(ja) {
+    font-size: var(--text-md);
+}
+
+/* 標題：點得到的高度到 44（上下 12） */
+.text {
+    flex: 1;
+    min-width: 0;
+    padding-block: var(--space-12);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-primary);
+    font: var(--weight-regular) var(--text-md)/var(--lh-body) var(--font-bulletin);
+    text-decoration: underline;
+    text-decoration-thickness: var(--stroke-hairline);
+    text-decoration-color: transparent;
+    text-underline-offset: var(--space-5);
+    transition: color var(--dur-fast) var(--ease-out), text-decoration-color var(--dur-fast) var(--ease-out);
+}
+
+/* 中文：照詞組換行（keep-all，後端 bindTail 在詞界插了 <wbr>），一段沒有斷點、比一行長時 anywhere 兜底；日文照 :lang(ja) 的 auto-phrase，英文一般斷行 */
+.text:lang(zh-Hant) {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+
+.text :global(.i) {
+    width: var(--space-14);
+    height: var(--space-14);
+    margin-left: var(--space-6);
+    vertical-align: -.15em;
+}
+
+@media (hover: hover) {
+    .text:hover {
+        color: var(--color-accent-lime-default);
+        text-decoration-color: var(--color-accent-lime-default);
+    }
+}
+
+/* ✕ 照樣靠右（兩個 class：蓋過 IconButton 自己的樣式） */
+.inner .close {
+    margin-left: auto;
+}
+
+/* 手機（< 640）：「公告」標籤與 ✕ 放上排、標題放下排用整個寬度 ——
+   標籤、標題、✕ 排一排的話，280～375 寬時標題那一欄只剩 70～140px，日文折成 6 行。
+   標題是一大塊可以按的字（多行，高度本來就超過 44），所以上下內距收掉，只留下面一點空氣。
+   右欄寫 var(--tap)（✕ 的寬）而不是 auto：標籤是 nowrap 的字，欄不能被內容撐寬 */
+@media (max-width: 639px) {
+    .inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) var(--tap);
+        align-items: center;
+        column-gap: var(--space-16);
+        row-gap: 0;
+        padding-block: 0 var(--space-12);
+    }
+
+    .label {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: start;
+    }
+
+    /* ✕ 的圖示對齊內容的右緣（44 的點擊範圍往外伸進留白） */
+    .inner .close {
+        grid-column: 2;
+        grid-row: 1;
+        margin-right: calc(var(--space-12) * -1);
+    }
+
+    /* 一行時也點得到 44 高；手機上一行最寬約 25 字 */
+    .text {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        max-width: var(--measure);
+        min-height: var(--tap);
+        padding-block: 0;
+    }
+}

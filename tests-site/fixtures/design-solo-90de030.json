@@ -1,0 +1,3089 @@
+{
+ "source": "設計稿 design/homepage/root/index.html 與 design/homepage/404/index.html，commit 90de030；2026-10-04 用 tests-site/tools/measure-design.mjs --only solo 量的（本機伺服器開、Playwright 的 Chromium、減少動態、有滑鼠、高 900，量之前確認 Google Sans Flex 載好了，404 另外確認 JetBrains Mono）。boxes：離 <main> 左上角的 [x, y, 寬, 高]；lines：每一行；gaps／lineGaps：三顆按鈕的字到框內緣（字形框／行盒）；contrast：字對底的對比。鍵見 page-helpers.js 的 soloItems。",
+ "pages": {
+  "404": {
+   "280": {
+    "boxes": {
+     "mark": [
+      16,
+      60,
+      60,
+      60
+     ],
+     "code": [
+      16,
+      140,
+      86.4,
+      48
+     ],
+     "title.zh": [
+      16,
+      208,
+      248,
+      30
+     ],
+     "lead.zh": [
+      16,
+      425,
+      248,
+      24.5
+     ],
+     "btn.zh": [
+      16,
+      469.5,
+      136,
+      52
+     ],
+     "title.en": [
+      16,
+      246,
+      248,
+      30
+     ],
+     "lead.en": [
+      16,
+      572.5,
+      248,
+      44.8
+     ],
+     "btn.en": [
+      16,
+      637.3,
+      192.3,
+      52
+     ],
+     "title.ja": [
+      16,
+      284,
+      248,
+      60
+     ],
+     "lead.ja": [
+      16,
+      740.3,
+      248,
+      49
+     ],
+     "btn.ja": [
+      16,
+      809.3,
+      183.2,
+      52
+     ]
+    },
+    "lines": {
+     "code": [
+      "404"
+     ],
+     "title.zh": [
+      "找不到這一頁"
+     ],
+     "lead.zh": [
+      "網址可能打錯了，或這一頁已經搬走。"
+     ],
+     "btn.zh": [
+      "回首頁"
+     ],
+     "title.en": [
+      "Page not found"
+     ],
+     "lead.en": [
+      "The address may be mistyped,",
+      "or the page has moved."
+     ],
+     "btn.en": [
+      "Back to home"
+     ],
+     "title.ja": [
+      "ページが",
+      "見つかりません"
+     ],
+     "lead.ja": [
+      "URL が間違っているか、",
+      "ページが移動した可能性があります。"
+     ],
+     "btn.ja": [
+      "ホームに戻る"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "code": 16.83,
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "320": {
+    "boxes": {
+     "mark": [
+      16,
+      64.4,
+      60,
+      60
+     ],
+     "code": [
+      16,
+      144.4,
+      86.4,
+      48
+     ],
+     "title.zh": [
+      16,
+      212.4,
+      263.3,
+      30
+     ],
+     "lead.zh": [
+      16,
+      399.4,
+      288,
+      24.5
+     ],
+     "btn.zh": [
+      16,
+      443.9,
+      136,
+      52
+     ],
+     "title.en": [
+      16,
+      250.4,
+      263.3,
+      30
+     ],
+     "lead.en": [
+      16,
+      546.9,
+      288,
+      44.8
+     ],
+     "btn.en": [
+      16,
+      611.6,
+      192.3,
+      52
+     ],
+     "title.ja": [
+      16,
+      288.4,
+      263.3,
+      30
+     ],
+     "lead.ja": [
+      16,
+      714.6,
+      288,
+      49
+     ],
+     "btn.ja": [
+      16,
+      783.6,
+      183.2,
+      52
+     ]
+    },
+    "lines": {
+     "code": [
+      "404"
+     ],
+     "title.zh": [
+      "找不到這一頁"
+     ],
+     "lead.zh": [
+      "網址可能打錯了，或這一頁已經搬走。"
+     ],
+     "btn.zh": [
+      "回首頁"
+     ],
+     "title.en": [
+      "Page not found"
+     ],
+     "lead.en": [
+      "The address may be mistyped,",
+      "or the page has moved."
+     ],
+     "btn.en": [
+      "Back to home"
+     ],
+     "title.ja": [
+      "ページが見つかりません"
+     ],
+     "lead.ja": [
+      "URL が間違っているか、ページが移動した",
+      "可能性があります。"
+     ],
+     "btn.ja": [
+      "ホームに戻る"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "code": 16.83,
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "360": {
+    "boxes": {
+     "mark": [
+      16,
+      60,
+      60,
+      60
+     ],
+     "code": [
+      16,
+      140,
+      86.4,
+      48
+     ],
+     "title.zh": [
+      16,
+      208,
+      328,
+      40
+     ],
+     "lead.zh": [
+      16,
+      465,
+      328,
+      24.5
+     ],
+     "btn.zh": [
+      16,
+      509.5,
+      136,
+      52
+     ],
+     "title.en": [
+      16,
+      256,
+      328,
+      40
+     ],
+     "lead.en": [
+      16,
+      612.5,
+      328,
+      44.8
+     ],
+     "btn.en": [
+      16,
+      677.3,
+      192.3,
+      52
+     ],
+     "title.ja": [
+      16,
+      304,
+      328,
+      80
+     ],
+     "lead.ja": [
+      16,
+      780.3,
+      328,
+      49
+     ],
+     "btn.ja": [
+      16,
+      849.3,
+      183.2,
+      52
+     ]
+    },
+    "lines": {
+     "code": [
+      "404"
+     ],
+     "title.zh": [
+      "找不到這一頁"
+     ],
+     "lead.zh": [
+      "網址可能打錯了，或這一頁已經搬走。"
+     ],
+     "btn.zh": [
+      "回首頁"
+     ],
+     "title.en": [
+      "Page not found"
+     ],
+     "lead.en": [
+      "The address may be mistyped,",
+      "or the page has moved."
+     ],
+     "btn.en": [
+      "Back to home"
+     ],
+     "title.ja": [
+      "ページが",
+      "見つかりません"
+     ],
+     "lead.ja": [
+      "URL が間違っているか、ページが移動した",
+      "可能性があります。"
+     ],
+     "btn.ja": [
+      "ホームに戻る"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "code": 16.83,
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "375": {
+    "boxes": {
+     "mark": [
+      16,
+      60,
+      60,
+      60
+     ],
+     "code": [
+      16,
+      140,
+      86.4,
+      48
+     ],
+     "title.zh": [
+      16,
+      208,
+      343,
+      40
+     ],
+     "lead.zh": [
+      16,
+      465,
+      343,
+      24.5
+     ],
+     "btn.zh": [
+      16,
+      509.5,
+      136,
+      52
+     ],
+     "title.en": [
+      16,
+      256,
+      343,
+      40
+     ],
+     "lead.en": [
+      16,
+      612.5,
+      343,
+      44.8
+     ],
+     "btn.en": [
+      16,
+      677.3,
+      192.3,
+      52
+     ],
+     "title.ja": [
+      16,
+      304,
+      343,
+      80
+     ],
+     "lead.ja": [
+      16,
+      780.3,
+      343,
+      49
+     ],
+     "btn.ja": [
+      16,
+      849.3,
+      183.2,
+      52
+     ]
+    },
+    "lines": {
+     "code": [
+      "404"
+     ],
+     "title.zh": [
+      "找不到這一頁"
+     ],
+     "lead.zh": [
+      "網址可能打錯了，或這一頁已經搬走。"
+     ],
+     "btn.zh": [
+      "回首頁"
+     ],
+     "title.en": [
+      "Page not found"
+     ],
+     "lead.en": [
+      "The address may be mistyped,",
+      "or the page has moved."
+     ],
+     "btn.en": [
+      "Back to home"
+     ],
+     "title.ja": [
+      "ページが",
+      "見つかりません"
+     ],
+     "lead.ja": [
+      "URL が間違っているか、ページが移動した",
+      "可能性があります。"
+     ],
+     "btn.ja": [
+      "ホームに戻る"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "code": 16.83,
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "390": {
+    "boxes": {
+     "mark": [
+      16,
+      60,
+      60,
+      60
+     ],
+     "code": [
+      16,
+      140,
+      86.4,
+      48
+     ],
+     "title.zh": [
+      16,
+      208,
+      351,
+      40
+     ],
+     "lead.zh": [
+      16,
+      425,
+      350,
+      24.5
+     ],
+     "btn.zh": [
+      16,
+      469.5,
+      136,
+      52
+     ],
+     "title.en": [
+      16,
+      256,
+      351,
+      40
+     ],
+     "lead.en": [
+      16,
+      572.5,
+      350,
+      44.8
+     ],
+     "btn.en": [
+      16,
+      637.3,
+      192.3,
+      52
+     ],
+     "title.ja": [
+      16,
+      304,
+      351,
+      40
+     ],
+     "lead.ja": [
+      16,
+      740.3,
+      350,
+      49
+     ],
+     "btn.ja": [
+      16,
+      809.3,
+      183.2,
+      52
+     ]
+    },
+    "lines": {
+     "code": [
+      "404"
+     ],
+     "title.zh": [
+      "找不到這一頁"
+     ],
+     "lead.zh": [
+      "網址可能打錯了，或這一頁已經搬走。"
+     ],
+     "btn.zh": [
+      "回首頁"
+     ],
+     "title.en": [
+      "Page not found"
+     ],
+     "lead.en": [
+      "The address may be mistyped,",
+      "or the page has moved."
+     ],
+     "btn.en": [
+      "Back to home"
+     ],
+     "title.ja": [
+      "ページが見つかりません"
+     ],
+     "lead.ja": [
+      "URL が間違っているか、ページが移動した",
+      "可能性があります。"
+     ],
+     "btn.ja": [
+      "ホームに戻る"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "code": 16.83,
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "414": {
+    "boxes": {
+     "mark": [
+      16,
+      60,
+      60,
+      60
+     ],
+     "code": [
+      16,
+      140,
+      86.4,
+      48
+     ],
+     "title.zh": [
+      16,
+      208,
+      351,
+      40
+     ],
+     "lead.zh": [
+      16,
+      425,
+      350,
+      24.5
+     ],
+     "btn.zh": [
+      16,
+      469.5,
+      136,
+      52
+     ],
+     "title.en": [
+      16,
+      256,
+      351,
+      40
+     ],
+     "lead.en": [
+      16,
+      572.5,
+      350,
+      44.8
+     ],
+     "btn.en": [
+      16,
+      637.3,
+      192.3,
+      52
+     ],
+     "title.ja": [
+      16,
+      304,
+      351,
+      40
+     ],
+     "lead.ja": [
+      16,
+      740.3,
+      350,
+      49
+     ],
+     "btn.ja": [
+      16,
+      809.3,
+      183.2,
+      52
+     ]
+    },
+    "lines": {
+     "code": [
+      "404"
+     ],
+     "title.zh": [
+      "找不到這一頁"
+     ],
+     "lead.zh": [
+      "網址可能打錯了，或這一頁已經搬走。"
+     ],
+     "btn.zh": [
+      "回首頁"
+     ],
+     "title.en": [
+      "Page not found"
+     ],
+     "lead.en": [
+      "The address may be mistyped,",
+      "or the page has moved."
+     ],
+     "btn.en": [
+      "Back to home"
+     ],
+     "title.ja": [
+      "ページが見つかりません"
+     ],
+     "lead.ja": [
+      "URL が間違っているか、ページが移動した",
+      "可能性があります。"
+     ],
+     "btn.ja": [
+      "ホームに戻る"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "code": 16.83,
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "430": {
+    "boxes": {
+     "mark": [
+      16,
+      60,
+      60,
+      60
+     ],
+     "code": [
+      16,
+      140,
+      86.4,
+      48
+     ],
+     "title.zh": [
+      16,
+      208,
+      351,
+      40
+     ],
+     "lead.zh": [
+      16,
+      425,
+      350,
+      24.5
+     ],
+     "btn.zh": [
+      16,
+      469.5,
+      136,
+      52
+     ],
+     "title.en": [
+      16,
+      256,
+      351,
+      40
+     ],
+     "lead.en": [
+      16,
+      572.5,
+      350,
+      44.8
+     ],
+     "btn.en": [
+      16,
+      637.3,
+      192.3,
+      52
+     ],
+     "title.ja": [
+      16,
+      304,
+      351,
+      40
+     ],
+     "lead.ja": [
+      16,
+      740.3,
+      350,
+      49
+     ],
+     "btn.ja": [
+      16,
+      809.3,
+      183.2,
+      52
+     ]
+    },
+    "lines": {
+     "code": [
+      "404"
+     ],
+     "title.zh": [
+      "找不到這一頁"
+     ],
+     "lead.zh": [
+      "網址可能打錯了，或這一頁已經搬走。"
+     ],
+     "btn.zh": [
+      "回首頁"
+     ],
+     "title.en": [
+      "Page not found"
+     ],
+     "lead.en": [
+      "The address may be mistyped,",
+      "or the page has moved."
+     ],
+     "btn.en": [
+      "Back to home"
+     ],
+     "title.ja": [
+      "ページが見つかりません"
+     ],
+     "lead.ja": [
+      "URL が間違っているか、ページが移動した",
+      "可能性があります。"
+     ],
+     "btn.ja": [
+      "ホームに戻る"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "code": 16.83,
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "640": {
+    "boxes": {
+     "mark": [
+      32,
+      60,
+      60,
+      60
+     ],
+     "code": [
+      32,
+      140,
+      115.2,
+      64
+     ],
+     "title.zh": [
+      32,
+      224,
+      351,
+      40
+     ],
+     "lead.zh": [
+      32,
+      441,
+      350,
+      24.5
+     ],
+     "btn.zh": [
+      32,
+      485.5,
+      136,
+      52
+     ],
+     "title.en": [
+      32,
+      272,
+      351,
+      40
+     ],
+     "lead.en": [
+      32,
+      588.5,
+      350,
+      44.8
+     ],
+     "btn.en": [
+      32,
+      653.3,
+      192.3,
+      52
+     ],
+     "title.ja": [
+      32,
+      320,
+      351,
+      40
+     ],
+     "lead.ja": [
+      32,
+      756.3,
+      350,
+      49
+     ],
+     "btn.ja": [
+      32,
+      825.3,
+      183.2,
+      52
+     ]
+    },
+    "lines": {
+     "code": [
+      "404"
+     ],
+     "title.zh": [
+      "找不到這一頁"
+     ],
+     "lead.zh": [
+      "網址可能打錯了，或這一頁已經搬走。"
+     ],
+     "btn.zh": [
+      "回首頁"
+     ],
+     "title.en": [
+      "Page not found"
+     ],
+     "lead.en": [
+      "The address may be mistyped,",
+      "or the page has moved."
+     ],
+     "btn.en": [
+      "Back to home"
+     ],
+     "title.ja": [
+      "ページが見つかりません"
+     ],
+     "lead.ja": [
+      "URL が間違っているか、ページが移動した",
+      "可能性があります。"
+     ],
+     "btn.ja": [
+      "ホームに戻る"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "code": 16.83,
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "768": {
+    "boxes": {
+     "mark": [
+      32,
+      186.8,
+      60,
+      60
+     ],
+     "code": [
+      32,
+      266.8,
+      115.2,
+      64
+     ],
+     "title.zh": [
+      32,
+      350.8,
+      351,
+      40
+     ],
+     "lead.zh": [
+      32,
+      567.8,
+      214.7,
+      73.5
+     ],
+     "btn.zh": [
+      32,
+      661.3,
+      136,
+      52
+     ],
+     "title.en": [
+      32,
+      398.8,
+      351,
+      40
+     ],
+     "lead.en": [
+      276.7,
+      567.8,
+      214.7,
+      73.5
+     ],
+     "btn.en": [
+      276.7,
+      661.3,
+      192.3,
+      52
+     ],
+     "title.ja": [
+      32,
+      446.8,
+      351,
+      40
+     ],
+     "lead.ja": [
+      521.3,
+      567.8,
+      214.7,
+      73.5
+     ],
+     "btn.ja": [
+      521.3,
+      661.3,
+      183.2,
+      52
+     ]
+    },
+    "lines": {
+     "code": [
+      "404"
+     ],
+     "title.zh": [
+      "找不到這一頁"
+     ],
+     "lead.zh": [
+      "網址可能打錯了，",
+      "或這一頁已經搬走。"
+     ],
+     "btn.zh": [
+      "回首頁"
+     ],
+     "title.en": [
+      "Page not found"
+     ],
+     "lead.en": [
+      "The address may be mistyped,",
+      "or the page has moved."
+     ],
+     "btn.en": [
+      "Back to home"
+     ],
+     "title.ja": [
+      "ページが見つかりません"
+     ],
+     "lead.ja": [
+      "URL が間違っているか、",
+      "ページが移動した",
+      "可能性があります。"
+     ],
+     "btn.ja": [
+      "ホームに戻る"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "code": 16.83,
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "1024": {
+    "boxes": {
+     "mark": [
+      32,
+      151,
+      60,
+      60
+     ],
+     "code": [
+      32,
+      235,
+      115.2,
+      64
+     ],
+     "title.zh": [
+      32,
+      323,
+      526.6,
+      60
+     ],
+     "lead.zh": [
+      32,
+      624,
+      293.3,
+      49
+     ],
+     "btn.zh": [
+      32,
+      697,
+      136,
+      52
+     ],
+     "title.en": [
+      32,
+      391,
+      526.6,
+      60
+     ],
+     "lead.en": [
+      365.3,
+      624,
+      293.3,
+      49
+     ],
+     "btn.en": [
+      365.3,
+      697,
+      192.3,
+      52
+     ],
+     "title.ja": [
+      32,
+      459,
+      526.6,
+      60
+     ],
+     "lead.ja": [
+      698.7,
+      624,
+      293.3,
+      49
+     ],
+     "btn.ja": [
+      698.7,
+      697,
+      183.2,
+      52
+     ]
+    },
+    "lines": {
+     "code": [
+      "404"
+     ],
+     "title.zh": [
+      "找不到這一頁"
+     ],
+     "lead.zh": [
+      "網址可能打錯了，或這一頁已經搬走。"
+     ],
+     "btn.zh": [
+      "回首頁"
+     ],
+     "title.en": [
+      "Page not found"
+     ],
+     "lead.en": [
+      "The address may be mistyped,",
+      "or the page has moved."
+     ],
+     "btn.en": [
+      "Back to home"
+     ],
+     "title.ja": [
+      "ページが見つかりません"
+     ],
+     "lead.ja": [
+      "URL が間違っているか、ページが移動した",
+      "可能性があります。"
+     ],
+     "btn.ja": [
+      "ホームに戻る"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "code": 16.83,
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "1280": {
+    "boxes": {
+     "mark": [
+      50,
+      151,
+      60,
+      60
+     ],
+     "code": [
+      50,
+      235,
+      115.2,
+      64
+     ],
+     "title.zh": [
+      50,
+      323,
+      526.6,
+      60
+     ],
+     "lead.zh": [
+      50,
+      624,
+      350,
+      49
+     ],
+     "btn.zh": [
+      50,
+      697,
+      136,
+      52
+     ],
+     "title.en": [
+      50,
+      391,
+      526.6,
+      60
+     ],
+     "lead.en": [
+      456.7,
+      624,
+      350,
+      49
+     ],
+     "btn.en": [
+      456.7,
+      697,
+      192.3,
+      52
+     ],
+     "title.ja": [
+      50,
+      459,
+      526.6,
+      60
+     ],
+     "lead.ja": [
+      863.3,
+      624,
+      350,
+      49
+     ],
+     "btn.ja": [
+      863.3,
+      697,
+      183.2,
+      52
+     ]
+    },
+    "lines": {
+     "code": [
+      "404"
+     ],
+     "title.zh": [
+      "找不到這一頁"
+     ],
+     "lead.zh": [
+      "網址可能打錯了，或這一頁已經搬走。"
+     ],
+     "btn.zh": [
+      "回首頁"
+     ],
+     "title.en": [
+      "Page not found"
+     ],
+     "lead.en": [
+      "The address may be mistyped,",
+      "or the page has moved."
+     ],
+     "btn.en": [
+      "Back to home"
+     ],
+     "title.ja": [
+      "ページが見つかりません"
+     ],
+     "lead.ja": [
+      "URL が間違っているか、ページが移動した",
+      "可能性があります。"
+     ],
+     "btn.ja": [
+      "ホームに戻る"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "code": 16.83,
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "1440": {
+    "boxes": {
+     "mark": [
+      130,
+      151,
+      60,
+      60
+     ],
+     "code": [
+      130,
+      235,
+      115.2,
+      64
+     ],
+     "title.zh": [
+      130,
+      323,
+      526.6,
+      60
+     ],
+     "lead.zh": [
+      130,
+      624,
+      350,
+      49
+     ],
+     "btn.zh": [
+      130,
+      697,
+      136,
+      52
+     ],
+     "title.en": [
+      130,
+      391,
+      526.6,
+      60
+     ],
+     "lead.en": [
+      536.7,
+      624,
+      350,
+      49
+     ],
+     "btn.en": [
+      536.7,
+      697,
+      192.3,
+      52
+     ],
+     "title.ja": [
+      130,
+      459,
+      526.6,
+      60
+     ],
+     "lead.ja": [
+      943.3,
+      624,
+      350,
+      49
+     ],
+     "btn.ja": [
+      943.3,
+      697,
+      183.2,
+      52
+     ]
+    },
+    "lines": {
+     "code": [
+      "404"
+     ],
+     "title.zh": [
+      "找不到這一頁"
+     ],
+     "lead.zh": [
+      "網址可能打錯了，或這一頁已經搬走。"
+     ],
+     "btn.zh": [
+      "回首頁"
+     ],
+     "title.en": [
+      "Page not found"
+     ],
+     "lead.en": [
+      "The address may be mistyped,",
+      "or the page has moved."
+     ],
+     "btn.en": [
+      "Back to home"
+     ],
+     "title.ja": [
+      "ページが見つかりません"
+     ],
+     "lead.ja": [
+      "URL が間違っているか、ページが移動した",
+      "可能性があります。"
+     ],
+     "btn.ja": [
+      "ホームに戻る"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "code": 16.83,
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   }
+  },
+  "root": {
+   "280": {
+    "boxes": {
+     "mark": [
+      16,
+      60,
+      60,
+      60
+     ],
+     "title.zh": [
+      16,
+      140,
+      248,
+      30
+     ],
+     "lead.zh": [
+      16,
+      357,
+      248,
+      147
+     ],
+     "btn.zh": [
+      16,
+      524,
+      152,
+      52
+     ],
+     "title.en": [
+      16,
+      178,
+      248,
+      30
+     ],
+     "lead.en": [
+      16,
+      627,
+      248,
+      112
+     ],
+     "btn.en": [
+      16,
+      759,
+      142.3,
+      52
+     ],
+     "title.ja": [
+      16,
+      216,
+      248,
+      60
+     ],
+     "lead.ja": [
+      16,
+      862,
+      248,
+      171.5
+     ],
+     "btn.ja": [
+      16,
+      1053.5,
+      136,
+      52
+     ]
+    },
+    "lines": {
+     "title.zh": [
+      "靈感收集器"
+     ],
+     "lead.zh": [
+      "給 AI 讀的網頁剪藏：",
+      "網頁、文字、圖片，",
+      "ChatGPT、Claude、",
+      "Perplexity 的對話，",
+      "一鍵存成 Markdown，",
+      "放進你自己的資料夾，不上傳。"
+     ],
+     "btn.zh": [
+      "繁體中文"
+     ],
+     "title.en": [
+      "Inspiration Collector"
+     ],
+     "lead.en": [
+      "Web clipper for AI agents:",
+      "save pages, text, images",
+      "and ChatGPT, Claude",
+      "or Perplexity chats as Markdown",
+      "in your own folder."
+     ],
+     "btn.en": [
+      "English"
+     ],
+     "title.ja": [
+      "インスピレーション・",
+      "コレクター"
+     ],
+     "lead.ja": [
+      "AI エージェントのための",
+      "ウェブクリッパー。",
+      "ページ、テキスト、画像、",
+      "ChatGPT・Claude・",
+      "Perplexity の会話を",
+      "Markdown で自分の",
+      "フォルダーへ保存。"
+     ],
+     "btn.ja": [
+      "日本語"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "320": {
+    "boxes": {
+     "mark": [
+      16,
+      60,
+      60,
+      60
+     ],
+     "title.zh": [
+      16,
+      140,
+      288,
+      30
+     ],
+     "lead.zh": [
+      16,
+      357,
+      288,
+      122.5
+     ],
+     "btn.zh": [
+      16,
+      499.5,
+      152,
+      52
+     ],
+     "title.en": [
+      16,
+      178,
+      288,
+      30
+     ],
+     "lead.en": [
+      16,
+      602.5,
+      288,
+      89.6
+     ],
+     "btn.en": [
+      16,
+      712.1,
+      142.3,
+      52
+     ],
+     "title.ja": [
+      16,
+      216,
+      288,
+      60
+     ],
+     "lead.ja": [
+      16,
+      815.1,
+      288,
+      98
+     ],
+     "btn.ja": [
+      16,
+      933.1,
+      136,
+      52
+     ]
+    },
+    "lines": {
+     "title.zh": [
+      "靈感收集器"
+     ],
+     "lead.zh": [
+      "給 AI 讀的網頁剪藏：",
+      "網頁、文字、圖片，",
+      "ChatGPT、Claude、Perplexity 的對話，",
+      "一鍵存成 Markdown，",
+      "放進你自己的資料夾，不上傳。"
+     ],
+     "btn.zh": [
+      "繁體中文"
+     ],
+     "title.en": [
+      "Inspiration Collector"
+     ],
+     "lead.en": [
+      "Web clipper for AI agents:",
+      "save pages, text, images",
+      "and ChatGPT, Claude or Perplexity chats",
+      "as Markdown in your own folder."
+     ],
+     "btn.en": [
+      "English"
+     ],
+     "title.ja": [
+      "インスピレーション・",
+      "コレクター"
+     ],
+     "lead.ja": [
+      "AI エージェントのためのウェブクリッパー。",
+      "ページ、テキスト、画像、",
+      "ChatGPT・Claude・Perplexity の会話を",
+      "Markdown で自分のフォルダーへ保存。"
+     ],
+     "btn.ja": [
+      "日本語"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "360": {
+    "boxes": {
+     "mark": [
+      16,
+      60,
+      60,
+      60
+     ],
+     "title.zh": [
+      16,
+      140,
+      328,
+      40
+     ],
+     "lead.zh": [
+      16,
+      397,
+      328,
+      122.5
+     ],
+     "btn.zh": [
+      16,
+      539.5,
+      152,
+      52
+     ],
+     "title.en": [
+      16,
+      188,
+      328,
+      40
+     ],
+     "lead.en": [
+      16,
+      642.5,
+      328,
+      89.6
+     ],
+     "btn.en": [
+      16,
+      752.1,
+      142.3,
+      52
+     ],
+     "title.ja": [
+      16,
+      236,
+      328,
+      80
+     ],
+     "lead.ja": [
+      16,
+      855.1,
+      328,
+      98
+     ],
+     "btn.ja": [
+      16,
+      973.1,
+      136,
+      52
+     ]
+    },
+    "lines": {
+     "title.zh": [
+      "靈感收集器"
+     ],
+     "lead.zh": [
+      "給 AI 讀的網頁剪藏：",
+      "網頁、文字、圖片，",
+      "ChatGPT、Claude、Perplexity 的對話，",
+      "一鍵存成 Markdown，",
+      "放進你自己的資料夾，不上傳。"
+     ],
+     "btn.zh": [
+      "繁體中文"
+     ],
+     "title.en": [
+      "Inspiration Collector"
+     ],
+     "lead.en": [
+      "Web clipper for AI agents:",
+      "save pages, text, images and ChatGPT, Claude",
+      "or Perplexity chats as Markdown",
+      "in your own folder."
+     ],
+     "btn.en": [
+      "English"
+     ],
+     "title.ja": [
+      "インスピレーション・",
+      "コレクター"
+     ],
+     "lead.ja": [
+      "AI エージェントのためのウェブクリッパー。",
+      "ページ、テキスト、画像、",
+      "ChatGPT・Claude・Perplexity の会話を",
+      "Markdown で自分のフォルダーへ保存。"
+     ],
+     "btn.ja": [
+      "日本語"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "375": {
+    "boxes": {
+     "mark": [
+      16,
+      60,
+      60,
+      60
+     ],
+     "title.zh": [
+      16,
+      140,
+      343,
+      40
+     ],
+     "lead.zh": [
+      16,
+      397,
+      343,
+      98
+     ],
+     "btn.zh": [
+      16,
+      515,
+      152,
+      52
+     ],
+     "title.en": [
+      16,
+      188,
+      343,
+      40
+     ],
+     "lead.en": [
+      16,
+      618,
+      343,
+      67.2
+     ],
+     "btn.en": [
+      16,
+      705.2,
+      142.3,
+      52
+     ],
+     "title.ja": [
+      16,
+      236,
+      343,
+      80
+     ],
+     "lead.ja": [
+      16,
+      808.2,
+      343,
+      98
+     ],
+     "btn.ja": [
+      16,
+      926.2,
+      136,
+      52
+     ]
+    },
+    "lines": {
+     "title.zh": [
+      "靈感收集器"
+     ],
+     "lead.zh": [
+      "給 AI 讀的網頁剪藏：",
+      "網頁、文字、圖片，",
+      "ChatGPT、Claude、Perplexity 的對話，",
+      "一鍵存成 Markdown，放進你自己的資料夾，不上傳。"
+     ],
+     "btn.zh": [
+      "繁體中文"
+     ],
+     "title.en": [
+      "Inspiration Collector"
+     ],
+     "lead.en": [
+      "Web clipper for AI agents:",
+      "save pages, text, images and ChatGPT, Claude",
+      "or Perplexity chats as Markdown in your own folder."
+     ],
+     "btn.en": [
+      "English"
+     ],
+     "title.ja": [
+      "インスピレーション・",
+      "コレクター"
+     ],
+     "lead.ja": [
+      "AI エージェントのためのウェブクリッパー。",
+      "ページ、テキスト、画像、",
+      "ChatGPT・Claude・Perplexity の会話を",
+      "Markdown で自分のフォルダーへ保存。"
+     ],
+     "btn.ja": [
+      "日本語"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "390": {
+    "boxes": {
+     "mark": [
+      16,
+      60,
+      60,
+      60
+     ],
+     "title.zh": [
+      16,
+      140,
+      358,
+      40
+     ],
+     "lead.zh": [
+      16,
+      397,
+      350,
+      98
+     ],
+     "btn.zh": [
+      16,
+      515,
+      152,
+      52
+     ],
+     "title.en": [
+      16,
+      188,
+      358,
+      40
+     ],
+     "lead.en": [
+      16,
+      618,
+      350,
+      67.2
+     ],
+     "btn.en": [
+      16,
+      705.2,
+      142.3,
+      52
+     ],
+     "title.ja": [
+      16,
+      236,
+      358,
+      80
+     ],
+     "lead.ja": [
+      16,
+      808.2,
+      350,
+      98
+     ],
+     "btn.ja": [
+      16,
+      926.2,
+      136,
+      52
+     ]
+    },
+    "lines": {
+     "title.zh": [
+      "靈感收集器"
+     ],
+     "lead.zh": [
+      "給 AI 讀的網頁剪藏：",
+      "網頁、文字、圖片，",
+      "ChatGPT、Claude、Perplexity 的對話，",
+      "一鍵存成 Markdown，放進你自己的資料夾，不上傳。"
+     ],
+     "btn.zh": [
+      "繁體中文"
+     ],
+     "title.en": [
+      "Inspiration Collector"
+     ],
+     "lead.en": [
+      "Web clipper for AI agents:",
+      "save pages, text, images and ChatGPT, Claude",
+      "or Perplexity chats as Markdown in your own folder."
+     ],
+     "btn.en": [
+      "English"
+     ],
+     "title.ja": [
+      "インスピレーション・",
+      "コレクター"
+     ],
+     "lead.ja": [
+      "AI エージェントのためのウェブクリッパー。",
+      "ページ、テキスト、画像、",
+      "ChatGPT・Claude・Perplexity の会話を",
+      "Markdown で自分のフォルダーへ保存。"
+     ],
+     "btn.ja": [
+      "日本語"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "414": {
+    "boxes": {
+     "mark": [
+      16,
+      60,
+      60,
+      60
+     ],
+     "title.zh": [
+      16,
+      140,
+      382,
+      40
+     ],
+     "lead.zh": [
+      16,
+      397,
+      350,
+      98
+     ],
+     "btn.zh": [
+      16,
+      515,
+      152,
+      52
+     ],
+     "title.en": [
+      16,
+      188,
+      382,
+      40
+     ],
+     "lead.en": [
+      16,
+      618,
+      350,
+      67.2
+     ],
+     "btn.en": [
+      16,
+      705.2,
+      142.3,
+      52
+     ],
+     "title.ja": [
+      16,
+      236,
+      382,
+      80
+     ],
+     "lead.ja": [
+      16,
+      808.2,
+      350,
+      98
+     ],
+     "btn.ja": [
+      16,
+      926.2,
+      136,
+      52
+     ]
+    },
+    "lines": {
+     "title.zh": [
+      "靈感收集器"
+     ],
+     "lead.zh": [
+      "給 AI 讀的網頁剪藏：",
+      "網頁、文字、圖片，",
+      "ChatGPT、Claude、Perplexity 的對話，",
+      "一鍵存成 Markdown，放進你自己的資料夾，不上傳。"
+     ],
+     "btn.zh": [
+      "繁體中文"
+     ],
+     "title.en": [
+      "Inspiration Collector"
+     ],
+     "lead.en": [
+      "Web clipper for AI agents:",
+      "save pages, text, images and ChatGPT, Claude",
+      "or Perplexity chats as Markdown in your own folder."
+     ],
+     "btn.en": [
+      "English"
+     ],
+     "title.ja": [
+      "インスピレーション・",
+      "コレクター"
+     ],
+     "lead.ja": [
+      "AI エージェントのためのウェブクリッパー。",
+      "ページ、テキスト、画像、",
+      "ChatGPT・Claude・Perplexity の会話を",
+      "Markdown で自分のフォルダーへ保存。"
+     ],
+     "btn.ja": [
+      "日本語"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "430": {
+    "boxes": {
+     "mark": [
+      16,
+      60,
+      60,
+      60
+     ],
+     "title.zh": [
+      16,
+      140,
+      398,
+      40
+     ],
+     "lead.zh": [
+      16,
+      397,
+      350,
+      98
+     ],
+     "btn.zh": [
+      16,
+      515,
+      152,
+      52
+     ],
+     "title.en": [
+      16,
+      188,
+      398,
+      40
+     ],
+     "lead.en": [
+      16,
+      618,
+      350,
+      67.2
+     ],
+     "btn.en": [
+      16,
+      705.2,
+      142.3,
+      52
+     ],
+     "title.ja": [
+      16,
+      236,
+      398,
+      80
+     ],
+     "lead.ja": [
+      16,
+      808.2,
+      350,
+      98
+     ],
+     "btn.ja": [
+      16,
+      926.2,
+      136,
+      52
+     ]
+    },
+    "lines": {
+     "title.zh": [
+      "靈感收集器"
+     ],
+     "lead.zh": [
+      "給 AI 讀的網頁剪藏：",
+      "網頁、文字、圖片，",
+      "ChatGPT、Claude、Perplexity 的對話，",
+      "一鍵存成 Markdown，放進你自己的資料夾，不上傳。"
+     ],
+     "btn.zh": [
+      "繁體中文"
+     ],
+     "title.en": [
+      "Inspiration Collector"
+     ],
+     "lead.en": [
+      "Web clipper for AI agents:",
+      "save pages, text, images and ChatGPT, Claude",
+      "or Perplexity chats as Markdown in your own folder."
+     ],
+     "btn.en": [
+      "English"
+     ],
+     "title.ja": [
+      "インスピレーション・",
+      "コレクター"
+     ],
+     "lead.ja": [
+      "AI エージェントのためのウェブクリッパー。",
+      "ページ、テキスト、画像、",
+      "ChatGPT・Claude・Perplexity の会話を",
+      "Markdown で自分のフォルダーへ保存。"
+     ],
+     "btn.ja": [
+      "日本語"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "640": {
+    "boxes": {
+     "mark": [
+      32,
+      60,
+      60,
+      60
+     ],
+     "title.zh": [
+      32,
+      140,
+      478.7,
+      40
+     ],
+     "lead.zh": [
+      32,
+      357,
+      350,
+      98
+     ],
+     "btn.zh": [
+      32,
+      475,
+      152,
+      52
+     ],
+     "title.en": [
+      32,
+      188,
+      478.7,
+      40
+     ],
+     "lead.en": [
+      32,
+      578,
+      350,
+      67.2
+     ],
+     "btn.en": [
+      32,
+      665.2,
+      142.3,
+      52
+     ],
+     "title.ja": [
+      32,
+      236,
+      478.7,
+      40
+     ],
+     "lead.ja": [
+      32,
+      768.2,
+      350,
+      98
+     ],
+     "btn.ja": [
+      32,
+      886.2,
+      136,
+      52
+     ]
+    },
+    "lines": {
+     "title.zh": [
+      "靈感收集器"
+     ],
+     "lead.zh": [
+      "給 AI 讀的網頁剪藏：",
+      "網頁、文字、圖片，",
+      "ChatGPT、Claude、Perplexity 的對話，",
+      "一鍵存成 Markdown，放進你自己的資料夾，不上傳。"
+     ],
+     "btn.zh": [
+      "繁體中文"
+     ],
+     "title.en": [
+      "Inspiration Collector"
+     ],
+     "lead.en": [
+      "Web clipper for AI agents:",
+      "save pages, text, images and ChatGPT, Claude",
+      "or Perplexity chats as Markdown in your own folder."
+     ],
+     "btn.en": [
+      "English"
+     ],
+     "title.ja": [
+      "インスピレーション・コレクター"
+     ],
+     "lead.ja": [
+      "AI エージェントのためのウェブクリッパー。",
+      "ページ、テキスト、画像、",
+      "ChatGPT・Claude・Perplexity の会話を",
+      "Markdown で自分のフォルダーへ保存。"
+     ],
+     "btn.ja": [
+      "日本語"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "768": {
+    "boxes": {
+     "mark": [
+      32,
+      179.8,
+      60,
+      60
+     ],
+     "title.zh": [
+      32,
+      259.8,
+      478.7,
+      40
+     ],
+     "lead.zh": [
+      32,
+      476.8,
+      214.7,
+      171.5
+     ],
+     "btn.zh": [
+      32,
+      668.3,
+      152,
+      52
+     ],
+     "title.en": [
+      32,
+      307.8,
+      478.7,
+      40
+     ],
+     "lead.en": [
+      276.7,
+      476.8,
+      214.7,
+      171.5
+     ],
+     "btn.en": [
+      276.7,
+      668.3,
+      142.3,
+      52
+     ],
+     "title.ja": [
+      32,
+      355.8,
+      478.7,
+      40
+     ],
+     "lead.ja": [
+      521.3,
+      476.8,
+      214.7,
+      171.5
+     ],
+     "btn.ja": [
+      521.3,
+      668.3,
+      136,
+      52
+     ]
+    },
+    "lines": {
+     "title.zh": [
+      "靈感收集器"
+     ],
+     "lead.zh": [
+      "給 AI 讀的網頁剪藏：",
+      "網頁、文字、圖片，",
+      "ChatGPT、Claude、",
+      "Perplexity 的對話，",
+      "一鍵存成 Markdown，",
+      "放進你自己的資料夾，不上傳。"
+     ],
+     "btn.zh": [
+      "繁體中文"
+     ],
+     "title.en": [
+      "Inspiration Collector"
+     ],
+     "lead.en": [
+      "Web clipper for AI agents:",
+      "save pages, text, images",
+      "and ChatGPT, Claude",
+      "or Perplexity chats",
+      "as Markdown in your own folder."
+     ],
+     "btn.en": [
+      "English"
+     ],
+     "title.ja": [
+      "インスピレーション・コレクター"
+     ],
+     "lead.ja": [
+      "AI エージェントのための",
+      "ウェブクリッパー。",
+      "ページ、テキスト、画像、",
+      "ChatGPT・Claude・",
+      "Perplexity の会話を",
+      "Markdown で自分の",
+      "フォルダーへ保存。"
+     ],
+     "btn.ja": [
+      "日本語"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "1024": {
+    "boxes": {
+     "mark": [
+      32,
+      158.3,
+      60,
+      60
+     ],
+     "title.zh": [
+      32,
+      242.3,
+      718.1,
+      60
+     ],
+     "lead.zh": [
+      32,
+      543.3,
+      293.3,
+      122.5
+     ],
+     "btn.zh": [
+      32,
+      689.8,
+      152,
+      52
+     ],
+     "title.en": [
+      32,
+      310.3,
+      718.1,
+      60
+     ],
+     "lead.en": [
+      365.3,
+      543.3,
+      293.3,
+      122.5
+     ],
+     "btn.en": [
+      365.3,
+      689.8,
+      142.3,
+      52
+     ],
+     "title.ja": [
+      32,
+      378.3,
+      718.1,
+      60
+     ],
+     "lead.ja": [
+      698.7,
+      543.3,
+      293.3,
+      122.5
+     ],
+     "btn.ja": [
+      698.7,
+      689.8,
+      136,
+      52
+     ]
+    },
+    "lines": {
+     "title.zh": [
+      "靈感收集器"
+     ],
+     "lead.zh": [
+      "給 AI 讀的網頁剪藏：",
+      "網頁、文字、圖片，",
+      "ChatGPT、Claude、Perplexity 的對話，",
+      "一鍵存成 Markdown，",
+      "放進你自己的資料夾，不上傳。"
+     ],
+     "btn.zh": [
+      "繁體中文"
+     ],
+     "title.en": [
+      "Inspiration Collector"
+     ],
+     "lead.en": [
+      "Web clipper for AI agents:",
+      "save pages, text, images",
+      "and ChatGPT, Claude or Perplexity chats",
+      "as Markdown in your own folder."
+     ],
+     "btn.en": [
+      "English"
+     ],
+     "title.ja": [
+      "インスピレーション・コレクター"
+     ],
+     "lead.ja": [
+      "AI エージェントのためのウェブクリッパー。",
+      "ページ、テキスト、画像、",
+      "ChatGPT・Claude・Perplexity の会話を",
+      "Markdown で自分のフォルダーへ保存。"
+     ],
+     "btn.ja": [
+      "日本語"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "1280": {
+    "boxes": {
+     "mark": [
+      50,
+      170.5,
+      60,
+      60
+     ],
+     "title.zh": [
+      50,
+      254.5,
+      718.1,
+      60
+     ],
+     "lead.zh": [
+      50,
+      555.5,
+      350,
+      98
+     ],
+     "btn.zh": [
+      50,
+      677.5,
+      152,
+      52
+     ],
+     "title.en": [
+      50,
+      322.5,
+      718.1,
+      60
+     ],
+     "lead.en": [
+      456.7,
+      555.5,
+      350,
+      98
+     ],
+     "btn.en": [
+      456.7,
+      677.5,
+      142.3,
+      52
+     ],
+     "title.ja": [
+      50,
+      390.5,
+      718.1,
+      60
+     ],
+     "lead.ja": [
+      863.3,
+      555.5,
+      350,
+      98
+     ],
+     "btn.ja": [
+      863.3,
+      677.5,
+      136,
+      52
+     ]
+    },
+    "lines": {
+     "title.zh": [
+      "靈感收集器"
+     ],
+     "lead.zh": [
+      "給 AI 讀的網頁剪藏：",
+      "網頁、文字、圖片，",
+      "ChatGPT、Claude、Perplexity 的對話，",
+      "一鍵存成 Markdown，放進你自己的資料夾，不上傳。"
+     ],
+     "btn.zh": [
+      "繁體中文"
+     ],
+     "title.en": [
+      "Inspiration Collector"
+     ],
+     "lead.en": [
+      "Web clipper for AI agents:",
+      "save pages, text, images and ChatGPT, Claude",
+      "or Perplexity chats as Markdown in your own folder."
+     ],
+     "btn.en": [
+      "English"
+     ],
+     "title.ja": [
+      "インスピレーション・コレクター"
+     ],
+     "lead.ja": [
+      "AI エージェントのためのウェブクリッパー。",
+      "ページ、テキスト、画像、",
+      "ChatGPT・Claude・Perplexity の会話を",
+      "Markdown で自分のフォルダーへ保存。"
+     ],
+     "btn.ja": [
+      "日本語"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   },
+   "1440": {
+    "boxes": {
+     "mark": [
+      130,
+      170.5,
+      60,
+      60
+     ],
+     "title.zh": [
+      130,
+      254.5,
+      718.1,
+      60
+     ],
+     "lead.zh": [
+      130,
+      555.5,
+      350,
+      98
+     ],
+     "btn.zh": [
+      130,
+      677.5,
+      152,
+      52
+     ],
+     "title.en": [
+      130,
+      322.5,
+      718.1,
+      60
+     ],
+     "lead.en": [
+      536.7,
+      555.5,
+      350,
+      98
+     ],
+     "btn.en": [
+      536.7,
+      677.5,
+      142.3,
+      52
+     ],
+     "title.ja": [
+      130,
+      390.5,
+      718.1,
+      60
+     ],
+     "lead.ja": [
+      943.3,
+      555.5,
+      350,
+      98
+     ],
+     "btn.ja": [
+      943.3,
+      677.5,
+      136,
+      52
+     ]
+    },
+    "lines": {
+     "title.zh": [
+      "靈感收集器"
+     ],
+     "lead.zh": [
+      "給 AI 讀的網頁剪藏：",
+      "網頁、文字、圖片，",
+      "ChatGPT、Claude、Perplexity 的對話，",
+      "一鍵存成 Markdown，放進你自己的資料夾，不上傳。"
+     ],
+     "btn.zh": [
+      "繁體中文"
+     ],
+     "title.en": [
+      "Inspiration Collector"
+     ],
+     "lead.en": [
+      "Web clipper for AI agents:",
+      "save pages, text, images and ChatGPT, Claude",
+      "or Perplexity chats as Markdown in your own folder."
+     ],
+     "btn.en": [
+      "English"
+     ],
+     "title.ja": [
+      "インスピレーション・コレクター"
+     ],
+     "lead.ja": [
+      "AI エージェントのためのウェブクリッパー。",
+      "ページ、テキスト、画像、",
+      "ChatGPT・Claude・Perplexity の会話を",
+      "Markdown で自分のフォルダーへ保存。"
+     ],
+     "btn.ja": [
+      "日本語"
+     ]
+    },
+    "gaps": {
+     "padX": 30,
+     "padY": 0,
+     "gapX": 30,
+     "gapY": 15,
+     "height": 52,
+     "lines": 1,
+     "count": 3
+    },
+    "lineGaps": {
+     "gapX": 30,
+     "gapY": 15
+    },
+    "contrast": {
+     "title.zh": 16.83,
+     "lead.zh": 7.96,
+     "btn.zh": 16.83,
+     "title.en": 16.83,
+     "lead.en": 7.96,
+     "btn.en": 16.83,
+     "title.ja": 16.83,
+     "lead.ja": 7.96,
+     "btn.ja": 16.83
+    }
+   }
+  }
+ }
+}

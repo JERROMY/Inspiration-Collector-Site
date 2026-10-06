@@ -1,0 +1,51 @@
+/* 照設計稿 home.css 的 .bad、.bad--inline／--social／--section（第三批 4-3）：不會按的東西，所以是方角（整塊的那種跟面板同一級 8px） */
+.bad {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-10);
+    max-width: 100%;
+    margin: 0;
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-md)/var(--leading-snug) var(--font-sans-14);
+}
+
+.bad :global(.i) {
+    width: var(--space-20);
+    height: var(--space-20);
+}
+
+.bad > span:last-child {
+    min-width: 0;
+}
+
+.inline,
+.social,
+.section {
+    border: var(--stroke-base) dashed var(--color-border-strong);
+    border-radius: var(--radius-sm);
+}
+
+.inline {
+    padding: var(--space-6) var(--space-12);
+}
+
+/* 14 的社群一排：跟圖示鈕一樣 44 高。上下內距照設計稿 004264c：排一行時剛好 44 高（算出來 10.5px），
+   排兩行時框長高、字離上下虛線仍是同一個距離（原本是 0，英文 280、日文 280／320 排兩行時字離虛線只剩 0～1px） */
+.social {
+    --social-pad-block: calc((var(--tap) - 2 * var(--stroke-base) - 1lh) / 2);
+    min-height: var(--tap);
+    padding: var(--social-pad-block) var(--space-14);
+}
+
+/* 一整塊（寫壞的一版、整區讀不到）：內距同卡片（30）；280、320 寬收成 --gap-inner，「読み込めませんでした」（整段不換行）才放得下 */
+.section {
+    display: flex;
+    padding: var(--space-30);
+    border-radius: var(--radius-lg);
+}
+
+@media (max-width: 359px) {
+    .section {
+        padding: var(--gap-inner);
+    }
+}

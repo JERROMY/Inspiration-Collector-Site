@@ -1,0 +1,2 @@
+# 這個資料夾的檔刻意是 CRLF＋BOM，不准 git 改成 LF（根目錄的 .gitattributes 是 text=auto eol=lf）。
+* -text

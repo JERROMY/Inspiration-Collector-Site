@@ -1,0 +1,639 @@
+/* 09 教學影片：照設計稿 home.css 的「09 教學影片」。
+   排法照容器的寬（container query）：窄的時候影片在上（手機貼齊兩邊）→「在 YouTube 上看」→ 章節（先列 5 章，其餘收在「看全部 16 章」）；
+   寬的時候（內容 ≥ 960，也就是 1024 起）影片在左、16 章在右，清單自己捲、高度跟影片一樣（contain: size：清單不撐高那一列）。 */
+.box {
+    container-type: inline-size;
+}
+
+.player {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--gap-tight);
+    min-width: 0;
+}
+
+/* 影片框（components/Frame）：16:9；預覽圖、播放鈕、按了之後的播放器（YouTube 的 iframe）、章尾那一層都疊在裡面 */
+.screen {
+    aspect-ratio: 16 / 9;
+}
+
+.screen > img,
+.screen :global(iframe) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.screen > img {
+    object-fit: cover;
+}
+
+.screen :global(iframe) {
+    position: absolute;
+    inset: 0;
+    border: 0;
+}
+
+/* 播放鈕：玻璃圓，放左下角（不蓋住預覽圖正中間的記號）；按了才載入播放器。關掉 JS 時不放（按了也播不了） */
+.playBtn {
+    position: absolute;
+    bottom: var(--space-24);
+    left: var(--space-24);
+    display: grid;
+    place-items: center;
+    width: calc(var(--space-60) + var(--space-12));
+    height: calc(var(--space-60) + var(--space-12));
+    border: var(--stroke-hairline) solid var(--color-text-secondary);
+    border-radius: var(--radius-full);
+    background: color-mix(in srgb, var(--color-bg-primary) 72%, transparent);
+    -webkit-backdrop-filter: blur(var(--blur-glass));
+    backdrop-filter: blur(var(--blur-glass));
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: background-color var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out),
+                border-color var(--dur-base) var(--ease-out), scale var(--dur-fast) var(--ease-out);
+}
+
+.playBtn :global(.i) {
+    width: var(--space-24);
+    height: var(--space-24);
+    margin-left: var(--space-3);
+}
+
+@media (hover: hover) {
+    .playBtn:hover {
+        border-color: var(--color-accent-lime-default);
+        background: var(--color-accent-lime-default);
+        color: var(--color-text-on-accent);
+    }
+}
+
+@media (hover: none) {
+    .playBtn:active {
+        border-color: var(--color-accent-lime-default);
+        background: var(--color-accent-lime-default);
+        color: var(--color-text-on-accent);
+    }
+}
+
+.playBtn:active {
+    scale: .98;
+}
+
+:global(html:not(.js)) .playBtn {
+    display: none;
+}
+
+/* 沒有影片 ID：一句實話（不會按，所以是 3px 的標籤形狀，不是膠囊）。放在影片框外面、框的下一個兄弟：
+   手機（< 640）就排在框底下、靠左（框太矮，疊上去會蓋到封面的記號與字）；640 起疊回框的左下角（見下面的 @media） */
+.note {
+    justify-self: start;
+    max-width: 100%;
+    margin: 0;
+    padding: var(--space-8) var(--space-12);
+    border: var(--hair-strong);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--color-bg-primary) 80%, transparent);
+    color: var(--color-text-primary);
+    font: var(--weight-medium) var(--text-md)/var(--leading-snug) var(--font-sans-14);
+}
+
+/* 播放器程式載不到時那一句（tutorial.apifail）：蓋在框上、不推動版面。640 起框的左上角（上 16：上 24 時 1024 寬離封面的記號只剩 8px）；
+   手機見下面的 @media（整個框蓋一層不透明的底） */
+.fail {
+    position: absolute;
+    top: var(--space-16);
+    left: var(--space-24);
+    max-width: calc(100% - var(--space-24) * 2);
+    margin: 0;
+    padding: var(--space-8) var(--space-12);
+    border: var(--hair-strong);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--color-bg-primary) 80%, transparent);
+    color: var(--color-text-primary);
+    font: var(--weight-medium) var(--text-md)/var(--leading-snug) var(--font-sans-14);
+}
+
+.yt {
+    justify-self: start;
+}
+
+.yt :global(.i) {
+    width: var(--space-20);
+    height: var(--space-20);
+}
+
+/* 章尾蓋的那一層：暗下來、置中問下一步。窄的時候（手機影片只有約 219 高）放不下就往下蓋住章節清單，不推動版面 */
+.endcard {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: var(--z-raised);
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: var(--gap-inner);
+    min-height: 100%;
+    padding: var(--space-24) var(--gx);
+    border-radius: inherit;
+    background: color-mix(in srgb, var(--color-bg-overlay) 80%, transparent);
+    -webkit-backdrop-filter: blur(var(--blur-glass));
+    backdrop-filter: blur(var(--blur-glass));
+    text-align: center;
+}
+
+.endTitle {
+    max-width: var(--measure);
+    font: var(--weight-semibold) var(--text-lg)/var(--leading-snug) var(--font-sans-16);
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--gap-tight);
+}
+
+.actions .endBtn {
+    max-width: 100%;
+    white-space: normal;
+}
+
+.actions .endBtn :global(.i) {
+    flex: none;
+}
+
+/* 「播下一段」「從頭再看一次」的箭頭跟最後一個詞一起換行 */
+.actions .endBtn span :global(.i) {
+    margin-left: var(--space-6);
+    vertical-align: -.15em;
+}
+
+/* 播放器與它的章節清單是一個單位：影片↔「在 YouTube 上看」是緊貼的一對，往下到章節隔 --gap-unit */
+.chapters {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: var(--gap-tight);
+    min-width: 0;
+    margin-top: calc(var(--gap-unit) - var(--gap-tight));
+}
+
+.head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4) var(--gap-tight);
+    padding: 0 var(--space-20) var(--space-12);
+    border-bottom: var(--hair);
+}
+
+.headStart {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-4) var(--space-8);
+}
+
+/* 標題列「章節」旁的總章數（使用者 2026-10-04） */
+.count {
+    color: var(--color-text-primary);
+    font: var(--weight-regular) var(--label-size)/var(--leading-snug) var(--font-mono);
+    letter-spacing: var(--label-track);
+}
+
+/* 「還有 N 章 ↓」：只在寬的時候（清單自己捲）出現，疊在清單下緣的淡出上、靠右；按了往下捲一頁 */
+.moreHint {
+    display: none;
+}
+
+.label {
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--label-size)/var(--leading-snug) var(--font-mono);
+    letter-spacing: var(--label-track);
+}
+
+.scroll {
+    min-height: 0;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* 一列：章號｜章名｜起點，右邊一顆收著摘要的開關（有影片時整列是按鈕：從那一章播；沒有影片時整列就是摘要的開關） */
+.ch {
+    position: relative;
+    min-width: 0;
+}
+
+.chRow {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr) max-content;
+    align-items: baseline;
+    column-gap: var(--gap-tight);
+    width: 100%;
+    min-height: calc(var(--tap) + var(--space-8));
+    padding: var(--space-12) calc(var(--tap) + var(--space-4)) var(--space-12) var(--space-20);
+    border: 0;
+    border-radius: var(--radius-lg);
+    background: transparent;
+    color: var(--color-text-primary);
+    font: var(--weight-medium) var(--text-md)/var(--leading-snug) var(--font-sans-14);
+    text-align: start;
+    cursor: pointer;
+    list-style: none;
+    transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.chRow::-webkit-details-marker {
+    display: none;
+}
+
+/* 沒有影片時：右邊留給箭頭（14）＋間隔 */
+.plain {
+    padding-right: calc(var(--space-20) + var(--space-14) + var(--gap-tight));
+}
+
+.n,
+.t {
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-base)/var(--leading-snug) var(--font-mono);
+    font-variant-numeric: tabular-nums;
+}
+
+/* .45em：留給「正在播放」時夾住章號的括號 */
+.n {
+    position: relative;
+    padding-inline: .45em;
+}
+
+/* 「正在播放」（public/tutorial.js 放進那一章的章名裡） */
+.now {
+    display: block;
+    margin-top: var(--space-4);
+    color: var(--color-accent-lime-text);
+    font: var(--weight-medium) var(--label-size)/var(--leading-snug) var(--font-mono);
+}
+
+@media (hover: hover) {
+    .chRow:hover {
+        background: var(--color-surface-raised);
+    }
+
+    .chRow:hover .n {
+        color: var(--color-accent-lime-text);
+    }
+
+    .toggle:hover {
+        color: var(--color-accent-lime-default);
+    }
+
+    .all:hover {
+        border-color: var(--color-text-primary);
+        background: var(--color-surface-glass);
+    }
+}
+
+@media (hover: none) {
+    .chRow:active .n {
+        color: var(--color-accent-lime-text);
+    }
+
+    .all:active {
+        border-color: var(--color-text-primary);
+        background: var(--color-surface-glass);
+    }
+}
+
+.chRow:active {
+    background: var(--color-surface-glass);
+}
+
+/* 捲動容器裡的焦點框往內縮（往外長會被 overflow 裁掉） */
+.chRow:focus-visible,
+.toggle:focus-visible {
+    outline: var(--stroke-thick) solid var(--color-accent-lime-default);
+    outline-offset: calc(var(--space-2) * -1);
+}
+
+/* 正在播放：章號被螢光綠的括號夾住（＝記號），底色浮一層 */
+.chRow[aria-current="true"] {
+    background: var(--color-surface-raised);
+}
+
+.chRow[aria-current="true"] .n {
+    color: var(--color-accent-lime-text);
+}
+
+.chRow[aria-current="true"] .n::before,
+.chRow[aria-current="true"] .n::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: .26em;
+    height: 1.25em;
+    border: var(--stroke-thick) solid var(--color-accent-lime-default);
+    translate: 0 -50%;
+}
+
+.chRow[aria-current="true"] .n::before {
+    left: 0;
+    border-right: 0;
+}
+
+.chRow[aria-current="true"] .n::after {
+    right: 0;
+    border-left: 0;
+}
+
+/* 摘要的開關：右上角一顆 44×44 */
+.toggle {
+    position: absolute;
+    top: var(--space-4);
+    right: 0;
+    display: grid;
+    place-items: center;
+    width: var(--tap);
+    height: var(--tap);
+    border-radius: var(--radius-full);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    list-style: none;
+    transition: color var(--dur-fast) var(--ease-out);
+}
+
+.toggle::-webkit-details-marker {
+    display: none;
+}
+
+.toggle :global(.i),
+.caret :global(.i) {
+    width: var(--space-14);
+    height: var(--space-14);
+    transition: rotate var(--dur-base) var(--ease-out);
+}
+
+.more[open] .toggle :global(.i),
+.more[open] .caret :global(.i) {
+    rotate: 180deg;
+}
+
+/* 沒有影片時那一列右邊的小箭頭 */
+.caret {
+    position: absolute;
+    top: calc(var(--space-12) + var(--space-4));
+    right: var(--space-20);
+    display: inline-flex;
+    color: var(--color-text-secondary);
+}
+
+/* 摘要：對齊章名那一欄（2ch＋.9em：章號那一欄的寬，兩位數＋左右 .45em）；字那一欄最寬 25em */
+.desc {
+    --pad-l: calc(var(--space-20) + 2ch + .9em + var(--gap-tight));
+    --pad-r: var(--space-20);
+    max-width: calc(var(--measure) + var(--pad-l) + var(--pad-r));
+    padding: 0 var(--pad-r) var(--space-12) var(--pad-l);
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-md)/var(--lh-body) var(--font-sans-14);
+}
+
+/* 窄（手機）：起點挪到章名底下，章名那一欄才寬得夠；摘要不縮排到章名那一欄 */
+@container (max-width: 479px) {
+    .desc {
+        --pad-l: var(--space-20);
+    }
+
+    .chRow {
+        grid-template-columns: max-content minmax(0, 1fr);
+    }
+
+    .t {
+        grid-column: 2;
+        margin-top: var(--space-2);
+    }
+}
+
+/* 「看全部 16 章」：窄的時候才有（<details>：關掉 JS 也打得開，摘要與章名都在 HTML 裡） */
+.all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-10);
+    min-height: var(--tap);
+    margin-top: var(--gap-tight);
+    padding-inline: var(--space-24);
+    border: var(--stroke-hairline) solid var(--color-text-secondary);
+    border-radius: var(--radius-full);
+    color: var(--color-text-primary);
+    font: var(--weight-medium) var(--text-md)/var(--leading-tight) var(--font-sans-14);
+    list-style: none;
+    cursor: pointer;
+    transition: border-color var(--dur-base) var(--ease-out), background-color var(--dur-base) var(--ease-out);
+}
+
+.all::-webkit-details-marker {
+    display: none;
+}
+
+.all :global(.i) {
+    width: var(--space-14);
+    height: var(--space-14);
+    transition: rotate var(--dur-base) var(--ease-out);
+}
+
+.rest[open] > .all :global(.i) {
+    rotate: 180deg;
+}
+
+.all:active {
+    scale: .98;
+}
+
+.rest[open] > .all {
+    margin-bottom: var(--gap-tight);
+}
+
+/* 手機：影片貼齊兩邊（同首屏），括號角收進框裡，播放鈕小一號 */
+@media (max-width: 639px) {
+    /* 影片框跟桌機同一個關係（使用者 2026-10-04）：框在版心裡、括號角在框外 8；原本貼齊兩邊、括號角收進框裡 */
+    .playBtn {
+        width: calc(var(--space-40) + var(--space-16));
+        height: calc(var(--space-40) + var(--space-16));
+    }
+
+    /* 載不到：框太矮（280 寬只有 158 高），左上角那一句會蓋到記號、播放鈕或括號角 → 整個框蓋一層不透明的底，字放中間
+       （左右留 40；下面留給播放鈕 16＋44＋16）；播放鈕縮成 44、放在底下正中間 */
+    .fail {
+        inset: 0;
+        max-width: none;
+        display: grid;
+        place-content: center;
+        padding: var(--space-16) var(--space-40) calc(var(--space-16) * 2 + var(--tap));
+        border: 0;
+        border-radius: 0;
+        background: var(--color-bg-overlay);
+        text-align: center;
+    }
+
+    .failed .playBtn {
+        bottom: var(--space-16);
+        left: 50%;
+        width: var(--tap);
+        height: var(--tap);
+        translate: -50% 0;
+    }
+
+    .failed .playBtn :global(.i) {
+        width: var(--space-20);
+        height: var(--space-20);
+        margin-left: var(--space-2);
+    }
+}
+
+/* 640 起：沒有影片那一句跟影片框同一格，疊回框的左下角（離框邊 24） */
+@media (min-width: 640px) {
+    .novideo .screen {
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    .novideo .note {
+        position: relative;
+        grid-row: 1;
+        grid-column: 1;
+        align-self: end;
+        max-width: calc(100% - var(--space-24) * 2);
+        margin: 0 0 var(--space-24) var(--space-24);
+    }
+}
+
+/* 寬：影片在左、16 章在右；清單自己捲，高度跟影片對齊；「看全部」收掉、16 章全部列出來 */
+@container (min-width: 960px) {
+    .player {
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+        align-items: start;
+        column-gap: var(--gap-unit);
+    }
+
+    .screen {
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    .yt {
+        grid-row: 2;
+        grid-column: 1;
+    }
+
+    .chapters {
+        grid-row: 1;
+        grid-column: 2;
+        align-self: stretch;
+        margin-top: 0;
+        contain: size;
+    }
+
+    .scroll {
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-accent-lime-default) transparent;
+    }
+
+    /* public/tutorial.js 量過之後（data-fit）：清單高度切在影片框高度裡放得下的最後一章的一半（目標第 7 章；量過：1280、1440 只放得下第 6 章的一半、1024 是第 5 章），看得出下面還有 */
+    .chapters[data-fit] {
+        position: relative;
+    }
+
+    .chapters[data-fit] .scroll {
+        height: var(--list-h);
+    }
+
+    /* 提示疊在清單下緣、靠右（疊在半露的那一列與淡出上，同影片框上的播放鈕）；捲到底收起來 */
+    .chapters[data-fit] .moreHint:not([hidden]) {
+        position: absolute;
+        top: var(--hint-y);
+        right: var(--space-20);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-4);
+        min-height: var(--tap);
+        padding: 0 var(--space-12);
+        translate: 0 -100%;
+        border: var(--hair-strong);
+        border-radius: var(--radius-full);
+        background: var(--color-bg-primary);
+        color: var(--color-text-secondary);
+        font: var(--weight-regular) var(--label-size)/var(--leading-snug) var(--font-mono);
+        letter-spacing: var(--label-track);
+        cursor: pointer;
+        transition: color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+    }
+
+    @media (hover: hover) {
+        .chapters[data-fit] .moreHint:hover {
+            color: var(--color-text-primary);
+            border-color: var(--color-accent-lime-default);
+        }
+    }
+
+    .chapters[data-fit] .moreHint:focus-visible {
+        outline: var(--stroke-thick) solid var(--color-accent-lime-default);
+        outline-offset: var(--space-2);
+    }
+
+    .moreHint :global(.i) {
+        width: var(--space-16);
+        height: var(--space-16);
+    }
+
+    .all {
+        display: none;
+    }
+
+    .rest::details-content {
+        display: block;
+        content-visibility: visible;
+    }
+
+    /* 不支援 ::details-content 的瀏覽器：「看全部」那顆照樣在（第 6～16 章打得開） */
+    @supports not selector(::details-content) {
+        .all {
+            display: flex;
+        }
+    }
+}
+
+/* 清單捲得動時：下緣 20px（約半列，使用者 2026-10-04；原本 40 會把露出來的第 7 章上半截整個淡掉）淡出表示還有，捲到底收掉（跟著捲動走，不是自己會動的動畫，同 07 資料夾樹） */
+@property --list-fade {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+}
+
+@container (min-width: 960px) {
+    @supports (animation-timeline: scroll()) {
+        .scroll {
+            -webkit-mask: linear-gradient(to bottom, var(--color-bg-overlay) calc(100% - var(--list-fade)), transparent);
+            mask: linear-gradient(to bottom, var(--color-bg-overlay) calc(100% - var(--list-fade)), transparent);
+            animation: list-hint var(--ease-in-out) both;
+            animation-timeline: scroll(self block);
+        }
+    }
+}
+
+@keyframes list-hint {
+    from {
+        --list-fade: var(--space-20);
+    }
+
+    to {
+        --list-fade: 0px;
+    }
+}

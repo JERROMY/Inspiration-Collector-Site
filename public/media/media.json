@@ -1,0 +1,47 @@
+{
+  "zh": {
+    "video": {
+      "file": "hero-zh.mp4",
+      "bytes": 3596071,
+      "durationSec": 63,
+      "width": 1920,
+      "height": 1080
+    },
+    "poster": {
+      "file": "hero-poster-zh.webp",
+      "bytes": 104688,
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  "en": {
+    "video": {
+      "file": "hero-en.mp4",
+      "bytes": 3631728,
+      "durationSec": 63,
+      "width": 1920,
+      "height": 1080
+    },
+    "poster": {
+      "file": "hero-poster-en.webp",
+      "bytes": 104148,
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  "ja": {
+    "video": {
+      "file": "hero-ja.mp4",
+      "bytes": 3625282,
+      "durationSec": 63,
+      "width": 1920,
+      "height": 1080
+    },
+    "poster": {
+      "file": "hero-poster-ja.webp",
+      "bytes": 106824,
+      "width": 1920,
+      "height": 1080
+    }
+  }
+}

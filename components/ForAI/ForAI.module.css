@@ -1,0 +1,394 @@
+/* 07 為 AI 做的：照設計稿 home.css 的「07 為 AI 做的」。
+   標題橫跨整個內容寬；1024 起底下左圖右字（跟首屏相反）：資料夾樹在上、AI 交出的大綱壓在它右下角。手機字在上、圖在下。 */
+.forai {
+    padding-block: var(--gap-section);
+}
+
+.in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-group);
+}
+
+.head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-inner);
+    min-width: 0;
+}
+
+/* 小標（英文大寫、等寬，規格書 §6） */
+.eyebrow {
+    color: var(--color-accent-lime-text);
+    font: var(--weight-medium) var(--text-base)/var(--leading-snug) var(--font-mono);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+}
+
+/* 兩句大標（字串表的 ↵ 分成 .forai__l1 灰、.forai__l2 白，各占一列） */
+.title {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+    font: var(--weight-semibold) var(--text-3xl)/var(--leading-tight) var(--font-sans-32);
+}
+
+.title:lang(en) {
+    letter-spacing: var(--tracking-tight);
+}
+
+/* 英文：兩句各自平均分行，不留一個字的末行（中文的 text-wrap 會把詞拆開，只給英文） */
+.title:lang(en) :global(:is(.forai__l1, .forai__l2)) {
+    text-wrap: balance;
+}
+
+.text {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: var(--gap-group);
+    min-width: 0;
+}
+
+/* 四點：每一點前面一對小括號夾著一條（＝記號：括號夾住收好的素材；空括號會讀成「沒勾的待辦」，所以裡面一定有東西） */
+.points {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-unit);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.points li {
+    position: relative;
+    max-width: calc(var(--measure) + var(--space-30));
+    padding-left: var(--space-30);
+    font: var(--weight-regular) var(--text-lg)/var(--lh-body) var(--font-sans-16);
+}
+
+.points li::before {
+    --c: var(--color-accent-lime-default);
+    --w: var(--stroke-thick);
+    content: "";
+    position: absolute;
+    top: .2em;
+    left: 0;
+    width: var(--space-14);
+    height: var(--space-16);
+    background:
+        linear-gradient(var(--c), var(--c)) left top / var(--w) 100%,
+        linear-gradient(var(--c), var(--c)) left top / 35% var(--w),
+        linear-gradient(var(--c), var(--c)) left bottom / 35% var(--w),
+        linear-gradient(var(--c), var(--c)) right top / var(--w) 100%,
+        linear-gradient(var(--c), var(--c)) right top / 35% var(--w),
+        linear-gradient(var(--c), var(--c)) right bottom / 35% var(--w),
+        linear-gradient(var(--c), var(--c)) center / 40% var(--stroke-heavy);
+    background-repeat: no-repeat;
+}
+
+/* 看得懂這個資料夾的 AI 工具：不會按的小標籤（方角 3px，跟膠囊按鈕分得開） */
+.agents {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-10);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-3) var(--space-8);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface-glass);
+    color: var(--color-text-primary);
+    font: var(--weight-medium) var(--label-size)/var(--leading-snug) var(--font-mono);
+    white-space: nowrap;
+}
+
+/* 樹與大綱圖。捲動時間軸掛在這一層：.tree 自己是左右捲的容器，view() 掛在它身上會綁到它自己的捲動 */
+.visual {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    min-width: 0;
+    view-timeline: --tree block;
+}
+
+/* 資料夾樹：太寬時在自己的框裡左右滑，不撐破頁面（規格書 §5-07） */
+.tree {
+    min-width: 0;
+    overflow-x: auto;
+    border: var(--hair);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface-raised);
+}
+
+/* 照內容撐開、至少跟框一樣寬：右邊的內距才算進捲動範圍（捲到最右，字不貼著框邊；字吃進內距時也看得出可以捲） */
+.pre {
+    width: max-content;
+    min-width: 100%;
+    margin: 0;
+    padding: var(--space-30) var(--space-30) var(--space-40);
+    color: var(--color-text-primary);
+    font: var(--weight-regular) var(--text-md)/var(--leading-relaxed) var(--font-mono);
+    white-space: pre;
+}
+
+.ln {
+    display: block;
+}
+
+.ln b {
+    font-weight: var(--weight-semibold);
+}
+
+.ln em {
+    color: var(--color-accent-lime-text);
+    font-style: normal;
+}
+
+.ln i {
+    color: var(--color-text-secondary);
+    font-style: normal;
+}
+
+.root {
+    color: var(--color-text-secondary);
+}
+
+/* 可以左右滑的提示：樹比框寬時右邊 40px 淡出，往右捲淡出跟著縮，捲到最右邊收掉；放得下（沒得捲）時這條時間軸不成立，不淡出。
+   這不是自己會動的動畫，是跟著手指的捲動改變，減少動態時照樣有（不然看不出可以滑）。不支援捲動時間軸的瀏覽器沒有淡出，照樣滑得動 */
+@property --tree-fade {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+}
+
+@supports (animation-timeline: scroll()) {
+    .tree {
+        -webkit-mask: linear-gradient(to right, var(--color-bg-overlay) calc(100% - var(--tree-fade)), transparent);
+        mask: linear-gradient(to right, var(--color-bg-overlay) calc(100% - var(--tree-fade)), transparent);
+        animation: tree-hint var(--ease-in-out) both;
+        animation-timeline: scroll(self inline);
+    }
+
+    /* 鍵盤停在樹上（方向鍵左右捲）：淡出的 mask 會把框外的焦點框裁掉 → 有焦點時拿掉淡出，焦點框（設計系統：螢光綠、外推 2px）完整畫出來 */
+    .tree:focus-visible {
+        -webkit-mask: none;
+        mask: none;
+    }
+}
+
+@keyframes tree-hint {
+    from {
+        --tree-fade: var(--space-40);
+    }
+
+    to {
+        --tree-fade: 0px;
+    }
+}
+
+/* 樹一行一行長出來（規格書 §8）：跟著捲動走，捲到哪長到哪、往回捲收回去；只動透明度與位移，不推動版面。
+   減少動態、不支援捲動時間軸的瀏覽器：七行直接都在 */
+@media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+        .ln {
+            animation: ln-in var(--ease-out) both;
+            animation-timeline: --tree;
+        }
+
+        .ln:nth-child(1) {
+            animation-range: cover 4% cover 14%;
+        }
+
+        .ln:nth-child(2) {
+            animation-range: cover 7% cover 17%;
+        }
+
+        .ln:nth-child(3) {
+            animation-range: cover 10% cover 20%;
+        }
+
+        .ln:nth-child(4) {
+            animation-range: cover 13% cover 23%;
+        }
+
+        .ln:nth-child(5) {
+            animation-range: cover 16% cover 26%;
+        }
+
+        .ln:nth-child(6) {
+            animation-range: cover 19% cover 29%;
+        }
+
+        .ln:nth-child(7) {
+            animation-range: cover 22% cover 32%;
+        }
+    }
+}
+
+@keyframes ln-in {
+    from {
+        opacity: 0;
+        translate: calc(var(--space-12) * -1) 0;
+    }
+}
+
+/* 大綱圖（components/Crop）：右邊淡出表示還有 */
+.fade {
+    -webkit-mask: linear-gradient(to right, var(--color-bg-overlay) 78%, transparent);
+    mask: linear-gradient(to right, var(--color-bg-overlay) 78%, transparent);
+}
+
+/* 寫成 .visual .shot：蓋過 Frame 自己的 margin: 0（兩支 CSS 載入的先後不一定） */
+.visual .shot {
+    margin-top: var(--gap-unit);
+}
+
+@media (min-width: 640px) {
+    .title {
+        font-size: var(--text-4xl);
+        font-family: var(--font-sans-48);
+    }
+}
+
+/* 左右跟首屏反過來（圖在左、字在右）；大綱圖壓在樹的右下角（各占欄寬 84%，錯開 16% 才看得出「疊在上面」） */
+@media (min-width: 1024px) {
+    .in {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+        column-gap: var(--gap-group);
+        row-gap: var(--gap-group);
+    }
+
+    .head {
+        grid-column: 1 / -1;
+    }
+
+    .visual {
+        grid-row: 2;
+        grid-column: 1;
+    }
+
+    .text {
+        grid-row: 2;
+        grid-column: 2;
+        padding-top: var(--space-30);
+    }
+
+    .tree {
+        width: 84%;
+    }
+
+    .pre {
+        padding-bottom: var(--space-120);
+    }
+
+    .visual .shot {
+        z-index: var(--z-raised);
+        width: 84%;
+        margin: calc(var(--space-60) * -1) 0 0 auto;
+        box-shadow: var(--shadow-card);
+    }
+}
+
+/* 1024～1279：一欄只有約 440px，84% 時放不下最長那一行 → 樹用整欄寬、左右內距 24（大綱圖照舊 84% 靠右疊上去）；1280 起 84%、內距 30 */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .tree {
+        width: 100%;
+    }
+
+    .pre {
+        padding-inline: var(--space-24);
+    }
+}
+
+/* AI 開始打字（public/typing.js）：蓋在大綱圖「文字欄」上的打字層 —— 標題列（OUTLINE.md）與左邊的行號欄留給圖，只蓋它們右下那一塊。
+   平常看不到（關掉 JS、減少動態就只有圖）；樹長完時 typing.js 加 data-on 淡入，逐字打出圖上那段字，打完加 data-done 淡出、露出圖本身
+   （停住的畫面就是靜態圖，跟減少動態一樣）。只動透明度，不推動版面（字在自己的層裡，超過的裁掉、不捲動）。
+   位置與字照原圖量（原圖像素）：文字欄從 x 347、y 207 起（標題列下緣、行號欄右邊）；字從 x 367 起，第一列上緣 227；
+   列高：內文 32、標題 50、## 33，空行壓成 8；亮的行螢光綠、左邊 3 寬的直條在 x 351；圖上折成兩列的行由 typing.json 的 wraps 折，其餘不折（往右裁掉）。
+   --cx --cy --cw --ch 是 Crop 給的「露出的那一塊」（640 起換寬的那一塊）；--u＝原圖的 1 像素在畫面上多寬（打字層寬 ÷ 它在原圖上的寬） */
+.typing {
+    position: absolute;
+    top: calc((207 - var(--cy)) / var(--ch) * 100%);
+    right: 0;
+    bottom: 0;
+    left: calc((347 - var(--cx)) / var(--cw) * 100%);
+    overflow: hidden;
+    contain: strict;
+    container-type: inline-size;
+    background: var(--color-bg-primary);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.typing[data-on] {
+    opacity: 1;
+    transition: opacity var(--dur-base) var(--ease-out);
+}
+
+.typing[data-done] {
+    opacity: 0;
+    transition: opacity var(--dur-slow) var(--ease-out) var(--dur-slow);
+}
+
+.typed {
+    --u: calc(100cqw / (var(--cx) + var(--cw) - 347));
+    position: relative;
+    padding: calc(var(--u) * 20) 0 0 calc(var(--u) * 20);
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) calc(var(--u) * 18.8) / calc(var(--u) * 32) var(--font-mono);
+    /* JetBrains Mono 預設把「##」「->」這類合成連字，字小時「## 5.」看起來像「# 5.」；照原檔一個字一個字畫 */
+    font-variant-ligatures: none;
+}
+
+/* 一行一個 div（typing.js 打到那一行才加）；行與行之間的換行字元是 div 中間的空白，不佔位置 */
+.typed > :global(div) {
+    position: relative;
+    width: max-content;
+    white-space: pre;
+}
+
+.typed > :global([data-k="h1"]) {
+    color: var(--color-text-primary);
+    font-size: calc(var(--u) * 26);
+    font-weight: var(--weight-semibold);
+    line-height: calc(var(--u) * 50);
+}
+
+.typed > :global([data-k="h2"]) {
+    line-height: calc(var(--u) * 33);
+    opacity: .6;
+}
+
+.typed > :global([data-k="gap"]) {
+    height: calc(var(--u) * 8);
+}
+
+.typed > :global([data-k="hot"]) {
+    color: var(--color-accent-lime-text);
+}
+
+.typed > :global([data-k="hot"])::before {
+    content: "";
+    position: absolute;
+    top: calc(var(--u) * 6);
+    bottom: calc(var(--u) * 5);
+    left: calc(var(--u) * -16);
+    width: calc(var(--u) * 3);
+    background: var(--color-accent-lime-default);
+}
+
+/* 游標：一個字高的螢光綠實心塊，不閃；typing.js 用 transform 移到最後一個字後面（不用行內元素：每打一個字就被推一次，版面會跳） */
+.typed :global([data-caret]) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--space-2);
+    height: 1.2em;
+    background: var(--color-accent-lime-default);
+}

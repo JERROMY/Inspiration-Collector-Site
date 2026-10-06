@@ -1,0 +1,179 @@
+/* 照設計稿 home.css 的「卡片」：內距 --card-pad（30）、卡片之間 --card-gap（16）；框是髮絲線＋8px 圓角（面板與圖框那一級）；
+   底色比所在的區塊深一層或淺一層（--card-bg，Band 的 raised 那一層換成深的） */
+.cards {
+    --card-gap: var(--gap-tight);
+    --card-pad: var(--space-30);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--card-gap);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gap-inner);
+    min-width: 0;
+    padding: var(--card-pad);
+    border: var(--hair);
+    border-radius: var(--radius-lg);
+    background: var(--card-bg, var(--color-surface-raised));
+    transition: border-color var(--dur-base) var(--ease-out);
+}
+
+/* 06、08 的圖示（使用者 2026-10-04）：放大 1.5 倍（24 → 36，mask 等比例放大，線條跟著等比例變粗）、靠右 ——
+   自己佔標題上面那一行、貼右邊的內距（右邊距＝卡片內距）。不跟標題同一行：標題（例如「Save twice, still one copy」）
+   在窄卡片也照樣用整個卡片寬，不會被圖示擠到或疊到 */
+.icon {
+    display: inline-flex;
+    align-self: flex-end;
+    color: var(--color-text-primary);
+}
+
+.icon :global(.i) {
+    width: calc(var(--space-24) * 1.5);
+    height: calc(var(--space-24) * 1.5);
+}
+
+.title {
+    font: var(--weight-semibold) var(--text-xl)/var(--leading-tight) var(--font-sans-18);
+}
+
+.body {
+    max-width: var(--measure);
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-md)/var(--lh-body) var(--font-sans-14);
+}
+
+/* 「看教學 NN」（TextLink wrap）：同一排的卡片都落在最下面對齊；連結的 ::after 蓋滿整張卡（整張都能按） */
+.card .more {
+    margin-top: auto;
+}
+
+.more::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+}
+
+@media (hover: hover) {
+    .linked:hover {
+        border-color: var(--color-border-strong);
+    }
+
+    .linked:hover .more {
+        color: var(--color-accent-lime-default);
+        text-decoration-color: var(--color-accent-lime-default);
+    }
+
+    .linked:hover .more :global(.i) {
+        translate: var(--space-4) 0;
+    }
+}
+
+/* 手指的「按下」（只有手指的裝置沒有滑過）：按著的那一下框線變亮、連結轉螢光綠、整張往下 1px */
+@media (hover: none) {
+    .linked:has(.more:active) {
+        border-color: var(--color-border-strong);
+        translate: 0 1px;
+    }
+
+    .linked .more:active {
+        color: var(--color-accent-lime-default);
+        text-decoration-color: var(--color-accent-lime-default);
+    }
+}
+
+/* 鍵盤停在連結時框住整張卡（連結自己的焦點框收掉，不畫兩層）；不支援 :has 的瀏覽器照舊框連結 */
+@supports selector(:has(*)) {
+    .linked:has(.more:focus-visible) {
+        outline: var(--stroke-thick) solid var(--color-accent-lime-default);
+        outline-offset: var(--space-2);
+    }
+
+    .linked .more:focus-visible {
+        outline: none;
+    }
+}
+
+@media (min-width: 640px) {
+    .cols4,
+    .cols2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1280px) {
+    .cols4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* 三欄（11 公告）：1024 起；只有兩張時兩欄平分，只有一張時跨三欄中的兩欄（卡片裡左右排，見 News） —— 不留右邊三分之二的空白 */
+@media (min-width: 1024px) {
+    .cols3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .cols3:has(> li:nth-child(2):last-child) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cols3:has(> li:only-child) > li {
+        grid-column: span 2;
+    }
+}
+
+/* 捲進畫面三成時往上 24px 浮出、淡入（規格書 §8）；同一排照欄位晚一點（每欄 --dur-instant）。延遲只給進場那兩個屬性，滑過的框線不等 */
+@media (prefers-reduced-motion: no-preference) {
+    :global(.js-motion) .card {
+        --d: 0s;
+        transition: opacity var(--dur-slow) var(--ease-out) var(--d), translate var(--dur-slow) var(--ease-out) var(--d),
+                    border-color var(--dur-base) var(--ease-out);
+    }
+
+    :global(.js-motion) .card:not([data-in]) {
+        opacity: 0;
+        translate: 0 var(--space-24);
+    }
+
+    @media (min-width: 640px) {
+        :global(.js-motion) :is(.cols4, .cols2) > .card:nth-child(2n) {
+            --d: var(--dur-instant);
+        }
+    }
+
+    @media (min-width: 1280px) {
+        :global(.js-motion) .cols4 > .card:nth-child(4n + 1) {
+            --d: 0s;
+        }
+
+        :global(.js-motion) .cols4 > .card:nth-child(4n + 2) {
+            --d: var(--dur-instant);
+        }
+
+        :global(.js-motion) .cols4 > .card:nth-child(4n + 3) {
+            --d: calc(var(--dur-instant) * 2);
+        }
+
+        :global(.js-motion) .cols4 > .card:nth-child(4n) {
+            --d: calc(var(--dur-instant) * 3);
+        }
+    }
+
+    /* 三欄（11）：1024 起照欄位晚一點 */
+    @media (min-width: 1024px) {
+        :global(.js-motion) .cols3 > .card:nth-child(3n + 2) {
+            --d: var(--dur-instant);
+        }
+
+        :global(.js-motion) .cols3 > .card:nth-child(3n) {
+            --d: calc(var(--dur-instant) * 2);
+        }
+    }
+}

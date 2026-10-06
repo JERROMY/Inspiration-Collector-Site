@@ -1,0 +1,76 @@
+/* 15 最後的安裝：照設計稿 home.css 的「15 最後的安裝」 */
+.final {
+    position: relative;
+    isolation: isolate;
+    padding-block: var(--gap-section);
+}
+
+/* 同首屏的氛圍光（7%／60%×55%／70%），圓心換到左邊（大標那一側） */
+.final::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(ellipse 60% 55% at 22% 50%, color-mix(in srgb, var(--color-accent-lime-default) 7%, transparent), transparent 70%);
+}
+
+.in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-group);
+}
+
+.title {
+    font: var(--weight-semibold) var(--text-3xl)/var(--leading-tight) var(--font-sans-32);
+}
+
+.title:lang(en) {
+    letter-spacing: var(--tracking-tight);
+}
+
+/* 夾住的那半句放得下就自己一行（整塊換行） */
+.title :global(.clamp) {
+    display: inline-block;
+}
+
+.act {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: end;
+    justify-items: start;
+    gap: var(--gap-unit);
+    min-width: 0;
+}
+
+.act .touch {
+    justify-self: stretch;
+}
+
+.meta {
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-lg)/var(--lh-body) var(--font-sans-16);
+    text-spacing-trim: trim-start;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .cta {
+        display: none;
+    }
+}
+
+@media (min-width: 640px) {
+    .title {
+        font-size: var(--text-4xl);
+        font-family: var(--font-sans-48);
+    }
+}
+
+/* 8:4：1024 寬時左欄約 590px，日文括號那半句（約 520px）放得下；大標停在 48（不跟首屏一樣到 64） */
+@media (min-width: 1024px) {
+    .in {
+        grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+        align-items: end;
+        column-gap: var(--gap-group);
+    }
+}

@@ -1,0 +1,5732 @@
+{
+ "source": "設計稿 design/homepage/{zh,en,ja}/index.html，commit 6511462；2026-10-03 用 tests-site/tools/measure-design.mjs 量的（本機伺服器開、Playwright 的 Chromium、減少動態，量之前確認 Google Sans Flex 與 JetBrains Mono 都載好了）。有滑鼠，三語 × 十二種寬度（高 900）；09 教學影片（頁面上那一份＝有影片的樣子）：小標、大標、說明、在 YouTube 上看、章節標頭、看全部、16 章的章名與摘要。量之前 09 裡每一個 <details> 都打開（摘要、看全部）。「看全部」在 1024 起是藏起來的（空陣列）。鍵是字串表的 id（章名、摘要是 ch.NN.name／desc，字跟 data/chapters.*.json 一樣）。",
+ "lines": {
+  "zh": {
+   "280": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章教學影片"
+    ],
+    "tutorial.lead": [
+     "安裝、存東西、分專題、",
+     "交給 AI 分析，",
+     "到資料夾上鎖和遇到問題怎麼辦，",
+     "全部約 9 分鐘。",
+     "點章名就從那一章開始播。"
+    ],
+    "tutorial.youtube": [
+     "在 YouTube 上看"
+    ],
+    "tutorial.chapters": [
+     "章節"
+    ],
+    "tutorial.total": [
+     "全長約 9 分鐘"
+    ],
+    "tutorial.showAll": [
+     "看全部 16 章"
+    ],
+    "ch.01.name": [
+     "安裝到 Chrome"
+    ],
+    "ch.02.name": [
+     "打開側邊欄，",
+     "選一個資料夾"
+    ],
+    "ch.03.name": [
+     "存整個網頁"
+    ],
+    "ch.04.name": [
+     "存一段文字"
+    ],
+    "ch.05.name": [
+     "存圖片"
+    ],
+    "ch.06.name": [
+     "存一則 AI 回覆"
+    ],
+    "ch.07.name": [
+     "存整段 AI 對話"
+    ],
+    "ch.08.name": [
+     "存 ChatGPT 做的檔案"
+    ],
+    "ch.09.name": [
+     "用專題分類"
+    ],
+    "ch.10.name": [
+     "在專題之間移動"
+    ],
+    "ch.11.name": [
+     "整理列表"
+    ],
+    "ch.12.name": [
+     "資料夾裡有什麼"
+    ],
+    "ch.13.name": [
+     "交給 AI 分析"
+    ],
+    "ch.14.name": [
+     "資料夾上鎖時"
+    ],
+    "ch.15.name": [
+     "關掉網頁按鈕、",
+     "清除資料"
+    ],
+    "ch.16.name": [
+     "說明與求助"
+    ],
+    "ch.01.desc": [
+     "到 Chrome 線上應用程式商店搜",
+     "尋「靈感收集器」，",
+     "加到 Chrome，",
+     "再釘在工具列上。"
+    ],
+    "ch.02.desc": [
+     "按工具列上的圖示打開側邊欄；",
+     "第一次先挑一個資料夾，",
+     "Chrome 問一次允許。"
+    ],
+    "ch.03.desc": [
+     "按側邊欄的「存這頁」，",
+     "整篇正文存成一筆；",
+     "同一頁存兩次還是一份。"
+    ],
+    "ch.04.desc": [
+     "選起幾句，在反白上按右鍵",
+     "「把選取的內容存進收集器」；",
+     "一段一筆。"
+    ],
+    "ch.05.desc": [
+     "一張用右鍵存原圖；",
+     "好幾張用「存圖」挑。",
+     "小圖示會自動略過。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT、Claude、Perplexity",
+     "每則回覆最後的「存這則」，",
+     "只存那一則。"
+    ],
+    "ch.07.desc": [
+     "在對話頁按「存這頁」，",
+     "整段對話標好誰說的；",
+     "Perplexity 連引用來源一起存。"
+    ],
+    "ch.08.desc": [
+     "「存檔案」把 ChatGPT 產生的",
+     "xlsx、py、md",
+     "原檔存進 assets/；",
+     "其他平台是灰的。"
+    ],
+    "ch.09.desc": [
+     "「新專題」開一個資料夾，",
+     "寫一句它是做什麼的，",
+     "寫進 MATERIAL.md；",
+     "之後隨時可以改。"
+    ],
+    "ch.10.desc": [
+     "麵包屑看得出在哪一層、",
+     "每一層都能點；",
+     "「切換專題」換專題；",
+     "「換資料夾」換整個收集位置。"
+    ],
+    "ch.11.desc": [
+     "列表／縮圖、ALL／TXT／IMG／",
+     "FILE、搜尋、本頁收錄，",
+     "刪除要按兩次。"
+    ],
+    "ch.12.desc": [
+     "一筆一個 .md、原檔在 assets/；",
+     "每一筆的檔頭記著出處；",
+     "MATERIAL.md 是給 AI 的說明。"
+    ],
+    "ch.13.desc": [
+     "收滿五筆出現「交給 AI」：",
+     "貼路徑、複製指令，",
+     "在 Claude Code 貼上 ——",
+     "它讀完素材交出帶出處的大綱",
+     "（真的跑一次的結果）。"
+    ],
+    "ch.14.desc": [
+     "閒置一陣子資料夾會上鎖：",
+     "按「解鎖資料夾」；",
+     "側邊欄解不開時用頂部的鎖",
+     "圖示另開一頁。"
+    ],
+    "ch.15.desc": [
+     "「頁面功能」",
+     "關掉網頁上的按鈕，",
+     "側邊欄照樣能存；",
+     "垃圾桶先預覽會刪什麼。"
+    ],
+    "ch.16.desc": [
+     "使用說明、遇到問題",
+     "（當場檢查）、",
+     "隱私條款、關於我。"
+    ]
+   },
+   "320": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章教學影片"
+    ],
+    "tutorial.lead": [
+     "安裝、存東西、分專題、交給 AI 分析，",
+     "到資料夾上鎖和遇到問題怎麼辦，",
+     "全部約 9 分鐘。",
+     "點章名就從那一章開始播。"
+    ],
+    "tutorial.youtube": [
+     "在 YouTube 上看"
+    ],
+    "tutorial.chapters": [
+     "章節"
+    ],
+    "tutorial.total": [
+     "全長約 9 分鐘"
+    ],
+    "tutorial.showAll": [
+     "看全部 16 章"
+    ],
+    "ch.01.name": [
+     "安裝到 Chrome"
+    ],
+    "ch.02.name": [
+     "打開側邊欄，選一個資料夾"
+    ],
+    "ch.03.name": [
+     "存整個網頁"
+    ],
+    "ch.04.name": [
+     "存一段文字"
+    ],
+    "ch.05.name": [
+     "存圖片"
+    ],
+    "ch.06.name": [
+     "存一則 AI 回覆"
+    ],
+    "ch.07.name": [
+     "存整段 AI 對話"
+    ],
+    "ch.08.name": [
+     "存 ChatGPT 做的檔案"
+    ],
+    "ch.09.name": [
+     "用專題分類"
+    ],
+    "ch.10.name": [
+     "在專題之間移動"
+    ],
+    "ch.11.name": [
+     "整理列表"
+    ],
+    "ch.12.name": [
+     "資料夾裡有什麼"
+    ],
+    "ch.13.name": [
+     "交給 AI 分析"
+    ],
+    "ch.14.name": [
+     "資料夾上鎖時"
+    ],
+    "ch.15.name": [
+     "關掉網頁按鈕、清除資料"
+    ],
+    "ch.16.name": [
+     "說明與求助"
+    ],
+    "ch.01.desc": [
+     "到 Chrome 線上應用程式商店搜尋",
+     "「靈感收集器」，",
+     "加到 Chrome，再釘在工具列上。"
+    ],
+    "ch.02.desc": [
+     "按工具列上的圖示打開側邊欄；",
+     "第一次先挑一個資料夾，",
+     "Chrome 問一次允許。"
+    ],
+    "ch.03.desc": [
+     "按側邊欄的「存這頁」，",
+     "整篇正文存成一筆；",
+     "同一頁存兩次還是一份。"
+    ],
+    "ch.04.desc": [
+     "選起幾句，在反白上按右鍵",
+     "「把選取的內容存進收集器」；",
+     "一段一筆。"
+    ],
+    "ch.05.desc": [
+     "一張用右鍵存原圖；",
+     "好幾張用「存圖」挑。",
+     "小圖示會自動略過。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT、Claude、Perplexity",
+     "每則回覆最後的「存這則」，",
+     "只存那一則。"
+    ],
+    "ch.07.desc": [
+     "在對話頁按「存這頁」，",
+     "整段對話標好誰說的；",
+     "Perplexity 連引用來源一起存。"
+    ],
+    "ch.08.desc": [
+     "「存檔案」把 ChatGPT 產生的 xlsx、",
+     "py、md 原檔存進 assets/；",
+     "其他平台是灰的。"
+    ],
+    "ch.09.desc": [
+     "「新專題」開一個資料夾，",
+     "寫一句它是做什麼的，",
+     "寫進 MATERIAL.md；",
+     "之後隨時可以改。"
+    ],
+    "ch.10.desc": [
+     "麵包屑看得出在哪一層、",
+     "每一層都能點；",
+     "「切換專題」換專題；",
+     "「換資料夾」換整個收集位置。"
+    ],
+    "ch.11.desc": [
+     "列表／縮圖、ALL／TXT／IMG／FILE、",
+     "搜尋、本頁收錄，",
+     "刪除要按兩次。"
+    ],
+    "ch.12.desc": [
+     "一筆一個 .md、原檔在 assets/；",
+     "每一筆的檔頭記著出處；",
+     "MATERIAL.md 是給 AI 的說明。"
+    ],
+    "ch.13.desc": [
+     "收滿五筆出現「交給 AI」：",
+     "貼路徑、複製指令，",
+     "在 Claude Code 貼上 ——",
+     "它讀完素材交出帶出處的大綱",
+     "（真的跑一次的結果）。"
+    ],
+    "ch.14.desc": [
+     "閒置一陣子資料夾會上鎖：",
+     "按「解鎖資料夾」；",
+     "側邊欄解不開時用頂部的鎖",
+     "圖示另開一頁。"
+    ],
+    "ch.15.desc": [
+     "「頁面功能」關掉網頁上的按鈕，",
+     "側邊欄照樣能存；",
+     "垃圾桶先預覽會刪什麼。"
+    ],
+    "ch.16.desc": [
+     "使用說明、遇到問題（當場檢查）、",
+     "隱私條款、關於我。"
+    ]
+   },
+   "360": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章教學影片"
+    ],
+    "tutorial.lead": [
+     "安裝、存東西、分專題、交給 AI 分析，",
+     "到資料夾上鎖和遇到問題怎麼辦，",
+     "全部約 9 分鐘。",
+     "點章名就從那一章開始播。"
+    ],
+    "tutorial.youtube": [
+     "在 YouTube 上看"
+    ],
+    "tutorial.chapters": [
+     "章節"
+    ],
+    "tutorial.total": [
+     "全長約 9 分鐘"
+    ],
+    "tutorial.showAll": [
+     "看全部 16 章"
+    ],
+    "ch.01.name": [
+     "安裝到 Chrome"
+    ],
+    "ch.02.name": [
+     "打開側邊欄，選一個資料夾"
+    ],
+    "ch.03.name": [
+     "存整個網頁"
+    ],
+    "ch.04.name": [
+     "存一段文字"
+    ],
+    "ch.05.name": [
+     "存圖片"
+    ],
+    "ch.06.name": [
+     "存一則 AI 回覆"
+    ],
+    "ch.07.name": [
+     "存整段 AI 對話"
+    ],
+    "ch.08.name": [
+     "存 ChatGPT 做的檔案"
+    ],
+    "ch.09.name": [
+     "用專題分類"
+    ],
+    "ch.10.name": [
+     "在專題之間移動"
+    ],
+    "ch.11.name": [
+     "整理列表"
+    ],
+    "ch.12.name": [
+     "資料夾裡有什麼"
+    ],
+    "ch.13.name": [
+     "交給 AI 分析"
+    ],
+    "ch.14.name": [
+     "資料夾上鎖時"
+    ],
+    "ch.15.name": [
+     "關掉網頁按鈕、清除資料"
+    ],
+    "ch.16.name": [
+     "說明與求助"
+    ],
+    "ch.01.desc": [
+     "到 Chrome 線上應用程式商店搜尋",
+     "「靈感收集器」，",
+     "加到 Chrome，再釘在工具列上。"
+    ],
+    "ch.02.desc": [
+     "按工具列上的圖示打開側邊欄；",
+     "第一次先挑一個資料夾，",
+     "Chrome 問一次允許。"
+    ],
+    "ch.03.desc": [
+     "按側邊欄的「存這頁」，整篇正文存成一筆；",
+     "同一頁存兩次還是一份。"
+    ],
+    "ch.04.desc": [
+     "選起幾句，在反白上按右鍵",
+     "「把選取的內容存進收集器」；一段一筆。"
+    ],
+    "ch.05.desc": [
+     "一張用右鍵存原圖；好幾張用「存圖」挑。",
+     "小圖示會自動略過。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT、Claude、Perplexity",
+     "每則回覆最後的「存這則」，",
+     "只存那一則。"
+    ],
+    "ch.07.desc": [
+     "在對話頁按「存這頁」，整段對話標好誰說的；",
+     "Perplexity 連引用來源一起存。"
+    ],
+    "ch.08.desc": [
+     "「存檔案」把 ChatGPT 產生的 xlsx、py、md",
+     "原檔存進 assets/；",
+     "其他平台是灰的。"
+    ],
+    "ch.09.desc": [
+     "「新專題」開一個資料夾，",
+     "寫一句它是做什麼的，寫進 MATERIAL.md；",
+     "之後隨時可以改。"
+    ],
+    "ch.10.desc": [
+     "麵包屑看得出在哪一層、每一層都能點；",
+     "「切換專題」換專題；",
+     "「換資料夾」換整個收集位置。"
+    ],
+    "ch.11.desc": [
+     "列表／縮圖、ALL／TXT／IMG／FILE、",
+     "搜尋、本頁收錄，",
+     "刪除要按兩次。"
+    ],
+    "ch.12.desc": [
+     "一筆一個 .md、原檔在 assets/；",
+     "每一筆的檔頭記著出處；",
+     "MATERIAL.md 是給 AI 的說明。"
+    ],
+    "ch.13.desc": [
+     "收滿五筆出現「交給 AI」：",
+     "貼路徑、複製指令，",
+     "在 Claude Code 貼上 ——",
+     "它讀完素材交出帶出處的大綱",
+     "（真的跑一次的結果）。"
+    ],
+    "ch.14.desc": [
+     "閒置一陣子資料夾會上鎖：按「解鎖資料夾」；",
+     "側邊欄解不開時用頂部的鎖圖示另開一頁。"
+    ],
+    "ch.15.desc": [
+     "「頁面功能」關掉網頁上的按鈕，",
+     "側邊欄照樣能存；",
+     "垃圾桶先預覽會刪什麼。"
+    ],
+    "ch.16.desc": [
+     "使用說明、遇到問題（當場檢查）、",
+     "隱私條款、關於我。"
+    ]
+   },
+   "375": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章教學影片"
+    ],
+    "tutorial.lead": [
+     "安裝、存東西、分專題、交給 AI 分析，",
+     "到資料夾上鎖和遇到問題怎麼辦，",
+     "全部約 9 分鐘。",
+     "點章名就從那一章開始播。"
+    ],
+    "tutorial.youtube": [
+     "在 YouTube 上看"
+    ],
+    "tutorial.chapters": [
+     "章節"
+    ],
+    "tutorial.total": [
+     "全長約 9 分鐘"
+    ],
+    "tutorial.showAll": [
+     "看全部 16 章"
+    ],
+    "ch.01.name": [
+     "安裝到 Chrome"
+    ],
+    "ch.02.name": [
+     "打開側邊欄，選一個資料夾"
+    ],
+    "ch.03.name": [
+     "存整個網頁"
+    ],
+    "ch.04.name": [
+     "存一段文字"
+    ],
+    "ch.05.name": [
+     "存圖片"
+    ],
+    "ch.06.name": [
+     "存一則 AI 回覆"
+    ],
+    "ch.07.name": [
+     "存整段 AI 對話"
+    ],
+    "ch.08.name": [
+     "存 ChatGPT 做的檔案"
+    ],
+    "ch.09.name": [
+     "用專題分類"
+    ],
+    "ch.10.name": [
+     "在專題之間移動"
+    ],
+    "ch.11.name": [
+     "整理列表"
+    ],
+    "ch.12.name": [
+     "資料夾裡有什麼"
+    ],
+    "ch.13.name": [
+     "交給 AI 分析"
+    ],
+    "ch.14.name": [
+     "資料夾上鎖時"
+    ],
+    "ch.15.name": [
+     "關掉網頁按鈕、清除資料"
+    ],
+    "ch.16.name": [
+     "說明與求助"
+    ],
+    "ch.01.desc": [
+     "到 Chrome 線上應用程式商店搜尋",
+     "「靈感收集器」，",
+     "加到 Chrome，再釘在工具列上。"
+    ],
+    "ch.02.desc": [
+     "按工具列上的圖示打開側邊欄；",
+     "第一次先挑一個資料夾，Chrome 問一次允許。"
+    ],
+    "ch.03.desc": [
+     "按側邊欄的「存這頁」，整篇正文存成一筆；",
+     "同一頁存兩次還是一份。"
+    ],
+    "ch.04.desc": [
+     "選起幾句，在反白上按右鍵",
+     "「把選取的內容存進收集器」；一段一筆。"
+    ],
+    "ch.05.desc": [
+     "一張用右鍵存原圖；好幾張用「存圖」挑。",
+     "小圖示會自動略過。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT、Claude、Perplexity",
+     "每則回覆最後的「存這則」，",
+     "只存那一則。"
+    ],
+    "ch.07.desc": [
+     "在對話頁按「存這頁」，整段對話標好誰說的；",
+     "Perplexity 連引用來源一起存。"
+    ],
+    "ch.08.desc": [
+     "「存檔案」把 ChatGPT 產生的 xlsx、py、md",
+     "原檔存進 assets/；",
+     "其他平台是灰的。"
+    ],
+    "ch.09.desc": [
+     "「新專題」開一個資料夾，",
+     "寫一句它是做什麼的，寫進 MATERIAL.md；",
+     "之後隨時可以改。"
+    ],
+    "ch.10.desc": [
+     "麵包屑看得出在哪一層、每一層都能點；",
+     "「切換專題」換專題；",
+     "「換資料夾」換整個收集位置。"
+    ],
+    "ch.11.desc": [
+     "列表／縮圖、ALL／TXT／IMG／FILE、",
+     "搜尋、本頁收錄，",
+     "刪除要按兩次。"
+    ],
+    "ch.12.desc": [
+     "一筆一個 .md、原檔在 assets/；",
+     "每一筆的檔頭記著出處；",
+     "MATERIAL.md 是給 AI 的說明。"
+    ],
+    "ch.13.desc": [
+     "收滿五筆出現「交給 AI」：貼路徑、複製指令，",
+     "在 Claude Code 貼上 ——",
+     "它讀完素材交出帶出處的大綱",
+     "（真的跑一次的結果）。"
+    ],
+    "ch.14.desc": [
+     "閒置一陣子資料夾會上鎖：按「解鎖資料夾」；",
+     "側邊欄解不開時用頂部的鎖圖示另開一頁。"
+    ],
+    "ch.15.desc": [
+     "「頁面功能」關掉網頁上的按鈕，",
+     "側邊欄照樣能存；",
+     "垃圾桶先預覽會刪什麼。"
+    ],
+    "ch.16.desc": [
+     "使用說明、遇到問題（當場檢查）、",
+     "隱私條款、關於我。"
+    ]
+   },
+   "390": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章教學影片"
+    ],
+    "tutorial.lead": [
+     "安裝、存東西、分專題、交給 AI 分析，",
+     "到資料夾上鎖和遇到問題怎麼辦，全部約 9 分鐘。",
+     "點章名就從那一章開始播。"
+    ],
+    "tutorial.youtube": [
+     "在 YouTube 上看"
+    ],
+    "tutorial.chapters": [
+     "章節"
+    ],
+    "tutorial.total": [
+     "全長約 9 分鐘"
+    ],
+    "tutorial.showAll": [
+     "看全部 16 章"
+    ],
+    "ch.01.name": [
+     "安裝到 Chrome"
+    ],
+    "ch.02.name": [
+     "打開側邊欄，選一個資料夾"
+    ],
+    "ch.03.name": [
+     "存整個網頁"
+    ],
+    "ch.04.name": [
+     "存一段文字"
+    ],
+    "ch.05.name": [
+     "存圖片"
+    ],
+    "ch.06.name": [
+     "存一則 AI 回覆"
+    ],
+    "ch.07.name": [
+     "存整段 AI 對話"
+    ],
+    "ch.08.name": [
+     "存 ChatGPT 做的檔案"
+    ],
+    "ch.09.name": [
+     "用專題分類"
+    ],
+    "ch.10.name": [
+     "在專題之間移動"
+    ],
+    "ch.11.name": [
+     "整理列表"
+    ],
+    "ch.12.name": [
+     "資料夾裡有什麼"
+    ],
+    "ch.13.name": [
+     "交給 AI 分析"
+    ],
+    "ch.14.name": [
+     "資料夾上鎖時"
+    ],
+    "ch.15.name": [
+     "關掉網頁按鈕、清除資料"
+    ],
+    "ch.16.name": [
+     "說明與求助"
+    ],
+    "ch.01.desc": [
+     "到 Chrome 線上應用程式商店搜尋",
+     "「靈感收集器」，",
+     "加到 Chrome，再釘在工具列上。"
+    ],
+    "ch.02.desc": [
+     "按工具列上的圖示打開側邊欄；",
+     "第一次先挑一個資料夾，Chrome 問一次允許。"
+    ],
+    "ch.03.desc": [
+     "按側邊欄的「存這頁」，整篇正文存成一筆；",
+     "同一頁存兩次還是一份。"
+    ],
+    "ch.04.desc": [
+     "選起幾句，在反白上按右鍵",
+     "「把選取的內容存進收集器」；一段一筆。"
+    ],
+    "ch.05.desc": [
+     "一張用右鍵存原圖；好幾張用「存圖」挑。",
+     "小圖示會自動略過。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT、Claude、Perplexity",
+     "每則回覆最後的「存這則」，",
+     "只存那一則。"
+    ],
+    "ch.07.desc": [
+     "在對話頁按「存這頁」，整段對話標好誰說的；",
+     "Perplexity 連引用來源一起存。"
+    ],
+    "ch.08.desc": [
+     "「存檔案」把 ChatGPT 產生的 xlsx、py、md",
+     "原檔存進 assets/；",
+     "其他平台是灰的。"
+    ],
+    "ch.09.desc": [
+     "「新專題」開一個資料夾，寫一句它是做什麼的，",
+     "寫進 MATERIAL.md；",
+     "之後隨時可以改。"
+    ],
+    "ch.10.desc": [
+     "麵包屑看得出在哪一層、每一層都能點；",
+     "「切換專題」換專題；",
+     "「換資料夾」換整個收集位置。"
+    ],
+    "ch.11.desc": [
+     "列表／縮圖、ALL／TXT／IMG／FILE、",
+     "搜尋、本頁收錄，",
+     "刪除要按兩次。"
+    ],
+    "ch.12.desc": [
+     "一筆一個 .md、原檔在 assets/；",
+     "每一筆的檔頭記著出處；",
+     "MATERIAL.md 是給 AI 的說明。"
+    ],
+    "ch.13.desc": [
+     "收滿五筆出現「交給 AI」：貼路徑、複製指令，",
+     "在 Claude Code 貼上 ——",
+     "它讀完素材交出帶出處的大綱",
+     "（真的跑一次的結果）。"
+    ],
+    "ch.14.desc": [
+     "閒置一陣子資料夾會上鎖：按「解鎖資料夾」；",
+     "側邊欄解不開時用頂部的鎖圖示另開一頁。"
+    ],
+    "ch.15.desc": [
+     "「頁面功能」關掉網頁上的按鈕，",
+     "側邊欄照樣能存；",
+     "垃圾桶先預覽會刪什麼。"
+    ],
+    "ch.16.desc": [
+     "使用說明、遇到問題（當場檢查）、",
+     "隱私條款、關於我。"
+    ]
+   },
+   "414": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章教學影片"
+    ],
+    "tutorial.lead": [
+     "安裝、存東西、分專題、交給 AI 分析，",
+     "到資料夾上鎖和遇到問題怎麼辦，全部約 9 分鐘。",
+     "點章名就從那一章開始播。"
+    ],
+    "tutorial.youtube": [
+     "在 YouTube 上看"
+    ],
+    "tutorial.chapters": [
+     "章節"
+    ],
+    "tutorial.total": [
+     "全長約 9 分鐘"
+    ],
+    "tutorial.showAll": [
+     "看全部 16 章"
+    ],
+    "ch.01.name": [
+     "安裝到 Chrome"
+    ],
+    "ch.02.name": [
+     "打開側邊欄，選一個資料夾"
+    ],
+    "ch.03.name": [
+     "存整個網頁"
+    ],
+    "ch.04.name": [
+     "存一段文字"
+    ],
+    "ch.05.name": [
+     "存圖片"
+    ],
+    "ch.06.name": [
+     "存一則 AI 回覆"
+    ],
+    "ch.07.name": [
+     "存整段 AI 對話"
+    ],
+    "ch.08.name": [
+     "存 ChatGPT 做的檔案"
+    ],
+    "ch.09.name": [
+     "用專題分類"
+    ],
+    "ch.10.name": [
+     "在專題之間移動"
+    ],
+    "ch.11.name": [
+     "整理列表"
+    ],
+    "ch.12.name": [
+     "資料夾裡有什麼"
+    ],
+    "ch.13.name": [
+     "交給 AI 分析"
+    ],
+    "ch.14.name": [
+     "資料夾上鎖時"
+    ],
+    "ch.15.name": [
+     "關掉網頁按鈕、清除資料"
+    ],
+    "ch.16.name": [
+     "說明與求助"
+    ],
+    "ch.01.desc": [
+     "到 Chrome 線上應用程式商店搜尋「靈感收集器」，",
+     "加到 Chrome，再釘在工具列上。"
+    ],
+    "ch.02.desc": [
+     "按工具列上的圖示打開側邊欄；",
+     "第一次先挑一個資料夾，Chrome 問一次允許。"
+    ],
+    "ch.03.desc": [
+     "按側邊欄的「存這頁」，整篇正文存成一筆；",
+     "同一頁存兩次還是一份。"
+    ],
+    "ch.04.desc": [
+     "選起幾句，在反白上按右鍵",
+     "「把選取的內容存進收集器」；一段一筆。"
+    ],
+    "ch.05.desc": [
+     "一張用右鍵存原圖；好幾張用「存圖」挑。",
+     "小圖示會自動略過。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT、Claude、Perplexity",
+     "每則回覆最後的「存這則」，",
+     "只存那一則。"
+    ],
+    "ch.07.desc": [
+     "在對話頁按「存這頁」，整段對話標好誰說的；",
+     "Perplexity 連引用來源一起存。"
+    ],
+    "ch.08.desc": [
+     "「存檔案」把 ChatGPT 產生的 xlsx、py、md",
+     "原檔存進 assets/；",
+     "其他平台是灰的。"
+    ],
+    "ch.09.desc": [
+     "「新專題」開一個資料夾，寫一句它是做什麼的，",
+     "寫進 MATERIAL.md；",
+     "之後隨時可以改。"
+    ],
+    "ch.10.desc": [
+     "麵包屑看得出在哪一層、每一層都能點；",
+     "「切換專題」換專題；「換資料夾」換整個收集位置。"
+    ],
+    "ch.11.desc": [
+     "列表／縮圖、ALL／TXT／IMG／FILE、",
+     "搜尋、本頁收錄，",
+     "刪除要按兩次。"
+    ],
+    "ch.12.desc": [
+     "一筆一個 .md、原檔在 assets/；",
+     "每一筆的檔頭記著出處；",
+     "MATERIAL.md 是給 AI 的說明。"
+    ],
+    "ch.13.desc": [
+     "收滿五筆出現「交給 AI」：貼路徑、複製指令，",
+     "在 Claude Code 貼上 ——",
+     "它讀完素材交出帶出處的大綱（真的跑一次的結果）。"
+    ],
+    "ch.14.desc": [
+     "閒置一陣子資料夾會上鎖：按「解鎖資料夾」；",
+     "側邊欄解不開時用頂部的鎖圖示另開一頁。"
+    ],
+    "ch.15.desc": [
+     "「頁面功能」關掉網頁上的按鈕，側邊欄照樣能存；",
+     "垃圾桶先預覽會刪什麼。"
+    ],
+    "ch.16.desc": [
+     "使用說明、遇到問題（當場檢查）、",
+     "隱私條款、關於我。"
+    ]
+   },
+   "430": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章教學影片"
+    ],
+    "tutorial.lead": [
+     "安裝、存東西、分專題、交給 AI 分析，",
+     "到資料夾上鎖和遇到問題怎麼辦，全部約 9 分鐘。",
+     "點章名就從那一章開始播。"
+    ],
+    "tutorial.youtube": [
+     "在 YouTube 上看"
+    ],
+    "tutorial.chapters": [
+     "章節"
+    ],
+    "tutorial.total": [
+     "全長約 9 分鐘"
+    ],
+    "tutorial.showAll": [
+     "看全部 16 章"
+    ],
+    "ch.01.name": [
+     "安裝到 Chrome"
+    ],
+    "ch.02.name": [
+     "打開側邊欄，選一個資料夾"
+    ],
+    "ch.03.name": [
+     "存整個網頁"
+    ],
+    "ch.04.name": [
+     "存一段文字"
+    ],
+    "ch.05.name": [
+     "存圖片"
+    ],
+    "ch.06.name": [
+     "存一則 AI 回覆"
+    ],
+    "ch.07.name": [
+     "存整段 AI 對話"
+    ],
+    "ch.08.name": [
+     "存 ChatGPT 做的檔案"
+    ],
+    "ch.09.name": [
+     "用專題分類"
+    ],
+    "ch.10.name": [
+     "在專題之間移動"
+    ],
+    "ch.11.name": [
+     "整理列表"
+    ],
+    "ch.12.name": [
+     "資料夾裡有什麼"
+    ],
+    "ch.13.name": [
+     "交給 AI 分析"
+    ],
+    "ch.14.name": [
+     "資料夾上鎖時"
+    ],
+    "ch.15.name": [
+     "關掉網頁按鈕、清除資料"
+    ],
+    "ch.16.name": [
+     "說明與求助"
+    ],
+    "ch.01.desc": [
+     "到 Chrome 線上應用程式商店搜尋「靈感收集器」，",
+     "加到 Chrome，再釘在工具列上。"
+    ],
+    "ch.02.desc": [
+     "按工具列上的圖示打開側邊欄；",
+     "第一次先挑一個資料夾，Chrome 問一次允許。"
+    ],
+    "ch.03.desc": [
+     "按側邊欄的「存這頁」，整篇正文存成一筆；",
+     "同一頁存兩次還是一份。"
+    ],
+    "ch.04.desc": [
+     "選起幾句，在反白上按右鍵",
+     "「把選取的內容存進收集器」；一段一筆。"
+    ],
+    "ch.05.desc": [
+     "一張用右鍵存原圖；好幾張用「存圖」挑。",
+     "小圖示會自動略過。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT、Claude、Perplexity",
+     "每則回覆最後的「存這則」，",
+     "只存那一則。"
+    ],
+    "ch.07.desc": [
+     "在對話頁按「存這頁」，整段對話標好誰說的；",
+     "Perplexity 連引用來源一起存。"
+    ],
+    "ch.08.desc": [
+     "「存檔案」把 ChatGPT 產生的 xlsx、py、md",
+     "原檔存進 assets/；",
+     "其他平台是灰的。"
+    ],
+    "ch.09.desc": [
+     "「新專題」開一個資料夾，寫一句它是做什麼的，",
+     "寫進 MATERIAL.md；",
+     "之後隨時可以改。"
+    ],
+    "ch.10.desc": [
+     "麵包屑看得出在哪一層、每一層都能點；",
+     "「切換專題」換專題；「換資料夾」換整個收集位置。"
+    ],
+    "ch.11.desc": [
+     "列表／縮圖、ALL／TXT／IMG／FILE、",
+     "搜尋、本頁收錄，",
+     "刪除要按兩次。"
+    ],
+    "ch.12.desc": [
+     "一筆一個 .md、原檔在 assets/；",
+     "每一筆的檔頭記著出處；",
+     "MATERIAL.md 是給 AI 的說明。"
+    ],
+    "ch.13.desc": [
+     "收滿五筆出現「交給 AI」：貼路徑、複製指令，",
+     "在 Claude Code 貼上 ——",
+     "它讀完素材交出帶出處的大綱（真的跑一次的結果）。"
+    ],
+    "ch.14.desc": [
+     "閒置一陣子資料夾會上鎖：按「解鎖資料夾」；",
+     "側邊欄解不開時用頂部的鎖圖示另開一頁。"
+    ],
+    "ch.15.desc": [
+     "「頁面功能」關掉網頁上的按鈕，側邊欄照樣能存；",
+     "垃圾桶先預覽會刪什麼。"
+    ],
+    "ch.16.desc": [
+     "使用說明、遇到問題（當場檢查）、隱私條款、關於我。"
+    ]
+   },
+   "640": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章教學影片"
+    ],
+    "tutorial.lead": [
+     "安裝、存東西、分專題、交給 AI 分析，",
+     "到資料夾上鎖和遇到問題怎麼辦，全部約 9 分鐘。",
+     "點章名就從那一章開始播。"
+    ],
+    "tutorial.youtube": [
+     "在 YouTube 上看"
+    ],
+    "tutorial.chapters": [
+     "章節"
+    ],
+    "tutorial.total": [
+     "全長約 9 分鐘"
+    ],
+    "tutorial.showAll": [
+     "看全部 16 章"
+    ],
+    "ch.01.name": [
+     "安裝到 Chrome"
+    ],
+    "ch.02.name": [
+     "打開側邊欄，選一個資料夾"
+    ],
+    "ch.03.name": [
+     "存整個網頁"
+    ],
+    "ch.04.name": [
+     "存一段文字"
+    ],
+    "ch.05.name": [
+     "存圖片"
+    ],
+    "ch.06.name": [
+     "存一則 AI 回覆"
+    ],
+    "ch.07.name": [
+     "存整段 AI 對話"
+    ],
+    "ch.08.name": [
+     "存 ChatGPT 做的檔案"
+    ],
+    "ch.09.name": [
+     "用專題分類"
+    ],
+    "ch.10.name": [
+     "在專題之間移動"
+    ],
+    "ch.11.name": [
+     "整理列表"
+    ],
+    "ch.12.name": [
+     "資料夾裡有什麼"
+    ],
+    "ch.13.name": [
+     "交給 AI 分析"
+    ],
+    "ch.14.name": [
+     "資料夾上鎖時"
+    ],
+    "ch.15.name": [
+     "關掉網頁按鈕、清除資料"
+    ],
+    "ch.16.name": [
+     "說明與求助"
+    ],
+    "ch.01.desc": [
+     "到 Chrome 線上應用程式商店搜尋「靈感收集器」，",
+     "加到 Chrome，再釘在工具列上。"
+    ],
+    "ch.02.desc": [
+     "按工具列上的圖示打開側邊欄；",
+     "第一次先挑一個資料夾，Chrome 問一次允許。"
+    ],
+    "ch.03.desc": [
+     "按側邊欄的「存這頁」，整篇正文存成一筆；",
+     "同一頁存兩次還是一份。"
+    ],
+    "ch.04.desc": [
+     "選起幾句，在反白上按右鍵",
+     "「把選取的內容存進收集器」；一段一筆。"
+    ],
+    "ch.05.desc": [
+     "一張用右鍵存原圖；好幾張用「存圖」挑。",
+     "小圖示會自動略過。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT、Claude、Perplexity",
+     "每則回覆最後的「存這則」，",
+     "只存那一則。"
+    ],
+    "ch.07.desc": [
+     "在對話頁按「存這頁」，整段對話標好誰說的；",
+     "Perplexity 連引用來源一起存。"
+    ],
+    "ch.08.desc": [
+     "「存檔案」把 ChatGPT 產生的 xlsx、py、md",
+     "原檔存進 assets/；",
+     "其他平台是灰的。"
+    ],
+    "ch.09.desc": [
+     "「新專題」開一個資料夾，寫一句它是做什麼的，",
+     "寫進 MATERIAL.md；",
+     "之後隨時可以改。"
+    ],
+    "ch.10.desc": [
+     "麵包屑看得出在哪一層、每一層都能點；",
+     "「切換專題」換專題；「換資料夾」換整個收集位置。"
+    ],
+    "ch.11.desc": [
+     "列表／縮圖、ALL／TXT／IMG／FILE、",
+     "搜尋、本頁收錄，",
+     "刪除要按兩次。"
+    ],
+    "ch.12.desc": [
+     "一筆一個 .md、原檔在 assets/；",
+     "每一筆的檔頭記著出處；",
+     "MATERIAL.md 是給 AI 的說明。"
+    ],
+    "ch.13.desc": [
+     "收滿五筆出現「交給 AI」：貼路徑、複製指令，",
+     "在 Claude Code 貼上 ——",
+     "它讀完素材交出帶出處的大綱（真的跑一次的結果）。"
+    ],
+    "ch.14.desc": [
+     "閒置一陣子資料夾會上鎖：按「解鎖資料夾」；",
+     "側邊欄解不開時用頂部的鎖圖示另開一頁。"
+    ],
+    "ch.15.desc": [
+     "「頁面功能」關掉網頁上的按鈕，側邊欄照樣能存；",
+     "垃圾桶先預覽會刪什麼。"
+    ],
+    "ch.16.desc": [
+     "使用說明、遇到問題（當場檢查）、隱私條款、關於我。"
+    ]
+   },
+   "768": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章教學影片"
+    ],
+    "tutorial.lead": [
+     "安裝、存東西、分專題、交給 AI 分析，",
+     "到資料夾上鎖和遇到問題怎麼辦，全部約 9 分鐘。",
+     "點章名就從那一章開始播。"
+    ],
+    "tutorial.youtube": [
+     "在 YouTube 上看"
+    ],
+    "tutorial.chapters": [
+     "章節"
+    ],
+    "tutorial.total": [
+     "全長約 9 分鐘"
+    ],
+    "tutorial.showAll": [
+     "看全部 16 章"
+    ],
+    "ch.01.name": [
+     "安裝到 Chrome"
+    ],
+    "ch.02.name": [
+     "打開側邊欄，選一個資料夾"
+    ],
+    "ch.03.name": [
+     "存整個網頁"
+    ],
+    "ch.04.name": [
+     "存一段文字"
+    ],
+    "ch.05.name": [
+     "存圖片"
+    ],
+    "ch.06.name": [
+     "存一則 AI 回覆"
+    ],
+    "ch.07.name": [
+     "存整段 AI 對話"
+    ],
+    "ch.08.name": [
+     "存 ChatGPT 做的檔案"
+    ],
+    "ch.09.name": [
+     "用專題分類"
+    ],
+    "ch.10.name": [
+     "在專題之間移動"
+    ],
+    "ch.11.name": [
+     "整理列表"
+    ],
+    "ch.12.name": [
+     "資料夾裡有什麼"
+    ],
+    "ch.13.name": [
+     "交給 AI 分析"
+    ],
+    "ch.14.name": [
+     "資料夾上鎖時"
+    ],
+    "ch.15.name": [
+     "關掉網頁按鈕、清除資料"
+    ],
+    "ch.16.name": [
+     "說明與求助"
+    ],
+    "ch.01.desc": [
+     "到 Chrome 線上應用程式商店搜尋「靈感收集器」，",
+     "加到 Chrome，再釘在工具列上。"
+    ],
+    "ch.02.desc": [
+     "按工具列上的圖示打開側邊欄；",
+     "第一次先挑一個資料夾，Chrome 問一次允許。"
+    ],
+    "ch.03.desc": [
+     "按側邊欄的「存這頁」，整篇正文存成一筆；",
+     "同一頁存兩次還是一份。"
+    ],
+    "ch.04.desc": [
+     "選起幾句，在反白上按右鍵",
+     "「把選取的內容存進收集器」；一段一筆。"
+    ],
+    "ch.05.desc": [
+     "一張用右鍵存原圖；好幾張用「存圖」挑。",
+     "小圖示會自動略過。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT、Claude、Perplexity",
+     "每則回覆最後的「存這則」，",
+     "只存那一則。"
+    ],
+    "ch.07.desc": [
+     "在對話頁按「存這頁」，整段對話標好誰說的；",
+     "Perplexity 連引用來源一起存。"
+    ],
+    "ch.08.desc": [
+     "「存檔案」把 ChatGPT 產生的 xlsx、py、md",
+     "原檔存進 assets/；",
+     "其他平台是灰的。"
+    ],
+    "ch.09.desc": [
+     "「新專題」開一個資料夾，寫一句它是做什麼的，",
+     "寫進 MATERIAL.md；",
+     "之後隨時可以改。"
+    ],
+    "ch.10.desc": [
+     "麵包屑看得出在哪一層、每一層都能點；",
+     "「切換專題」換專題；「換資料夾」換整個收集位置。"
+    ],
+    "ch.11.desc": [
+     "列表／縮圖、ALL／TXT／IMG／FILE、",
+     "搜尋、本頁收錄，",
+     "刪除要按兩次。"
+    ],
+    "ch.12.desc": [
+     "一筆一個 .md、原檔在 assets/；",
+     "每一筆的檔頭記著出處；",
+     "MATERIAL.md 是給 AI 的說明。"
+    ],
+    "ch.13.desc": [
+     "收滿五筆出現「交給 AI」：貼路徑、複製指令，",
+     "在 Claude Code 貼上 ——",
+     "它讀完素材交出帶出處的大綱（真的跑一次的結果）。"
+    ],
+    "ch.14.desc": [
+     "閒置一陣子資料夾會上鎖：按「解鎖資料夾」；",
+     "側邊欄解不開時用頂部的鎖圖示另開一頁。"
+    ],
+    "ch.15.desc": [
+     "「頁面功能」關掉網頁上的按鈕，側邊欄照樣能存；",
+     "垃圾桶先預覽會刪什麼。"
+    ],
+    "ch.16.desc": [
+     "使用說明、遇到問題（當場檢查）、隱私條款、關於我。"
+    ]
+   },
+   "1024": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章教學影片"
+    ],
+    "tutorial.lead": [
+     "安裝、存東西、分專題、交給 AI 分析，",
+     "到資料夾上鎖和遇到問題怎麼辦，全部約 9 分鐘。",
+     "點章名就從那一章開始播。"
+    ],
+    "tutorial.youtube": [
+     "在 YouTube 上看"
+    ],
+    "tutorial.chapters": [
+     "章節"
+    ],
+    "tutorial.total": [
+     "全長約 9 分鐘"
+    ],
+    "tutorial.showAll": [],
+    "ch.01.name": [
+     "安裝到 Chrome"
+    ],
+    "ch.02.name": [
+     "打開側邊欄，選一個資料夾"
+    ],
+    "ch.03.name": [
+     "存整個網頁"
+    ],
+    "ch.04.name": [
+     "存一段文字"
+    ],
+    "ch.05.name": [
+     "存圖片"
+    ],
+    "ch.06.name": [
+     "存一則 AI 回覆"
+    ],
+    "ch.07.name": [
+     "存整段 AI 對話"
+    ],
+    "ch.08.name": [
+     "存 ChatGPT 做的檔案"
+    ],
+    "ch.09.name": [
+     "用專題分類"
+    ],
+    "ch.10.name": [
+     "在專題之間移動"
+    ],
+    "ch.11.name": [
+     "整理列表"
+    ],
+    "ch.12.name": [
+     "資料夾裡有什麼"
+    ],
+    "ch.13.name": [
+     "交給 AI 分析"
+    ],
+    "ch.14.name": [
+     "資料夾上鎖時"
+    ],
+    "ch.15.name": [
+     "關掉網頁按鈕、清除資料"
+    ],
+    "ch.16.name": [
+     "說明與求助"
+    ],
+    "ch.01.desc": [
+     "到 Chrome 線上應用程式商店搜尋",
+     "「靈感收集器」，",
+     "加到 Chrome，再釘在工具列上。"
+    ],
+    "ch.02.desc": [
+     "按工具列上的圖示打開側邊欄；",
+     "第一次先挑一個資料夾，Chrome 問一次允許。"
+    ],
+    "ch.03.desc": [
+     "按側邊欄的「存這頁」，整篇正文存成一筆；",
+     "同一頁存兩次還是一份。"
+    ],
+    "ch.04.desc": [
+     "選起幾句，在反白上按右鍵",
+     "「把選取的內容存進收集器」；一段一筆。"
+    ],
+    "ch.05.desc": [
+     "一張用右鍵存原圖；好幾張用「存圖」挑。",
+     "小圖示會自動略過。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT、Claude、Perplexity",
+     "每則回覆最後的「存這則」，",
+     "只存那一則。"
+    ],
+    "ch.07.desc": [
+     "在對話頁按「存這頁」，整段對話標好誰說的；",
+     "Perplexity 連引用來源一起存。"
+    ],
+    "ch.08.desc": [
+     "「存檔案」把 ChatGPT 產生的 xlsx、py、md",
+     "原檔存進 assets/；",
+     "其他平台是灰的。"
+    ],
+    "ch.09.desc": [
+     "「新專題」開一個資料夾，",
+     "寫一句它是做什麼的，寫進 MATERIAL.md；",
+     "之後隨時可以改。"
+    ],
+    "ch.10.desc": [
+     "麵包屑看得出在哪一層、每一層都能點；",
+     "「切換專題」換專題；",
+     "「換資料夾」換整個收集位置。"
+    ],
+    "ch.11.desc": [
+     "列表／縮圖、ALL／TXT／IMG／FILE、",
+     "搜尋、本頁收錄，",
+     "刪除要按兩次。"
+    ],
+    "ch.12.desc": [
+     "一筆一個 .md、原檔在 assets/；",
+     "每一筆的檔頭記著出處；",
+     "MATERIAL.md 是給 AI 的說明。"
+    ],
+    "ch.13.desc": [
+     "收滿五筆出現「交給 AI」：貼路徑、複製指令，",
+     "在 Claude Code 貼上 ——",
+     "它讀完素材交出帶出處的大綱",
+     "（真的跑一次的結果）。"
+    ],
+    "ch.14.desc": [
+     "閒置一陣子資料夾會上鎖：按「解鎖資料夾」；",
+     "側邊欄解不開時用頂部的鎖圖示另開一頁。"
+    ],
+    "ch.15.desc": [
+     "「頁面功能」關掉網頁上的按鈕，",
+     "側邊欄照樣能存；",
+     "垃圾桶先預覽會刪什麼。"
+    ],
+    "ch.16.desc": [
+     "使用說明、遇到問題（當場檢查）、",
+     "隱私條款、關於我。"
+    ]
+   },
+   "1280": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章教學影片"
+    ],
+    "tutorial.lead": [
+     "安裝、存東西、分專題、交給 AI 分析，",
+     "到資料夾上鎖和遇到問題怎麼辦，全部約 9 分鐘。",
+     "點章名就從那一章開始播。"
+    ],
+    "tutorial.youtube": [
+     "在 YouTube 上看"
+    ],
+    "tutorial.chapters": [
+     "章節"
+    ],
+    "tutorial.total": [
+     "全長約 9 分鐘"
+    ],
+    "tutorial.showAll": [],
+    "ch.01.name": [
+     "安裝到 Chrome"
+    ],
+    "ch.02.name": [
+     "打開側邊欄，選一個資料夾"
+    ],
+    "ch.03.name": [
+     "存整個網頁"
+    ],
+    "ch.04.name": [
+     "存一段文字"
+    ],
+    "ch.05.name": [
+     "存圖片"
+    ],
+    "ch.06.name": [
+     "存一則 AI 回覆"
+    ],
+    "ch.07.name": [
+     "存整段 AI 對話"
+    ],
+    "ch.08.name": [
+     "存 ChatGPT 做的檔案"
+    ],
+    "ch.09.name": [
+     "用專題分類"
+    ],
+    "ch.10.name": [
+     "在專題之間移動"
+    ],
+    "ch.11.name": [
+     "整理列表"
+    ],
+    "ch.12.name": [
+     "資料夾裡有什麼"
+    ],
+    "ch.13.name": [
+     "交給 AI 分析"
+    ],
+    "ch.14.name": [
+     "資料夾上鎖時"
+    ],
+    "ch.15.name": [
+     "關掉網頁按鈕、清除資料"
+    ],
+    "ch.16.name": [
+     "說明與求助"
+    ],
+    "ch.01.desc": [
+     "到 Chrome 線上應用程式商店搜尋「靈感收集器」，",
+     "加到 Chrome，再釘在工具列上。"
+    ],
+    "ch.02.desc": [
+     "按工具列上的圖示打開側邊欄；",
+     "第一次先挑一個資料夾，Chrome 問一次允許。"
+    ],
+    "ch.03.desc": [
+     "按側邊欄的「存這頁」，整篇正文存成一筆；",
+     "同一頁存兩次還是一份。"
+    ],
+    "ch.04.desc": [
+     "選起幾句，在反白上按右鍵",
+     "「把選取的內容存進收集器」；一段一筆。"
+    ],
+    "ch.05.desc": [
+     "一張用右鍵存原圖；好幾張用「存圖」挑。",
+     "小圖示會自動略過。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT、Claude、Perplexity",
+     "每則回覆最後的「存這則」，",
+     "只存那一則。"
+    ],
+    "ch.07.desc": [
+     "在對話頁按「存這頁」，整段對話標好誰說的；",
+     "Perplexity 連引用來源一起存。"
+    ],
+    "ch.08.desc": [
+     "「存檔案」把 ChatGPT 產生的 xlsx、py、md",
+     "原檔存進 assets/；",
+     "其他平台是灰的。"
+    ],
+    "ch.09.desc": [
+     "「新專題」開一個資料夾，寫一句它是做什麼的，",
+     "寫進 MATERIAL.md；",
+     "之後隨時可以改。"
+    ],
+    "ch.10.desc": [
+     "麵包屑看得出在哪一層、每一層都能點；",
+     "「切換專題」換專題；「換資料夾」換整個收集位置。"
+    ],
+    "ch.11.desc": [
+     "列表／縮圖、ALL／TXT／IMG／FILE、",
+     "搜尋、本頁收錄，",
+     "刪除要按兩次。"
+    ],
+    "ch.12.desc": [
+     "一筆一個 .md、原檔在 assets/；",
+     "每一筆的檔頭記著出處；",
+     "MATERIAL.md 是給 AI 的說明。"
+    ],
+    "ch.13.desc": [
+     "收滿五筆出現「交給 AI」：貼路徑、複製指令，",
+     "在 Claude Code 貼上 ——",
+     "它讀完素材交出帶出處的大綱（真的跑一次的結果）。"
+    ],
+    "ch.14.desc": [
+     "閒置一陣子資料夾會上鎖：按「解鎖資料夾」；",
+     "側邊欄解不開時用頂部的鎖圖示另開一頁。"
+    ],
+    "ch.15.desc": [
+     "「頁面功能」關掉網頁上的按鈕，側邊欄照樣能存；",
+     "垃圾桶先預覽會刪什麼。"
+    ],
+    "ch.16.desc": [
+     "使用說明、遇到問題（當場檢查）、隱私條款、關於我。"
+    ]
+   },
+   "1440": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章教學影片"
+    ],
+    "tutorial.lead": [
+     "安裝、存東西、分專題、交給 AI 分析，",
+     "到資料夾上鎖和遇到問題怎麼辦，全部約 9 分鐘。",
+     "點章名就從那一章開始播。"
+    ],
+    "tutorial.youtube": [
+     "在 YouTube 上看"
+    ],
+    "tutorial.chapters": [
+     "章節"
+    ],
+    "tutorial.total": [
+     "全長約 9 分鐘"
+    ],
+    "tutorial.showAll": [],
+    "ch.01.name": [
+     "安裝到 Chrome"
+    ],
+    "ch.02.name": [
+     "打開側邊欄，選一個資料夾"
+    ],
+    "ch.03.name": [
+     "存整個網頁"
+    ],
+    "ch.04.name": [
+     "存一段文字"
+    ],
+    "ch.05.name": [
+     "存圖片"
+    ],
+    "ch.06.name": [
+     "存一則 AI 回覆"
+    ],
+    "ch.07.name": [
+     "存整段 AI 對話"
+    ],
+    "ch.08.name": [
+     "存 ChatGPT 做的檔案"
+    ],
+    "ch.09.name": [
+     "用專題分類"
+    ],
+    "ch.10.name": [
+     "在專題之間移動"
+    ],
+    "ch.11.name": [
+     "整理列表"
+    ],
+    "ch.12.name": [
+     "資料夾裡有什麼"
+    ],
+    "ch.13.name": [
+     "交給 AI 分析"
+    ],
+    "ch.14.name": [
+     "資料夾上鎖時"
+    ],
+    "ch.15.name": [
+     "關掉網頁按鈕、清除資料"
+    ],
+    "ch.16.name": [
+     "說明與求助"
+    ],
+    "ch.01.desc": [
+     "到 Chrome 線上應用程式商店搜尋「靈感收集器」，",
+     "加到 Chrome，再釘在工具列上。"
+    ],
+    "ch.02.desc": [
+     "按工具列上的圖示打開側邊欄；",
+     "第一次先挑一個資料夾，Chrome 問一次允許。"
+    ],
+    "ch.03.desc": [
+     "按側邊欄的「存這頁」，整篇正文存成一筆；",
+     "同一頁存兩次還是一份。"
+    ],
+    "ch.04.desc": [
+     "選起幾句，在反白上按右鍵",
+     "「把選取的內容存進收集器」；一段一筆。"
+    ],
+    "ch.05.desc": [
+     "一張用右鍵存原圖；好幾張用「存圖」挑。",
+     "小圖示會自動略過。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT、Claude、Perplexity",
+     "每則回覆最後的「存這則」，",
+     "只存那一則。"
+    ],
+    "ch.07.desc": [
+     "在對話頁按「存這頁」，整段對話標好誰說的；",
+     "Perplexity 連引用來源一起存。"
+    ],
+    "ch.08.desc": [
+     "「存檔案」把 ChatGPT 產生的 xlsx、py、md",
+     "原檔存進 assets/；",
+     "其他平台是灰的。"
+    ],
+    "ch.09.desc": [
+     "「新專題」開一個資料夾，寫一句它是做什麼的，",
+     "寫進 MATERIAL.md；",
+     "之後隨時可以改。"
+    ],
+    "ch.10.desc": [
+     "麵包屑看得出在哪一層、每一層都能點；",
+     "「切換專題」換專題；「換資料夾」換整個收集位置。"
+    ],
+    "ch.11.desc": [
+     "列表／縮圖、ALL／TXT／IMG／FILE、",
+     "搜尋、本頁收錄，",
+     "刪除要按兩次。"
+    ],
+    "ch.12.desc": [
+     "一筆一個 .md、原檔在 assets/；",
+     "每一筆的檔頭記著出處；",
+     "MATERIAL.md 是給 AI 的說明。"
+    ],
+    "ch.13.desc": [
+     "收滿五筆出現「交給 AI」：貼路徑、複製指令，",
+     "在 Claude Code 貼上 ——",
+     "它讀完素材交出帶出處的大綱（真的跑一次的結果）。"
+    ],
+    "ch.14.desc": [
+     "閒置一陣子資料夾會上鎖：按「解鎖資料夾」；",
+     "側邊欄解不開時用頂部的鎖圖示另開一頁。"
+    ],
+    "ch.15.desc": [
+     "「頁面功能」關掉網頁上的按鈕，側邊欄照樣能存；",
+     "垃圾桶先預覽會刪什麼。"
+    ],
+    "ch.16.desc": [
+     "使用說明、遇到問題（當場檢查）、隱私條款、關於我。"
+    ]
+   }
+  },
+  "en": {
+   "280": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "The tutorial",
+     "in 16 chapters"
+    ],
+    "tutorial.lead": [
+     "Installing, saving, topics,",
+     "handing it to your AI,",
+     "a locked folder and getting help,",
+     "in about 9 minutes.",
+     "Click a chapter to start there."
+    ],
+    "tutorial.youtube": [
+     "Watch on YouTube"
+    ],
+    "tutorial.chapters": [
+     "Chapters"
+    ],
+    "tutorial.total": [
+     "About 9 minutes in all"
+    ],
+    "tutorial.showAll": [
+     "Show all 16 chapters"
+    ],
+    "ch.01.name": [
+     "Install it in Chrome"
+    ],
+    "ch.02.name": [
+     "Open the panel,",
+     "pick a folder"
+    ],
+    "ch.03.name": [
+     "Save a whole page"
+    ],
+    "ch.04.name": [
+     "Save a passage"
+    ],
+    "ch.05.name": [
+     "Save images"
+    ],
+    "ch.06.name": [
+     "Save one AI reply"
+    ],
+    "ch.07.name": [
+     "Save a whole",
+     "AI chat"
+    ],
+    "ch.08.name": [
+     "Save files",
+     "ChatGPT made"
+    ],
+    "ch.09.name": [
+     "Sort with topics"
+    ],
+    "ch.10.name": [
+     "Move between",
+     "topics"
+    ],
+    "ch.11.name": [
+     "Tidy the list"
+    ],
+    "ch.12.name": [
+     "What is in the folder"
+    ],
+    "ch.13.name": [
+     "Hand it to your AI"
+    ],
+    "ch.14.name": [
+     "When the folder",
+     "is locked"
+    ],
+    "ch.15.name": [
+     "Page tools off,",
+     "clearing data"
+    ],
+    "ch.16.name": [
+     "Help and support"
+    ],
+    "ch.01.desc": [
+     "Search the Chrome Web Store",
+     "for “Inspiration Collector”, add",
+     "it to Chrome, then pin it to",
+     "the toolbar."
+    ],
+    "ch.02.desc": [
+     "Click the toolbar icon to open",
+     "the side panel.",
+     "The first time, pick a folder and",
+     "allow it once in Chrome."
+    ],
+    "ch.03.desc": [
+     "“Save page” in the side panel",
+     "saves the whole article as",
+     "one item.",
+     "Saving the same page twice",
+     "still leaves one copy."
+    ],
+    "ch.04.desc": [
+     "Select a few sentences, right-",
+     "click the highlight and choose",
+     "“Save selection to Collector”.",
+     "One passage, one item."
+    ],
+    "ch.05.desc": [
+     "Right-click to save one image",
+     "at full size;",
+     "use “Images” to pick several.",
+     "Small icons are skipped."
+    ],
+    "ch.06.desc": [
+     "“Save this”, at the end of each",
+     "reply in ChatGPT, Claude and",
+     "Perplexity, saves just that reply."
+    ],
+    "ch.07.desc": [
+     "“Save page” on a chat saves",
+     "the whole conversation,",
+     "marked with who said what.",
+     "Perplexity keeps its",
+     "sources too."
+    ],
+    "ch.08.desc": [
+     "“Files” saves the original xlsx,",
+     "py and md files ChatGPT made",
+     "into assets/.",
+     "It is greyed out on other sites."
+    ],
+    "ch.09.desc": [
+     "“New topic” makes a folder",
+     "and a sentence on what it is",
+     "for, written to MATERIAL.md.",
+     "You can change it any time."
+    ],
+    "ch.10.desc": [
+     "Breadcrumbs show where you",
+     "are, and every level is clickable.",
+     "“Switch topic” changes topic;",
+     "“Change folder” changes",
+     "where everything is saved."
+    ],
+    "ch.11.desc": [
+     "“List” or “Grid”, ALL / TXT / IMG",
+     "/ FILE, search and",
+     "“On this page”.",
+     "Delete takes two clicks."
+    ],
+    "ch.12.desc": [
+     "One .md per item, original files",
+     "in assets/.",
+     "Every item records its source",
+     "at the top;",
+     "MATERIAL.md explains the",
+     "folder to your AI."
+    ],
+    "ch.13.desc": [
+     "After five items,",
+     "“hand it to your AI” appears:",
+     "paste the path, copy the",
+     "prompt and paste it into",
+     "Claude Code.",
+     "It reads everything and returns",
+     "a sourced outline (from a",
+     "real run)."
+    ],
+    "ch.14.desc": [
+     "Left idle, the folder locks:",
+     "click “Unlock folder”.",
+     "If the side panel cannot unlock",
+     "it, the lock icon at the top",
+     "opens a separate page."
+    ],
+    "ch.15.desc": [
+     "Turning “Page tools” off",
+     "removes the buttons on",
+     "web pages;",
+     "the side panel still saves.",
+     "The trash icon shows what will",
+     "be deleted first."
+    ],
+    "ch.16.desc": [
+     "“How it works”, “Get help”",
+     "(checks everything on the",
+     "spot), “Privacy” and",
+     "“About me”."
+    ]
+   },
+   "320": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "The tutorial",
+     "in 16 chapters"
+    ],
+    "tutorial.lead": [
+     "Installing, saving, topics,",
+     "handing it to your AI, a locked folder",
+     "and getting help, in about 9 minutes.",
+     "Click a chapter to start there."
+    ],
+    "tutorial.youtube": [
+     "Watch on YouTube"
+    ],
+    "tutorial.chapters": [
+     "Chapters"
+    ],
+    "tutorial.total": [
+     "About 9 minutes in all"
+    ],
+    "tutorial.showAll": [
+     "Show all 16 chapters"
+    ],
+    "ch.01.name": [
+     "Install it in Chrome"
+    ],
+    "ch.02.name": [
+     "Open the panel, pick",
+     "a folder"
+    ],
+    "ch.03.name": [
+     "Save a whole page"
+    ],
+    "ch.04.name": [
+     "Save a passage"
+    ],
+    "ch.05.name": [
+     "Save images"
+    ],
+    "ch.06.name": [
+     "Save one AI reply"
+    ],
+    "ch.07.name": [
+     "Save a whole AI chat"
+    ],
+    "ch.08.name": [
+     "Save files ChatGPT made"
+    ],
+    "ch.09.name": [
+     "Sort with topics"
+    ],
+    "ch.10.name": [
+     "Move between topics"
+    ],
+    "ch.11.name": [
+     "Tidy the list"
+    ],
+    "ch.12.name": [
+     "What is in the folder"
+    ],
+    "ch.13.name": [
+     "Hand it to your AI"
+    ],
+    "ch.14.name": [
+     "When the folder is locked"
+    ],
+    "ch.15.name": [
+     "Page tools off,",
+     "clearing data"
+    ],
+    "ch.16.name": [
+     "Help and support"
+    ],
+    "ch.01.desc": [
+     "Search the Chrome Web Store for",
+     "“Inspiration Collector”, add it to",
+     "Chrome, then pin it to the toolbar."
+    ],
+    "ch.02.desc": [
+     "Click the toolbar icon to open the",
+     "side panel.",
+     "The first time, pick a folder and allow",
+     "it once in Chrome."
+    ],
+    "ch.03.desc": [
+     "“Save page” in the side panel saves",
+     "the whole article as one item.",
+     "Saving the same page twice still",
+     "leaves one copy."
+    ],
+    "ch.04.desc": [
+     "Select a few sentences, right-click",
+     "the highlight and choose “Save",
+     "selection to Collector”.",
+     "One passage, one item."
+    ],
+    "ch.05.desc": [
+     "Right-click to save one image at",
+     "full size;",
+     "use “Images” to pick several.",
+     "Small icons are skipped."
+    ],
+    "ch.06.desc": [
+     "“Save this”, at the end of each reply",
+     "in ChatGPT, Claude and Perplexity,",
+     "saves just that reply."
+    ],
+    "ch.07.desc": [
+     "“Save page” on a chat saves the",
+     "whole conversation, marked with",
+     "who said what.",
+     "Perplexity keeps its sources too."
+    ],
+    "ch.08.desc": [
+     "“Files” saves the original xlsx, py and",
+     "md files ChatGPT made into assets/.",
+     "It is greyed out on other sites."
+    ],
+    "ch.09.desc": [
+     "“New topic” makes a folder and a",
+     "sentence on what it is for, written",
+     "to MATERIAL.md.",
+     "You can change it any time."
+    ],
+    "ch.10.desc": [
+     "Breadcrumbs show where you are,",
+     "and every level is clickable.",
+     "“Switch topic” changes topic;",
+     "“Change folder” changes where",
+     "everything is saved."
+    ],
+    "ch.11.desc": [
+     "“List” or “Grid”, ALL / TXT / IMG / FILE,",
+     "search and “On this page”.",
+     "Delete takes two clicks."
+    ],
+    "ch.12.desc": [
+     "One .md per item, original files",
+     "in assets/.",
+     "Every item records its source at",
+     "the top;",
+     "MATERIAL.md explains the folder to",
+     "your AI."
+    ],
+    "ch.13.desc": [
+     "After five items,",
+     "“hand it to your AI” appears:",
+     "paste the path, copy the prompt and",
+     "paste it into Claude Code.",
+     "It reads everything and returns a",
+     "sourced outline (from a real run)."
+    ],
+    "ch.14.desc": [
+     "Left idle, the folder locks:",
+     "click “Unlock folder”.",
+     "If the side panel cannot unlock it, the",
+     "lock icon at the top opens a",
+     "separate page."
+    ],
+    "ch.15.desc": [
+     "Turning “Page tools” off removes the",
+     "buttons on web pages;",
+     "the side panel still saves.",
+     "The trash icon shows what will be",
+     "deleted first."
+    ],
+    "ch.16.desc": [
+     "“How it works”, “Get help” (checks",
+     "everything on the spot), “Privacy”",
+     "and “About me”."
+    ]
+   },
+   "360": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "The tutorial",
+     "in 16 chapters"
+    ],
+    "tutorial.lead": [
+     "Installing, saving, topics,",
+     "handing it to your AI, a locked folder",
+     "and getting help, in about 9 minutes.",
+     "Click a chapter to start there."
+    ],
+    "tutorial.youtube": [
+     "Watch on YouTube"
+    ],
+    "tutorial.chapters": [
+     "Chapters"
+    ],
+    "tutorial.total": [
+     "About 9 minutes in all"
+    ],
+    "tutorial.showAll": [
+     "Show all 16 chapters"
+    ],
+    "ch.01.name": [
+     "Install it in Chrome"
+    ],
+    "ch.02.name": [
+     "Open the panel, pick a folder"
+    ],
+    "ch.03.name": [
+     "Save a whole page"
+    ],
+    "ch.04.name": [
+     "Save a passage"
+    ],
+    "ch.05.name": [
+     "Save images"
+    ],
+    "ch.06.name": [
+     "Save one AI reply"
+    ],
+    "ch.07.name": [
+     "Save a whole AI chat"
+    ],
+    "ch.08.name": [
+     "Save files ChatGPT made"
+    ],
+    "ch.09.name": [
+     "Sort with topics"
+    ],
+    "ch.10.name": [
+     "Move between topics"
+    ],
+    "ch.11.name": [
+     "Tidy the list"
+    ],
+    "ch.12.name": [
+     "What is in the folder"
+    ],
+    "ch.13.name": [
+     "Hand it to your AI"
+    ],
+    "ch.14.name": [
+     "When the folder is locked"
+    ],
+    "ch.15.name": [
+     "Page tools off, clearing data"
+    ],
+    "ch.16.name": [
+     "Help and support"
+    ],
+    "ch.01.desc": [
+     "Search the Chrome Web Store for",
+     "“Inspiration Collector”, add it to Chrome,",
+     "then pin it to the toolbar."
+    ],
+    "ch.02.desc": [
+     "Click the toolbar icon to open the",
+     "side panel.",
+     "The first time, pick a folder and allow it",
+     "once in Chrome."
+    ],
+    "ch.03.desc": [
+     "“Save page” in the side panel saves the",
+     "whole article as one item.",
+     "Saving the same page twice still leaves",
+     "one copy."
+    ],
+    "ch.04.desc": [
+     "Select a few sentences, right-click the",
+     "highlight and choose “Save selection",
+     "to Collector”.",
+     "One passage, one item."
+    ],
+    "ch.05.desc": [
+     "Right-click to save one image at full size;",
+     "use “Images” to pick several.",
+     "Small icons are skipped."
+    ],
+    "ch.06.desc": [
+     "“Save this”, at the end of each reply in",
+     "ChatGPT, Claude and Perplexity, saves just",
+     "that reply."
+    ],
+    "ch.07.desc": [
+     "“Save page” on a chat saves the whole",
+     "conversation, marked with who said what.",
+     "Perplexity keeps its sources too."
+    ],
+    "ch.08.desc": [
+     "“Files” saves the original xlsx, py and md",
+     "files ChatGPT made into assets/.",
+     "It is greyed out on other sites."
+    ],
+    "ch.09.desc": [
+     "“New topic” makes a folder and a sentence",
+     "on what it is for, written to MATERIAL.md.",
+     "You can change it any time."
+    ],
+    "ch.10.desc": [
+     "Breadcrumbs show where you are, and",
+     "every level is clickable.",
+     "“Switch topic” changes topic;",
+     "“Change folder” changes where everything",
+     "is saved."
+    ],
+    "ch.11.desc": [
+     "“List” or “Grid”, ALL / TXT / IMG / FILE,",
+     "search and “On this page”.",
+     "Delete takes two clicks."
+    ],
+    "ch.12.desc": [
+     "One .md per item, original files in assets/.",
+     "Every item records its source at the top;",
+     "MATERIAL.md explains the folder to",
+     "your AI."
+    ],
+    "ch.13.desc": [
+     "After five items,",
+     "“hand it to your AI” appears:",
+     "paste the path, copy the prompt and paste",
+     "it into Claude Code.",
+     "It reads everything and returns a sourced",
+     "outline (from a real run)."
+    ],
+    "ch.14.desc": [
+     "Left idle, the folder locks:",
+     "click “Unlock folder”.",
+     "If the side panel cannot unlock it, the lock",
+     "icon at the top opens a separate page."
+    ],
+    "ch.15.desc": [
+     "Turning “Page tools” off removes the",
+     "buttons on web pages;",
+     "the side panel still saves.",
+     "The trash icon shows what will be",
+     "deleted first."
+    ],
+    "ch.16.desc": [
+     "“How it works”, “Get help” (checks",
+     "everything on the spot), “Privacy” and",
+     "“About me”."
+    ]
+   },
+   "375": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "The tutorial",
+     "in 16 chapters"
+    ],
+    "tutorial.lead": [
+     "Installing, saving, topics, handing it to your AI,",
+     "a locked folder and getting help,",
+     "in about 9 minutes.",
+     "Click a chapter to start there."
+    ],
+    "tutorial.youtube": [
+     "Watch on YouTube"
+    ],
+    "tutorial.chapters": [
+     "Chapters"
+    ],
+    "tutorial.total": [
+     "About 9 minutes in all"
+    ],
+    "tutorial.showAll": [
+     "Show all 16 chapters"
+    ],
+    "ch.01.name": [
+     "Install it in Chrome"
+    ],
+    "ch.02.name": [
+     "Open the panel, pick a folder"
+    ],
+    "ch.03.name": [
+     "Save a whole page"
+    ],
+    "ch.04.name": [
+     "Save a passage"
+    ],
+    "ch.05.name": [
+     "Save images"
+    ],
+    "ch.06.name": [
+     "Save one AI reply"
+    ],
+    "ch.07.name": [
+     "Save a whole AI chat"
+    ],
+    "ch.08.name": [
+     "Save files ChatGPT made"
+    ],
+    "ch.09.name": [
+     "Sort with topics"
+    ],
+    "ch.10.name": [
+     "Move between topics"
+    ],
+    "ch.11.name": [
+     "Tidy the list"
+    ],
+    "ch.12.name": [
+     "What is in the folder"
+    ],
+    "ch.13.name": [
+     "Hand it to your AI"
+    ],
+    "ch.14.name": [
+     "When the folder is locked"
+    ],
+    "ch.15.name": [
+     "Page tools off, clearing data"
+    ],
+    "ch.16.name": [
+     "Help and support"
+    ],
+    "ch.01.desc": [
+     "Search the Chrome Web Store for",
+     "“Inspiration Collector”, add it to Chrome,",
+     "then pin it to the toolbar."
+    ],
+    "ch.02.desc": [
+     "Click the toolbar icon to open the side panel.",
+     "The first time, pick a folder and allow it once",
+     "in Chrome."
+    ],
+    "ch.03.desc": [
+     "“Save page” in the side panel saves the whole",
+     "article as one item.",
+     "Saving the same page twice still leaves",
+     "one copy."
+    ],
+    "ch.04.desc": [
+     "Select a few sentences, right-click the",
+     "highlight and choose “Save selection",
+     "to Collector”.",
+     "One passage, one item."
+    ],
+    "ch.05.desc": [
+     "Right-click to save one image at full size;",
+     "use “Images” to pick several.",
+     "Small icons are skipped."
+    ],
+    "ch.06.desc": [
+     "“Save this”, at the end of each reply in",
+     "ChatGPT, Claude and Perplexity, saves just",
+     "that reply."
+    ],
+    "ch.07.desc": [
+     "“Save page” on a chat saves the whole",
+     "conversation, marked with who said what.",
+     "Perplexity keeps its sources too."
+    ],
+    "ch.08.desc": [
+     "“Files” saves the original xlsx, py and md files",
+     "ChatGPT made into assets/.",
+     "It is greyed out on other sites."
+    ],
+    "ch.09.desc": [
+     "“New topic” makes a folder and a sentence",
+     "on what it is for, written to MATERIAL.md.",
+     "You can change it any time."
+    ],
+    "ch.10.desc": [
+     "Breadcrumbs show where you are, and every",
+     "level is clickable.",
+     "“Switch topic” changes topic;",
+     "“Change folder” changes where everything",
+     "is saved."
+    ],
+    "ch.11.desc": [
+     "“List” or “Grid”, ALL / TXT / IMG / FILE, search",
+     "and “On this page”.",
+     "Delete takes two clicks."
+    ],
+    "ch.12.desc": [
+     "One .md per item, original files in assets/.",
+     "Every item records its source at the top;",
+     "MATERIAL.md explains the folder to your AI."
+    ],
+    "ch.13.desc": [
+     "After five items, “hand it to your AI” appears:",
+     "paste the path, copy the prompt and paste it",
+     "into Claude Code.",
+     "It reads everything and returns a sourced",
+     "outline (from a real run)."
+    ],
+    "ch.14.desc": [
+     "Left idle, the folder locks:",
+     "click “Unlock folder”.",
+     "If the side panel cannot unlock it, the lock",
+     "icon at the top opens a separate page."
+    ],
+    "ch.15.desc": [
+     "Turning “Page tools” off removes the buttons",
+     "on web pages;",
+     "the side panel still saves.",
+     "The trash icon shows what will be",
+     "deleted first."
+    ],
+    "ch.16.desc": [
+     "“How it works”, “Get help” (checks everything",
+     "on the spot), “Privacy” and “About me”."
+    ]
+   },
+   "390": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "The tutorial",
+     "in 16 chapters"
+    ],
+    "tutorial.lead": [
+     "Installing, saving, topics, handing it to your AI,",
+     "a locked folder and getting help,",
+     "in about 9 minutes.",
+     "Click a chapter to start there."
+    ],
+    "tutorial.youtube": [
+     "Watch on YouTube"
+    ],
+    "tutorial.chapters": [
+     "Chapters"
+    ],
+    "tutorial.total": [
+     "About 9 minutes in all"
+    ],
+    "tutorial.showAll": [
+     "Show all 16 chapters"
+    ],
+    "ch.01.name": [
+     "Install it in Chrome"
+    ],
+    "ch.02.name": [
+     "Open the panel, pick a folder"
+    ],
+    "ch.03.name": [
+     "Save a whole page"
+    ],
+    "ch.04.name": [
+     "Save a passage"
+    ],
+    "ch.05.name": [
+     "Save images"
+    ],
+    "ch.06.name": [
+     "Save one AI reply"
+    ],
+    "ch.07.name": [
+     "Save a whole AI chat"
+    ],
+    "ch.08.name": [
+     "Save files ChatGPT made"
+    ],
+    "ch.09.name": [
+     "Sort with topics"
+    ],
+    "ch.10.name": [
+     "Move between topics"
+    ],
+    "ch.11.name": [
+     "Tidy the list"
+    ],
+    "ch.12.name": [
+     "What is in the folder"
+    ],
+    "ch.13.name": [
+     "Hand it to your AI"
+    ],
+    "ch.14.name": [
+     "When the folder is locked"
+    ],
+    "ch.15.name": [
+     "Page tools off, clearing data"
+    ],
+    "ch.16.name": [
+     "Help and support"
+    ],
+    "ch.01.desc": [
+     "Search the Chrome Web Store for",
+     "“Inspiration Collector”, add it to Chrome, then",
+     "pin it to the toolbar."
+    ],
+    "ch.02.desc": [
+     "Click the toolbar icon to open the side panel.",
+     "The first time, pick a folder and allow it once",
+     "in Chrome."
+    ],
+    "ch.03.desc": [
+     "“Save page” in the side panel saves the whole",
+     "article as one item.",
+     "Saving the same page twice still leaves",
+     "one copy."
+    ],
+    "ch.04.desc": [
+     "Select a few sentences, right-click the highlight",
+     "and choose “Save selection to Collector”.",
+     "One passage, one item."
+    ],
+    "ch.05.desc": [
+     "Right-click to save one image at full size;",
+     "use “Images” to pick several.",
+     "Small icons are skipped."
+    ],
+    "ch.06.desc": [
+     "“Save this”, at the end of each reply in ChatGPT,",
+     "Claude and Perplexity, saves just that reply."
+    ],
+    "ch.07.desc": [
+     "“Save page” on a chat saves the whole",
+     "conversation, marked with who said what.",
+     "Perplexity keeps its sources too."
+    ],
+    "ch.08.desc": [
+     "“Files” saves the original xlsx, py and md files",
+     "ChatGPT made into assets/.",
+     "It is greyed out on other sites."
+    ],
+    "ch.09.desc": [
+     "“New topic” makes a folder and a sentence on",
+     "what it is for, written to MATERIAL.md.",
+     "You can change it any time."
+    ],
+    "ch.10.desc": [
+     "Breadcrumbs show where you are, and every",
+     "level is clickable.",
+     "“Switch topic” changes topic;",
+     "“Change folder” changes where everything",
+     "is saved."
+    ],
+    "ch.11.desc": [
+     "“List” or “Grid”, ALL / TXT / IMG / FILE, search",
+     "and “On this page”.",
+     "Delete takes two clicks."
+    ],
+    "ch.12.desc": [
+     "One .md per item, original files in assets/.",
+     "Every item records its source at the top;",
+     "MATERIAL.md explains the folder to your AI."
+    ],
+    "ch.13.desc": [
+     "After five items, “hand it to your AI” appears:",
+     "paste the path, copy the prompt and paste it",
+     "into Claude Code.",
+     "It reads everything and returns a sourced",
+     "outline (from a real run)."
+    ],
+    "ch.14.desc": [
+     "Left idle, the folder locks: click “Unlock folder”.",
+     "If the side panel cannot unlock it, the lock icon",
+     "at the top opens a separate page."
+    ],
+    "ch.15.desc": [
+     "Turning “Page tools” off removes the buttons",
+     "on web pages;",
+     "the side panel still saves.",
+     "The trash icon shows what will be deleted first."
+    ],
+    "ch.16.desc": [
+     "“How it works”, “Get help” (checks everything",
+     "on the spot), “Privacy” and “About me”."
+    ]
+   },
+   "414": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "The tutorial in 16 chapters"
+    ],
+    "tutorial.lead": [
+     "Installing, saving, topics, handing it to your AI,",
+     "a locked folder and getting help,",
+     "in about 9 minutes.",
+     "Click a chapter to start there."
+    ],
+    "tutorial.youtube": [
+     "Watch on YouTube"
+    ],
+    "tutorial.chapters": [
+     "Chapters"
+    ],
+    "tutorial.total": [
+     "About 9 minutes in all"
+    ],
+    "tutorial.showAll": [
+     "Show all 16 chapters"
+    ],
+    "ch.01.name": [
+     "Install it in Chrome"
+    ],
+    "ch.02.name": [
+     "Open the panel, pick a folder"
+    ],
+    "ch.03.name": [
+     "Save a whole page"
+    ],
+    "ch.04.name": [
+     "Save a passage"
+    ],
+    "ch.05.name": [
+     "Save images"
+    ],
+    "ch.06.name": [
+     "Save one AI reply"
+    ],
+    "ch.07.name": [
+     "Save a whole AI chat"
+    ],
+    "ch.08.name": [
+     "Save files ChatGPT made"
+    ],
+    "ch.09.name": [
+     "Sort with topics"
+    ],
+    "ch.10.name": [
+     "Move between topics"
+    ],
+    "ch.11.name": [
+     "Tidy the list"
+    ],
+    "ch.12.name": [
+     "What is in the folder"
+    ],
+    "ch.13.name": [
+     "Hand it to your AI"
+    ],
+    "ch.14.name": [
+     "When the folder is locked"
+    ],
+    "ch.15.name": [
+     "Page tools off, clearing data"
+    ],
+    "ch.16.name": [
+     "Help and support"
+    ],
+    "ch.01.desc": [
+     "Search the Chrome Web Store for",
+     "“Inspiration Collector”, add it to Chrome, then pin it",
+     "to the toolbar."
+    ],
+    "ch.02.desc": [
+     "Click the toolbar icon to open the side panel.",
+     "The first time, pick a folder and allow it once",
+     "in Chrome."
+    ],
+    "ch.03.desc": [
+     "“Save page” in the side panel saves the whole",
+     "article as one item.",
+     "Saving the same page twice still leaves one copy."
+    ],
+    "ch.04.desc": [
+     "Select a few sentences, right-click the highlight and",
+     "choose “Save selection to Collector”.",
+     "One passage, one item."
+    ],
+    "ch.05.desc": [
+     "Right-click to save one image at full size;",
+     "use “Images” to pick several.",
+     "Small icons are skipped."
+    ],
+    "ch.06.desc": [
+     "“Save this”, at the end of each reply in ChatGPT,",
+     "Claude and Perplexity, saves just that reply."
+    ],
+    "ch.07.desc": [
+     "“Save page” on a chat saves the whole",
+     "conversation, marked with who said what.",
+     "Perplexity keeps its sources too."
+    ],
+    "ch.08.desc": [
+     "“Files” saves the original xlsx, py and md files",
+     "ChatGPT made into assets/.",
+     "It is greyed out on other sites."
+    ],
+    "ch.09.desc": [
+     "“New topic” makes a folder and a sentence on",
+     "what it is for, written to MATERIAL.md.",
+     "You can change it any time."
+    ],
+    "ch.10.desc": [
+     "Breadcrumbs show where you are, and every level",
+     "is clickable.",
+     "“Switch topic” changes topic;",
+     "“Change folder” changes where everything",
+     "is saved."
+    ],
+    "ch.11.desc": [
+     "“List” or “Grid”, ALL / TXT / IMG / FILE, search and",
+     "“On this page”.",
+     "Delete takes two clicks."
+    ],
+    "ch.12.desc": [
+     "One .md per item, original files in assets/.",
+     "Every item records its source at the top;",
+     "MATERIAL.md explains the folder to your AI."
+    ],
+    "ch.13.desc": [
+     "After five items, “hand it to your AI” appears:",
+     "paste the path, copy the prompt and paste it into",
+     "Claude Code.",
+     "It reads everything and returns a sourced outline",
+     "(from a real run)."
+    ],
+    "ch.14.desc": [
+     "Left idle, the folder locks: click “Unlock folder”.",
+     "If the side panel cannot unlock it, the lock icon at",
+     "the top opens a separate page."
+    ],
+    "ch.15.desc": [
+     "Turning “Page tools” off removes the buttons on",
+     "web pages;",
+     "the side panel still saves.",
+     "The trash icon shows what will be deleted first."
+    ],
+    "ch.16.desc": [
+     "“How it works”, “Get help” (checks everything on",
+     "the spot), “Privacy” and “About me”."
+    ]
+   },
+   "430": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "The tutorial in 16 chapters"
+    ],
+    "tutorial.lead": [
+     "Installing, saving, topics, handing it to your AI,",
+     "a locked folder and getting help, in about 9 minutes.",
+     "Click a chapter to start there."
+    ],
+    "tutorial.youtube": [
+     "Watch on YouTube"
+    ],
+    "tutorial.chapters": [
+     "Chapters"
+    ],
+    "tutorial.total": [
+     "About 9 minutes in all"
+    ],
+    "tutorial.showAll": [
+     "Show all 16 chapters"
+    ],
+    "ch.01.name": [
+     "Install it in Chrome"
+    ],
+    "ch.02.name": [
+     "Open the panel, pick a folder"
+    ],
+    "ch.03.name": [
+     "Save a whole page"
+    ],
+    "ch.04.name": [
+     "Save a passage"
+    ],
+    "ch.05.name": [
+     "Save images"
+    ],
+    "ch.06.name": [
+     "Save one AI reply"
+    ],
+    "ch.07.name": [
+     "Save a whole AI chat"
+    ],
+    "ch.08.name": [
+     "Save files ChatGPT made"
+    ],
+    "ch.09.name": [
+     "Sort with topics"
+    ],
+    "ch.10.name": [
+     "Move between topics"
+    ],
+    "ch.11.name": [
+     "Tidy the list"
+    ],
+    "ch.12.name": [
+     "What is in the folder"
+    ],
+    "ch.13.name": [
+     "Hand it to your AI"
+    ],
+    "ch.14.name": [
+     "When the folder is locked"
+    ],
+    "ch.15.name": [
+     "Page tools off, clearing data"
+    ],
+    "ch.16.name": [
+     "Help and support"
+    ],
+    "ch.01.desc": [
+     "Search the Chrome Web Store for",
+     "“Inspiration Collector”, add it to Chrome, then pin it",
+     "to the toolbar."
+    ],
+    "ch.02.desc": [
+     "Click the toolbar icon to open the side panel.",
+     "The first time, pick a folder and allow it once",
+     "in Chrome."
+    ],
+    "ch.03.desc": [
+     "“Save page” in the side panel saves the whole article",
+     "as one item.",
+     "Saving the same page twice still leaves one copy."
+    ],
+    "ch.04.desc": [
+     "Select a few sentences, right-click the highlight and",
+     "choose “Save selection to Collector”.",
+     "One passage, one item."
+    ],
+    "ch.05.desc": [
+     "Right-click to save one image at full size;",
+     "use “Images” to pick several.",
+     "Small icons are skipped."
+    ],
+    "ch.06.desc": [
+     "“Save this”, at the end of each reply in ChatGPT,",
+     "Claude and Perplexity, saves just that reply."
+    ],
+    "ch.07.desc": [
+     "“Save page” on a chat saves the whole conversation,",
+     "marked with who said what.",
+     "Perplexity keeps its sources too."
+    ],
+    "ch.08.desc": [
+     "“Files” saves the original xlsx, py and md files",
+     "ChatGPT made into assets/.",
+     "It is greyed out on other sites."
+    ],
+    "ch.09.desc": [
+     "“New topic” makes a folder and a sentence on what",
+     "it is for, written to MATERIAL.md.",
+     "You can change it any time."
+    ],
+    "ch.10.desc": [
+     "Breadcrumbs show where you are, and every level",
+     "is clickable.",
+     "“Switch topic” changes topic;",
+     "“Change folder” changes where everything is saved."
+    ],
+    "ch.11.desc": [
+     "“List” or “Grid”, ALL / TXT / IMG / FILE, search and",
+     "“On this page”.",
+     "Delete takes two clicks."
+    ],
+    "ch.12.desc": [
+     "One .md per item, original files in assets/.",
+     "Every item records its source at the top;",
+     "MATERIAL.md explains the folder to your AI."
+    ],
+    "ch.13.desc": [
+     "After five items, “hand it to your AI” appears:",
+     "paste the path, copy the prompt and paste it into",
+     "Claude Code.",
+     "It reads everything and returns a sourced outline",
+     "(from a real run)."
+    ],
+    "ch.14.desc": [
+     "Left idle, the folder locks: click “Unlock folder”.",
+     "If the side panel cannot unlock it, the lock icon at the",
+     "top opens a separate page."
+    ],
+    "ch.15.desc": [
+     "Turning “Page tools” off removes the buttons on",
+     "web pages;",
+     "the side panel still saves.",
+     "The trash icon shows what will be deleted first."
+    ],
+    "ch.16.desc": [
+     "“How it works”, “Get help” (checks everything on the",
+     "spot), “Privacy” and “About me”."
+    ]
+   },
+   "640": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "The tutorial in 16 chapters"
+    ],
+    "tutorial.lead": [
+     "Installing, saving, topics, handing it to your AI,",
+     "a locked folder and getting help, in about 9 minutes.",
+     "Click a chapter to start there."
+    ],
+    "tutorial.youtube": [
+     "Watch on YouTube"
+    ],
+    "tutorial.chapters": [
+     "Chapters"
+    ],
+    "tutorial.total": [
+     "About 9 minutes in all"
+    ],
+    "tutorial.showAll": [
+     "Show all 16 chapters"
+    ],
+    "ch.01.name": [
+     "Install it in Chrome"
+    ],
+    "ch.02.name": [
+     "Open the panel, pick a folder"
+    ],
+    "ch.03.name": [
+     "Save a whole page"
+    ],
+    "ch.04.name": [
+     "Save a passage"
+    ],
+    "ch.05.name": [
+     "Save images"
+    ],
+    "ch.06.name": [
+     "Save one AI reply"
+    ],
+    "ch.07.name": [
+     "Save a whole AI chat"
+    ],
+    "ch.08.name": [
+     "Save files ChatGPT made"
+    ],
+    "ch.09.name": [
+     "Sort with topics"
+    ],
+    "ch.10.name": [
+     "Move between topics"
+    ],
+    "ch.11.name": [
+     "Tidy the list"
+    ],
+    "ch.12.name": [
+     "What is in the folder"
+    ],
+    "ch.13.name": [
+     "Hand it to your AI"
+    ],
+    "ch.14.name": [
+     "When the folder is locked"
+    ],
+    "ch.15.name": [
+     "Page tools off, clearing data"
+    ],
+    "ch.16.name": [
+     "Help and support"
+    ],
+    "ch.01.desc": [
+     "Search the Chrome Web Store for",
+     "“Inspiration Collector”, add it to Chrome, then pin it",
+     "to the toolbar."
+    ],
+    "ch.02.desc": [
+     "Click the toolbar icon to open the side panel.",
+     "The first time, pick a folder and allow it once",
+     "in Chrome."
+    ],
+    "ch.03.desc": [
+     "“Save page” in the side panel saves the whole article",
+     "as one item.",
+     "Saving the same page twice still leaves one copy."
+    ],
+    "ch.04.desc": [
+     "Select a few sentences, right-click the highlight and",
+     "choose “Save selection to Collector”.",
+     "One passage, one item."
+    ],
+    "ch.05.desc": [
+     "Right-click to save one image at full size;",
+     "use “Images” to pick several.",
+     "Small icons are skipped."
+    ],
+    "ch.06.desc": [
+     "“Save this”, at the end of each reply in ChatGPT,",
+     "Claude and Perplexity, saves just that reply."
+    ],
+    "ch.07.desc": [
+     "“Save page” on a chat saves the whole conversation,",
+     "marked with who said what.",
+     "Perplexity keeps its sources too."
+    ],
+    "ch.08.desc": [
+     "“Files” saves the original xlsx, py and md files",
+     "ChatGPT made into assets/.",
+     "It is greyed out on other sites."
+    ],
+    "ch.09.desc": [
+     "“New topic” makes a folder and a sentence on what",
+     "it is for, written to MATERIAL.md.",
+     "You can change it any time."
+    ],
+    "ch.10.desc": [
+     "Breadcrumbs show where you are, and every level",
+     "is clickable.",
+     "“Switch topic” changes topic;",
+     "“Change folder” changes where everything is saved."
+    ],
+    "ch.11.desc": [
+     "“List” or “Grid”, ALL / TXT / IMG / FILE, search and",
+     "“On this page”.",
+     "Delete takes two clicks."
+    ],
+    "ch.12.desc": [
+     "One .md per item, original files in assets/.",
+     "Every item records its source at the top;",
+     "MATERIAL.md explains the folder to your AI."
+    ],
+    "ch.13.desc": [
+     "After five items, “hand it to your AI” appears:",
+     "paste the path, copy the prompt and paste it into",
+     "Claude Code.",
+     "It reads everything and returns a sourced outline",
+     "(from a real run)."
+    ],
+    "ch.14.desc": [
+     "Left idle, the folder locks: click “Unlock folder”.",
+     "If the side panel cannot unlock it, the lock icon at the",
+     "top opens a separate page."
+    ],
+    "ch.15.desc": [
+     "Turning “Page tools” off removes the buttons on",
+     "web pages;",
+     "the side panel still saves.",
+     "The trash icon shows what will be deleted first."
+    ],
+    "ch.16.desc": [
+     "“How it works”, “Get help” (checks everything on the",
+     "spot), “Privacy” and “About me”."
+    ]
+   },
+   "768": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "The tutorial in 16 chapters"
+    ],
+    "tutorial.lead": [
+     "Installing, saving, topics, handing it to your AI,",
+     "a locked folder and getting help, in about 9 minutes.",
+     "Click a chapter to start there."
+    ],
+    "tutorial.youtube": [
+     "Watch on YouTube"
+    ],
+    "tutorial.chapters": [
+     "Chapters"
+    ],
+    "tutorial.total": [
+     "About 9 minutes in all"
+    ],
+    "tutorial.showAll": [
+     "Show all 16 chapters"
+    ],
+    "ch.01.name": [
+     "Install it in Chrome"
+    ],
+    "ch.02.name": [
+     "Open the panel, pick a folder"
+    ],
+    "ch.03.name": [
+     "Save a whole page"
+    ],
+    "ch.04.name": [
+     "Save a passage"
+    ],
+    "ch.05.name": [
+     "Save images"
+    ],
+    "ch.06.name": [
+     "Save one AI reply"
+    ],
+    "ch.07.name": [
+     "Save a whole AI chat"
+    ],
+    "ch.08.name": [
+     "Save files ChatGPT made"
+    ],
+    "ch.09.name": [
+     "Sort with topics"
+    ],
+    "ch.10.name": [
+     "Move between topics"
+    ],
+    "ch.11.name": [
+     "Tidy the list"
+    ],
+    "ch.12.name": [
+     "What is in the folder"
+    ],
+    "ch.13.name": [
+     "Hand it to your AI"
+    ],
+    "ch.14.name": [
+     "When the folder is locked"
+    ],
+    "ch.15.name": [
+     "Page tools off, clearing data"
+    ],
+    "ch.16.name": [
+     "Help and support"
+    ],
+    "ch.01.desc": [
+     "Search the Chrome Web Store for",
+     "“Inspiration Collector”, add it to Chrome, then pin it",
+     "to the toolbar."
+    ],
+    "ch.02.desc": [
+     "Click the toolbar icon to open the side panel.",
+     "The first time, pick a folder and allow it once",
+     "in Chrome."
+    ],
+    "ch.03.desc": [
+     "“Save page” in the side panel saves the whole article",
+     "as one item.",
+     "Saving the same page twice still leaves one copy."
+    ],
+    "ch.04.desc": [
+     "Select a few sentences, right-click the highlight and",
+     "choose “Save selection to Collector”.",
+     "One passage, one item."
+    ],
+    "ch.05.desc": [
+     "Right-click to save one image at full size;",
+     "use “Images” to pick several.",
+     "Small icons are skipped."
+    ],
+    "ch.06.desc": [
+     "“Save this”, at the end of each reply in ChatGPT,",
+     "Claude and Perplexity, saves just that reply."
+    ],
+    "ch.07.desc": [
+     "“Save page” on a chat saves the whole conversation,",
+     "marked with who said what.",
+     "Perplexity keeps its sources too."
+    ],
+    "ch.08.desc": [
+     "“Files” saves the original xlsx, py and md files",
+     "ChatGPT made into assets/.",
+     "It is greyed out on other sites."
+    ],
+    "ch.09.desc": [
+     "“New topic” makes a folder and a sentence on what",
+     "it is for, written to MATERIAL.md.",
+     "You can change it any time."
+    ],
+    "ch.10.desc": [
+     "Breadcrumbs show where you are, and every level",
+     "is clickable.",
+     "“Switch topic” changes topic;",
+     "“Change folder” changes where everything is saved."
+    ],
+    "ch.11.desc": [
+     "“List” or “Grid”, ALL / TXT / IMG / FILE, search and",
+     "“On this page”.",
+     "Delete takes two clicks."
+    ],
+    "ch.12.desc": [
+     "One .md per item, original files in assets/.",
+     "Every item records its source at the top;",
+     "MATERIAL.md explains the folder to your AI."
+    ],
+    "ch.13.desc": [
+     "After five items, “hand it to your AI” appears:",
+     "paste the path, copy the prompt and paste it into",
+     "Claude Code.",
+     "It reads everything and returns a sourced outline",
+     "(from a real run)."
+    ],
+    "ch.14.desc": [
+     "Left idle, the folder locks: click “Unlock folder”.",
+     "If the side panel cannot unlock it, the lock icon at the",
+     "top opens a separate page."
+    ],
+    "ch.15.desc": [
+     "Turning “Page tools” off removes the buttons on",
+     "web pages;",
+     "the side panel still saves.",
+     "The trash icon shows what will be deleted first."
+    ],
+    "ch.16.desc": [
+     "“How it works”, “Get help” (checks everything on the",
+     "spot), “Privacy” and “About me”."
+    ]
+   },
+   "1024": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "The tutorial in 16 chapters"
+    ],
+    "tutorial.lead": [
+     "Installing, saving, topics, handing it to your AI,",
+     "a locked folder and getting help, in about 9 minutes.",
+     "Click a chapter to start there."
+    ],
+    "tutorial.youtube": [
+     "Watch on YouTube"
+    ],
+    "tutorial.chapters": [
+     "Chapters"
+    ],
+    "tutorial.total": [
+     "About 9 minutes in all"
+    ],
+    "tutorial.showAll": [],
+    "ch.01.name": [
+     "Install it in Chrome"
+    ],
+    "ch.02.name": [
+     "Open the panel, pick a folder"
+    ],
+    "ch.03.name": [
+     "Save a whole page"
+    ],
+    "ch.04.name": [
+     "Save a passage"
+    ],
+    "ch.05.name": [
+     "Save images"
+    ],
+    "ch.06.name": [
+     "Save one AI reply"
+    ],
+    "ch.07.name": [
+     "Save a whole AI chat"
+    ],
+    "ch.08.name": [
+     "Save files ChatGPT made"
+    ],
+    "ch.09.name": [
+     "Sort with topics"
+    ],
+    "ch.10.name": [
+     "Move between topics"
+    ],
+    "ch.11.name": [
+     "Tidy the list"
+    ],
+    "ch.12.name": [
+     "What is in the folder"
+    ],
+    "ch.13.name": [
+     "Hand it to your AI"
+    ],
+    "ch.14.name": [
+     "When the folder is locked"
+    ],
+    "ch.15.name": [
+     "Page tools off, clearing data"
+    ],
+    "ch.16.name": [
+     "Help and support"
+    ],
+    "ch.01.desc": [
+     "Search the Chrome Web Store for",
+     "“Inspiration Collector”, add it to Chrome,",
+     "then pin it to the toolbar."
+    ],
+    "ch.02.desc": [
+     "Click the toolbar icon to open the",
+     "side panel.",
+     "The first time, pick a folder and allow it once",
+     "in Chrome."
+    ],
+    "ch.03.desc": [
+     "“Save page” in the side panel saves the",
+     "whole article as one item.",
+     "Saving the same page twice still leaves",
+     "one copy."
+    ],
+    "ch.04.desc": [
+     "Select a few sentences, right-click the",
+     "highlight and choose “Save selection",
+     "to Collector”.",
+     "One passage, one item."
+    ],
+    "ch.05.desc": [
+     "Right-click to save one image at full size;",
+     "use “Images” to pick several.",
+     "Small icons are skipped."
+    ],
+    "ch.06.desc": [
+     "“Save this”, at the end of each reply in",
+     "ChatGPT, Claude and Perplexity, saves just",
+     "that reply."
+    ],
+    "ch.07.desc": [
+     "“Save page” on a chat saves the whole",
+     "conversation, marked with who said what.",
+     "Perplexity keeps its sources too."
+    ],
+    "ch.08.desc": [
+     "“Files” saves the original xlsx, py and md files",
+     "ChatGPT made into assets/.",
+     "It is greyed out on other sites."
+    ],
+    "ch.09.desc": [
+     "“New topic” makes a folder and a sentence",
+     "on what it is for, written to MATERIAL.md.",
+     "You can change it any time."
+    ],
+    "ch.10.desc": [
+     "Breadcrumbs show where you are, and",
+     "every level is clickable.",
+     "“Switch topic” changes topic;",
+     "“Change folder” changes where everything",
+     "is saved."
+    ],
+    "ch.11.desc": [
+     "“List” or “Grid”, ALL / TXT / IMG / FILE, search",
+     "and “On this page”.",
+     "Delete takes two clicks."
+    ],
+    "ch.12.desc": [
+     "One .md per item, original files in assets/.",
+     "Every item records its source at the top;",
+     "MATERIAL.md explains the folder to your AI."
+    ],
+    "ch.13.desc": [
+     "After five items, “hand it to your AI” appears:",
+     "paste the path, copy the prompt and paste",
+     "it into Claude Code.",
+     "It reads everything and returns a sourced",
+     "outline (from a real run)."
+    ],
+    "ch.14.desc": [
+     "Left idle, the folder locks:",
+     "click “Unlock folder”.",
+     "If the side panel cannot unlock it, the lock",
+     "icon at the top opens a separate page."
+    ],
+    "ch.15.desc": [
+     "Turning “Page tools” off removes the",
+     "buttons on web pages;",
+     "the side panel still saves.",
+     "The trash icon shows what will be",
+     "deleted first."
+    ],
+    "ch.16.desc": [
+     "“How it works”, “Get help” (checks",
+     "everything on the spot), “Privacy” and",
+     "“About me”."
+    ]
+   },
+   "1280": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "The tutorial in 16 chapters"
+    ],
+    "tutorial.lead": [
+     "Installing, saving, topics, handing it to your AI,",
+     "a locked folder and getting help, in about 9 minutes.",
+     "Click a chapter to start there."
+    ],
+    "tutorial.youtube": [
+     "Watch on YouTube"
+    ],
+    "tutorial.chapters": [
+     "Chapters"
+    ],
+    "tutorial.total": [
+     "About 9 minutes in all"
+    ],
+    "tutorial.showAll": [],
+    "ch.01.name": [
+     "Install it in Chrome"
+    ],
+    "ch.02.name": [
+     "Open the panel, pick a folder"
+    ],
+    "ch.03.name": [
+     "Save a whole page"
+    ],
+    "ch.04.name": [
+     "Save a passage"
+    ],
+    "ch.05.name": [
+     "Save images"
+    ],
+    "ch.06.name": [
+     "Save one AI reply"
+    ],
+    "ch.07.name": [
+     "Save a whole AI chat"
+    ],
+    "ch.08.name": [
+     "Save files ChatGPT made"
+    ],
+    "ch.09.name": [
+     "Sort with topics"
+    ],
+    "ch.10.name": [
+     "Move between topics"
+    ],
+    "ch.11.name": [
+     "Tidy the list"
+    ],
+    "ch.12.name": [
+     "What is in the folder"
+    ],
+    "ch.13.name": [
+     "Hand it to your AI"
+    ],
+    "ch.14.name": [
+     "When the folder is locked"
+    ],
+    "ch.15.name": [
+     "Page tools off, clearing data"
+    ],
+    "ch.16.name": [
+     "Help and support"
+    ],
+    "ch.01.desc": [
+     "Search the Chrome Web Store for",
+     "“Inspiration Collector”, add it to Chrome, then pin it",
+     "to the toolbar."
+    ],
+    "ch.02.desc": [
+     "Click the toolbar icon to open the side panel.",
+     "The first time, pick a folder and allow it once",
+     "in Chrome."
+    ],
+    "ch.03.desc": [
+     "“Save page” in the side panel saves the whole article",
+     "as one item.",
+     "Saving the same page twice still leaves one copy."
+    ],
+    "ch.04.desc": [
+     "Select a few sentences, right-click the highlight and",
+     "choose “Save selection to Collector”.",
+     "One passage, one item."
+    ],
+    "ch.05.desc": [
+     "Right-click to save one image at full size;",
+     "use “Images” to pick several.",
+     "Small icons are skipped."
+    ],
+    "ch.06.desc": [
+     "“Save this”, at the end of each reply in ChatGPT,",
+     "Claude and Perplexity, saves just that reply."
+    ],
+    "ch.07.desc": [
+     "“Save page” on a chat saves the whole conversation,",
+     "marked with who said what.",
+     "Perplexity keeps its sources too."
+    ],
+    "ch.08.desc": [
+     "“Files” saves the original xlsx, py and md files",
+     "ChatGPT made into assets/.",
+     "It is greyed out on other sites."
+    ],
+    "ch.09.desc": [
+     "“New topic” makes a folder and a sentence on what",
+     "it is for, written to MATERIAL.md.",
+     "You can change it any time."
+    ],
+    "ch.10.desc": [
+     "Breadcrumbs show where you are, and every level",
+     "is clickable.",
+     "“Switch topic” changes topic;",
+     "“Change folder” changes where everything is saved."
+    ],
+    "ch.11.desc": [
+     "“List” or “Grid”, ALL / TXT / IMG / FILE, search and",
+     "“On this page”.",
+     "Delete takes two clicks."
+    ],
+    "ch.12.desc": [
+     "One .md per item, original files in assets/.",
+     "Every item records its source at the top;",
+     "MATERIAL.md explains the folder to your AI."
+    ],
+    "ch.13.desc": [
+     "After five items, “hand it to your AI” appears:",
+     "paste the path, copy the prompt and paste it into",
+     "Claude Code.",
+     "It reads everything and returns a sourced outline",
+     "(from a real run)."
+    ],
+    "ch.14.desc": [
+     "Left idle, the folder locks: click “Unlock folder”.",
+     "If the side panel cannot unlock it, the lock icon at the",
+     "top opens a separate page."
+    ],
+    "ch.15.desc": [
+     "Turning “Page tools” off removes the buttons on",
+     "web pages;",
+     "the side panel still saves.",
+     "The trash icon shows what will be deleted first."
+    ],
+    "ch.16.desc": [
+     "“How it works”, “Get help” (checks everything on the",
+     "spot), “Privacy” and “About me”."
+    ]
+   },
+   "1440": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "The tutorial in 16 chapters"
+    ],
+    "tutorial.lead": [
+     "Installing, saving, topics, handing it to your AI,",
+     "a locked folder and getting help, in about 9 minutes.",
+     "Click a chapter to start there."
+    ],
+    "tutorial.youtube": [
+     "Watch on YouTube"
+    ],
+    "tutorial.chapters": [
+     "Chapters"
+    ],
+    "tutorial.total": [
+     "About 9 minutes in all"
+    ],
+    "tutorial.showAll": [],
+    "ch.01.name": [
+     "Install it in Chrome"
+    ],
+    "ch.02.name": [
+     "Open the panel, pick a folder"
+    ],
+    "ch.03.name": [
+     "Save a whole page"
+    ],
+    "ch.04.name": [
+     "Save a passage"
+    ],
+    "ch.05.name": [
+     "Save images"
+    ],
+    "ch.06.name": [
+     "Save one AI reply"
+    ],
+    "ch.07.name": [
+     "Save a whole AI chat"
+    ],
+    "ch.08.name": [
+     "Save files ChatGPT made"
+    ],
+    "ch.09.name": [
+     "Sort with topics"
+    ],
+    "ch.10.name": [
+     "Move between topics"
+    ],
+    "ch.11.name": [
+     "Tidy the list"
+    ],
+    "ch.12.name": [
+     "What is in the folder"
+    ],
+    "ch.13.name": [
+     "Hand it to your AI"
+    ],
+    "ch.14.name": [
+     "When the folder is locked"
+    ],
+    "ch.15.name": [
+     "Page tools off, clearing data"
+    ],
+    "ch.16.name": [
+     "Help and support"
+    ],
+    "ch.01.desc": [
+     "Search the Chrome Web Store for",
+     "“Inspiration Collector”, add it to Chrome, then pin it",
+     "to the toolbar."
+    ],
+    "ch.02.desc": [
+     "Click the toolbar icon to open the side panel.",
+     "The first time, pick a folder and allow it once",
+     "in Chrome."
+    ],
+    "ch.03.desc": [
+     "“Save page” in the side panel saves the whole article",
+     "as one item.",
+     "Saving the same page twice still leaves one copy."
+    ],
+    "ch.04.desc": [
+     "Select a few sentences, right-click the highlight and",
+     "choose “Save selection to Collector”.",
+     "One passage, one item."
+    ],
+    "ch.05.desc": [
+     "Right-click to save one image at full size;",
+     "use “Images” to pick several.",
+     "Small icons are skipped."
+    ],
+    "ch.06.desc": [
+     "“Save this”, at the end of each reply in ChatGPT,",
+     "Claude and Perplexity, saves just that reply."
+    ],
+    "ch.07.desc": [
+     "“Save page” on a chat saves the whole conversation,",
+     "marked with who said what.",
+     "Perplexity keeps its sources too."
+    ],
+    "ch.08.desc": [
+     "“Files” saves the original xlsx, py and md files",
+     "ChatGPT made into assets/.",
+     "It is greyed out on other sites."
+    ],
+    "ch.09.desc": [
+     "“New topic” makes a folder and a sentence on what",
+     "it is for, written to MATERIAL.md.",
+     "You can change it any time."
+    ],
+    "ch.10.desc": [
+     "Breadcrumbs show where you are, and every level",
+     "is clickable.",
+     "“Switch topic” changes topic;",
+     "“Change folder” changes where everything is saved."
+    ],
+    "ch.11.desc": [
+     "“List” or “Grid”, ALL / TXT / IMG / FILE, search and",
+     "“On this page”.",
+     "Delete takes two clicks."
+    ],
+    "ch.12.desc": [
+     "One .md per item, original files in assets/.",
+     "Every item records its source at the top;",
+     "MATERIAL.md explains the folder to your AI."
+    ],
+    "ch.13.desc": [
+     "After five items, “hand it to your AI” appears:",
+     "paste the path, copy the prompt and paste it into",
+     "Claude Code.",
+     "It reads everything and returns a sourced outline",
+     "(from a real run)."
+    ],
+    "ch.14.desc": [
+     "Left idle, the folder locks: click “Unlock folder”.",
+     "If the side panel cannot unlock it, the lock icon at the",
+     "top opens a separate page."
+    ],
+    "ch.15.desc": [
+     "Turning “Page tools” off removes the buttons on",
+     "web pages;",
+     "the side panel still saves.",
+     "The trash icon shows what will be deleted first."
+    ],
+    "ch.16.desc": [
+     "“How it works”, “Get help” (checks everything on the",
+     "spot), “Privacy” and “About me”."
+    ]
+   }
+  },
+  "ja": {
+   "280": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章の",
+     "使い方動画"
+    ],
+    "tutorial.lead": [
+     "インストール、保存、",
+     "テーマ分け、",
+     "AI への受け渡しから、",
+     "フォルダーのロックや",
+     "困ったときまで、全部で約 9 分。",
+     "章名をクリックすると、",
+     "その章から再生します。"
+    ],
+    "tutorial.youtube": [
+     "YouTube で見る"
+    ],
+    "tutorial.chapters": [
+     "チャプター"
+    ],
+    "tutorial.total": [
+     "全体で約 9 分"
+    ],
+    "tutorial.showAll": [
+     "16 章すべて表示"
+    ],
+    "ch.01.name": [
+     "Chrome に追加する"
+    ],
+    "ch.02.name": [
+     "パネルを開いて",
+     "フォルダを選ぶ"
+    ],
+    "ch.03.name": [
+     "ページをまるごと",
+     "保存"
+    ],
+    "ch.04.name": [
+     "文章の一部を保存"
+    ],
+    "ch.05.name": [
+     "画像を保存"
+    ],
+    "ch.06.name": [
+     "AI の返信を 1 件保存"
+    ],
+    "ch.07.name": [
+     "AI との会話を",
+     "まるごと保存"
+    ],
+    "ch.08.name": [
+     "ChatGPT の",
+     "ファイルを保存"
+    ],
+    "ch.09.name": [
+     "テーマで分ける"
+    ],
+    "ch.10.name": [
+     "テーマ間の移動"
+    ],
+    "ch.11.name": [
+     "リストを整理する"
+    ],
+    "ch.12.name": [
+     "フォルダの中身"
+    ],
+    "ch.13.name": [
+     "AI に分析させる"
+    ],
+    "ch.14.name": [
+     "フォルダが",
+     "ロックされたら"
+    ],
+    "ch.15.name": [
+     "ページ機能の",
+     "オフと削除"
+    ],
+    "ch.16.name": [
+     "ヘルプとサポート"
+    ],
+    "ch.01.desc": [
+     "Chrome ウェブストアで",
+     "「インスピレーション・",
+     "コレクター」を検索して",
+     "Chrome に追加し、",
+     "ツールバーに固定します。"
+    ],
+    "ch.02.desc": [
+     "ツールバーのアイコンで",
+     "サイドパネルを開きます。",
+     "最初にフォルダを 1 つ選び、",
+     "Chrome の確認で 1 回だけ",
+     "許可します。"
+    ],
+    "ch.03.desc": [
+     "サイドパネルの",
+     "「ページを保存」で記事全体を",
+     "1 件として保存。",
+     "同じページを 2 回保存しても",
+     "1 件のままです。"
+    ],
+    "ch.04.desc": [
+     "数行を選び、",
+     "選択部分を右クリックして",
+     "「選択範囲を",
+     "コレクターに保存」。",
+     "1 か所で 1 件です。"
+    ],
+    "ch.05.desc": [
+     "1 枚なら右クリックで元の",
+     "画像を保存、",
+     "何枚もなら",
+     "「画像」で選びます。",
+     "小さなアイコンは自動で",
+     "除外されます。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT・Claude・",
+     "Perplexity の各返信の最後に",
+     "ある「これを保存」で、",
+     "その返信だけを保存します。"
+    ],
+    "ch.07.desc": [
+     "会話のページで",
+     "「ページを保存」を押すと、",
+     "会話全体を発言者付きで保存。",
+     "Perplexity は引用元も一緒に",
+     "保存します。"
+    ],
+    "ch.08.desc": [
+     "「ファイル」で、",
+     "ChatGPT が作った xlsx・py・",
+     "md を元のファイルのまま",
+     "assets/ に保存。",
+     "ほかのサイトでは",
+     "グレー表示です。"
+    ],
+    "ch.09.desc": [
+     "「新しいテーマ」で",
+     "フォルダを作り、",
+     "何のためかを一文で書くと",
+     "MATERIAL.md に",
+     "書き込まれます。",
+     "あとから変更もできます。"
+    ],
+    "ch.10.desc": [
+     "パンくずで今いる",
+     "階層がわかり、",
+     "どの階層もクリックできます。",
+     "「テーマ切替」はテーマを、",
+     "「フォルダ変更」は保存先",
+     "そのものを変えます。"
+    ],
+    "ch.11.desc": [
+     "リスト／グリッド、",
+     "ALL／TXT／IMG／FILE、",
+     "検索、「このページから」。",
+     "削除は 2 回クリックします。"
+    ],
+    "ch.12.desc": [
+     "1 件につき .md が 1 つ、",
+     "元のファイルは assets/ に。",
+     "各ファイルの冒頭に",
+     "出典があり、",
+     "MATERIAL.md は AI への",
+     "説明書です。"
+    ],
+    "ch.13.desc": [
+     "5 件集まると「AI に",
+     "渡しましょう」が出ます。",
+     "パスを貼って",
+     "指示文をコピーし、",
+     "Claude Code に貼ると、",
+     "素材を読んで出典付きの",
+     "アウトラインを返します",
+     "（実際に動かした結果）。"
+    ],
+    "ch.14.desc": [
+     "しばらく使わないとフォルダが",
+     "ロックされます。",
+     "「ロックを解除」を押します。",
+     "サイドパネルで",
+     "解除できないときは、",
+     "上部の鍵アイコンから",
+     "別ページで。"
+    ],
+    "ch.15.desc": [
+     "「ページ機能」をオフにすると",
+     "ウェブページ上の",
+     "ボタンが消えます。",
+     "サイドパネルからは",
+     "引き続き保存できます。",
+     "ごみ箱は、消える内容を",
+     "先に見せます。"
+    ],
+    "ch.16.desc": [
+     "使い方、困ったときは",
+     "（その場で点検）、",
+     "プライバシー、開発者について。"
+    ]
+   },
+   "320": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章の使い方動画"
+    ],
+    "tutorial.lead": [
+     "インストール、保存、テーマ分け、",
+     "AI への受け渡しから、",
+     "フォルダーのロックや困ったときまで、",
+     "全部で約 9 分。",
+     "章名をクリックすると、",
+     "その章から再生します。"
+    ],
+    "tutorial.youtube": [
+     "YouTube で見る"
+    ],
+    "tutorial.chapters": [
+     "チャプター"
+    ],
+    "tutorial.total": [
+     "全体で約 9 分"
+    ],
+    "tutorial.showAll": [
+     "16 章すべて表示"
+    ],
+    "ch.01.name": [
+     "Chrome に追加する"
+    ],
+    "ch.02.name": [
+     "パネルを開いて",
+     "フォルダを選ぶ"
+    ],
+    "ch.03.name": [
+     "ページをまるごと保存"
+    ],
+    "ch.04.name": [
+     "文章の一部を保存"
+    ],
+    "ch.05.name": [
+     "画像を保存"
+    ],
+    "ch.06.name": [
+     "AI の返信を 1 件保存"
+    ],
+    "ch.07.name": [
+     "AI との会話をまるごと保存"
+    ],
+    "ch.08.name": [
+     "ChatGPT のファイルを保存"
+    ],
+    "ch.09.name": [
+     "テーマで分ける"
+    ],
+    "ch.10.name": [
+     "テーマ間の移動"
+    ],
+    "ch.11.name": [
+     "リストを整理する"
+    ],
+    "ch.12.name": [
+     "フォルダの中身"
+    ],
+    "ch.13.name": [
+     "AI に分析させる"
+    ],
+    "ch.14.name": [
+     "フォルダがロックされたら"
+    ],
+    "ch.15.name": [
+     "ページ機能のオフと削除"
+    ],
+    "ch.16.name": [
+     "ヘルプとサポート"
+    ],
+    "ch.01.desc": [
+     "Chrome ウェブストアで",
+     "「インスピレーション・",
+     "コレクター」を検索して",
+     "Chrome に追加し、",
+     "ツールバーに固定します。"
+    ],
+    "ch.02.desc": [
+     "ツールバーのアイコンで",
+     "サイドパネルを開きます。",
+     "最初にフォルダを 1 つ選び、",
+     "Chrome の確認で 1 回だけ",
+     "許可します。"
+    ],
+    "ch.03.desc": [
+     "サイドパネルの「ページを保存」で",
+     "記事全体を 1 件として保存。",
+     "同じページを 2 回保存しても",
+     "1 件のままです。"
+    ],
+    "ch.04.desc": [
+     "数行を選び、",
+     "選択部分を右クリックして",
+     "「選択範囲をコレクターに保存」。",
+     "1 か所で 1 件です。"
+    ],
+    "ch.05.desc": [
+     "1 枚なら右クリックで元の画像を保存、",
+     "何枚もなら「画像」で選びます。",
+     "小さなアイコンは自動で",
+     "除外されます。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT・Claude・Perplexity の",
+     "各返信の最後にある",
+     "「これを保存」で、",
+     "その返信だけを保存します。"
+    ],
+    "ch.07.desc": [
+     "会話のページで",
+     "「ページを保存」を押すと、",
+     "会話全体を発言者付きで保存。",
+     "Perplexity は引用元も一緒に",
+     "保存します。"
+    ],
+    "ch.08.desc": [
+     "「ファイル」で、",
+     "ChatGPT が作った xlsx・py・md を",
+     "元のファイルのまま assets/ に保存。",
+     "ほかのサイトではグレー表示です。"
+    ],
+    "ch.09.desc": [
+     "「新しいテーマ」でフォルダを作り、",
+     "何のためかを一文で書くと",
+     "MATERIAL.md に書き込まれます。",
+     "あとから変更もできます。"
+    ],
+    "ch.10.desc": [
+     "パンくずで今いる階層がわかり、",
+     "どの階層もクリックできます。",
+     "「テーマ切替」はテーマを、",
+     "「フォルダ変更」は保存先",
+     "そのものを変えます。"
+    ],
+    "ch.11.desc": [
+     "リスト／グリッド、",
+     "ALL／TXT／IMG／FILE、",
+     "検索、「このページから」。",
+     "削除は 2 回クリックします。"
+    ],
+    "ch.12.desc": [
+     "1 件につき .md が 1 つ、",
+     "元のファイルは assets/ に。",
+     "各ファイルの冒頭に出典があり、",
+     "MATERIAL.md は AI への説明書です。"
+    ],
+    "ch.13.desc": [
+     "5 件集まると",
+     "「AI に渡しましょう」が出ます。",
+     "パスを貼って指示文をコピーし、",
+     "Claude Code に貼ると、",
+     "素材を読んで出典付きの",
+     "アウトラインを返します（実際に",
+     "動かした結果）。"
+    ],
+    "ch.14.desc": [
+     "しばらく使わないとフォルダが",
+     "ロックされます。",
+     "「ロックを解除」を押します。",
+     "サイドパネルで解除できないときは、",
+     "上部の鍵アイコンから別ページで。"
+    ],
+    "ch.15.desc": [
+     "「ページ機能」をオフにすると",
+     "ウェブページ上のボタンが消えます。",
+     "サイドパネルからは",
+     "引き続き保存できます。",
+     "ごみ箱は、消える内容を",
+     "先に見せます。"
+    ],
+    "ch.16.desc": [
+     "使い方、困ったときは",
+     "（その場で点検）、",
+     "プライバシー、開発者について。"
+    ]
+   },
+   "360": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章の使い方動画"
+    ],
+    "tutorial.lead": [
+     "インストール、保存、テーマ分け、",
+     "AI への受け渡しから、フォルダーのロックや",
+     "困ったときまで、全部で約 9 分。",
+     "章名をクリックすると、",
+     "その章から再生します。"
+    ],
+    "tutorial.youtube": [
+     "YouTube で見る"
+    ],
+    "tutorial.chapters": [
+     "チャプター"
+    ],
+    "tutorial.total": [
+     "全体で約 9 分"
+    ],
+    "tutorial.showAll": [
+     "16 章すべて表示"
+    ],
+    "ch.01.name": [
+     "Chrome に追加する"
+    ],
+    "ch.02.name": [
+     "パネルを開いてフォルダを選ぶ"
+    ],
+    "ch.03.name": [
+     "ページをまるごと保存"
+    ],
+    "ch.04.name": [
+     "文章の一部を保存"
+    ],
+    "ch.05.name": [
+     "画像を保存"
+    ],
+    "ch.06.name": [
+     "AI の返信を 1 件保存"
+    ],
+    "ch.07.name": [
+     "AI との会話をまるごと保存"
+    ],
+    "ch.08.name": [
+     "ChatGPT のファイルを保存"
+    ],
+    "ch.09.name": [
+     "テーマで分ける"
+    ],
+    "ch.10.name": [
+     "テーマ間の移動"
+    ],
+    "ch.11.name": [
+     "リストを整理する"
+    ],
+    "ch.12.name": [
+     "フォルダの中身"
+    ],
+    "ch.13.name": [
+     "AI に分析させる"
+    ],
+    "ch.14.name": [
+     "フォルダがロックされたら"
+    ],
+    "ch.15.name": [
+     "ページ機能のオフと削除"
+    ],
+    "ch.16.name": [
+     "ヘルプとサポート"
+    ],
+    "ch.01.desc": [
+     "Chrome ウェブストアで",
+     "「インスピレーション・コレクター」を",
+     "検索して Chrome に追加し、",
+     "ツールバーに固定します。"
+    ],
+    "ch.02.desc": [
+     "ツールバーのアイコンで",
+     "サイドパネルを開きます。",
+     "最初にフォルダを 1 つ選び、",
+     "Chrome の確認で 1 回だけ許可します。"
+    ],
+    "ch.03.desc": [
+     "サイドパネルの「ページを保存」で",
+     "記事全体を 1 件として保存。",
+     "同じページを 2 回保存しても",
+     "1 件のままです。"
+    ],
+    "ch.04.desc": [
+     "数行を選び、",
+     "選択部分を右クリックして「選択範囲を",
+     "コレクターに保存」。",
+     "1 か所で 1 件です。"
+    ],
+    "ch.05.desc": [
+     "1 枚なら右クリックで元の画像を保存、",
+     "何枚もなら「画像」で選びます。",
+     "小さなアイコンは自動で除外されます。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT・Claude・Perplexity の各返信の",
+     "最後にある「これを保存」で、",
+     "その返信だけを保存します。"
+    ],
+    "ch.07.desc": [
+     "会話のページで「ページを保存」を押すと、",
+     "会話全体を発言者付きで保存。",
+     "Perplexity は引用元も一緒に保存します。"
+    ],
+    "ch.08.desc": [
+     "「ファイル」で、",
+     "ChatGPT が作った xlsx・py・md を元の",
+     "ファイルのまま assets/ に保存。",
+     "ほかのサイトではグレー表示です。"
+    ],
+    "ch.09.desc": [
+     "「新しいテーマ」でフォルダを作り、",
+     "何のためかを一文で書くと MATERIAL.md に",
+     "書き込まれます。",
+     "あとから変更もできます。"
+    ],
+    "ch.10.desc": [
+     "パンくずで今いる階層がわかり、",
+     "どの階層もクリックできます。",
+     "「テーマ切替」はテーマを、",
+     "「フォルダ変更」は保存先",
+     "そのものを変えます。"
+    ],
+    "ch.11.desc": [
+     "リスト／グリッド、ALL／TXT／IMG／FILE、",
+     "検索、「このページから」。",
+     "削除は 2 回クリックします。"
+    ],
+    "ch.12.desc": [
+     "1 件につき .md が 1 つ、",
+     "元のファイルは assets/ に。",
+     "各ファイルの冒頭に出典があり、",
+     "MATERIAL.md は AI への説明書です。"
+    ],
+    "ch.13.desc": [
+     "5 件集まると",
+     "「AI に渡しましょう」が出ます。",
+     "パスを貼って指示文をコピーし、",
+     "Claude Code に貼ると、",
+     "素材を読んで出典付きのアウトラインを",
+     "返します（実際に動かした結果）。"
+    ],
+    "ch.14.desc": [
+     "しばらく使わないとフォルダが",
+     "ロックされます。",
+     "「ロックを解除」を押します。",
+     "サイドパネルで解除できないときは、",
+     "上部の鍵アイコンから別ページで。"
+    ],
+    "ch.15.desc": [
+     "「ページ機能」をオフにすると",
+     "ウェブページ上のボタンが消えます。",
+     "サイドパネルからは引き続き保存できます。",
+     "ごみ箱は、消える内容を先に見せます。"
+    ],
+    "ch.16.desc": [
+     "使い方、困ったときは（その場で点検）、",
+     "プライバシー、開発者について。"
+    ]
+   },
+   "375": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章の使い方動画"
+    ],
+    "tutorial.lead": [
+     "インストール、保存、テーマ分け、",
+     "AI への受け渡しから、フォルダーのロックや",
+     "困ったときまで、全部で約 9 分。",
+     "章名をクリックすると、",
+     "その章から再生します。"
+    ],
+    "tutorial.youtube": [
+     "YouTube で見る"
+    ],
+    "tutorial.chapters": [
+     "チャプター"
+    ],
+    "tutorial.total": [
+     "全体で約 9 分"
+    ],
+    "tutorial.showAll": [
+     "16 章すべて表示"
+    ],
+    "ch.01.name": [
+     "Chrome に追加する"
+    ],
+    "ch.02.name": [
+     "パネルを開いてフォルダを選ぶ"
+    ],
+    "ch.03.name": [
+     "ページをまるごと保存"
+    ],
+    "ch.04.name": [
+     "文章の一部を保存"
+    ],
+    "ch.05.name": [
+     "画像を保存"
+    ],
+    "ch.06.name": [
+     "AI の返信を 1 件保存"
+    ],
+    "ch.07.name": [
+     "AI との会話をまるごと保存"
+    ],
+    "ch.08.name": [
+     "ChatGPT のファイルを保存"
+    ],
+    "ch.09.name": [
+     "テーマで分ける"
+    ],
+    "ch.10.name": [
+     "テーマ間の移動"
+    ],
+    "ch.11.name": [
+     "リストを整理する"
+    ],
+    "ch.12.name": [
+     "フォルダの中身"
+    ],
+    "ch.13.name": [
+     "AI に分析させる"
+    ],
+    "ch.14.name": [
+     "フォルダがロックされたら"
+    ],
+    "ch.15.name": [
+     "ページ機能のオフと削除"
+    ],
+    "ch.16.name": [
+     "ヘルプとサポート"
+    ],
+    "ch.01.desc": [
+     "Chrome ウェブストアで",
+     "「インスピレーション・コレクター」を",
+     "検索して Chrome に追加し、",
+     "ツールバーに固定します。"
+    ],
+    "ch.02.desc": [
+     "ツールバーのアイコンで",
+     "サイドパネルを開きます。",
+     "最初にフォルダを 1 つ選び、",
+     "Chrome の確認で 1 回だけ許可します。"
+    ],
+    "ch.03.desc": [
+     "サイドパネルの「ページを保存」で記事全体を",
+     "1 件として保存。",
+     "同じページを 2 回保存しても 1 件のままです。"
+    ],
+    "ch.04.desc": [
+     "数行を選び、",
+     "選択部分を右クリックして「選択範囲を",
+     "コレクターに保存」。",
+     "1 か所で 1 件です。"
+    ],
+    "ch.05.desc": [
+     "1 枚なら右クリックで元の画像を保存、",
+     "何枚もなら「画像」で選びます。",
+     "小さなアイコンは自動で除外されます。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT・Claude・Perplexity の各返信の",
+     "最後にある「これを保存」で、",
+     "その返信だけを保存します。"
+    ],
+    "ch.07.desc": [
+     "会話のページで「ページを保存」を押すと、",
+     "会話全体を発言者付きで保存。",
+     "Perplexity は引用元も一緒に保存します。"
+    ],
+    "ch.08.desc": [
+     "「ファイル」で、",
+     "ChatGPT が作った xlsx・py・md を元の",
+     "ファイルのまま assets/ に保存。",
+     "ほかのサイトではグレー表示です。"
+    ],
+    "ch.09.desc": [
+     "「新しいテーマ」でフォルダを作り、",
+     "何のためかを一文で書くと MATERIAL.md に",
+     "書き込まれます。",
+     "あとから変更もできます。"
+    ],
+    "ch.10.desc": [
+     "パンくずで今いる階層がわかり、",
+     "どの階層もクリックできます。",
+     "「テーマ切替」はテーマを、",
+     "「フォルダ変更」は保存先",
+     "そのものを変えます。"
+    ],
+    "ch.11.desc": [
+     "リスト／グリッド、ALL／TXT／IMG／FILE、",
+     "検索、「このページから」。",
+     "削除は 2 回クリックします。"
+    ],
+    "ch.12.desc": [
+     "1 件につき .md が 1 つ、",
+     "元のファイルは assets/ に。",
+     "各ファイルの冒頭に出典があり、",
+     "MATERIAL.md は AI への説明書です。"
+    ],
+    "ch.13.desc": [
+     "5 件集まると「AI に渡しましょう」が出ます。",
+     "パスを貼って指示文をコピーし、",
+     "Claude Code に貼ると、",
+     "素材を読んで出典付きのアウトラインを",
+     "返します（実際に動かした結果）。"
+    ],
+    "ch.14.desc": [
+     "しばらく使わないとフォルダが",
+     "ロックされます。",
+     "「ロックを解除」を押します。",
+     "サイドパネルで解除できないときは、",
+     "上部の鍵アイコンから別ページで。"
+    ],
+    "ch.15.desc": [
+     "「ページ機能」をオフにすると",
+     "ウェブページ上のボタンが消えます。",
+     "サイドパネルからは引き続き保存できます。",
+     "ごみ箱は、消える内容を先に見せます。"
+    ],
+    "ch.16.desc": [
+     "使い方、困ったときは（その場で点検）、",
+     "プライバシー、開発者について。"
+    ]
+   },
+   "390": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章の使い方動画"
+    ],
+    "tutorial.lead": [
+     "インストール、保存、テーマ分け、",
+     "AI への受け渡しから、フォルダーのロックや",
+     "困ったときまで、全部で約 9 分。",
+     "章名をクリックすると、その章から再生します。"
+    ],
+    "tutorial.youtube": [
+     "YouTube で見る"
+    ],
+    "tutorial.chapters": [
+     "チャプター"
+    ],
+    "tutorial.total": [
+     "全体で約 9 分"
+    ],
+    "tutorial.showAll": [
+     "16 章すべて表示"
+    ],
+    "ch.01.name": [
+     "Chrome に追加する"
+    ],
+    "ch.02.name": [
+     "パネルを開いてフォルダを選ぶ"
+    ],
+    "ch.03.name": [
+     "ページをまるごと保存"
+    ],
+    "ch.04.name": [
+     "文章の一部を保存"
+    ],
+    "ch.05.name": [
+     "画像を保存"
+    ],
+    "ch.06.name": [
+     "AI の返信を 1 件保存"
+    ],
+    "ch.07.name": [
+     "AI との会話をまるごと保存"
+    ],
+    "ch.08.name": [
+     "ChatGPT のファイルを保存"
+    ],
+    "ch.09.name": [
+     "テーマで分ける"
+    ],
+    "ch.10.name": [
+     "テーマ間の移動"
+    ],
+    "ch.11.name": [
+     "リストを整理する"
+    ],
+    "ch.12.name": [
+     "フォルダの中身"
+    ],
+    "ch.13.name": [
+     "AI に分析させる"
+    ],
+    "ch.14.name": [
+     "フォルダがロックされたら"
+    ],
+    "ch.15.name": [
+     "ページ機能のオフと削除"
+    ],
+    "ch.16.name": [
+     "ヘルプとサポート"
+    ],
+    "ch.01.desc": [
+     "Chrome ウェブストアで",
+     "「インスピレーション・コレクター」を検索して",
+     "Chrome に追加し、",
+     "ツールバーに固定します。"
+    ],
+    "ch.02.desc": [
+     "ツールバーのアイコンでサイドパネルを開きます。",
+     "最初にフォルダを 1 つ選び、",
+     "Chrome の確認で 1 回だけ許可します。"
+    ],
+    "ch.03.desc": [
+     "サイドパネルの「ページを保存」で記事全体を",
+     "1 件として保存。",
+     "同じページを 2 回保存しても 1 件のままです。"
+    ],
+    "ch.04.desc": [
+     "数行を選び、",
+     "選択部分を右クリックして「選択範囲を",
+     "コレクターに保存」。",
+     "1 か所で 1 件です。"
+    ],
+    "ch.05.desc": [
+     "1 枚なら右クリックで元の画像を保存、",
+     "何枚もなら「画像」で選びます。",
+     "小さなアイコンは自動で除外されます。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT・Claude・Perplexity の各返信の最後に",
+     "ある「これを保存」で、",
+     "その返信だけを保存します。"
+    ],
+    "ch.07.desc": [
+     "会話のページで「ページを保存」を押すと、",
+     "会話全体を発言者付きで保存。",
+     "Perplexity は引用元も一緒に保存します。"
+    ],
+    "ch.08.desc": [
+     "「ファイル」で、",
+     "ChatGPT が作った xlsx・py・md を元の",
+     "ファイルのまま assets/ に保存。",
+     "ほかのサイトではグレー表示です。"
+    ],
+    "ch.09.desc": [
+     "「新しいテーマ」でフォルダを作り、",
+     "何のためかを一文で書くと MATERIAL.md に",
+     "書き込まれます。",
+     "あとから変更もできます。"
+    ],
+    "ch.10.desc": [
+     "パンくずで今いる階層がわかり、",
+     "どの階層もクリックできます。",
+     "「テーマ切替」はテーマを、",
+     "「フォルダ変更」は保存先そのものを変えます。"
+    ],
+    "ch.11.desc": [
+     "リスト／グリッド、ALL／TXT／IMG／FILE、",
+     "検索、「このページから」。",
+     "削除は 2 回クリックします。"
+    ],
+    "ch.12.desc": [
+     "1 件につき .md が 1 つ、",
+     "元のファイルは assets/ に。",
+     "各ファイルの冒頭に出典があり、",
+     "MATERIAL.md は AI への説明書です。"
+    ],
+    "ch.13.desc": [
+     "5 件集まると「AI に渡しましょう」が出ます。",
+     "パスを貼って指示文をコピーし、",
+     "Claude Code に貼ると、",
+     "素材を読んで出典付きのアウトラインを返します",
+     "（実際に動かした結果）。"
+    ],
+    "ch.14.desc": [
+     "しばらく使わないとフォルダがロックされます。",
+     "「ロックを解除」を押します。",
+     "サイドパネルで解除できないときは、",
+     "上部の鍵アイコンから別ページで。"
+    ],
+    "ch.15.desc": [
+     "「ページ機能」をオフにするとウェブページ上の",
+     "ボタンが消えます。",
+     "サイドパネルからは引き続き保存できます。",
+     "ごみ箱は、消える内容を先に見せます。"
+    ],
+    "ch.16.desc": [
+     "使い方、困ったときは（その場で点検）、",
+     "プライバシー、開発者について。"
+    ]
+   },
+   "414": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章の使い方動画"
+    ],
+    "tutorial.lead": [
+     "インストール、保存、テーマ分け、",
+     "AI への受け渡しから、フォルダーのロックや",
+     "困ったときまで、全部で約 9 分。",
+     "章名をクリックすると、その章から再生します。"
+    ],
+    "tutorial.youtube": [
+     "YouTube で見る"
+    ],
+    "tutorial.chapters": [
+     "チャプター"
+    ],
+    "tutorial.total": [
+     "全体で約 9 分"
+    ],
+    "tutorial.showAll": [
+     "16 章すべて表示"
+    ],
+    "ch.01.name": [
+     "Chrome に追加する"
+    ],
+    "ch.02.name": [
+     "パネルを開いてフォルダを選ぶ"
+    ],
+    "ch.03.name": [
+     "ページをまるごと保存"
+    ],
+    "ch.04.name": [
+     "文章の一部を保存"
+    ],
+    "ch.05.name": [
+     "画像を保存"
+    ],
+    "ch.06.name": [
+     "AI の返信を 1 件保存"
+    ],
+    "ch.07.name": [
+     "AI との会話をまるごと保存"
+    ],
+    "ch.08.name": [
+     "ChatGPT のファイルを保存"
+    ],
+    "ch.09.name": [
+     "テーマで分ける"
+    ],
+    "ch.10.name": [
+     "テーマ間の移動"
+    ],
+    "ch.11.name": [
+     "リストを整理する"
+    ],
+    "ch.12.name": [
+     "フォルダの中身"
+    ],
+    "ch.13.name": [
+     "AI に分析させる"
+    ],
+    "ch.14.name": [
+     "フォルダがロックされたら"
+    ],
+    "ch.15.name": [
+     "ページ機能のオフと削除"
+    ],
+    "ch.16.name": [
+     "ヘルプとサポート"
+    ],
+    "ch.01.desc": [
+     "Chrome ウェブストアで",
+     "「インスピレーション・コレクター」を検索して",
+     "Chrome に追加し、",
+     "ツールバーに固定します。"
+    ],
+    "ch.02.desc": [
+     "ツールバーのアイコンでサイドパネルを開きます。",
+     "最初にフォルダを 1 つ選び、",
+     "Chrome の確認で 1 回だけ許可します。"
+    ],
+    "ch.03.desc": [
+     "サイドパネルの「ページを保存」で記事全体を",
+     "1 件として保存。",
+     "同じページを 2 回保存しても 1 件のままです。"
+    ],
+    "ch.04.desc": [
+     "数行を選び、",
+     "選択部分を右クリックして「選択範囲を",
+     "コレクターに保存」。",
+     "1 か所で 1 件です。"
+    ],
+    "ch.05.desc": [
+     "1 枚なら右クリックで元の画像を保存、",
+     "何枚もなら「画像」で選びます。",
+     "小さなアイコンは自動で除外されます。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT・Claude・Perplexity の各返信の最後に",
+     "ある「これを保存」で、",
+     "その返信だけを保存します。"
+    ],
+    "ch.07.desc": [
+     "会話のページで「ページを保存」を押すと、",
+     "会話全体を発言者付きで保存。",
+     "Perplexity は引用元も一緒に保存します。"
+    ],
+    "ch.08.desc": [
+     "「ファイル」で、",
+     "ChatGPT が作った xlsx・py・md を元の",
+     "ファイルのまま assets/ に保存。",
+     "ほかのサイトではグレー表示です。"
+    ],
+    "ch.09.desc": [
+     "「新しいテーマ」でフォルダを作り、",
+     "何のためかを一文で書くと MATERIAL.md に",
+     "書き込まれます。",
+     "あとから変更もできます。"
+    ],
+    "ch.10.desc": [
+     "パンくずで今いる階層がわかり、",
+     "どの階層もクリックできます。",
+     "「テーマ切替」はテーマを、",
+     "「フォルダ変更」は保存先そのものを変えます。"
+    ],
+    "ch.11.desc": [
+     "リスト／グリッド、ALL／TXT／IMG／FILE、",
+     "検索、「このページから」。",
+     "削除は 2 回クリックします。"
+    ],
+    "ch.12.desc": [
+     "1 件につき .md が 1 つ、元のファイルは assets/ に。",
+     "各ファイルの冒頭に出典があり、",
+     "MATERIAL.md は AI への説明書です。"
+    ],
+    "ch.13.desc": [
+     "5 件集まると「AI に渡しましょう」が出ます。",
+     "パスを貼って指示文をコピーし、",
+     "Claude Code に貼ると、",
+     "素材を読んで出典付きのアウトラインを返します",
+     "（実際に動かした結果）。"
+    ],
+    "ch.14.desc": [
+     "しばらく使わないとフォルダがロックされます。",
+     "「ロックを解除」を押します。",
+     "サイドパネルで解除できないときは、",
+     "上部の鍵アイコンから別ページで。"
+    ],
+    "ch.15.desc": [
+     "「ページ機能」をオフにするとウェブページ上の",
+     "ボタンが消えます。",
+     "サイドパネルからは引き続き保存できます。",
+     "ごみ箱は、消える内容を先に見せます。"
+    ],
+    "ch.16.desc": [
+     "使い方、困ったときは（その場で点検）、",
+     "プライバシー、開発者について。"
+    ]
+   },
+   "430": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章の使い方動画"
+    ],
+    "tutorial.lead": [
+     "インストール、保存、テーマ分け、",
+     "AI への受け渡しから、フォルダーのロックや",
+     "困ったときまで、全部で約 9 分。",
+     "章名をクリックすると、その章から再生します。"
+    ],
+    "tutorial.youtube": [
+     "YouTube で見る"
+    ],
+    "tutorial.chapters": [
+     "チャプター"
+    ],
+    "tutorial.total": [
+     "全体で約 9 分"
+    ],
+    "tutorial.showAll": [
+     "16 章すべて表示"
+    ],
+    "ch.01.name": [
+     "Chrome に追加する"
+    ],
+    "ch.02.name": [
+     "パネルを開いてフォルダを選ぶ"
+    ],
+    "ch.03.name": [
+     "ページをまるごと保存"
+    ],
+    "ch.04.name": [
+     "文章の一部を保存"
+    ],
+    "ch.05.name": [
+     "画像を保存"
+    ],
+    "ch.06.name": [
+     "AI の返信を 1 件保存"
+    ],
+    "ch.07.name": [
+     "AI との会話をまるごと保存"
+    ],
+    "ch.08.name": [
+     "ChatGPT のファイルを保存"
+    ],
+    "ch.09.name": [
+     "テーマで分ける"
+    ],
+    "ch.10.name": [
+     "テーマ間の移動"
+    ],
+    "ch.11.name": [
+     "リストを整理する"
+    ],
+    "ch.12.name": [
+     "フォルダの中身"
+    ],
+    "ch.13.name": [
+     "AI に分析させる"
+    ],
+    "ch.14.name": [
+     "フォルダがロックされたら"
+    ],
+    "ch.15.name": [
+     "ページ機能のオフと削除"
+    ],
+    "ch.16.name": [
+     "ヘルプとサポート"
+    ],
+    "ch.01.desc": [
+     "Chrome ウェブストアで",
+     "「インスピレーション・コレクター」を検索して",
+     "Chrome に追加し、",
+     "ツールバーに固定します。"
+    ],
+    "ch.02.desc": [
+     "ツールバーのアイコンでサイドパネルを開きます。",
+     "最初にフォルダを 1 つ選び、",
+     "Chrome の確認で 1 回だけ許可します。"
+    ],
+    "ch.03.desc": [
+     "サイドパネルの「ページを保存」で記事全体を",
+     "1 件として保存。",
+     "同じページを 2 回保存しても 1 件のままです。"
+    ],
+    "ch.04.desc": [
+     "数行を選び、",
+     "選択部分を右クリックして「選択範囲を",
+     "コレクターに保存」。",
+     "1 か所で 1 件です。"
+    ],
+    "ch.05.desc": [
+     "1 枚なら右クリックで元の画像を保存、",
+     "何枚もなら「画像」で選びます。",
+     "小さなアイコンは自動で除外されます。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT・Claude・Perplexity の各返信の最後にある",
+     "「これを保存」で、",
+     "その返信だけを保存します。"
+    ],
+    "ch.07.desc": [
+     "会話のページで「ページを保存」を押すと、",
+     "会話全体を発言者付きで保存。",
+     "Perplexity は引用元も一緒に保存します。"
+    ],
+    "ch.08.desc": [
+     "「ファイル」で、",
+     "ChatGPT が作った xlsx・py・md を元の",
+     "ファイルのまま assets/ に保存。",
+     "ほかのサイトではグレー表示です。"
+    ],
+    "ch.09.desc": [
+     "「新しいテーマ」でフォルダを作り、",
+     "何のためかを一文で書くと MATERIAL.md に",
+     "書き込まれます。",
+     "あとから変更もできます。"
+    ],
+    "ch.10.desc": [
+     "パンくずで今いる階層がわかり、",
+     "どの階層もクリックできます。",
+     "「テーマ切替」はテーマを、",
+     "「フォルダ変更」は保存先そのものを変えます。"
+    ],
+    "ch.11.desc": [
+     "リスト／グリッド、ALL／TXT／IMG／FILE、",
+     "検索、「このページから」。",
+     "削除は 2 回クリックします。"
+    ],
+    "ch.12.desc": [
+     "1 件につき .md が 1 つ、元のファイルは assets/ に。",
+     "各ファイルの冒頭に出典があり、",
+     "MATERIAL.md は AI への説明書です。"
+    ],
+    "ch.13.desc": [
+     "5 件集まると「AI に渡しましょう」が出ます。",
+     "パスを貼って指示文をコピーし、",
+     "Claude Code に貼ると、",
+     "素材を読んで出典付きのアウトラインを返します",
+     "（実際に動かした結果）。"
+    ],
+    "ch.14.desc": [
+     "しばらく使わないとフォルダがロックされます。",
+     "「ロックを解除」を押します。",
+     "サイドパネルで解除できないときは、",
+     "上部の鍵アイコンから別ページで。"
+    ],
+    "ch.15.desc": [
+     "「ページ機能」をオフにするとウェブページ上の",
+     "ボタンが消えます。",
+     "サイドパネルからは引き続き保存できます。",
+     "ごみ箱は、消える内容を先に見せます。"
+    ],
+    "ch.16.desc": [
+     "使い方、困ったときは（その場で点検）、",
+     "プライバシー、開発者について。"
+    ]
+   },
+   "640": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章の使い方動画"
+    ],
+    "tutorial.lead": [
+     "インストール、保存、テーマ分け、",
+     "AI への受け渡しから、フォルダーのロックや",
+     "困ったときまで、全部で約 9 分。",
+     "章名をクリックすると、その章から再生します。"
+    ],
+    "tutorial.youtube": [
+     "YouTube で見る"
+    ],
+    "tutorial.chapters": [
+     "チャプター"
+    ],
+    "tutorial.total": [
+     "全体で約 9 分"
+    ],
+    "tutorial.showAll": [
+     "16 章すべて表示"
+    ],
+    "ch.01.name": [
+     "Chrome に追加する"
+    ],
+    "ch.02.name": [
+     "パネルを開いてフォルダを選ぶ"
+    ],
+    "ch.03.name": [
+     "ページをまるごと保存"
+    ],
+    "ch.04.name": [
+     "文章の一部を保存"
+    ],
+    "ch.05.name": [
+     "画像を保存"
+    ],
+    "ch.06.name": [
+     "AI の返信を 1 件保存"
+    ],
+    "ch.07.name": [
+     "AI との会話をまるごと保存"
+    ],
+    "ch.08.name": [
+     "ChatGPT のファイルを保存"
+    ],
+    "ch.09.name": [
+     "テーマで分ける"
+    ],
+    "ch.10.name": [
+     "テーマ間の移動"
+    ],
+    "ch.11.name": [
+     "リストを整理する"
+    ],
+    "ch.12.name": [
+     "フォルダの中身"
+    ],
+    "ch.13.name": [
+     "AI に分析させる"
+    ],
+    "ch.14.name": [
+     "フォルダがロックされたら"
+    ],
+    "ch.15.name": [
+     "ページ機能のオフと削除"
+    ],
+    "ch.16.name": [
+     "ヘルプとサポート"
+    ],
+    "ch.01.desc": [
+     "Chrome ウェブストアで",
+     "「インスピレーション・コレクター」を検索して",
+     "Chrome に追加し、",
+     "ツールバーに固定します。"
+    ],
+    "ch.02.desc": [
+     "ツールバーのアイコンでサイドパネルを開きます。",
+     "最初にフォルダを 1 つ選び、",
+     "Chrome の確認で 1 回だけ許可します。"
+    ],
+    "ch.03.desc": [
+     "サイドパネルの「ページを保存」で記事全体を",
+     "1 件として保存。",
+     "同じページを 2 回保存しても 1 件のままです。"
+    ],
+    "ch.04.desc": [
+     "数行を選び、",
+     "選択部分を右クリックして「選択範囲を",
+     "コレクターに保存」。",
+     "1 か所で 1 件です。"
+    ],
+    "ch.05.desc": [
+     "1 枚なら右クリックで元の画像を保存、",
+     "何枚もなら「画像」で選びます。",
+     "小さなアイコンは自動で除外されます。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT・Claude・Perplexity の各返信の最後にある",
+     "「これを保存」で、",
+     "その返信だけを保存します。"
+    ],
+    "ch.07.desc": [
+     "会話のページで「ページを保存」を押すと、",
+     "会話全体を発言者付きで保存。",
+     "Perplexity は引用元も一緒に保存します。"
+    ],
+    "ch.08.desc": [
+     "「ファイル」で、",
+     "ChatGPT が作った xlsx・py・md を元の",
+     "ファイルのまま assets/ に保存。",
+     "ほかのサイトではグレー表示です。"
+    ],
+    "ch.09.desc": [
+     "「新しいテーマ」でフォルダを作り、",
+     "何のためかを一文で書くと MATERIAL.md に",
+     "書き込まれます。",
+     "あとから変更もできます。"
+    ],
+    "ch.10.desc": [
+     "パンくずで今いる階層がわかり、",
+     "どの階層もクリックできます。",
+     "「テーマ切替」はテーマを、",
+     "「フォルダ変更」は保存先そのものを変えます。"
+    ],
+    "ch.11.desc": [
+     "リスト／グリッド、ALL／TXT／IMG／FILE、",
+     "検索、「このページから」。",
+     "削除は 2 回クリックします。"
+    ],
+    "ch.12.desc": [
+     "1 件につき .md が 1 つ、元のファイルは assets/ に。",
+     "各ファイルの冒頭に出典があり、",
+     "MATERIAL.md は AI への説明書です。"
+    ],
+    "ch.13.desc": [
+     "5 件集まると「AI に渡しましょう」が出ます。",
+     "パスを貼って指示文をコピーし、",
+     "Claude Code に貼ると、",
+     "素材を読んで出典付きのアウトラインを返します",
+     "（実際に動かした結果）。"
+    ],
+    "ch.14.desc": [
+     "しばらく使わないとフォルダがロックされます。",
+     "「ロックを解除」を押します。",
+     "サイドパネルで解除できないときは、",
+     "上部の鍵アイコンから別ページで。"
+    ],
+    "ch.15.desc": [
+     "「ページ機能」をオフにするとウェブページ上の",
+     "ボタンが消えます。",
+     "サイドパネルからは引き続き保存できます。",
+     "ごみ箱は、消える内容を先に見せます。"
+    ],
+    "ch.16.desc": [
+     "使い方、困ったときは（その場で点検）、",
+     "プライバシー、開発者について。"
+    ]
+   },
+   "768": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章の使い方動画"
+    ],
+    "tutorial.lead": [
+     "インストール、保存、テーマ分け、",
+     "AI への受け渡しから、フォルダーのロックや",
+     "困ったときまで、全部で約 9 分。",
+     "章名をクリックすると、その章から再生します。"
+    ],
+    "tutorial.youtube": [
+     "YouTube で見る"
+    ],
+    "tutorial.chapters": [
+     "チャプター"
+    ],
+    "tutorial.total": [
+     "全体で約 9 分"
+    ],
+    "tutorial.showAll": [
+     "16 章すべて表示"
+    ],
+    "ch.01.name": [
+     "Chrome に追加する"
+    ],
+    "ch.02.name": [
+     "パネルを開いてフォルダを選ぶ"
+    ],
+    "ch.03.name": [
+     "ページをまるごと保存"
+    ],
+    "ch.04.name": [
+     "文章の一部を保存"
+    ],
+    "ch.05.name": [
+     "画像を保存"
+    ],
+    "ch.06.name": [
+     "AI の返信を 1 件保存"
+    ],
+    "ch.07.name": [
+     "AI との会話をまるごと保存"
+    ],
+    "ch.08.name": [
+     "ChatGPT のファイルを保存"
+    ],
+    "ch.09.name": [
+     "テーマで分ける"
+    ],
+    "ch.10.name": [
+     "テーマ間の移動"
+    ],
+    "ch.11.name": [
+     "リストを整理する"
+    ],
+    "ch.12.name": [
+     "フォルダの中身"
+    ],
+    "ch.13.name": [
+     "AI に分析させる"
+    ],
+    "ch.14.name": [
+     "フォルダがロックされたら"
+    ],
+    "ch.15.name": [
+     "ページ機能のオフと削除"
+    ],
+    "ch.16.name": [
+     "ヘルプとサポート"
+    ],
+    "ch.01.desc": [
+     "Chrome ウェブストアで",
+     "「インスピレーション・コレクター」を検索して",
+     "Chrome に追加し、",
+     "ツールバーに固定します。"
+    ],
+    "ch.02.desc": [
+     "ツールバーのアイコンでサイドパネルを開きます。",
+     "最初にフォルダを 1 つ選び、",
+     "Chrome の確認で 1 回だけ許可します。"
+    ],
+    "ch.03.desc": [
+     "サイドパネルの「ページを保存」で記事全体を",
+     "1 件として保存。",
+     "同じページを 2 回保存しても 1 件のままです。"
+    ],
+    "ch.04.desc": [
+     "数行を選び、",
+     "選択部分を右クリックして「選択範囲を",
+     "コレクターに保存」。",
+     "1 か所で 1 件です。"
+    ],
+    "ch.05.desc": [
+     "1 枚なら右クリックで元の画像を保存、",
+     "何枚もなら「画像」で選びます。",
+     "小さなアイコンは自動で除外されます。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT・Claude・Perplexity の各返信の最後にある",
+     "「これを保存」で、",
+     "その返信だけを保存します。"
+    ],
+    "ch.07.desc": [
+     "会話のページで「ページを保存」を押すと、",
+     "会話全体を発言者付きで保存。",
+     "Perplexity は引用元も一緒に保存します。"
+    ],
+    "ch.08.desc": [
+     "「ファイル」で、",
+     "ChatGPT が作った xlsx・py・md を元の",
+     "ファイルのまま assets/ に保存。",
+     "ほかのサイトではグレー表示です。"
+    ],
+    "ch.09.desc": [
+     "「新しいテーマ」でフォルダを作り、",
+     "何のためかを一文で書くと MATERIAL.md に",
+     "書き込まれます。",
+     "あとから変更もできます。"
+    ],
+    "ch.10.desc": [
+     "パンくずで今いる階層がわかり、",
+     "どの階層もクリックできます。",
+     "「テーマ切替」はテーマを、",
+     "「フォルダ変更」は保存先そのものを変えます。"
+    ],
+    "ch.11.desc": [
+     "リスト／グリッド、ALL／TXT／IMG／FILE、",
+     "検索、「このページから」。",
+     "削除は 2 回クリックします。"
+    ],
+    "ch.12.desc": [
+     "1 件につき .md が 1 つ、元のファイルは assets/ に。",
+     "各ファイルの冒頭に出典があり、",
+     "MATERIAL.md は AI への説明書です。"
+    ],
+    "ch.13.desc": [
+     "5 件集まると「AI に渡しましょう」が出ます。",
+     "パスを貼って指示文をコピーし、",
+     "Claude Code に貼ると、",
+     "素材を読んで出典付きのアウトラインを返します",
+     "（実際に動かした結果）。"
+    ],
+    "ch.14.desc": [
+     "しばらく使わないとフォルダがロックされます。",
+     "「ロックを解除」を押します。",
+     "サイドパネルで解除できないときは、",
+     "上部の鍵アイコンから別ページで。"
+    ],
+    "ch.15.desc": [
+     "「ページ機能」をオフにするとウェブページ上の",
+     "ボタンが消えます。",
+     "サイドパネルからは引き続き保存できます。",
+     "ごみ箱は、消える内容を先に見せます。"
+    ],
+    "ch.16.desc": [
+     "使い方、困ったときは（その場で点検）、",
+     "プライバシー、開発者について。"
+    ]
+   },
+   "1024": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章の使い方動画"
+    ],
+    "tutorial.lead": [
+     "インストール、保存、テーマ分け、",
+     "AI への受け渡しから、フォルダーのロックや",
+     "困ったときまで、全部で約 9 分。",
+     "章名をクリックすると、その章から再生します。"
+    ],
+    "tutorial.youtube": [
+     "YouTube で見る"
+    ],
+    "tutorial.chapters": [
+     "チャプター"
+    ],
+    "tutorial.total": [
+     "全体で約 9 分"
+    ],
+    "tutorial.showAll": [],
+    "ch.01.name": [
+     "Chrome に追加する"
+    ],
+    "ch.02.name": [
+     "パネルを開いてフォルダを選ぶ"
+    ],
+    "ch.03.name": [
+     "ページをまるごと保存"
+    ],
+    "ch.04.name": [
+     "文章の一部を保存"
+    ],
+    "ch.05.name": [
+     "画像を保存"
+    ],
+    "ch.06.name": [
+     "AI の返信を 1 件保存"
+    ],
+    "ch.07.name": [
+     "AI との会話をまるごと保存"
+    ],
+    "ch.08.name": [
+     "ChatGPT のファイルを保存"
+    ],
+    "ch.09.name": [
+     "テーマで分ける"
+    ],
+    "ch.10.name": [
+     "テーマ間の移動"
+    ],
+    "ch.11.name": [
+     "リストを整理する"
+    ],
+    "ch.12.name": [
+     "フォルダの中身"
+    ],
+    "ch.13.name": [
+     "AI に分析させる"
+    ],
+    "ch.14.name": [
+     "フォルダがロックされたら"
+    ],
+    "ch.15.name": [
+     "ページ機能のオフと削除"
+    ],
+    "ch.16.name": [
+     "ヘルプとサポート"
+    ],
+    "ch.01.desc": [
+     "Chrome ウェブストアで",
+     "「インスピレーション・コレクター」を",
+     "検索して Chrome に追加し、",
+     "ツールバーに固定します。"
+    ],
+    "ch.02.desc": [
+     "ツールバーのアイコンで",
+     "サイドパネルを開きます。",
+     "最初にフォルダを 1 つ選び、",
+     "Chrome の確認で 1 回だけ許可します。"
+    ],
+    "ch.03.desc": [
+     "サイドパネルの「ページを保存」で記事全体を",
+     "1 件として保存。",
+     "同じページを 2 回保存しても 1 件のままです。"
+    ],
+    "ch.04.desc": [
+     "数行を選び、",
+     "選択部分を右クリックして「選択範囲を",
+     "コレクターに保存」。",
+     "1 か所で 1 件です。"
+    ],
+    "ch.05.desc": [
+     "1 枚なら右クリックで元の画像を保存、",
+     "何枚もなら「画像」で選びます。",
+     "小さなアイコンは自動で除外されます。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT・Claude・Perplexity の各返信の",
+     "最後にある「これを保存」で、",
+     "その返信だけを保存します。"
+    ],
+    "ch.07.desc": [
+     "会話のページで「ページを保存」を押すと、",
+     "会話全体を発言者付きで保存。",
+     "Perplexity は引用元も一緒に保存します。"
+    ],
+    "ch.08.desc": [
+     "「ファイル」で、",
+     "ChatGPT が作った xlsx・py・md を元の",
+     "ファイルのまま assets/ に保存。",
+     "ほかのサイトではグレー表示です。"
+    ],
+    "ch.09.desc": [
+     "「新しいテーマ」でフォルダを作り、",
+     "何のためかを一文で書くと MATERIAL.md に",
+     "書き込まれます。",
+     "あとから変更もできます。"
+    ],
+    "ch.10.desc": [
+     "パンくずで今いる階層がわかり、",
+     "どの階層もクリックできます。",
+     "「テーマ切替」はテーマを、",
+     "「フォルダ変更」は保存先",
+     "そのものを変えます。"
+    ],
+    "ch.11.desc": [
+     "リスト／グリッド、ALL／TXT／IMG／FILE、",
+     "検索、「このページから」。",
+     "削除は 2 回クリックします。"
+    ],
+    "ch.12.desc": [
+     "1 件につき .md が 1 つ、",
+     "元のファイルは assets/ に。",
+     "各ファイルの冒頭に出典があり、",
+     "MATERIAL.md は AI への説明書です。"
+    ],
+    "ch.13.desc": [
+     "5 件集まると「AI に渡しましょう」が出ます。",
+     "パスを貼って指示文をコピーし、",
+     "Claude Code に貼ると、",
+     "素材を読んで出典付きのアウトラインを",
+     "返します（実際に動かした結果）。"
+    ],
+    "ch.14.desc": [
+     "しばらく使わないとフォルダが",
+     "ロックされます。",
+     "「ロックを解除」を押します。",
+     "サイドパネルで解除できないときは、",
+     "上部の鍵アイコンから別ページで。"
+    ],
+    "ch.15.desc": [
+     "「ページ機能」をオフにすると",
+     "ウェブページ上のボタンが消えます。",
+     "サイドパネルからは引き続き保存できます。",
+     "ごみ箱は、消える内容を先に見せます。"
+    ],
+    "ch.16.desc": [
+     "使い方、困ったときは（その場で点検）、",
+     "プライバシー、開発者について。"
+    ]
+   },
+   "1280": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章の使い方動画"
+    ],
+    "tutorial.lead": [
+     "インストール、保存、テーマ分け、",
+     "AI への受け渡しから、フォルダーのロックや",
+     "困ったときまで、全部で約 9 分。",
+     "章名をクリックすると、その章から再生します。"
+    ],
+    "tutorial.youtube": [
+     "YouTube で見る"
+    ],
+    "tutorial.chapters": [
+     "チャプター"
+    ],
+    "tutorial.total": [
+     "全体で約 9 分"
+    ],
+    "tutorial.showAll": [],
+    "ch.01.name": [
+     "Chrome に追加する"
+    ],
+    "ch.02.name": [
+     "パネルを開いてフォルダを選ぶ"
+    ],
+    "ch.03.name": [
+     "ページをまるごと保存"
+    ],
+    "ch.04.name": [
+     "文章の一部を保存"
+    ],
+    "ch.05.name": [
+     "画像を保存"
+    ],
+    "ch.06.name": [
+     "AI の返信を 1 件保存"
+    ],
+    "ch.07.name": [
+     "AI との会話をまるごと保存"
+    ],
+    "ch.08.name": [
+     "ChatGPT のファイルを保存"
+    ],
+    "ch.09.name": [
+     "テーマで分ける"
+    ],
+    "ch.10.name": [
+     "テーマ間の移動"
+    ],
+    "ch.11.name": [
+     "リストを整理する"
+    ],
+    "ch.12.name": [
+     "フォルダの中身"
+    ],
+    "ch.13.name": [
+     "AI に分析させる"
+    ],
+    "ch.14.name": [
+     "フォルダがロックされたら"
+    ],
+    "ch.15.name": [
+     "ページ機能のオフと削除"
+    ],
+    "ch.16.name": [
+     "ヘルプとサポート"
+    ],
+    "ch.01.desc": [
+     "Chrome ウェブストアで",
+     "「インスピレーション・コレクター」を検索して",
+     "Chrome に追加し、",
+     "ツールバーに固定します。"
+    ],
+    "ch.02.desc": [
+     "ツールバーのアイコンでサイドパネルを開きます。",
+     "最初にフォルダを 1 つ選び、",
+     "Chrome の確認で 1 回だけ許可します。"
+    ],
+    "ch.03.desc": [
+     "サイドパネルの「ページを保存」で記事全体を",
+     "1 件として保存。",
+     "同じページを 2 回保存しても 1 件のままです。"
+    ],
+    "ch.04.desc": [
+     "数行を選び、",
+     "選択部分を右クリックして「選択範囲を",
+     "コレクターに保存」。",
+     "1 か所で 1 件です。"
+    ],
+    "ch.05.desc": [
+     "1 枚なら右クリックで元の画像を保存、",
+     "何枚もなら「画像」で選びます。",
+     "小さなアイコンは自動で除外されます。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT・Claude・Perplexity の各返信の最後にある",
+     "「これを保存」で、",
+     "その返信だけを保存します。"
+    ],
+    "ch.07.desc": [
+     "会話のページで「ページを保存」を押すと、",
+     "会話全体を発言者付きで保存。",
+     "Perplexity は引用元も一緒に保存します。"
+    ],
+    "ch.08.desc": [
+     "「ファイル」で、",
+     "ChatGPT が作った xlsx・py・md を元の",
+     "ファイルのまま assets/ に保存。",
+     "ほかのサイトではグレー表示です。"
+    ],
+    "ch.09.desc": [
+     "「新しいテーマ」でフォルダを作り、",
+     "何のためかを一文で書くと MATERIAL.md に",
+     "書き込まれます。",
+     "あとから変更もできます。"
+    ],
+    "ch.10.desc": [
+     "パンくずで今いる階層がわかり、",
+     "どの階層もクリックできます。",
+     "「テーマ切替」はテーマを、",
+     "「フォルダ変更」は保存先そのものを変えます。"
+    ],
+    "ch.11.desc": [
+     "リスト／グリッド、ALL／TXT／IMG／FILE、",
+     "検索、「このページから」。",
+     "削除は 2 回クリックします。"
+    ],
+    "ch.12.desc": [
+     "1 件につき .md が 1 つ、元のファイルは assets/ に。",
+     "各ファイルの冒頭に出典があり、",
+     "MATERIAL.md は AI への説明書です。"
+    ],
+    "ch.13.desc": [
+     "5 件集まると「AI に渡しましょう」が出ます。",
+     "パスを貼って指示文をコピーし、",
+     "Claude Code に貼ると、",
+     "素材を読んで出典付きのアウトラインを返します",
+     "（実際に動かした結果）。"
+    ],
+    "ch.14.desc": [
+     "しばらく使わないとフォルダがロックされます。",
+     "「ロックを解除」を押します。",
+     "サイドパネルで解除できないときは、",
+     "上部の鍵アイコンから別ページで。"
+    ],
+    "ch.15.desc": [
+     "「ページ機能」をオフにするとウェブページ上の",
+     "ボタンが消えます。",
+     "サイドパネルからは引き続き保存できます。",
+     "ごみ箱は、消える内容を先に見せます。"
+    ],
+    "ch.16.desc": [
+     "使い方、困ったときは（その場で点検）、",
+     "プライバシー、開発者について。"
+    ]
+   },
+   "1440": {
+    "tutorial.eyebrow": [
+     "Tutorial"
+    ],
+    "tutorial.title": [
+     "16 章の使い方動画"
+    ],
+    "tutorial.lead": [
+     "インストール、保存、テーマ分け、",
+     "AI への受け渡しから、フォルダーのロックや",
+     "困ったときまで、全部で約 9 分。",
+     "章名をクリックすると、その章から再生します。"
+    ],
+    "tutorial.youtube": [
+     "YouTube で見る"
+    ],
+    "tutorial.chapters": [
+     "チャプター"
+    ],
+    "tutorial.total": [
+     "全体で約 9 分"
+    ],
+    "tutorial.showAll": [],
+    "ch.01.name": [
+     "Chrome に追加する"
+    ],
+    "ch.02.name": [
+     "パネルを開いてフォルダを選ぶ"
+    ],
+    "ch.03.name": [
+     "ページをまるごと保存"
+    ],
+    "ch.04.name": [
+     "文章の一部を保存"
+    ],
+    "ch.05.name": [
+     "画像を保存"
+    ],
+    "ch.06.name": [
+     "AI の返信を 1 件保存"
+    ],
+    "ch.07.name": [
+     "AI との会話をまるごと保存"
+    ],
+    "ch.08.name": [
+     "ChatGPT のファイルを保存"
+    ],
+    "ch.09.name": [
+     "テーマで分ける"
+    ],
+    "ch.10.name": [
+     "テーマ間の移動"
+    ],
+    "ch.11.name": [
+     "リストを整理する"
+    ],
+    "ch.12.name": [
+     "フォルダの中身"
+    ],
+    "ch.13.name": [
+     "AI に分析させる"
+    ],
+    "ch.14.name": [
+     "フォルダがロックされたら"
+    ],
+    "ch.15.name": [
+     "ページ機能のオフと削除"
+    ],
+    "ch.16.name": [
+     "ヘルプとサポート"
+    ],
+    "ch.01.desc": [
+     "Chrome ウェブストアで",
+     "「インスピレーション・コレクター」を検索して",
+     "Chrome に追加し、",
+     "ツールバーに固定します。"
+    ],
+    "ch.02.desc": [
+     "ツールバーのアイコンでサイドパネルを開きます。",
+     "最初にフォルダを 1 つ選び、",
+     "Chrome の確認で 1 回だけ許可します。"
+    ],
+    "ch.03.desc": [
+     "サイドパネルの「ページを保存」で記事全体を",
+     "1 件として保存。",
+     "同じページを 2 回保存しても 1 件のままです。"
+    ],
+    "ch.04.desc": [
+     "数行を選び、",
+     "選択部分を右クリックして「選択範囲を",
+     "コレクターに保存」。",
+     "1 か所で 1 件です。"
+    ],
+    "ch.05.desc": [
+     "1 枚なら右クリックで元の画像を保存、",
+     "何枚もなら「画像」で選びます。",
+     "小さなアイコンは自動で除外されます。"
+    ],
+    "ch.06.desc": [
+     "ChatGPT・Claude・Perplexity の各返信の最後にある",
+     "「これを保存」で、",
+     "その返信だけを保存します。"
+    ],
+    "ch.07.desc": [
+     "会話のページで「ページを保存」を押すと、",
+     "会話全体を発言者付きで保存。",
+     "Perplexity は引用元も一緒に保存します。"
+    ],
+    "ch.08.desc": [
+     "「ファイル」で、",
+     "ChatGPT が作った xlsx・py・md を元の",
+     "ファイルのまま assets/ に保存。",
+     "ほかのサイトではグレー表示です。"
+    ],
+    "ch.09.desc": [
+     "「新しいテーマ」でフォルダを作り、",
+     "何のためかを一文で書くと MATERIAL.md に",
+     "書き込まれます。",
+     "あとから変更もできます。"
+    ],
+    "ch.10.desc": [
+     "パンくずで今いる階層がわかり、",
+     "どの階層もクリックできます。",
+     "「テーマ切替」はテーマを、",
+     "「フォルダ変更」は保存先そのものを変えます。"
+    ],
+    "ch.11.desc": [
+     "リスト／グリッド、ALL／TXT／IMG／FILE、",
+     "検索、「このページから」。",
+     "削除は 2 回クリックします。"
+    ],
+    "ch.12.desc": [
+     "1 件につき .md が 1 つ、元のファイルは assets/ に。",
+     "各ファイルの冒頭に出典があり、",
+     "MATERIAL.md は AI への説明書です。"
+    ],
+    "ch.13.desc": [
+     "5 件集まると「AI に渡しましょう」が出ます。",
+     "パスを貼って指示文をコピーし、",
+     "Claude Code に貼ると、",
+     "素材を読んで出典付きのアウトラインを返します",
+     "（実際に動かした結果）。"
+    ],
+    "ch.14.desc": [
+     "しばらく使わないとフォルダがロックされます。",
+     "「ロックを解除」を押します。",
+     "サイドパネルで解除できないときは、",
+     "上部の鍵アイコンから別ページで。"
+    ],
+    "ch.15.desc": [
+     "「ページ機能」をオフにするとウェブページ上の",
+     "ボタンが消えます。",
+     "サイドパネルからは引き続き保存できます。",
+     "ごみ箱は、消える内容を先に見せます。"
+    ],
+    "ch.16.desc": [
+     "使い方、困ったときは（その場で点検）、",
+     "プライバシー、開発者について。"
+    ]
+   }
+  }
+ }
+}

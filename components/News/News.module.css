@@ -1,0 +1,104 @@
+/* 照設計稿 home.css 的「11 最新公告」（第三批 4-3）；卡片本身照第二批（components/Card） */
+
+/* 卡片↔「看更早的公告」：--gap-unit */
+.body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--gap-unit);
+}
+
+/* 日期（等寬）＋類別（小標的螢光綠等寬字）＋置頂：齊基線 */
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-8) var(--gap-tight);
+    margin: 0;
+}
+
+.date {
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--label-size)/var(--leading-snug) var(--font-mono);
+    font-variant-numeric: tabular-nums;
+}
+
+/* 類別：使用者自由寫的字，用小標的顏色 */
+.kind {
+    color: var(--color-accent-lime-text);
+    font: var(--weight-medium) var(--label-size)/var(--leading-snug) var(--font-mono);
+}
+
+.pin {
+    gap: var(--space-6);
+    align-self: center;
+}
+
+.pin :global(.i) {
+    width: var(--space-14);
+    height: var(--space-14);
+}
+
+/* 置頂的那一張框線亮一階（兩個 class：蓋過卡片自己的髮絲框，不靠 CSS 檔的先後） */
+.news.pinned {
+    border-color: var(--color-border-strong);
+}
+
+/* 一欄（平板）時卡片很寬：標題一行不超過約 25 字 */
+.title {
+    max-width: var(--measure);
+}
+
+/* 使用者寫的換行照留（防孤字只綁最後一行的最後幾個字） */
+.text {
+    white-space: pre-line;
+}
+
+/* 使用者寫的字：中文 keep-all（從 main 繼承）＋產生網頁時插在詞界的 <wbr>；一長串沒有斷點的字要兜底（flex 子項裡 break-word 兜不住） */
+.title,
+.text {
+    overflow-wrap: anywhere;
+}
+
+/* 寫壞的那一則：一張一樣大的虛線卡（li.bad：蓋過卡片自己的框與底色） */
+li.bad {
+    justify-content: center;
+    border: var(--stroke-base) dashed var(--color-border-strong);
+    background: transparent;
+}
+
+.empty {
+    color: var(--color-text-secondary);
+    font: var(--weight-regular) var(--text-lg)/var(--lh-body) var(--font-sans-16);
+}
+
+/* 只有一則（1024 起跨三欄中的兩欄）：卡片裡左右排 —— 左：日期與標題，右：內文與連結；不讓一行拉到 50 字 */
+@media (min-width: 1024px) {
+    ul:has(> li:only-child) > .news {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto auto 1fr;
+        column-gap: var(--gap-unit);
+        row-gap: var(--gap-inner);
+        align-content: start;
+    }
+
+    ul:has(> li:only-child) > .news > .meta {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    ul:has(> li:only-child) > .news > .title {
+        grid-column: 1;
+        grid-row: 2 / 4;
+    }
+
+    ul:has(> li:only-child) > .news > .text {
+        grid-column: 2;
+        grid-row: 1 / 3;
+    }
+
+    ul:has(> li:only-child) > .news > .more {
+        grid-column: 2;
+        grid-row: 3;
+    }
+}

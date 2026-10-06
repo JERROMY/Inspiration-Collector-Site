@@ -1,0 +1,92 @@
+/* Mirameta / nO.X — 尺度 token
+   數值取自 DesignSystem.fig + WebOfficialDesign.fig 的實際用量統計，
+   括號內為原設計中的出現次數，用以判斷何者為主要節奏。 */
+
+:root {
+  /* ── 間距 Space ───────────────────────────────
+     兩套節奏並存：
+     · 版面節奏 8 / 12 / 20 / 24 / 40  — 區塊與版心
+     · 儀表節奏 3 / 5 / 6 / 10 / 30    — 深海儀器介面的細部密度 */
+  --space-0:   0;
+  --space-2:   2px;    /* (10) */
+  --space-3:   3px;    /* (29) */
+  --space-4:   4px;    /* (30) */
+  --space-5:   5px;    /* (116) 儀表細節主力 */
+  --space-6:   6px;    /* (46) */
+  --space-8:   8px;    /* (41) */
+  --space-10: 10px;    /* (187) 全站最高頻 */
+  --space-12: 12px;    /* (63) */
+  --space-14: 14px;    /* (16) */
+  --space-16: 16px;    /* (7) */
+  --space-18: 18px;    /* (28) 導覽膠囊內距 */
+  --space-20: 20px;    /* (37) */
+  --space-24: 24px;    /* (22) */
+  --space-30: 30px;    /* (28) */
+  --space-40: 40px;    /* (135) 區塊間距主力 */
+  --space-60: 60px;
+  --space-80: 80px;
+  --space-120: 120px;
+
+  /* ── 內距 Padding（容器慣用值）───────────────── */
+  --pad-tight:   var(--space-4);
+  --pad-snug:    var(--space-6);
+  --pad-base:    var(--space-10);   /* (250) */
+  --pad-comfy:   var(--space-12);   /* (378) 最高頻 */
+  --pad-loose:   var(--space-20);
+  --pad-section: var(--space-40);
+
+  /* ── 圓角 Radius ─────────────────────────────── */
+  --radius-xs:   2px;
+  --radius-sm:   3px;   /* (111) 小控件、標籤 */
+  --radius-md:   6px;
+  --radius-lg:   8px;   /* (133) 卡片主力 */
+  --radius-xl:  10px;   /* (50) */
+  --radius-2xl: 12px;
+  --radius-3xl: 20px;   /* (23) 大卡片 / 浮層 */
+  --radius-4xl: 40px;   /* (21) 膠囊區塊 */
+  --radius-full: 9999px;
+
+  /* ── 線寬 Stroke ─────────────────────────────
+     0.5px 髮絲線是本系統的視覺簽名（572 次），
+     對應深海儀器的精密刻度感。1px 以上僅用於強調。 */
+  --stroke-hairline: 0.5px;
+  --stroke-thin:     0.75px;
+  --stroke-base:     1px;
+  --stroke-thick:    1.5px;
+  --stroke-heavy:    2px;
+
+  /* ── 模糊 Blur ───────────────────────────────── */
+  --blur-glass:   4px;     /* Figma GLASS 效果 */
+  --blur-sm:     30px;
+  --blur-md:     78px;
+  --blur-lg:     96px;     /* 背景玻璃主力 */
+  --blur-ambient: 240px;   /* 前景氛圍光暈 */
+
+  /* ── 陰影 Elevation ─────────────────────────── */
+  --shadow-glow:    0 0 5px rgb(0 0 0 / .8);
+  --shadow-raised:  0 1.2px 30px rgb(0 0 0 / .1);
+  --shadow-card:    0 1px 24px rgb(0 0 0 / .1);
+  --shadow-inset-soft:  inset 10px 10px 10px rgb(0 0 0 / .1);
+  --shadow-inset-deep:  inset 10px 10px 29px rgb(0 0 0 / .25);
+  --shadow-inset-top:   inset 0 -4px 5px rgb(0 0 0 / .5);
+  --shadow-inset-bottom: inset 0 7px 9px rgb(0 0 0 / .35);
+
+  /* ── 動態 Motion ─────────────────────────────
+     深海敘事的節奏：緩慢、有阻力、有慣性。
+     海星拖曳「滯後感」、水母「呼吸」皆對應 slow / breathe。 */
+  --ease-out:     cubic-bezier(.22, 1, .36, 1);
+  --ease-in-out:  cubic-bezier(.65, 0, .35, 1);
+  --ease-drift:   cubic-bezier(.37, 0, .63, 1);  /* 漂浮／慣性 */
+  --dur-instant:  90ms;
+  --dur-fast:     160ms;
+  --dur-base:     240ms;
+  --dur-slow:     480ms;
+  --dur-breathe: 3200ms;
+
+  /* ── 版面 Layout ─────────────────────────────── */
+  --canvas-width: 1440px;   /* 設計稿基準畫板 */
+  --content-max:  1280px;
+  --gutter:       var(--space-40);
+  --z-base: 0; --z-raised: 10; --z-sticky: 100;
+  --z-overlay: 1000; --z-modal: 1100; --z-toast: 1200;
+}

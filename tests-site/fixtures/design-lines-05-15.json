@@ -1,0 +1,6412 @@
+{
+ "source": "設計稿 design/homepage/{zh,en,ja}/index.html，commit 607a536；2026-10-03 用 tests-site/tools/measure-design.mjs 量的（本機伺服器開、Playwright 的 Chromium、減少動態，量之前確認 Google Sans Flex 與 JetBrains Mono 都載好了）。lines：有滑鼠，三語 × 十二種寬度（高 900）；touch：只有手指（isMobile＋hasTouch，高 844），320～430 的 15 區手指框。05、06、08、15 的標題、說明、卡片、按鈕。06 的「看教學 NN」鍵是 features.N.more（字串表是一條 features.more 代入章號）。鍵是字串表的 id。",
+ "lines": {
+  "zh": {
+   "280": {
+    "how.title": [
+     "收在一個地方，",
+     "交給 AI 讀"
+    ],
+    "how.pain": [
+     "資料散在書籤、截圖、",
+     "下載資料夾，",
+     "還有好幾個聊天視窗裡 ——",
+     "等到要請 AI 整理，",
+     "卻不知道從哪裡餵給它。"
+    ],
+    "how.1.title": [
+     "挑一個資料夾"
+    ],
+    "how.2.title": [
+     "看到有用的就存"
+    ],
+    "how.3.title": [
+     "叫 AI 分析那個資料夾"
+    ],
+    "how.1.body": [
+     "就是你硬碟上的普通資料夾，",
+     "你自己選。"
+    ],
+    "how.2.body": [
+     "整頁、選取的文字、圖片、AI 的回覆，",
+     "按一下就收好。"
+    ],
+    "how.3.body": [
+     "例如 Claude Code、Codex、",
+     "Gemini CLI，",
+     "讀完交出每一點都帶出處的整理。"
+    ],
+    "features.title": [
+     "看到什麼，",
+     "就收什麼"
+    ],
+    "features.1.title": [
+     "整篇文章"
+    ],
+    "features.2.title": [
+     "選取的段落"
+    ],
+    "features.3.title": [
+     "圖片"
+    ],
+    "features.4.title": [
+     "一則 AI 回覆"
+    ],
+    "features.5.title": [
+     "整段 AI 對話"
+    ],
+    "features.6.title": [
+     "ChatGPT 做的檔案"
+    ],
+    "features.7.title": [
+     "用專題分類"
+    ],
+    "features.8.title": [
+     "存兩次還是一份"
+    ],
+    "features.1.body": [
+     "按一下，整篇正文",
+     "存成一份 Markdown。"
+    ],
+    "features.2.body": [
+     "選起來按右鍵，",
+     "只留你圈起來的那幾句。"
+    ],
+    "features.3.body": [
+     "右鍵存單張原圖，",
+     "或一次挑整頁的圖。"
+    ],
+    "features.4.body": [
+     "ChatGPT、Claude、",
+     "Perplexity 的",
+     "每一則回覆都能單獨存。"
+    ],
+    "features.5.body": [
+     "標好哪句是你說的、",
+     "哪句是 AI 說的；",
+     "Perplexity 連內文裡的",
+     "來源連結一起存。"
+    ],
+    "features.6.body": [
+     "試算表、程式、文件，",
+     "原檔直接存進資料夾。"
+    ],
+    "features.7.body": [
+     "一個題目一包，",
+     "寫一句它是做什麼的，",
+     "AI 一讀就懂。"
+    ],
+    "features.8.body": [
+     "同一頁再存一次，",
+     "是更新原本那一份，",
+     "不會多一份。"
+    ],
+    "features.1.more": [
+     "看教學 03"
+    ],
+    "features.2.more": [
+     "看教學 04"
+    ],
+    "features.3.more": [
+     "看教學 05"
+    ],
+    "features.4.more": [
+     "看教學 06"
+    ],
+    "features.5.more": [
+     "看教學 07"
+    ],
+    "features.6.more": [
+     "看教學 08"
+    ],
+    "features.7.more": [
+     "看教學 09"
+    ],
+    "features.8.more": [
+     "看教學 03"
+    ],
+    "privacy.title": [
+     "你存的東西",
+     "不會離開",
+     "這台電腦"
+    ],
+    "privacy.lead": [
+     "你用擴充存下的東西，",
+     "作者收不到，",
+     "因為根本沒有地方可以收。"
+    ],
+    "privacy.1.title": [
+     "擴充本身沒有伺服器"
+    ],
+    "privacy.2.title": [
+     "沒有帳號"
+    ],
+    "privacy.3.title": [
+     "擴充本身不追蹤"
+    ],
+    "privacy.4.title": [
+     "只碰你挑的資料夾"
+    ],
+    "privacy.1.body": [
+     "存下來的東西",
+     "直接寫進你的資料夾。"
+    ],
+    "privacy.2.body": [
+     "不用註冊，也不用登入。"
+    ],
+    "privacy.3.body": [
+     "擴充沒有分析、",
+     "沒有追蹤、沒有廣告。"
+    ],
+    "privacy.4.body": [
+     "你挑哪個它就只能碰那一個，",
+     "其他資料夾一律碰不到。"
+    ],
+    "privacy.link": [
+     "看完整的隱私條款"
+    ],
+    "final.title": [
+     "看到有用的，",
+     "按一下就收好"
+    ],
+    "final.meta": [
+     "免費 · 桌機版 Chrome",
+     "（Windows、Mac）"
+    ],
+    "final.cta": [
+     "加到 Chrome — 免費"
+    ]
+   },
+   "320": {
+    "how.title": [
+     "收在一個地方，",
+     "交給 AI 讀"
+    ],
+    "how.pain": [
+     "資料散在書籤、截圖、下載資料夾，",
+     "還有好幾個聊天視窗裡 ——",
+     "等到要請 AI 整理，",
+     "卻不知道從哪裡餵給它。"
+    ],
+    "how.1.title": [
+     "挑一個資料夾"
+    ],
+    "how.2.title": [
+     "看到有用的就存"
+    ],
+    "how.3.title": [
+     "叫 AI 分析那個資料夾"
+    ],
+    "how.1.body": [
+     "就是你硬碟上的普通資料夾，你自己選。"
+    ],
+    "how.2.body": [
+     "整頁、選取的文字、圖片、AI 的回覆，",
+     "按一下就收好。"
+    ],
+    "how.3.body": [
+     "例如 Claude Code、Codex、Gemini CLI，",
+     "讀完交出每一點都帶出處的整理。"
+    ],
+    "features.title": [
+     "看到什麼，就收什麼"
+    ],
+    "features.1.title": [
+     "整篇文章"
+    ],
+    "features.2.title": [
+     "選取的段落"
+    ],
+    "features.3.title": [
+     "圖片"
+    ],
+    "features.4.title": [
+     "一則 AI 回覆"
+    ],
+    "features.5.title": [
+     "整段 AI 對話"
+    ],
+    "features.6.title": [
+     "ChatGPT 做的檔案"
+    ],
+    "features.7.title": [
+     "用專題分類"
+    ],
+    "features.8.title": [
+     "存兩次還是一份"
+    ],
+    "features.1.body": [
+     "按一下，整篇正文",
+     "存成一份 Markdown。"
+    ],
+    "features.2.body": [
+     "選起來按右鍵，",
+     "只留你圈起來的那幾句。"
+    ],
+    "features.3.body": [
+     "右鍵存單張原圖，",
+     "或一次挑整頁的圖。"
+    ],
+    "features.4.body": [
+     "ChatGPT、Claude、Perplexity 的",
+     "每一則回覆都能單獨存。"
+    ],
+    "features.5.body": [
+     "標好哪句是你說的、",
+     "哪句是 AI 說的；",
+     "Perplexity 連內文裡的",
+     "來源連結一起存。"
+    ],
+    "features.6.body": [
+     "試算表、程式、文件，",
+     "原檔直接存進資料夾。"
+    ],
+    "features.7.body": [
+     "一個題目一包，",
+     "寫一句它是做什麼的，",
+     "AI 一讀就懂。"
+    ],
+    "features.8.body": [
+     "同一頁再存一次，",
+     "是更新原本那一份，不會多一份。"
+    ],
+    "features.1.more": [
+     "看教學 03"
+    ],
+    "features.2.more": [
+     "看教學 04"
+    ],
+    "features.3.more": [
+     "看教學 05"
+    ],
+    "features.4.more": [
+     "看教學 06"
+    ],
+    "features.5.more": [
+     "看教學 07"
+    ],
+    "features.6.more": [
+     "看教學 08"
+    ],
+    "features.7.more": [
+     "看教學 09"
+    ],
+    "features.8.more": [
+     "看教學 03"
+    ],
+    "privacy.title": [
+     "你存的東西",
+     "不會離開這台電腦"
+    ],
+    "privacy.lead": [
+     "你用擴充存下的東西，作者收不到，",
+     "因為根本沒有地方可以收。"
+    ],
+    "privacy.1.title": [
+     "擴充本身沒有伺服器"
+    ],
+    "privacy.2.title": [
+     "沒有帳號"
+    ],
+    "privacy.3.title": [
+     "擴充本身不追蹤"
+    ],
+    "privacy.4.title": [
+     "只碰你挑的資料夾"
+    ],
+    "privacy.1.body": [
+     "存下來的東西直接寫進你的資料夾。"
+    ],
+    "privacy.2.body": [
+     "不用註冊，也不用登入。"
+    ],
+    "privacy.3.body": [
+     "擴充沒有分析、",
+     "沒有追蹤、沒有廣告。"
+    ],
+    "privacy.4.body": [
+     "你挑哪個它就只能碰那一個，",
+     "其他資料夾一律碰不到。"
+    ],
+    "privacy.link": [
+     "看完整的隱私條款"
+    ],
+    "final.title": [
+     "看到有用的，",
+     "按一下就收好"
+    ],
+    "final.meta": [
+     "免費 · 桌機版 Chrome",
+     "（Windows、Mac）"
+    ],
+    "final.cta": [
+     "加到 Chrome — 免費"
+    ]
+   },
+   "360": {
+    "how.title": [
+     "收在一個地方，",
+     "交給 AI 讀"
+    ],
+    "how.pain": [
+     "資料散在書籤、截圖、下載資料夾，",
+     "還有好幾個聊天視窗裡 ——",
+     "等到要請 AI 整理，卻不知道從哪裡餵給它。"
+    ],
+    "how.1.title": [
+     "挑一個資料夾"
+    ],
+    "how.2.title": [
+     "看到有用的就存"
+    ],
+    "how.3.title": [
+     "叫 AI 分析那個資料夾"
+    ],
+    "how.1.body": [
+     "就是你硬碟上的普通資料夾，你自己選。"
+    ],
+    "how.2.body": [
+     "整頁、選取的文字、圖片、AI 的回覆，",
+     "按一下就收好。"
+    ],
+    "how.3.body": [
+     "例如 Claude Code、Codex、Gemini CLI，",
+     "讀完交出每一點都帶出處的整理。"
+    ],
+    "features.title": [
+     "看到什麼，就收什麼"
+    ],
+    "features.1.title": [
+     "整篇文章"
+    ],
+    "features.2.title": [
+     "選取的段落"
+    ],
+    "features.3.title": [
+     "圖片"
+    ],
+    "features.4.title": [
+     "一則 AI 回覆"
+    ],
+    "features.5.title": [
+     "整段 AI 對話"
+    ],
+    "features.6.title": [
+     "ChatGPT 做的檔案"
+    ],
+    "features.7.title": [
+     "用專題分類"
+    ],
+    "features.8.title": [
+     "存兩次還是一份"
+    ],
+    "features.1.body": [
+     "按一下，整篇正文存成一份 Markdown。"
+    ],
+    "features.2.body": [
+     "選起來按右鍵，只留你圈起來的那幾句。"
+    ],
+    "features.3.body": [
+     "右鍵存單張原圖，或一次挑整頁的圖。"
+    ],
+    "features.4.body": [
+     "ChatGPT、Claude、Perplexity 的",
+     "每一則回覆都能單獨存。"
+    ],
+    "features.5.body": [
+     "標好哪句是你說的、哪句是 AI 說的；",
+     "Perplexity 連內文裡的來源連結一起存。"
+    ],
+    "features.6.body": [
+     "試算表、程式、文件，",
+     "原檔直接存進資料夾。"
+    ],
+    "features.7.body": [
+     "一個題目一包，寫一句它是做什麼的，",
+     "AI 一讀就懂。"
+    ],
+    "features.8.body": [
+     "同一頁再存一次，是更新原本那一份，",
+     "不會多一份。"
+    ],
+    "features.1.more": [
+     "看教學 03"
+    ],
+    "features.2.more": [
+     "看教學 04"
+    ],
+    "features.3.more": [
+     "看教學 05"
+    ],
+    "features.4.more": [
+     "看教學 06"
+    ],
+    "features.5.more": [
+     "看教學 07"
+    ],
+    "features.6.more": [
+     "看教學 08"
+    ],
+    "features.7.more": [
+     "看教學 09"
+    ],
+    "features.8.more": [
+     "看教學 03"
+    ],
+    "privacy.title": [
+     "你存的東西",
+     "不會離開這台電腦"
+    ],
+    "privacy.lead": [
+     "你用擴充存下的東西，作者收不到，",
+     "因為根本沒有地方可以收。"
+    ],
+    "privacy.1.title": [
+     "擴充本身沒有伺服器"
+    ],
+    "privacy.2.title": [
+     "沒有帳號"
+    ],
+    "privacy.3.title": [
+     "擴充本身不追蹤"
+    ],
+    "privacy.4.title": [
+     "只碰你挑的資料夾"
+    ],
+    "privacy.1.body": [
+     "存下來的東西直接寫進你的資料夾。"
+    ],
+    "privacy.2.body": [
+     "不用註冊，也不用登入。"
+    ],
+    "privacy.3.body": [
+     "擴充沒有分析、沒有追蹤、沒有廣告。"
+    ],
+    "privacy.4.body": [
+     "你挑哪個它就只能碰那一個，",
+     "其他資料夾一律碰不到。"
+    ],
+    "privacy.link": [
+     "看完整的隱私條款"
+    ],
+    "final.title": [
+     "看到有用的，",
+     "按一下就收好"
+    ],
+    "final.meta": [
+     "免費 · 桌機版 Chrome（Windows、Mac）"
+    ],
+    "final.cta": [
+     "加到 Chrome — 免費"
+    ]
+   },
+   "375": {
+    "how.title": [
+     "收在一個地方，",
+     "交給 AI 讀"
+    ],
+    "how.pain": [
+     "資料散在書籤、截圖、下載資料夾，",
+     "還有好幾個聊天視窗裡 —— 等到要請 AI 整理，",
+     "卻不知道從哪裡餵給它。"
+    ],
+    "how.1.title": [
+     "挑一個資料夾"
+    ],
+    "how.2.title": [
+     "看到有用的就存"
+    ],
+    "how.3.title": [
+     "叫 AI 分析那個資料夾"
+    ],
+    "how.1.body": [
+     "就是你硬碟上的普通資料夾，你自己選。"
+    ],
+    "how.2.body": [
+     "整頁、選取的文字、圖片、AI 的回覆，按一下就收好。"
+    ],
+    "how.3.body": [
+     "例如 Claude Code、Codex、Gemini CLI，",
+     "讀完交出每一點都帶出處的整理。"
+    ],
+    "features.title": [
+     "看到什麼，就收什麼"
+    ],
+    "features.1.title": [
+     "整篇文章"
+    ],
+    "features.2.title": [
+     "選取的段落"
+    ],
+    "features.3.title": [
+     "圖片"
+    ],
+    "features.4.title": [
+     "一則 AI 回覆"
+    ],
+    "features.5.title": [
+     "整段 AI 對話"
+    ],
+    "features.6.title": [
+     "ChatGPT 做的檔案"
+    ],
+    "features.7.title": [
+     "用專題分類"
+    ],
+    "features.8.title": [
+     "存兩次還是一份"
+    ],
+    "features.1.body": [
+     "按一下，整篇正文存成一份 Markdown。"
+    ],
+    "features.2.body": [
+     "選起來按右鍵，只留你圈起來的那幾句。"
+    ],
+    "features.3.body": [
+     "右鍵存單張原圖，或一次挑整頁的圖。"
+    ],
+    "features.4.body": [
+     "ChatGPT、Claude、Perplexity 的",
+     "每一則回覆都能單獨存。"
+    ],
+    "features.5.body": [
+     "標好哪句是你說的、哪句是 AI 說的；",
+     "Perplexity 連內文裡的來源連結一起存。"
+    ],
+    "features.6.body": [
+     "試算表、程式、文件，原檔直接存進資料夾。"
+    ],
+    "features.7.body": [
+     "一個題目一包，寫一句它是做什麼的，",
+     "AI 一讀就懂。"
+    ],
+    "features.8.body": [
+     "同一頁再存一次，是更新原本那一份，",
+     "不會多一份。"
+    ],
+    "features.1.more": [
+     "看教學 03"
+    ],
+    "features.2.more": [
+     "看教學 04"
+    ],
+    "features.3.more": [
+     "看教學 05"
+    ],
+    "features.4.more": [
+     "看教學 06"
+    ],
+    "features.5.more": [
+     "看教學 07"
+    ],
+    "features.6.more": [
+     "看教學 08"
+    ],
+    "features.7.more": [
+     "看教學 09"
+    ],
+    "features.8.more": [
+     "看教學 03"
+    ],
+    "privacy.title": [
+     "你存的東西",
+     "不會離開這台電腦"
+    ],
+    "privacy.lead": [
+     "你用擴充存下的東西，作者收不到，",
+     "因為根本沒有地方可以收。"
+    ],
+    "privacy.1.title": [
+     "擴充本身沒有伺服器"
+    ],
+    "privacy.2.title": [
+     "沒有帳號"
+    ],
+    "privacy.3.title": [
+     "擴充本身不追蹤"
+    ],
+    "privacy.4.title": [
+     "只碰你挑的資料夾"
+    ],
+    "privacy.1.body": [
+     "存下來的東西直接寫進你的資料夾。"
+    ],
+    "privacy.2.body": [
+     "不用註冊，也不用登入。"
+    ],
+    "privacy.3.body": [
+     "擴充沒有分析、沒有追蹤、沒有廣告。"
+    ],
+    "privacy.4.body": [
+     "你挑哪個它就只能碰那一個，",
+     "其他資料夾一律碰不到。"
+    ],
+    "privacy.link": [
+     "看完整的隱私條款"
+    ],
+    "final.title": [
+     "看到有用的，",
+     "按一下就收好"
+    ],
+    "final.meta": [
+     "免費 · 桌機版 Chrome（Windows、Mac）"
+    ],
+    "final.cta": [
+     "加到 Chrome — 免費"
+    ]
+   },
+   "390": {
+    "how.title": [
+     "收在一個地方，",
+     "交給 AI 讀"
+    ],
+    "how.pain": [
+     "資料散在書籤、截圖、下載資料夾，",
+     "還有好幾個聊天視窗裡 —— 等到要請 AI 整理，",
+     "卻不知道從哪裡餵給它。"
+    ],
+    "how.1.title": [
+     "挑一個資料夾"
+    ],
+    "how.2.title": [
+     "看到有用的就存"
+    ],
+    "how.3.title": [
+     "叫 AI 分析那個資料夾"
+    ],
+    "how.1.body": [
+     "就是你硬碟上的普通資料夾，你自己選。"
+    ],
+    "how.2.body": [
+     "整頁、選取的文字、圖片、AI 的回覆，按一下就收好。"
+    ],
+    "how.3.body": [
+     "例如 Claude Code、Codex、Gemini CLI，",
+     "讀完交出每一點都帶出處的整理。"
+    ],
+    "features.title": [
+     "看到什麼，就收什麼"
+    ],
+    "features.1.title": [
+     "整篇文章"
+    ],
+    "features.2.title": [
+     "選取的段落"
+    ],
+    "features.3.title": [
+     "圖片"
+    ],
+    "features.4.title": [
+     "一則 AI 回覆"
+    ],
+    "features.5.title": [
+     "整段 AI 對話"
+    ],
+    "features.6.title": [
+     "ChatGPT 做的檔案"
+    ],
+    "features.7.title": [
+     "用專題分類"
+    ],
+    "features.8.title": [
+     "存兩次還是一份"
+    ],
+    "features.1.body": [
+     "按一下，整篇正文存成一份 Markdown。"
+    ],
+    "features.2.body": [
+     "選起來按右鍵，只留你圈起來的那幾句。"
+    ],
+    "features.3.body": [
+     "右鍵存單張原圖，或一次挑整頁的圖。"
+    ],
+    "features.4.body": [
+     "ChatGPT、Claude、Perplexity 的",
+     "每一則回覆都能單獨存。"
+    ],
+    "features.5.body": [
+     "標好哪句是你說的、哪句是 AI 說的；",
+     "Perplexity 連內文裡的來源連結一起存。"
+    ],
+    "features.6.body": [
+     "試算表、程式、文件，原檔直接存進資料夾。"
+    ],
+    "features.7.body": [
+     "一個題目一包，寫一句它是做什麼的，",
+     "AI 一讀就懂。"
+    ],
+    "features.8.body": [
+     "同一頁再存一次，是更新原本那一份，",
+     "不會多一份。"
+    ],
+    "features.1.more": [
+     "看教學 03"
+    ],
+    "features.2.more": [
+     "看教學 04"
+    ],
+    "features.3.more": [
+     "看教學 05"
+    ],
+    "features.4.more": [
+     "看教學 06"
+    ],
+    "features.5.more": [
+     "看教學 07"
+    ],
+    "features.6.more": [
+     "看教學 08"
+    ],
+    "features.7.more": [
+     "看教學 09"
+    ],
+    "features.8.more": [
+     "看教學 03"
+    ],
+    "privacy.title": [
+     "你存的東西",
+     "不會離開這台電腦"
+    ],
+    "privacy.lead": [
+     "你用擴充存下的東西，作者收不到，",
+     "因為根本沒有地方可以收。"
+    ],
+    "privacy.1.title": [
+     "擴充本身沒有伺服器"
+    ],
+    "privacy.2.title": [
+     "沒有帳號"
+    ],
+    "privacy.3.title": [
+     "擴充本身不追蹤"
+    ],
+    "privacy.4.title": [
+     "只碰你挑的資料夾"
+    ],
+    "privacy.1.body": [
+     "存下來的東西直接寫進你的資料夾。"
+    ],
+    "privacy.2.body": [
+     "不用註冊，也不用登入。"
+    ],
+    "privacy.3.body": [
+     "擴充沒有分析、沒有追蹤、沒有廣告。"
+    ],
+    "privacy.4.body": [
+     "你挑哪個它就只能碰那一個，",
+     "其他資料夾一律碰不到。"
+    ],
+    "privacy.link": [
+     "看完整的隱私條款"
+    ],
+    "final.title": [
+     "看到有用的，",
+     "按一下就收好"
+    ],
+    "final.meta": [
+     "免費 · 桌機版 Chrome（Windows、Mac）"
+    ],
+    "final.cta": [
+     "加到 Chrome — 免費"
+    ]
+   },
+   "414": {
+    "how.title": [
+     "收在一個地方，交給 AI 讀"
+    ],
+    "how.pain": [
+     "資料散在書籤、截圖、下載資料夾，",
+     "還有好幾個聊天視窗裡 —— 等到要請 AI 整理，",
+     "卻不知道從哪裡餵給它。"
+    ],
+    "how.1.title": [
+     "挑一個資料夾"
+    ],
+    "how.2.title": [
+     "看到有用的就存"
+    ],
+    "how.3.title": [
+     "叫 AI 分析那個資料夾"
+    ],
+    "how.1.body": [
+     "就是你硬碟上的普通資料夾，你自己選。"
+    ],
+    "how.2.body": [
+     "整頁、選取的文字、圖片、AI 的回覆，按一下就收好。"
+    ],
+    "how.3.body": [
+     "例如 Claude Code、Codex、Gemini CLI，",
+     "讀完交出每一點都帶出處的整理。"
+    ],
+    "features.title": [
+     "看到什麼，就收什麼"
+    ],
+    "features.1.title": [
+     "整篇文章"
+    ],
+    "features.2.title": [
+     "選取的段落"
+    ],
+    "features.3.title": [
+     "圖片"
+    ],
+    "features.4.title": [
+     "一則 AI 回覆"
+    ],
+    "features.5.title": [
+     "整段 AI 對話"
+    ],
+    "features.6.title": [
+     "ChatGPT 做的檔案"
+    ],
+    "features.7.title": [
+     "用專題分類"
+    ],
+    "features.8.title": [
+     "存兩次還是一份"
+    ],
+    "features.1.body": [
+     "按一下，整篇正文存成一份 Markdown。"
+    ],
+    "features.2.body": [
+     "選起來按右鍵，只留你圈起來的那幾句。"
+    ],
+    "features.3.body": [
+     "右鍵存單張原圖，或一次挑整頁的圖。"
+    ],
+    "features.4.body": [
+     "ChatGPT、Claude、Perplexity 的",
+     "每一則回覆都能單獨存。"
+    ],
+    "features.5.body": [
+     "標好哪句是你說的、哪句是 AI 說的；",
+     "Perplexity 連內文裡的來源連結一起存。"
+    ],
+    "features.6.body": [
+     "試算表、程式、文件，原檔直接存進資料夾。"
+    ],
+    "features.7.body": [
+     "一個題目一包，寫一句它是做什麼的，",
+     "AI 一讀就懂。"
+    ],
+    "features.8.body": [
+     "同一頁再存一次，是更新原本那一份，",
+     "不會多一份。"
+    ],
+    "features.1.more": [
+     "看教學 03"
+    ],
+    "features.2.more": [
+     "看教學 04"
+    ],
+    "features.3.more": [
+     "看教學 05"
+    ],
+    "features.4.more": [
+     "看教學 06"
+    ],
+    "features.5.more": [
+     "看教學 07"
+    ],
+    "features.6.more": [
+     "看教學 08"
+    ],
+    "features.7.more": [
+     "看教學 09"
+    ],
+    "features.8.more": [
+     "看教學 03"
+    ],
+    "privacy.title": [
+     "你存的東西",
+     "不會離開這台電腦"
+    ],
+    "privacy.lead": [
+     "你用擴充存下的東西，作者收不到，",
+     "因為根本沒有地方可以收。"
+    ],
+    "privacy.1.title": [
+     "擴充本身沒有伺服器"
+    ],
+    "privacy.2.title": [
+     "沒有帳號"
+    ],
+    "privacy.3.title": [
+     "擴充本身不追蹤"
+    ],
+    "privacy.4.title": [
+     "只碰你挑的資料夾"
+    ],
+    "privacy.1.body": [
+     "存下來的東西直接寫進你的資料夾。"
+    ],
+    "privacy.2.body": [
+     "不用註冊，也不用登入。"
+    ],
+    "privacy.3.body": [
+     "擴充沒有分析、沒有追蹤、沒有廣告。"
+    ],
+    "privacy.4.body": [
+     "你挑哪個它就只能碰那一個，",
+     "其他資料夾一律碰不到。"
+    ],
+    "privacy.link": [
+     "看完整的隱私條款"
+    ],
+    "final.title": [
+     "看到有用的，",
+     "按一下就收好"
+    ],
+    "final.meta": [
+     "免費 · 桌機版 Chrome（Windows、Mac）"
+    ],
+    "final.cta": [
+     "加到 Chrome — 免費"
+    ]
+   },
+   "430": {
+    "how.title": [
+     "收在一個地方，交給 AI 讀"
+    ],
+    "how.pain": [
+     "資料散在書籤、截圖、下載資料夾，",
+     "還有好幾個聊天視窗裡 —— 等到要請 AI 整理，",
+     "卻不知道從哪裡餵給它。"
+    ],
+    "how.1.title": [
+     "挑一個資料夾"
+    ],
+    "how.2.title": [
+     "看到有用的就存"
+    ],
+    "how.3.title": [
+     "叫 AI 分析那個資料夾"
+    ],
+    "how.1.body": [
+     "就是你硬碟上的普通資料夾，你自己選。"
+    ],
+    "how.2.body": [
+     "整頁、選取的文字、圖片、AI 的回覆，按一下就收好。"
+    ],
+    "how.3.body": [
+     "例如 Claude Code、Codex、Gemini CLI，",
+     "讀完交出每一點都帶出處的整理。"
+    ],
+    "features.title": [
+     "看到什麼，就收什麼"
+    ],
+    "features.1.title": [
+     "整篇文章"
+    ],
+    "features.2.title": [
+     "選取的段落"
+    ],
+    "features.3.title": [
+     "圖片"
+    ],
+    "features.4.title": [
+     "一則 AI 回覆"
+    ],
+    "features.5.title": [
+     "整段 AI 對話"
+    ],
+    "features.6.title": [
+     "ChatGPT 做的檔案"
+    ],
+    "features.7.title": [
+     "用專題分類"
+    ],
+    "features.8.title": [
+     "存兩次還是一份"
+    ],
+    "features.1.body": [
+     "按一下，整篇正文存成一份 Markdown。"
+    ],
+    "features.2.body": [
+     "選起來按右鍵，只留你圈起來的那幾句。"
+    ],
+    "features.3.body": [
+     "右鍵存單張原圖，或一次挑整頁的圖。"
+    ],
+    "features.4.body": [
+     "ChatGPT、Claude、Perplexity 的",
+     "每一則回覆都能單獨存。"
+    ],
+    "features.5.body": [
+     "標好哪句是你說的、哪句是 AI 說的；",
+     "Perplexity 連內文裡的來源連結一起存。"
+    ],
+    "features.6.body": [
+     "試算表、程式、文件，原檔直接存進資料夾。"
+    ],
+    "features.7.body": [
+     "一個題目一包，寫一句它是做什麼的，AI 一讀就懂。"
+    ],
+    "features.8.body": [
+     "同一頁再存一次，是更新原本那一份，不會多一份。"
+    ],
+    "features.1.more": [
+     "看教學 03"
+    ],
+    "features.2.more": [
+     "看教學 04"
+    ],
+    "features.3.more": [
+     "看教學 05"
+    ],
+    "features.4.more": [
+     "看教學 06"
+    ],
+    "features.5.more": [
+     "看教學 07"
+    ],
+    "features.6.more": [
+     "看教學 08"
+    ],
+    "features.7.more": [
+     "看教學 09"
+    ],
+    "features.8.more": [
+     "看教學 03"
+    ],
+    "privacy.title": [
+     "你存的東西",
+     "不會離開這台電腦"
+    ],
+    "privacy.lead": [
+     "你用擴充存下的東西，作者收不到，",
+     "因為根本沒有地方可以收。"
+    ],
+    "privacy.1.title": [
+     "擴充本身沒有伺服器"
+    ],
+    "privacy.2.title": [
+     "沒有帳號"
+    ],
+    "privacy.3.title": [
+     "擴充本身不追蹤"
+    ],
+    "privacy.4.title": [
+     "只碰你挑的資料夾"
+    ],
+    "privacy.1.body": [
+     "存下來的東西直接寫進你的資料夾。"
+    ],
+    "privacy.2.body": [
+     "不用註冊，也不用登入。"
+    ],
+    "privacy.3.body": [
+     "擴充沒有分析、沒有追蹤、沒有廣告。"
+    ],
+    "privacy.4.body": [
+     "你挑哪個它就只能碰那一個，其他資料夾一律碰不到。"
+    ],
+    "privacy.link": [
+     "看完整的隱私條款"
+    ],
+    "final.title": [
+     "看到有用的，",
+     "按一下就收好"
+    ],
+    "final.meta": [
+     "免費 · 桌機版 Chrome（Windows、Mac）"
+    ],
+    "final.cta": [
+     "加到 Chrome — 免費"
+    ]
+   },
+   "640": {
+    "how.title": [
+     "收在一個地方，交給 AI 讀"
+    ],
+    "how.pain": [
+     "資料散在書籤、截圖、下載資料夾，",
+     "還有好幾個聊天視窗裡 —— 等到要請 AI 整理，",
+     "卻不知道從哪裡餵給它。"
+    ],
+    "how.1.title": [
+     "挑一個資料夾"
+    ],
+    "how.2.title": [
+     "看到有用的就存"
+    ],
+    "how.3.title": [
+     "叫 AI 分析那個資料夾"
+    ],
+    "how.1.body": [
+     "就是你硬碟上的",
+     "普通資料夾，",
+     "你自己選。"
+    ],
+    "how.2.body": [
+     "整頁、選取的文字、圖片、",
+     "AI 的回覆，",
+     "按一下就收好。"
+    ],
+    "how.3.body": [
+     "例如 Claude Code、",
+     "Codex、Gemini CLI，",
+     "讀完交出每一點",
+     "都帶出處的整理。"
+    ],
+    "features.title": [
+     "看到什麼，就收什麼"
+    ],
+    "features.1.title": [
+     "整篇文章"
+    ],
+    "features.2.title": [
+     "選取的段落"
+    ],
+    "features.3.title": [
+     "圖片"
+    ],
+    "features.4.title": [
+     "一則 AI 回覆"
+    ],
+    "features.5.title": [
+     "整段 AI 對話"
+    ],
+    "features.6.title": [
+     "ChatGPT 做的檔案"
+    ],
+    "features.7.title": [
+     "用專題分類"
+    ],
+    "features.8.title": [
+     "存兩次還是一份"
+    ],
+    "features.1.body": [
+     "按一下，整篇正文",
+     "存成一份 Markdown。"
+    ],
+    "features.2.body": [
+     "選起來按右鍵，",
+     "只留你圈起來的那幾句。"
+    ],
+    "features.3.body": [
+     "右鍵存單張原圖，",
+     "或一次挑整頁的圖。"
+    ],
+    "features.4.body": [
+     "ChatGPT、Claude、",
+     "Perplexity 的",
+     "每一則回覆都能單獨存。"
+    ],
+    "features.5.body": [
+     "標好哪句是你說的、",
+     "哪句是 AI 說的；",
+     "Perplexity 連內文裡的",
+     "來源連結一起存。"
+    ],
+    "features.6.body": [
+     "試算表、程式、文件，",
+     "原檔直接存進資料夾。"
+    ],
+    "features.7.body": [
+     "一個題目一包，",
+     "寫一句它是做什麼的，",
+     "AI 一讀就懂。"
+    ],
+    "features.8.body": [
+     "同一頁再存一次，",
+     "是更新原本那一份，不會多一份。"
+    ],
+    "features.1.more": [
+     "看教學 03"
+    ],
+    "features.2.more": [
+     "看教學 04"
+    ],
+    "features.3.more": [
+     "看教學 05"
+    ],
+    "features.4.more": [
+     "看教學 06"
+    ],
+    "features.5.more": [
+     "看教學 07"
+    ],
+    "features.6.more": [
+     "看教學 08"
+    ],
+    "features.7.more": [
+     "看教學 09"
+    ],
+    "features.8.more": [
+     "看教學 03"
+    ],
+    "privacy.title": [
+     "你存的東西",
+     "不會離開這台電腦"
+    ],
+    "privacy.lead": [
+     "你用擴充存下的東西，作者收不到，",
+     "因為根本沒有地方可以收。"
+    ],
+    "privacy.1.title": [
+     "擴充本身沒有伺服器"
+    ],
+    "privacy.2.title": [
+     "沒有帳號"
+    ],
+    "privacy.3.title": [
+     "擴充本身不追蹤"
+    ],
+    "privacy.4.title": [
+     "只碰你挑的資料夾"
+    ],
+    "privacy.1.body": [
+     "存下來的東西",
+     "直接寫進你的資料夾。"
+    ],
+    "privacy.2.body": [
+     "不用註冊，也不用登入。"
+    ],
+    "privacy.3.body": [
+     "擴充沒有分析、",
+     "沒有追蹤、沒有廣告。"
+    ],
+    "privacy.4.body": [
+     "你挑哪個它就只能碰那一個，",
+     "其他資料夾一律碰不到。"
+    ],
+    "privacy.link": [
+     "看完整的隱私條款"
+    ],
+    "final.title": [
+     "看到有用的，",
+     "按一下就收好"
+    ],
+    "final.meta": [
+     "免費 · 桌機版 Chrome（Windows、Mac）"
+    ],
+    "final.cta": [
+     "加到 Chrome — 免費"
+    ]
+   },
+   "768": {
+    "how.title": [
+     "收在一個地方，交給 AI 讀"
+    ],
+    "how.pain": [
+     "資料散在書籤、截圖、下載資料夾，",
+     "還有好幾個聊天視窗裡 —— 等到要請 AI 整理，",
+     "卻不知道從哪裡餵給它。"
+    ],
+    "how.1.title": [
+     "挑一個資料夾"
+    ],
+    "how.2.title": [
+     "看到有用的就存"
+    ],
+    "how.3.title": [
+     "叫 AI 分析那個資料夾"
+    ],
+    "how.1.body": [
+     "就是你硬碟上的普通資料夾，",
+     "你自己選。"
+    ],
+    "how.2.body": [
+     "整頁、選取的文字、圖片、",
+     "AI 的回覆，",
+     "按一下就收好。"
+    ],
+    "how.3.body": [
+     "例如 Claude Code、Codex、",
+     "Gemini CLI，",
+     "讀完交出每一點都帶出處的整理。"
+    ],
+    "features.title": [
+     "看到什麼，就收什麼"
+    ],
+    "features.1.title": [
+     "整篇文章"
+    ],
+    "features.2.title": [
+     "選取的段落"
+    ],
+    "features.3.title": [
+     "圖片"
+    ],
+    "features.4.title": [
+     "一則 AI 回覆"
+    ],
+    "features.5.title": [
+     "整段 AI 對話"
+    ],
+    "features.6.title": [
+     "ChatGPT 做的檔案"
+    ],
+    "features.7.title": [
+     "用專題分類"
+    ],
+    "features.8.title": [
+     "存兩次還是一份"
+    ],
+    "features.1.body": [
+     "按一下，整篇正文存成一份 Markdown。"
+    ],
+    "features.2.body": [
+     "選起來按右鍵，只留你圈起來的那幾句。"
+    ],
+    "features.3.body": [
+     "右鍵存單張原圖，或一次挑整頁的圖。"
+    ],
+    "features.4.body": [
+     "ChatGPT、Claude、Perplexity 的",
+     "每一則回覆都能單獨存。"
+    ],
+    "features.5.body": [
+     "標好哪句是你說的、哪句是 AI 說的；",
+     "Perplexity 連內文裡的來源連結一起存。"
+    ],
+    "features.6.body": [
+     "試算表、程式、文件，原檔直接存進資料夾。"
+    ],
+    "features.7.body": [
+     "一個題目一包，寫一句它是做什麼的，",
+     "AI 一讀就懂。"
+    ],
+    "features.8.body": [
+     "同一頁再存一次，是更新原本那一份，",
+     "不會多一份。"
+    ],
+    "features.1.more": [
+     "看教學 03"
+    ],
+    "features.2.more": [
+     "看教學 04"
+    ],
+    "features.3.more": [
+     "看教學 05"
+    ],
+    "features.4.more": [
+     "看教學 06"
+    ],
+    "features.5.more": [
+     "看教學 07"
+    ],
+    "features.6.more": [
+     "看教學 08"
+    ],
+    "features.7.more": [
+     "看教學 09"
+    ],
+    "features.8.more": [
+     "看教學 03"
+    ],
+    "privacy.title": [
+     "你存的東西不會離開這台電腦"
+    ],
+    "privacy.lead": [
+     "你用擴充存下的東西，作者收不到，",
+     "因為根本沒有地方可以收。"
+    ],
+    "privacy.1.title": [
+     "擴充本身沒有伺服器"
+    ],
+    "privacy.2.title": [
+     "沒有帳號"
+    ],
+    "privacy.3.title": [
+     "擴充本身不追蹤"
+    ],
+    "privacy.4.title": [
+     "只碰你挑的資料夾"
+    ],
+    "privacy.1.body": [
+     "存下來的東西直接寫進你的資料夾。"
+    ],
+    "privacy.2.body": [
+     "不用註冊，也不用登入。"
+    ],
+    "privacy.3.body": [
+     "擴充沒有分析、沒有追蹤、沒有廣告。"
+    ],
+    "privacy.4.body": [
+     "你挑哪個它就只能碰那一個，",
+     "其他資料夾一律碰不到。"
+    ],
+    "privacy.link": [
+     "看完整的隱私條款"
+    ],
+    "final.title": [
+     "看到有用的，按一下就收好"
+    ],
+    "final.meta": [
+     "免費 · 桌機版 Chrome（Windows、Mac）"
+    ],
+    "final.cta": [
+     "加到 Chrome — 免費"
+    ]
+   },
+   "1024": {
+    "how.title": [
+     "收在一個地方，交給 AI 讀"
+    ],
+    "how.pain": [
+     "資料散在書籤、截圖、下載資料夾，",
+     "還有好幾個聊天視窗裡 —— 等到要請 AI 整理，",
+     "卻不知道從哪裡餵給它。"
+    ],
+    "how.1.title": [
+     "挑一個資料夾"
+    ],
+    "how.2.title": [
+     "看到有用的就存"
+    ],
+    "how.3.title": [
+     "叫 AI 分析那個資料夾"
+    ],
+    "how.1.body": [
+     "就是你硬碟上的普通資料夾，你自己選。"
+    ],
+    "how.2.body": [
+     "整頁、選取的文字、圖片、AI 的回覆，",
+     "按一下就收好。"
+    ],
+    "how.3.body": [
+     "例如 Claude Code、Codex、Gemini CLI，",
+     "讀完交出每一點都帶出處的整理。"
+    ],
+    "features.title": [
+     "看到什麼，就收什麼"
+    ],
+    "features.1.title": [
+     "整篇文章"
+    ],
+    "features.2.title": [
+     "選取的段落"
+    ],
+    "features.3.title": [
+     "圖片"
+    ],
+    "features.4.title": [
+     "一則 AI 回覆"
+    ],
+    "features.5.title": [
+     "整段 AI 對話"
+    ],
+    "features.6.title": [
+     "ChatGPT 做的檔案"
+    ],
+    "features.7.title": [
+     "用專題分類"
+    ],
+    "features.8.title": [
+     "存兩次還是一份"
+    ],
+    "features.1.body": [
+     "按一下，整篇正文存成一份 Markdown。"
+    ],
+    "features.2.body": [
+     "選起來按右鍵，只留你圈起來的那幾句。"
+    ],
+    "features.3.body": [
+     "右鍵存單張原圖，或一次挑整頁的圖。"
+    ],
+    "features.4.body": [
+     "ChatGPT、Claude、Perplexity 的",
+     "每一則回覆都能單獨存。"
+    ],
+    "features.5.body": [
+     "標好哪句是你說的、哪句是 AI 說的；",
+     "Perplexity 連內文裡的來源連結一起存。"
+    ],
+    "features.6.body": [
+     "試算表、程式、文件，原檔直接存進資料夾。"
+    ],
+    "features.7.body": [
+     "一個題目一包，寫一句它是做什麼的，AI 一讀就懂。"
+    ],
+    "features.8.body": [
+     "同一頁再存一次，是更新原本那一份，不會多一份。"
+    ],
+    "features.1.more": [
+     "看教學 03"
+    ],
+    "features.2.more": [
+     "看教學 04"
+    ],
+    "features.3.more": [
+     "看教學 05"
+    ],
+    "features.4.more": [
+     "看教學 06"
+    ],
+    "features.5.more": [
+     "看教學 07"
+    ],
+    "features.6.more": [
+     "看教學 08"
+    ],
+    "features.7.more": [
+     "看教學 09"
+    ],
+    "features.8.more": [
+     "看教學 03"
+    ],
+    "privacy.title": [
+     "你存的東西不會離開這台電腦"
+    ],
+    "privacy.lead": [
+     "你用擴充存下的東西，作者收不到，",
+     "因為根本沒有地方可以收。"
+    ],
+    "privacy.1.title": [
+     "擴充本身沒有伺服器"
+    ],
+    "privacy.2.title": [
+     "沒有帳號"
+    ],
+    "privacy.3.title": [
+     "擴充本身不追蹤"
+    ],
+    "privacy.4.title": [
+     "只碰你挑的資料夾"
+    ],
+    "privacy.1.body": [
+     "存下來的東西直接寫進你的資料夾。"
+    ],
+    "privacy.2.body": [
+     "不用註冊，也不用登入。"
+    ],
+    "privacy.3.body": [
+     "擴充沒有分析、沒有追蹤、沒有廣告。"
+    ],
+    "privacy.4.body": [
+     "你挑哪個它就只能碰那一個，其他資料夾一律碰不到。"
+    ],
+    "privacy.link": [
+     "看完整的隱私條款"
+    ],
+    "final.title": [
+     "看到有用的，",
+     "按一下就收好"
+    ],
+    "final.meta": [
+     "免費 · 桌機版 Chrome",
+     "（Windows、Mac）"
+    ],
+    "final.cta": [
+     "加到 Chrome — 免費"
+    ]
+   },
+   "1280": {
+    "how.title": [
+     "收在一個地方，交給 AI 讀"
+    ],
+    "how.pain": [
+     "資料散在書籤、截圖、下載資料夾，",
+     "還有好幾個聊天視窗裡 —— 等到要請 AI 整理，",
+     "卻不知道從哪裡餵給它。"
+    ],
+    "how.1.title": [
+     "挑一個資料夾"
+    ],
+    "how.2.title": [
+     "看到有用的就存"
+    ],
+    "how.3.title": [
+     "叫 AI 分析那個資料夾"
+    ],
+    "how.1.body": [
+     "就是你硬碟上的普通資料夾，你自己選。"
+    ],
+    "how.2.body": [
+     "整頁、選取的文字、圖片、AI 的回覆，按一下就收好。"
+    ],
+    "how.3.body": [
+     "例如 Claude Code、Codex、Gemini CLI，",
+     "讀完交出每一點都帶出處的整理。"
+    ],
+    "features.title": [
+     "看到什麼，就收什麼"
+    ],
+    "features.1.title": [
+     "整篇文章"
+    ],
+    "features.2.title": [
+     "選取的段落"
+    ],
+    "features.3.title": [
+     "圖片"
+    ],
+    "features.4.title": [
+     "一則 AI 回覆"
+    ],
+    "features.5.title": [
+     "整段 AI 對話"
+    ],
+    "features.6.title": [
+     "ChatGPT 做的檔案"
+    ],
+    "features.7.title": [
+     "用專題分類"
+    ],
+    "features.8.title": [
+     "存兩次還是一份"
+    ],
+    "features.1.body": [
+     "按一下，整篇正文",
+     "存成一份 Markdown。"
+    ],
+    "features.2.body": [
+     "選起來按右鍵，",
+     "只留你圈起來的那幾句。"
+    ],
+    "features.3.body": [
+     "右鍵存單張原圖，",
+     "或一次挑整頁的圖。"
+    ],
+    "features.4.body": [
+     "ChatGPT、Claude、Perplexity 的",
+     "每一則回覆都能單獨存。"
+    ],
+    "features.5.body": [
+     "標好哪句是你說的、",
+     "哪句是 AI 說的；",
+     "Perplexity 連內文裡的",
+     "來源連結一起存。"
+    ],
+    "features.6.body": [
+     "試算表、程式、文件，",
+     "原檔直接存進資料夾。"
+    ],
+    "features.7.body": [
+     "一個題目一包，",
+     "寫一句它是做什麼的，",
+     "AI 一讀就懂。"
+    ],
+    "features.8.body": [
+     "同一頁再存一次，",
+     "是更新原本那一份，不會多一份。"
+    ],
+    "features.1.more": [
+     "看教學 03"
+    ],
+    "features.2.more": [
+     "看教學 04"
+    ],
+    "features.3.more": [
+     "看教學 05"
+    ],
+    "features.4.more": [
+     "看教學 06"
+    ],
+    "features.5.more": [
+     "看教學 07"
+    ],
+    "features.6.more": [
+     "看教學 08"
+    ],
+    "features.7.more": [
+     "看教學 09"
+    ],
+    "features.8.more": [
+     "看教學 03"
+    ],
+    "privacy.title": [
+     "你存的東西不會離開這台電腦"
+    ],
+    "privacy.lead": [
+     "你用擴充存下的東西，作者收不到，",
+     "因為根本沒有地方可以收。"
+    ],
+    "privacy.1.title": [
+     "擴充本身沒有伺服器"
+    ],
+    "privacy.2.title": [
+     "沒有帳號"
+    ],
+    "privacy.3.title": [
+     "擴充本身不追蹤"
+    ],
+    "privacy.4.title": [
+     "只碰你挑的資料夾"
+    ],
+    "privacy.1.body": [
+     "存下來的東西",
+     "直接寫進你的資料夾。"
+    ],
+    "privacy.2.body": [
+     "不用註冊，也不用登入。"
+    ],
+    "privacy.3.body": [
+     "擴充沒有分析、",
+     "沒有追蹤、沒有廣告。"
+    ],
+    "privacy.4.body": [
+     "你挑哪個它就只能碰那一個，",
+     "其他資料夾一律碰不到。"
+    ],
+    "privacy.link": [
+     "看完整的隱私條款"
+    ],
+    "final.title": [
+     "看到有用的，按一下就收好"
+    ],
+    "final.meta": [
+     "免費 · 桌機版 Chrome（Windows、Mac）"
+    ],
+    "final.cta": [
+     "加到 Chrome — 免費"
+    ]
+   },
+   "1440": {
+    "how.title": [
+     "收在一個地方，交給 AI 讀"
+    ],
+    "how.pain": [
+     "資料散在書籤、截圖、下載資料夾，",
+     "還有好幾個聊天視窗裡 —— 等到要請 AI 整理，",
+     "卻不知道從哪裡餵給它。"
+    ],
+    "how.1.title": [
+     "挑一個資料夾"
+    ],
+    "how.2.title": [
+     "看到有用的就存"
+    ],
+    "how.3.title": [
+     "叫 AI 分析那個資料夾"
+    ],
+    "how.1.body": [
+     "就是你硬碟上的普通資料夾，你自己選。"
+    ],
+    "how.2.body": [
+     "整頁、選取的文字、圖片、AI 的回覆，按一下就收好。"
+    ],
+    "how.3.body": [
+     "例如 Claude Code、Codex、Gemini CLI，",
+     "讀完交出每一點都帶出處的整理。"
+    ],
+    "features.title": [
+     "看到什麼，就收什麼"
+    ],
+    "features.1.title": [
+     "整篇文章"
+    ],
+    "features.2.title": [
+     "選取的段落"
+    ],
+    "features.3.title": [
+     "圖片"
+    ],
+    "features.4.title": [
+     "一則 AI 回覆"
+    ],
+    "features.5.title": [
+     "整段 AI 對話"
+    ],
+    "features.6.title": [
+     "ChatGPT 做的檔案"
+    ],
+    "features.7.title": [
+     "用專題分類"
+    ],
+    "features.8.title": [
+     "存兩次還是一份"
+    ],
+    "features.1.body": [
+     "按一下，整篇正文",
+     "存成一份 Markdown。"
+    ],
+    "features.2.body": [
+     "選起來按右鍵，",
+     "只留你圈起來的那幾句。"
+    ],
+    "features.3.body": [
+     "右鍵存單張原圖，",
+     "或一次挑整頁的圖。"
+    ],
+    "features.4.body": [
+     "ChatGPT、Claude、Perplexity 的",
+     "每一則回覆都能單獨存。"
+    ],
+    "features.5.body": [
+     "標好哪句是你說的、",
+     "哪句是 AI 說的；",
+     "Perplexity 連內文裡的",
+     "來源連結一起存。"
+    ],
+    "features.6.body": [
+     "試算表、程式、文件，",
+     "原檔直接存進資料夾。"
+    ],
+    "features.7.body": [
+     "一個題目一包，",
+     "寫一句它是做什麼的，",
+     "AI 一讀就懂。"
+    ],
+    "features.8.body": [
+     "同一頁再存一次，",
+     "是更新原本那一份，不會多一份。"
+    ],
+    "features.1.more": [
+     "看教學 03"
+    ],
+    "features.2.more": [
+     "看教學 04"
+    ],
+    "features.3.more": [
+     "看教學 05"
+    ],
+    "features.4.more": [
+     "看教學 06"
+    ],
+    "features.5.more": [
+     "看教學 07"
+    ],
+    "features.6.more": [
+     "看教學 08"
+    ],
+    "features.7.more": [
+     "看教學 09"
+    ],
+    "features.8.more": [
+     "看教學 03"
+    ],
+    "privacy.title": [
+     "你存的東西不會離開這台電腦"
+    ],
+    "privacy.lead": [
+     "你用擴充存下的東西，作者收不到，",
+     "因為根本沒有地方可以收。"
+    ],
+    "privacy.1.title": [
+     "擴充本身沒有伺服器"
+    ],
+    "privacy.2.title": [
+     "沒有帳號"
+    ],
+    "privacy.3.title": [
+     "擴充本身不追蹤"
+    ],
+    "privacy.4.title": [
+     "只碰你挑的資料夾"
+    ],
+    "privacy.1.body": [
+     "存下來的東西",
+     "直接寫進你的資料夾。"
+    ],
+    "privacy.2.body": [
+     "不用註冊，也不用登入。"
+    ],
+    "privacy.3.body": [
+     "擴充沒有分析、",
+     "沒有追蹤、沒有廣告。"
+    ],
+    "privacy.4.body": [
+     "你挑哪個它就只能碰那一個，",
+     "其他資料夾一律碰不到。"
+    ],
+    "privacy.link": [
+     "看完整的隱私條款"
+    ],
+    "final.title": [
+     "看到有用的，按一下就收好"
+    ],
+    "final.meta": [
+     "免費 · 桌機版 Chrome（Windows、Mac）"
+    ],
+    "final.cta": [
+     "加到 Chrome — 免費"
+    ]
+   }
+  },
+  "en": {
+   "280": {
+    "how.title": [
+     "Keep it in",
+     "one place.",
+     "Let your",
+     "AI read it."
+    ],
+    "how.pain": [
+     "Your research ends up",
+     "scattered across",
+     "bookmarks, screenshots,",
+     "your downloads folder",
+     "and a pile of chat windows.",
+     "When you want an AI",
+     "to sort it out,",
+     "you don’t know what to hand it."
+    ],
+    "how.1.title": [
+     "Pick a folder"
+    ],
+    "how.2.title": [
+     "Save what’s useful"
+    ],
+    "how.3.title": [
+     "Have your AI",
+     "analyse the folder"
+    ],
+    "how.1.body": [
+     "Any ordinary folder on your disk.",
+     "You choose it."
+    ],
+    "how.2.body": [
+     "Whole pages, selected text,",
+     "images, AI replies.",
+     "One click and it’s saved."
+    ],
+    "how.3.body": [
+     "Claude Code, Codex",
+     "or Gemini CLI, for example,",
+     "reads it all",
+     "and hands back a summary",
+     "with a source for every point."
+    ],
+    "features.title": [
+     "See it, save it"
+    ],
+    "features.1.title": [
+     "A whole article"
+    ],
+    "features.2.title": [
+     "A selected passage"
+    ],
+    "features.3.title": [
+     "Images"
+    ],
+    "features.4.title": [
+     "One AI reply"
+    ],
+    "features.5.title": [
+     "A whole AI chat"
+    ],
+    "features.6.title": [
+     "Files ChatGPT made"
+    ],
+    "features.7.title": [
+     "Sort with topics"
+    ],
+    "features.8.title": [
+     "Save twice,",
+     "still one copy"
+    ],
+    "features.1.body": [
+     "One click saves",
+     "the article’s main text",
+     "as a single Markdown file."
+    ],
+    "features.2.body": [
+     "Highlight it and right-click.",
+     "Only the lines",
+     "you picked are kept."
+    ],
+    "features.3.body": [
+     "Right-click to save",
+     "one image at full size,",
+     "or pick several",
+     "from the page at once."
+    ],
+    "features.4.body": [
+     "Every reply in ChatGPT,",
+     "Claude and Perplexity",
+     "can be saved on its own."
+    ],
+    "features.5.body": [
+     "Marked with what you said",
+     "and what the AI said.",
+     "On Perplexity,",
+     "the source links",
+     "inside the text",
+     "come along too."
+    ],
+    "features.6.body": [
+     "Spreadsheets, code",
+     "and documents,",
+     "saved into your folder",
+     "as the original files."
+    ],
+    "features.7.body": [
+     "One subject, one folder.",
+     "Add a sentence",
+     "on what it’s for,",
+     "and your AI",
+     "gets it right away."
+    ],
+    "features.8.body": [
+     "Saving the same page again",
+     "updates the copy you have",
+     "instead of adding another."
+    ],
+    "features.1.more": [
+     "Watch chapter 03"
+    ],
+    "features.2.more": [
+     "Watch chapter 04"
+    ],
+    "features.3.more": [
+     "Watch chapter 05"
+    ],
+    "features.4.more": [
+     "Watch chapter 06"
+    ],
+    "features.5.more": [
+     "Watch chapter 07"
+    ],
+    "features.6.more": [
+     "Watch chapter 08"
+    ],
+    "features.7.more": [
+     "Watch chapter 09"
+    ],
+    "features.8.more": [
+     "Watch chapter 03"
+    ],
+    "privacy.title": [
+     "What you save",
+     "stays on",
+     "your computer"
+    ],
+    "privacy.lead": [
+     "The author can’t receive",
+     "what you save with the extension,",
+     "because there is nowhere",
+     "for it to go."
+    ],
+    "privacy.1.title": [
+     "The extension",
+     "has no server"
+    ],
+    "privacy.2.title": [
+     "No account"
+    ],
+    "privacy.3.title": [
+     "No tracking",
+     "in the extension"
+    ],
+    "privacy.4.title": [
+     "Only the folder",
+     "you pick"
+    ],
+    "privacy.1.body": [
+     "What you save is written",
+     "straight into your folder."
+    ],
+    "privacy.2.body": [
+     "Nothing to register,",
+     "nothing to log into."
+    ],
+    "privacy.3.body": [
+     "The extension has",
+     "no analytics, no tracking",
+     "and no ads."
+    ],
+    "privacy.4.body": [
+     "It can touch",
+     "the folder you picked",
+     "and no other folder",
+     "on your disk."
+    ],
+    "privacy.link": [
+     "Read the full privacy policy"
+    ],
+    "final.title": [
+     "See something",
+     "useful?",
+     "One click and",
+     "it’s saved"
+    ],
+    "final.meta": [
+     "Free · Desktop Chrome",
+     "(Windows, Mac)"
+    ],
+    "final.cta": [
+     "Add to Chrome · Free"
+    ]
+   },
+   "320": {
+    "how.title": [
+     "Keep it in",
+     "one place.",
+     "Let your AI read it."
+    ],
+    "how.pain": [
+     "Your research ends up",
+     "scattered across",
+     "bookmarks, screenshots,",
+     "your downloads folder",
+     "and a pile of chat windows.",
+     "When you want an AI to sort it out,",
+     "you don’t know what to hand it."
+    ],
+    "how.1.title": [
+     "Pick a folder"
+    ],
+    "how.2.title": [
+     "Save what’s useful"
+    ],
+    "how.3.title": [
+     "Have your AI analyse the folder"
+    ],
+    "how.1.body": [
+     "Any ordinary folder on your disk.",
+     "You choose it."
+    ],
+    "how.2.body": [
+     "Whole pages, selected text,",
+     "images, AI replies.",
+     "One click and it’s saved."
+    ],
+    "how.3.body": [
+     "Claude Code, Codex",
+     "or Gemini CLI, for example, reads it all",
+     "and hands back a summary",
+     "with a source for every point."
+    ],
+    "features.title": [
+     "See it, save it"
+    ],
+    "features.1.title": [
+     "A whole article"
+    ],
+    "features.2.title": [
+     "A selected passage"
+    ],
+    "features.3.title": [
+     "Images"
+    ],
+    "features.4.title": [
+     "One AI reply"
+    ],
+    "features.5.title": [
+     "A whole AI chat"
+    ],
+    "features.6.title": [
+     "Files ChatGPT made"
+    ],
+    "features.7.title": [
+     "Sort with topics"
+    ],
+    "features.8.title": [
+     "Save twice, still one copy"
+    ],
+    "features.1.body": [
+     "One click saves",
+     "the article’s main text",
+     "as a single Markdown file."
+    ],
+    "features.2.body": [
+     "Highlight it and right-click.",
+     "Only the lines",
+     "you picked are kept."
+    ],
+    "features.3.body": [
+     "Right-click to save",
+     "one image at full size,",
+     "or pick several",
+     "from the page at once."
+    ],
+    "features.4.body": [
+     "Every reply in ChatGPT,",
+     "Claude and Perplexity",
+     "can be saved on its own."
+    ],
+    "features.5.body": [
+     "Marked with what you said",
+     "and what the AI said.",
+     "On Perplexity,",
+     "the source links inside the text",
+     "come along too."
+    ],
+    "features.6.body": [
+     "Spreadsheets, code",
+     "and documents,",
+     "saved into your folder",
+     "as the original files."
+    ],
+    "features.7.body": [
+     "One subject, one folder.",
+     "Add a sentence on what it’s for,",
+     "and your AI gets it right away."
+    ],
+    "features.8.body": [
+     "Saving the same page again",
+     "updates the copy you have",
+     "instead of adding another."
+    ],
+    "features.1.more": [
+     "Watch chapter 03"
+    ],
+    "features.2.more": [
+     "Watch chapter 04"
+    ],
+    "features.3.more": [
+     "Watch chapter 05"
+    ],
+    "features.4.more": [
+     "Watch chapter 06"
+    ],
+    "features.5.more": [
+     "Watch chapter 07"
+    ],
+    "features.6.more": [
+     "Watch chapter 08"
+    ],
+    "features.7.more": [
+     "Watch chapter 09"
+    ],
+    "features.8.more": [
+     "Watch chapter 03"
+    ],
+    "privacy.title": [
+     "What you save",
+     "stays on",
+     "your computer"
+    ],
+    "privacy.lead": [
+     "The author can’t receive",
+     "what you save with the extension,",
+     "because there is nowhere for it to go."
+    ],
+    "privacy.1.title": [
+     "The extension",
+     "has no server"
+    ],
+    "privacy.2.title": [
+     "No account"
+    ],
+    "privacy.3.title": [
+     "No tracking",
+     "in the extension"
+    ],
+    "privacy.4.title": [
+     "Only the folder you pick"
+    ],
+    "privacy.1.body": [
+     "What you save is written",
+     "straight into your folder."
+    ],
+    "privacy.2.body": [
+     "Nothing to register,",
+     "nothing to log into."
+    ],
+    "privacy.3.body": [
+     "The extension has",
+     "no analytics, no tracking",
+     "and no ads."
+    ],
+    "privacy.4.body": [
+     "It can touch the folder you picked",
+     "and no other folder on your disk."
+    ],
+    "privacy.link": [
+     "Read the full privacy policy"
+    ],
+    "final.title": [
+     "See something",
+     "useful?",
+     "One click and",
+     "it’s saved"
+    ],
+    "final.meta": [
+     "Free · Desktop Chrome",
+     "(Windows, Mac)"
+    ],
+    "final.cta": [
+     "Add to Chrome · Free"
+    ]
+   },
+   "360": {
+    "how.title": [
+     "Keep it in one place.",
+     "Let your AI read it."
+    ],
+    "how.pain": [
+     "Your research ends up",
+     "scattered across bookmarks, screenshots,",
+     "your downloads folder",
+     "and a pile of chat windows.",
+     "When you want an AI to sort it out,",
+     "you don’t know what to hand it."
+    ],
+    "how.1.title": [
+     "Pick a folder"
+    ],
+    "how.2.title": [
+     "Save what’s useful"
+    ],
+    "how.3.title": [
+     "Have your AI analyse the folder"
+    ],
+    "how.1.body": [
+     "Any ordinary folder on your disk. You choose it."
+    ],
+    "how.2.body": [
+     "Whole pages, selected text, images, AI replies.",
+     "One click and it’s saved."
+    ],
+    "how.3.body": [
+     "Claude Code, Codex or Gemini CLI, for example,",
+     "reads it all and hands back a summary",
+     "with a source for every point."
+    ],
+    "features.title": [
+     "See it, save it"
+    ],
+    "features.1.title": [
+     "A whole article"
+    ],
+    "features.2.title": [
+     "A selected passage"
+    ],
+    "features.3.title": [
+     "Images"
+    ],
+    "features.4.title": [
+     "One AI reply"
+    ],
+    "features.5.title": [
+     "A whole AI chat"
+    ],
+    "features.6.title": [
+     "Files ChatGPT made"
+    ],
+    "features.7.title": [
+     "Sort with topics"
+    ],
+    "features.8.title": [
+     "Save twice, still one copy"
+    ],
+    "features.1.body": [
+     "One click saves the article’s main text",
+     "as a single Markdown file."
+    ],
+    "features.2.body": [
+     "Highlight it and right-click.",
+     "Only the lines you picked are kept."
+    ],
+    "features.3.body": [
+     "Right-click to save",
+     "one image at full size, or pick several",
+     "from the page at once."
+    ],
+    "features.4.body": [
+     "Every reply in ChatGPT,",
+     "Claude and Perplexity",
+     "can be saved on its own."
+    ],
+    "features.5.body": [
+     "Marked with what you said",
+     "and what the AI said.",
+     "On Perplexity,",
+     "the source links inside the text",
+     "come along too."
+    ],
+    "features.6.body": [
+     "Spreadsheets, code and documents,",
+     "saved into your folder",
+     "as the original files."
+    ],
+    "features.7.body": [
+     "One subject, one folder.",
+     "Add a sentence on what it’s for,",
+     "and your AI gets it right away."
+    ],
+    "features.8.body": [
+     "Saving the same page again",
+     "updates the copy you have",
+     "instead of adding another."
+    ],
+    "features.1.more": [
+     "Watch chapter 03"
+    ],
+    "features.2.more": [
+     "Watch chapter 04"
+    ],
+    "features.3.more": [
+     "Watch chapter 05"
+    ],
+    "features.4.more": [
+     "Watch chapter 06"
+    ],
+    "features.5.more": [
+     "Watch chapter 07"
+    ],
+    "features.6.more": [
+     "Watch chapter 08"
+    ],
+    "features.7.more": [
+     "Watch chapter 09"
+    ],
+    "features.8.more": [
+     "Watch chapter 03"
+    ],
+    "privacy.title": [
+     "What you save",
+     "stays on",
+     "your computer"
+    ],
+    "privacy.lead": [
+     "The author can’t receive",
+     "what you save with the extension,",
+     "because there is nowhere for it to go."
+    ],
+    "privacy.1.title": [
+     "The extension has no server"
+    ],
+    "privacy.2.title": [
+     "No account"
+    ],
+    "privacy.3.title": [
+     "No tracking in the extension"
+    ],
+    "privacy.4.title": [
+     "Only the folder you pick"
+    ],
+    "privacy.1.body": [
+     "What you save is written",
+     "straight into your folder."
+    ],
+    "privacy.2.body": [
+     "Nothing to register, nothing to log into."
+    ],
+    "privacy.3.body": [
+     "The extension has",
+     "no analytics, no tracking and no ads."
+    ],
+    "privacy.4.body": [
+     "It can touch the folder you picked",
+     "and no other folder on your disk."
+    ],
+    "privacy.link": [
+     "Read the full privacy policy"
+    ],
+    "final.title": [
+     "See something",
+     "useful?",
+     "One click and",
+     "it’s saved"
+    ],
+    "final.meta": [
+     "Free · Desktop Chrome (Windows, Mac)"
+    ],
+    "final.cta": [
+     "Add to Chrome · Free"
+    ]
+   },
+   "375": {
+    "how.title": [
+     "Keep it in one place.",
+     "Let your AI read it."
+    ],
+    "how.pain": [
+     "Your research ends up",
+     "scattered across bookmarks, screenshots,",
+     "your downloads folder",
+     "and a pile of chat windows.",
+     "When you want an AI to sort it out,",
+     "you don’t know what to hand it."
+    ],
+    "how.1.title": [
+     "Pick a folder"
+    ],
+    "how.2.title": [
+     "Save what’s useful"
+    ],
+    "how.3.title": [
+     "Have your AI analyse the folder"
+    ],
+    "how.1.body": [
+     "Any ordinary folder on your disk. You choose it."
+    ],
+    "how.2.body": [
+     "Whole pages, selected text, images, AI replies.",
+     "One click and it’s saved."
+    ],
+    "how.3.body": [
+     "Claude Code, Codex or Gemini CLI, for example,",
+     "reads it all and hands back a summary",
+     "with a source for every point."
+    ],
+    "features.title": [
+     "See it, save it"
+    ],
+    "features.1.title": [
+     "A whole article"
+    ],
+    "features.2.title": [
+     "A selected passage"
+    ],
+    "features.3.title": [
+     "Images"
+    ],
+    "features.4.title": [
+     "One AI reply"
+    ],
+    "features.5.title": [
+     "A whole AI chat"
+    ],
+    "features.6.title": [
+     "Files ChatGPT made"
+    ],
+    "features.7.title": [
+     "Sort with topics"
+    ],
+    "features.8.title": [
+     "Save twice, still one copy"
+    ],
+    "features.1.body": [
+     "One click saves the article’s main text",
+     "as a single Markdown file."
+    ],
+    "features.2.body": [
+     "Highlight it and right-click.",
+     "Only the lines you picked are kept."
+    ],
+    "features.3.body": [
+     "Right-click to save one image at full size,",
+     "or pick several from the page at once."
+    ],
+    "features.4.body": [
+     "Every reply in ChatGPT,",
+     "Claude and Perplexity",
+     "can be saved on its own."
+    ],
+    "features.5.body": [
+     "Marked with what you said",
+     "and what the AI said.",
+     "On Perplexity,",
+     "the source links inside the text",
+     "come along too."
+    ],
+    "features.6.body": [
+     "Spreadsheets, code and documents,",
+     "saved into your folder as the original files."
+    ],
+    "features.7.body": [
+     "One subject, one folder.",
+     "Add a sentence on what it’s for,",
+     "and your AI gets it right away."
+    ],
+    "features.8.body": [
+     "Saving the same page again",
+     "updates the copy you have",
+     "instead of adding another."
+    ],
+    "features.1.more": [
+     "Watch chapter 03"
+    ],
+    "features.2.more": [
+     "Watch chapter 04"
+    ],
+    "features.3.more": [
+     "Watch chapter 05"
+    ],
+    "features.4.more": [
+     "Watch chapter 06"
+    ],
+    "features.5.more": [
+     "Watch chapter 07"
+    ],
+    "features.6.more": [
+     "Watch chapter 08"
+    ],
+    "features.7.more": [
+     "Watch chapter 09"
+    ],
+    "features.8.more": [
+     "Watch chapter 03"
+    ],
+    "privacy.title": [
+     "What you save",
+     "stays on",
+     "your computer"
+    ],
+    "privacy.lead": [
+     "The author can’t receive",
+     "what you save with the extension,",
+     "because there is nowhere for it to go."
+    ],
+    "privacy.1.title": [
+     "The extension has no server"
+    ],
+    "privacy.2.title": [
+     "No account"
+    ],
+    "privacy.3.title": [
+     "No tracking in the extension"
+    ],
+    "privacy.4.title": [
+     "Only the folder you pick"
+    ],
+    "privacy.1.body": [
+     "What you save is written",
+     "straight into your folder."
+    ],
+    "privacy.2.body": [
+     "Nothing to register, nothing to log into."
+    ],
+    "privacy.3.body": [
+     "The extension has",
+     "no analytics, no tracking and no ads."
+    ],
+    "privacy.4.body": [
+     "It can touch the folder you picked",
+     "and no other folder on your disk."
+    ],
+    "privacy.link": [
+     "Read the full privacy policy"
+    ],
+    "final.title": [
+     "See something useful?",
+     "One click and",
+     "it’s saved"
+    ],
+    "final.meta": [
+     "Free · Desktop Chrome (Windows, Mac)"
+    ],
+    "final.cta": [
+     "Add to Chrome · Free"
+    ]
+   },
+   "390": {
+    "how.title": [
+     "Keep it in one place.",
+     "Let your AI read it."
+    ],
+    "how.pain": [
+     "Your research ends up",
+     "scattered across bookmarks, screenshots,",
+     "your downloads folder",
+     "and a pile of chat windows.",
+     "When you want an AI to sort it out,",
+     "you don’t know what to hand it."
+    ],
+    "how.1.title": [
+     "Pick a folder"
+    ],
+    "how.2.title": [
+     "Save what’s useful"
+    ],
+    "how.3.title": [
+     "Have your AI analyse the folder"
+    ],
+    "how.1.body": [
+     "Any ordinary folder on your disk. You choose it."
+    ],
+    "how.2.body": [
+     "Whole pages, selected text, images, AI replies.",
+     "One click and it’s saved."
+    ],
+    "how.3.body": [
+     "Claude Code, Codex or Gemini CLI, for example,",
+     "reads it all and hands back a summary",
+     "with a source for every point."
+    ],
+    "features.title": [
+     "See it, save it"
+    ],
+    "features.1.title": [
+     "A whole article"
+    ],
+    "features.2.title": [
+     "A selected passage"
+    ],
+    "features.3.title": [
+     "Images"
+    ],
+    "features.4.title": [
+     "One AI reply"
+    ],
+    "features.5.title": [
+     "A whole AI chat"
+    ],
+    "features.6.title": [
+     "Files ChatGPT made"
+    ],
+    "features.7.title": [
+     "Sort with topics"
+    ],
+    "features.8.title": [
+     "Save twice, still one copy"
+    ],
+    "features.1.body": [
+     "One click saves the article’s main text",
+     "as a single Markdown file."
+    ],
+    "features.2.body": [
+     "Highlight it and right-click.",
+     "Only the lines you picked are kept."
+    ],
+    "features.3.body": [
+     "Right-click to save one image at full size,",
+     "or pick several from the page at once."
+    ],
+    "features.4.body": [
+     "Every reply in ChatGPT,",
+     "Claude and Perplexity",
+     "can be saved on its own."
+    ],
+    "features.5.body": [
+     "Marked with what you said",
+     "and what the AI said.",
+     "On Perplexity,",
+     "the source links inside the text",
+     "come along too."
+    ],
+    "features.6.body": [
+     "Spreadsheets, code and documents,",
+     "saved into your folder as the original files."
+    ],
+    "features.7.body": [
+     "One subject, one folder.",
+     "Add a sentence on what it’s for,",
+     "and your AI gets it right away."
+    ],
+    "features.8.body": [
+     "Saving the same page again",
+     "updates the copy you have",
+     "instead of adding another."
+    ],
+    "features.1.more": [
+     "Watch chapter 03"
+    ],
+    "features.2.more": [
+     "Watch chapter 04"
+    ],
+    "features.3.more": [
+     "Watch chapter 05"
+    ],
+    "features.4.more": [
+     "Watch chapter 06"
+    ],
+    "features.5.more": [
+     "Watch chapter 07"
+    ],
+    "features.6.more": [
+     "Watch chapter 08"
+    ],
+    "features.7.more": [
+     "Watch chapter 09"
+    ],
+    "features.8.more": [
+     "Watch chapter 03"
+    ],
+    "privacy.title": [
+     "What you save",
+     "stays on your computer"
+    ],
+    "privacy.lead": [
+     "The author can’t receive",
+     "what you save with the extension,",
+     "because there is nowhere for it to go."
+    ],
+    "privacy.1.title": [
+     "The extension has no server"
+    ],
+    "privacy.2.title": [
+     "No account"
+    ],
+    "privacy.3.title": [
+     "No tracking in the extension"
+    ],
+    "privacy.4.title": [
+     "Only the folder you pick"
+    ],
+    "privacy.1.body": [
+     "What you save is written",
+     "straight into your folder."
+    ],
+    "privacy.2.body": [
+     "Nothing to register, nothing to log into."
+    ],
+    "privacy.3.body": [
+     "The extension has no analytics, no tracking",
+     "and no ads."
+    ],
+    "privacy.4.body": [
+     "It can touch the folder you picked",
+     "and no other folder on your disk."
+    ],
+    "privacy.link": [
+     "Read the full privacy policy"
+    ],
+    "final.title": [
+     "See something useful?",
+     "One click and",
+     "it’s saved"
+    ],
+    "final.meta": [
+     "Free · Desktop Chrome (Windows, Mac)"
+    ],
+    "final.cta": [
+     "Add to Chrome · Free"
+    ]
+   },
+   "414": {
+    "how.title": [
+     "Keep it in one place.",
+     "Let your AI read it."
+    ],
+    "how.pain": [
+     "Your research ends up",
+     "scattered across bookmarks, screenshots,",
+     "your downloads folder and a pile of chat windows.",
+     "When you want an AI to sort it out,",
+     "you don’t know what to hand it."
+    ],
+    "how.1.title": [
+     "Pick a folder"
+    ],
+    "how.2.title": [
+     "Save what’s useful"
+    ],
+    "how.3.title": [
+     "Have your AI analyse the folder"
+    ],
+    "how.1.body": [
+     "Any ordinary folder on your disk. You choose it."
+    ],
+    "how.2.body": [
+     "Whole pages, selected text, images, AI replies.",
+     "One click and it’s saved."
+    ],
+    "how.3.body": [
+     "Claude Code, Codex or Gemini CLI, for example,",
+     "reads it all and hands back a summary",
+     "with a source for every point."
+    ],
+    "features.title": [
+     "See it, save it"
+    ],
+    "features.1.title": [
+     "A whole article"
+    ],
+    "features.2.title": [
+     "A selected passage"
+    ],
+    "features.3.title": [
+     "Images"
+    ],
+    "features.4.title": [
+     "One AI reply"
+    ],
+    "features.5.title": [
+     "A whole AI chat"
+    ],
+    "features.6.title": [
+     "Files ChatGPT made"
+    ],
+    "features.7.title": [
+     "Sort with topics"
+    ],
+    "features.8.title": [
+     "Save twice, still one copy"
+    ],
+    "features.1.body": [
+     "One click saves the article’s main text",
+     "as a single Markdown file."
+    ],
+    "features.2.body": [
+     "Highlight it and right-click.",
+     "Only the lines you picked are kept."
+    ],
+    "features.3.body": [
+     "Right-click to save one image at full size,",
+     "or pick several from the page at once."
+    ],
+    "features.4.body": [
+     "Every reply in ChatGPT, Claude and Perplexity",
+     "can be saved on its own."
+    ],
+    "features.5.body": [
+     "Marked with what you said and what the AI said.",
+     "On Perplexity, the source links inside the text",
+     "come along too."
+    ],
+    "features.6.body": [
+     "Spreadsheets, code and documents,",
+     "saved into your folder as the original files."
+    ],
+    "features.7.body": [
+     "One subject, one folder.",
+     "Add a sentence on what it’s for,",
+     "and your AI gets it right away."
+    ],
+    "features.8.body": [
+     "Saving the same page again",
+     "updates the copy you have",
+     "instead of adding another."
+    ],
+    "features.1.more": [
+     "Watch chapter 03"
+    ],
+    "features.2.more": [
+     "Watch chapter 04"
+    ],
+    "features.3.more": [
+     "Watch chapter 05"
+    ],
+    "features.4.more": [
+     "Watch chapter 06"
+    ],
+    "features.5.more": [
+     "Watch chapter 07"
+    ],
+    "features.6.more": [
+     "Watch chapter 08"
+    ],
+    "features.7.more": [
+     "Watch chapter 09"
+    ],
+    "features.8.more": [
+     "Watch chapter 03"
+    ],
+    "privacy.title": [
+     "What you save",
+     "stays on your computer"
+    ],
+    "privacy.lead": [
+     "The author can’t receive",
+     "what you save with the extension,",
+     "because there is nowhere for it to go."
+    ],
+    "privacy.1.title": [
+     "The extension has no server"
+    ],
+    "privacy.2.title": [
+     "No account"
+    ],
+    "privacy.3.title": [
+     "No tracking in the extension"
+    ],
+    "privacy.4.title": [
+     "Only the folder you pick"
+    ],
+    "privacy.1.body": [
+     "What you save is written",
+     "straight into your folder."
+    ],
+    "privacy.2.body": [
+     "Nothing to register, nothing to log into."
+    ],
+    "privacy.3.body": [
+     "The extension has no analytics, no tracking",
+     "and no ads."
+    ],
+    "privacy.4.body": [
+     "It can touch the folder you picked",
+     "and no other folder on your disk."
+    ],
+    "privacy.link": [
+     "Read the full privacy policy"
+    ],
+    "final.title": [
+     "See something useful?",
+     "One click and it’s saved"
+    ],
+    "final.meta": [
+     "Free · Desktop Chrome (Windows, Mac)"
+    ],
+    "final.cta": [
+     "Add to Chrome · Free"
+    ]
+   },
+   "430": {
+    "how.title": [
+     "Keep it in one place.",
+     "Let your AI read it."
+    ],
+    "how.pain": [
+     "Your research ends up",
+     "scattered across bookmarks, screenshots,",
+     "your downloads folder and a pile of chat windows.",
+     "When you want an AI to sort it out,",
+     "you don’t know what to hand it."
+    ],
+    "how.1.title": [
+     "Pick a folder"
+    ],
+    "how.2.title": [
+     "Save what’s useful"
+    ],
+    "how.3.title": [
+     "Have your AI analyse the folder"
+    ],
+    "how.1.body": [
+     "Any ordinary folder on your disk. You choose it."
+    ],
+    "how.2.body": [
+     "Whole pages, selected text, images, AI replies.",
+     "One click and it’s saved."
+    ],
+    "how.3.body": [
+     "Claude Code, Codex or Gemini CLI, for example,",
+     "reads it all and hands back a summary",
+     "with a source for every point."
+    ],
+    "features.title": [
+     "See it, save it"
+    ],
+    "features.1.title": [
+     "A whole article"
+    ],
+    "features.2.title": [
+     "A selected passage"
+    ],
+    "features.3.title": [
+     "Images"
+    ],
+    "features.4.title": [
+     "One AI reply"
+    ],
+    "features.5.title": [
+     "A whole AI chat"
+    ],
+    "features.6.title": [
+     "Files ChatGPT made"
+    ],
+    "features.7.title": [
+     "Sort with topics"
+    ],
+    "features.8.title": [
+     "Save twice, still one copy"
+    ],
+    "features.1.body": [
+     "One click saves the article’s main text",
+     "as a single Markdown file."
+    ],
+    "features.2.body": [
+     "Highlight it and right-click.",
+     "Only the lines you picked are kept."
+    ],
+    "features.3.body": [
+     "Right-click to save one image at full size,",
+     "or pick several from the page at once."
+    ],
+    "features.4.body": [
+     "Every reply in ChatGPT, Claude and Perplexity",
+     "can be saved on its own."
+    ],
+    "features.5.body": [
+     "Marked with what you said and what the AI said.",
+     "On Perplexity, the source links inside the text",
+     "come along too."
+    ],
+    "features.6.body": [
+     "Spreadsheets, code and documents,",
+     "saved into your folder as the original files."
+    ],
+    "features.7.body": [
+     "One subject, one folder.",
+     "Add a sentence on what it’s for,",
+     "and your AI gets it right away."
+    ],
+    "features.8.body": [
+     "Saving the same page again",
+     "updates the copy you have",
+     "instead of adding another."
+    ],
+    "features.1.more": [
+     "Watch chapter 03"
+    ],
+    "features.2.more": [
+     "Watch chapter 04"
+    ],
+    "features.3.more": [
+     "Watch chapter 05"
+    ],
+    "features.4.more": [
+     "Watch chapter 06"
+    ],
+    "features.5.more": [
+     "Watch chapter 07"
+    ],
+    "features.6.more": [
+     "Watch chapter 08"
+    ],
+    "features.7.more": [
+     "Watch chapter 09"
+    ],
+    "features.8.more": [
+     "Watch chapter 03"
+    ],
+    "privacy.title": [
+     "What you save",
+     "stays on your computer"
+    ],
+    "privacy.lead": [
+     "The author can’t receive",
+     "what you save with the extension,",
+     "because there is nowhere for it to go."
+    ],
+    "privacy.1.title": [
+     "The extension has no server"
+    ],
+    "privacy.2.title": [
+     "No account"
+    ],
+    "privacy.3.title": [
+     "No tracking in the extension"
+    ],
+    "privacy.4.title": [
+     "Only the folder you pick"
+    ],
+    "privacy.1.body": [
+     "What you save is written straight into your folder."
+    ],
+    "privacy.2.body": [
+     "Nothing to register, nothing to log into."
+    ],
+    "privacy.3.body": [
+     "The extension has no analytics, no tracking",
+     "and no ads."
+    ],
+    "privacy.4.body": [
+     "It can touch the folder you picked",
+     "and no other folder on your disk."
+    ],
+    "privacy.link": [
+     "Read the full privacy policy"
+    ],
+    "final.title": [
+     "See something useful?",
+     "One click and it’s saved"
+    ],
+    "final.meta": [
+     "Free · Desktop Chrome (Windows, Mac)"
+    ],
+    "final.cta": [
+     "Add to Chrome · Free"
+    ]
+   },
+   "640": {
+    "how.title": [
+     "Keep it in one place.",
+     "Let your AI read it."
+    ],
+    "how.pain": [
+     "Your research ends up",
+     "scattered across bookmarks, screenshots,",
+     "your downloads folder and a pile of chat windows.",
+     "When you want an AI to sort it out,",
+     "you don’t know what to hand it."
+    ],
+    "how.1.title": [
+     "Pick a folder"
+    ],
+    "how.2.title": [
+     "Save what’s useful"
+    ],
+    "how.3.title": [
+     "Have your AI",
+     "analyse the folder"
+    ],
+    "how.1.body": [
+     "Any ordinary folder",
+     "on your disk.",
+     "You choose it."
+    ],
+    "how.2.body": [
+     "Whole pages,",
+     "selected text,",
+     "images, AI replies.",
+     "One click and it’s saved."
+    ],
+    "how.3.body": [
+     "Claude Code, Codex",
+     "or Gemini CLI,",
+     "for example,",
+     "reads it all",
+     "and hands back",
+     "a summary",
+     "with a source",
+     "for every point."
+    ],
+    "features.title": [
+     "See it, save it"
+    ],
+    "features.1.title": [
+     "A whole article"
+    ],
+    "features.2.title": [
+     "A selected passage"
+    ],
+    "features.3.title": [
+     "Images"
+    ],
+    "features.4.title": [
+     "One AI reply"
+    ],
+    "features.5.title": [
+     "A whole AI chat"
+    ],
+    "features.6.title": [
+     "Files ChatGPT made"
+    ],
+    "features.7.title": [
+     "Sort with topics"
+    ],
+    "features.8.title": [
+     "Save twice, still one copy"
+    ],
+    "features.1.body": [
+     "One click saves",
+     "the article’s main text",
+     "as a single Markdown file."
+    ],
+    "features.2.body": [
+     "Highlight it and right-click.",
+     "Only the lines",
+     "you picked are kept."
+    ],
+    "features.3.body": [
+     "Right-click to save",
+     "one image at full size,",
+     "or pick several",
+     "from the page at once."
+    ],
+    "features.4.body": [
+     "Every reply in ChatGPT,",
+     "Claude and Perplexity",
+     "can be saved on its own."
+    ],
+    "features.5.body": [
+     "Marked with what you said",
+     "and what the AI said.",
+     "On Perplexity,",
+     "the source links inside the text",
+     "come along too."
+    ],
+    "features.6.body": [
+     "Spreadsheets, code",
+     "and documents,",
+     "saved into your folder",
+     "as the original files."
+    ],
+    "features.7.body": [
+     "One subject, one folder.",
+     "Add a sentence on what it’s for,",
+     "and your AI gets it right away."
+    ],
+    "features.8.body": [
+     "Saving the same page again",
+     "updates the copy you have",
+     "instead of adding another."
+    ],
+    "features.1.more": [
+     "Watch chapter 03"
+    ],
+    "features.2.more": [
+     "Watch chapter 04"
+    ],
+    "features.3.more": [
+     "Watch chapter 05"
+    ],
+    "features.4.more": [
+     "Watch chapter 06"
+    ],
+    "features.5.more": [
+     "Watch chapter 07"
+    ],
+    "features.6.more": [
+     "Watch chapter 08"
+    ],
+    "features.7.more": [
+     "Watch chapter 09"
+    ],
+    "features.8.more": [
+     "Watch chapter 03"
+    ],
+    "privacy.title": [
+     "What you save",
+     "stays on your computer"
+    ],
+    "privacy.lead": [
+     "The author can’t receive",
+     "what you save with the extension,",
+     "because there is nowhere for it to go."
+    ],
+    "privacy.1.title": [
+     "The extension",
+     "has no server"
+    ],
+    "privacy.2.title": [
+     "No account"
+    ],
+    "privacy.3.title": [
+     "No tracking",
+     "in the extension"
+    ],
+    "privacy.4.title": [
+     "Only the folder you pick"
+    ],
+    "privacy.1.body": [
+     "What you save is written",
+     "straight into your folder."
+    ],
+    "privacy.2.body": [
+     "Nothing to register,",
+     "nothing to log into."
+    ],
+    "privacy.3.body": [
+     "The extension has",
+     "no analytics, no tracking",
+     "and no ads."
+    ],
+    "privacy.4.body": [
+     "It can touch",
+     "the folder you picked",
+     "and no other folder on your disk."
+    ],
+    "privacy.link": [
+     "Read the full privacy policy"
+    ],
+    "final.title": [
+     "See something useful?",
+     "One click and it’s saved"
+    ],
+    "final.meta": [
+     "Free · Desktop Chrome (Windows, Mac)"
+    ],
+    "final.cta": [
+     "Add to Chrome · Free"
+    ]
+   },
+   "768": {
+    "how.title": [
+     "Keep it in one place.",
+     "Let your AI read it."
+    ],
+    "how.pain": [
+     "Your research ends up",
+     "scattered across bookmarks, screenshots,",
+     "your downloads folder and a pile of chat windows.",
+     "When you want an AI to sort it out,",
+     "you don’t know what to hand it."
+    ],
+    "how.1.title": [
+     "Pick a folder"
+    ],
+    "how.2.title": [
+     "Save what’s useful"
+    ],
+    "how.3.title": [
+     "Have your AI",
+     "analyse the folder"
+    ],
+    "how.1.body": [
+     "Any ordinary folder",
+     "on your disk.",
+     "You choose it."
+    ],
+    "how.2.body": [
+     "Whole pages, selected text,",
+     "images, AI replies.",
+     "One click and it’s saved."
+    ],
+    "how.3.body": [
+     "Claude Code, Codex",
+     "or Gemini CLI, for example,",
+     "reads it all",
+     "and hands back a summary",
+     "with a source for every point."
+    ],
+    "features.title": [
+     "See it, save it"
+    ],
+    "features.1.title": [
+     "A whole article"
+    ],
+    "features.2.title": [
+     "A selected passage"
+    ],
+    "features.3.title": [
+     "Images"
+    ],
+    "features.4.title": [
+     "One AI reply"
+    ],
+    "features.5.title": [
+     "A whole AI chat"
+    ],
+    "features.6.title": [
+     "Files ChatGPT made"
+    ],
+    "features.7.title": [
+     "Sort with topics"
+    ],
+    "features.8.title": [
+     "Save twice, still one copy"
+    ],
+    "features.1.body": [
+     "One click saves the article’s main text",
+     "as a single Markdown file."
+    ],
+    "features.2.body": [
+     "Highlight it and right-click.",
+     "Only the lines you picked are kept."
+    ],
+    "features.3.body": [
+     "Right-click to save one image at full size,",
+     "or pick several from the page at once."
+    ],
+    "features.4.body": [
+     "Every reply in ChatGPT,",
+     "Claude and Perplexity",
+     "can be saved on its own."
+    ],
+    "features.5.body": [
+     "Marked with what you said",
+     "and what the AI said.",
+     "On Perplexity,",
+     "the source links inside the text",
+     "come along too."
+    ],
+    "features.6.body": [
+     "Spreadsheets, code and documents,",
+     "saved into your folder as the original files."
+    ],
+    "features.7.body": [
+     "One subject, one folder.",
+     "Add a sentence on what it’s for,",
+     "and your AI gets it right away."
+    ],
+    "features.8.body": [
+     "Saving the same page again",
+     "updates the copy you have",
+     "instead of adding another."
+    ],
+    "features.1.more": [
+     "Watch chapter 03"
+    ],
+    "features.2.more": [
+     "Watch chapter 04"
+    ],
+    "features.3.more": [
+     "Watch chapter 05"
+    ],
+    "features.4.more": [
+     "Watch chapter 06"
+    ],
+    "features.5.more": [
+     "Watch chapter 07"
+    ],
+    "features.6.more": [
+     "Watch chapter 08"
+    ],
+    "features.7.more": [
+     "Watch chapter 09"
+    ],
+    "features.8.more": [
+     "Watch chapter 03"
+    ],
+    "privacy.title": [
+     "What you save",
+     "stays on your computer"
+    ],
+    "privacy.lead": [
+     "The author can’t receive",
+     "what you save with the extension,",
+     "because there is nowhere for it to go."
+    ],
+    "privacy.1.title": [
+     "The extension has no server"
+    ],
+    "privacy.2.title": [
+     "No account"
+    ],
+    "privacy.3.title": [
+     "No tracking in the extension"
+    ],
+    "privacy.4.title": [
+     "Only the folder you pick"
+    ],
+    "privacy.1.body": [
+     "What you save is written",
+     "straight into your folder."
+    ],
+    "privacy.2.body": [
+     "Nothing to register, nothing to log into."
+    ],
+    "privacy.3.body": [
+     "The extension has",
+     "no analytics, no tracking and no ads."
+    ],
+    "privacy.4.body": [
+     "It can touch the folder you picked",
+     "and no other folder on your disk."
+    ],
+    "privacy.link": [
+     "Read the full privacy policy"
+    ],
+    "final.title": [
+     "See something useful?",
+     "One click and it’s saved"
+    ],
+    "final.meta": [
+     "Free · Desktop Chrome (Windows, Mac)"
+    ],
+    "final.cta": [
+     "Add to Chrome · Free"
+    ]
+   },
+   "1024": {
+    "how.title": [
+     "Keep it in one place. Let your AI read it."
+    ],
+    "how.pain": [
+     "Your research ends up",
+     "scattered across bookmarks, screenshots,",
+     "your downloads folder and a pile of chat windows.",
+     "When you want an AI to sort it out,",
+     "you don’t know what to hand it."
+    ],
+    "how.1.title": [
+     "Pick a folder"
+    ],
+    "how.2.title": [
+     "Save what’s useful"
+    ],
+    "how.3.title": [
+     "Have your AI analyse the folder"
+    ],
+    "how.1.body": [
+     "Any ordinary folder on your disk.",
+     "You choose it."
+    ],
+    "how.2.body": [
+     "Whole pages, selected text,",
+     "images, AI replies.",
+     "One click and it’s saved."
+    ],
+    "how.3.body": [
+     "Claude Code, Codex",
+     "or Gemini CLI, for example, reads it all",
+     "and hands back a summary",
+     "with a source for every point."
+    ],
+    "features.title": [
+     "See it, save it"
+    ],
+    "features.1.title": [
+     "A whole article"
+    ],
+    "features.2.title": [
+     "A selected passage"
+    ],
+    "features.3.title": [
+     "Images"
+    ],
+    "features.4.title": [
+     "One AI reply"
+    ],
+    "features.5.title": [
+     "A whole AI chat"
+    ],
+    "features.6.title": [
+     "Files ChatGPT made"
+    ],
+    "features.7.title": [
+     "Sort with topics"
+    ],
+    "features.8.title": [
+     "Save twice, still one copy"
+    ],
+    "features.1.body": [
+     "One click saves the article’s main text",
+     "as a single Markdown file."
+    ],
+    "features.2.body": [
+     "Highlight it and right-click.",
+     "Only the lines you picked are kept."
+    ],
+    "features.3.body": [
+     "Right-click to save one image at full size,",
+     "or pick several from the page at once."
+    ],
+    "features.4.body": [
+     "Every reply in ChatGPT, Claude and Perplexity",
+     "can be saved on its own."
+    ],
+    "features.5.body": [
+     "Marked with what you said and what the AI said.",
+     "On Perplexity, the source links inside the text",
+     "come along too."
+    ],
+    "features.6.body": [
+     "Spreadsheets, code and documents,",
+     "saved into your folder as the original files."
+    ],
+    "features.7.body": [
+     "One subject, one folder.",
+     "Add a sentence on what it’s for,",
+     "and your AI gets it right away."
+    ],
+    "features.8.body": [
+     "Saving the same page again",
+     "updates the copy you have",
+     "instead of adding another."
+    ],
+    "features.1.more": [
+     "Watch chapter 03"
+    ],
+    "features.2.more": [
+     "Watch chapter 04"
+    ],
+    "features.3.more": [
+     "Watch chapter 05"
+    ],
+    "features.4.more": [
+     "Watch chapter 06"
+    ],
+    "features.5.more": [
+     "Watch chapter 07"
+    ],
+    "features.6.more": [
+     "Watch chapter 08"
+    ],
+    "features.7.more": [
+     "Watch chapter 09"
+    ],
+    "features.8.more": [
+     "Watch chapter 03"
+    ],
+    "privacy.title": [
+     "What you save stays on your computer"
+    ],
+    "privacy.lead": [
+     "The author can’t receive",
+     "what you save with the extension,",
+     "because there is nowhere for it to go."
+    ],
+    "privacy.1.title": [
+     "The extension has no server"
+    ],
+    "privacy.2.title": [
+     "No account"
+    ],
+    "privacy.3.title": [
+     "No tracking in the extension"
+    ],
+    "privacy.4.title": [
+     "Only the folder you pick"
+    ],
+    "privacy.1.body": [
+     "What you save is written straight into your folder."
+    ],
+    "privacy.2.body": [
+     "Nothing to register, nothing to log into."
+    ],
+    "privacy.3.body": [
+     "The extension has no analytics, no tracking",
+     "and no ads."
+    ],
+    "privacy.4.body": [
+     "It can touch the folder you picked",
+     "and no other folder on your disk."
+    ],
+    "privacy.link": [
+     "Read the full privacy policy"
+    ],
+    "final.title": [
+     "See something useful?",
+     "One click and it’s saved"
+    ],
+    "final.meta": [
+     "Free · Desktop Chrome (Windows, Mac)"
+    ],
+    "final.cta": [
+     "Add to Chrome · Free"
+    ]
+   },
+   "1280": {
+    "how.title": [
+     "Keep it in one place. Let your AI read it."
+    ],
+    "how.pain": [
+     "Your research ends up",
+     "scattered across bookmarks, screenshots,",
+     "your downloads folder and a pile of chat windows.",
+     "When you want an AI to sort it out,",
+     "you don’t know what to hand it."
+    ],
+    "how.1.title": [
+     "Pick a folder"
+    ],
+    "how.2.title": [
+     "Save what’s useful"
+    ],
+    "how.3.title": [
+     "Have your AI analyse the folder"
+    ],
+    "how.1.body": [
+     "Any ordinary folder on your disk. You choose it."
+    ],
+    "how.2.body": [
+     "Whole pages, selected text, images, AI replies.",
+     "One click and it’s saved."
+    ],
+    "how.3.body": [
+     "Claude Code, Codex or Gemini CLI, for example,",
+     "reads it all and hands back a summary",
+     "with a source for every point."
+    ],
+    "features.title": [
+     "See it, save it"
+    ],
+    "features.1.title": [
+     "A whole article"
+    ],
+    "features.2.title": [
+     "A selected passage"
+    ],
+    "features.3.title": [
+     "Images"
+    ],
+    "features.4.title": [
+     "One AI reply"
+    ],
+    "features.5.title": [
+     "A whole AI chat"
+    ],
+    "features.6.title": [
+     "Files ChatGPT made"
+    ],
+    "features.7.title": [
+     "Sort with topics"
+    ],
+    "features.8.title": [
+     "Save twice, still one copy"
+    ],
+    "features.1.body": [
+     "One click saves",
+     "the article’s main text",
+     "as a single Markdown file."
+    ],
+    "features.2.body": [
+     "Highlight it and right-click.",
+     "Only the lines",
+     "you picked are kept."
+    ],
+    "features.3.body": [
+     "Right-click to save",
+     "one image at full size,",
+     "or pick several",
+     "from the page at once."
+    ],
+    "features.4.body": [
+     "Every reply in ChatGPT,",
+     "Claude and Perplexity",
+     "can be saved on its own."
+    ],
+    "features.5.body": [
+     "Marked with what you said",
+     "and what the AI said.",
+     "On Perplexity,",
+     "the source links inside the text",
+     "come along too."
+    ],
+    "features.6.body": [
+     "Spreadsheets, code",
+     "and documents,",
+     "saved into your folder",
+     "as the original files."
+    ],
+    "features.7.body": [
+     "One subject, one folder.",
+     "Add a sentence on what it’s for,",
+     "and your AI gets it right away."
+    ],
+    "features.8.body": [
+     "Saving the same page again",
+     "updates the copy you have",
+     "instead of adding another."
+    ],
+    "features.1.more": [
+     "Watch chapter 03"
+    ],
+    "features.2.more": [
+     "Watch chapter 04"
+    ],
+    "features.3.more": [
+     "Watch chapter 05"
+    ],
+    "features.4.more": [
+     "Watch chapter 06"
+    ],
+    "features.5.more": [
+     "Watch chapter 07"
+    ],
+    "features.6.more": [
+     "Watch chapter 08"
+    ],
+    "features.7.more": [
+     "Watch chapter 09"
+    ],
+    "features.8.more": [
+     "Watch chapter 03"
+    ],
+    "privacy.title": [
+     "What you save stays on your computer"
+    ],
+    "privacy.lead": [
+     "The author can’t receive",
+     "what you save with the extension,",
+     "because there is nowhere for it to go."
+    ],
+    "privacy.1.title": [
+     "The extension",
+     "has no server"
+    ],
+    "privacy.2.title": [
+     "No account"
+    ],
+    "privacy.3.title": [
+     "No tracking",
+     "in the extension"
+    ],
+    "privacy.4.title": [
+     "Only the folder you pick"
+    ],
+    "privacy.1.body": [
+     "What you save is written",
+     "straight into your folder."
+    ],
+    "privacy.2.body": [
+     "Nothing to register,",
+     "nothing to log into."
+    ],
+    "privacy.3.body": [
+     "The extension has",
+     "no analytics, no tracking",
+     "and no ads."
+    ],
+    "privacy.4.body": [
+     "It can touch",
+     "the folder you picked",
+     "and no other folder on your disk."
+    ],
+    "privacy.link": [
+     "Read the full privacy policy"
+    ],
+    "final.title": [
+     "See something useful?",
+     "One click and it’s saved"
+    ],
+    "final.meta": [
+     "Free · Desktop Chrome (Windows, Mac)"
+    ],
+    "final.cta": [
+     "Add to Chrome · Free"
+    ]
+   },
+   "1440": {
+    "how.title": [
+     "Keep it in one place. Let your AI read it."
+    ],
+    "how.pain": [
+     "Your research ends up",
+     "scattered across bookmarks, screenshots,",
+     "your downloads folder and a pile of chat windows.",
+     "When you want an AI to sort it out,",
+     "you don’t know what to hand it."
+    ],
+    "how.1.title": [
+     "Pick a folder"
+    ],
+    "how.2.title": [
+     "Save what’s useful"
+    ],
+    "how.3.title": [
+     "Have your AI analyse the folder"
+    ],
+    "how.1.body": [
+     "Any ordinary folder on your disk. You choose it."
+    ],
+    "how.2.body": [
+     "Whole pages, selected text, images, AI replies.",
+     "One click and it’s saved."
+    ],
+    "how.3.body": [
+     "Claude Code, Codex or Gemini CLI, for example,",
+     "reads it all and hands back a summary",
+     "with a source for every point."
+    ],
+    "features.title": [
+     "See it, save it"
+    ],
+    "features.1.title": [
+     "A whole article"
+    ],
+    "features.2.title": [
+     "A selected passage"
+    ],
+    "features.3.title": [
+     "Images"
+    ],
+    "features.4.title": [
+     "One AI reply"
+    ],
+    "features.5.title": [
+     "A whole AI chat"
+    ],
+    "features.6.title": [
+     "Files ChatGPT made"
+    ],
+    "features.7.title": [
+     "Sort with topics"
+    ],
+    "features.8.title": [
+     "Save twice, still one copy"
+    ],
+    "features.1.body": [
+     "One click saves",
+     "the article’s main text",
+     "as a single Markdown file."
+    ],
+    "features.2.body": [
+     "Highlight it and right-click.",
+     "Only the lines",
+     "you picked are kept."
+    ],
+    "features.3.body": [
+     "Right-click to save",
+     "one image at full size,",
+     "or pick several",
+     "from the page at once."
+    ],
+    "features.4.body": [
+     "Every reply in ChatGPT,",
+     "Claude and Perplexity",
+     "can be saved on its own."
+    ],
+    "features.5.body": [
+     "Marked with what you said",
+     "and what the AI said.",
+     "On Perplexity,",
+     "the source links inside the text",
+     "come along too."
+    ],
+    "features.6.body": [
+     "Spreadsheets, code",
+     "and documents,",
+     "saved into your folder",
+     "as the original files."
+    ],
+    "features.7.body": [
+     "One subject, one folder.",
+     "Add a sentence on what it’s for,",
+     "and your AI gets it right away."
+    ],
+    "features.8.body": [
+     "Saving the same page again",
+     "updates the copy you have",
+     "instead of adding another."
+    ],
+    "features.1.more": [
+     "Watch chapter 03"
+    ],
+    "features.2.more": [
+     "Watch chapter 04"
+    ],
+    "features.3.more": [
+     "Watch chapter 05"
+    ],
+    "features.4.more": [
+     "Watch chapter 06"
+    ],
+    "features.5.more": [
+     "Watch chapter 07"
+    ],
+    "features.6.more": [
+     "Watch chapter 08"
+    ],
+    "features.7.more": [
+     "Watch chapter 09"
+    ],
+    "features.8.more": [
+     "Watch chapter 03"
+    ],
+    "privacy.title": [
+     "What you save stays on your computer"
+    ],
+    "privacy.lead": [
+     "The author can’t receive",
+     "what you save with the extension,",
+     "because there is nowhere for it to go."
+    ],
+    "privacy.1.title": [
+     "The extension",
+     "has no server"
+    ],
+    "privacy.2.title": [
+     "No account"
+    ],
+    "privacy.3.title": [
+     "No tracking",
+     "in the extension"
+    ],
+    "privacy.4.title": [
+     "Only the folder you pick"
+    ],
+    "privacy.1.body": [
+     "What you save is written",
+     "straight into your folder."
+    ],
+    "privacy.2.body": [
+     "Nothing to register,",
+     "nothing to log into."
+    ],
+    "privacy.3.body": [
+     "The extension has",
+     "no analytics, no tracking",
+     "and no ads."
+    ],
+    "privacy.4.body": [
+     "It can touch",
+     "the folder you picked",
+     "and no other folder on your disk."
+    ],
+    "privacy.link": [
+     "Read the full privacy policy"
+    ],
+    "final.title": [
+     "See something useful?",
+     "One click and it’s saved"
+    ],
+    "final.meta": [
+     "Free · Desktop Chrome (Windows, Mac)"
+    ],
+    "final.cta": [
+     "Add to Chrome · Free"
+    ]
+   }
+  },
+  "ja": {
+   "280": {
+    "how.title": [
+     "一か所に",
+     "集めて、",
+     "AI に読ませる"
+    ],
+    "how.pain": [
+     "資料はブックマーク、",
+     "スクリーンショット、",
+     "ダウンロードフォルダー、",
+     "いくつものチャット画面に",
+     "散らばりがち。",
+     "いざ AI に整理して",
+     "もらおうとしても、",
+     "何を渡せばいいのか分からない。"
+    ],
+    "how.1.title": [
+     "フォルダーを選ぶ"
+    ],
+    "how.2.title": [
+     "役に立つものを保存"
+    ],
+    "how.3.title": [
+     "AI にフォルダーを分析させる"
+    ],
+    "how.1.body": [
+     "ディスク上のふつうの",
+     "フォルダーで構いません。",
+     "選ぶのはあなたです。"
+    ],
+    "how.2.body": [
+     "ページ全体、選んだテキスト、",
+     "画像、AI の返信。",
+     "ワンクリックで保存できます。"
+    ],
+    "how.3.body": [
+     "たとえば Claude Code、",
+     "Codex、Gemini CLI。",
+     "すべて読んで、どの項目にも",
+     "出典が付いたまとめを返します。"
+    ],
+    "features.title": [
+     "見つけた",
+     "ものを、",
+     "そのまま保存"
+    ],
+    "features.1.title": [
+     "記事まるごと"
+    ],
+    "features.2.title": [
+     "選択した部分"
+    ],
+    "features.3.title": [
+     "画像"
+    ],
+    "features.4.title": [
+     "AI の返信を 1 件"
+    ],
+    "features.5.title": [
+     "AI との会話まるごと"
+    ],
+    "features.6.title": [
+     "ChatGPT が",
+     "作ったファイル"
+    ],
+    "features.7.title": [
+     "テーマで分ける"
+    ],
+    "features.8.title": [
+     "2 回保存しても 1 つ"
+    ],
+    "features.1.body": [
+     "ワンクリックで、本文全体を",
+     "1 つの Markdown に。"
+    ],
+    "features.2.body": [
+     "選んで右クリック。",
+     "ハイライトした",
+     "箇所だけを残します。"
+    ],
+    "features.3.body": [
+     "右クリックで",
+     "元の画像を 1 枚、",
+     "またはページ内の画像を",
+     "まとめて選択。"
+    ],
+    "features.4.body": [
+     "ChatGPT・Claude・",
+     "Perplexity の返信を",
+     "1 件ずつ保存できます。"
+    ],
+    "features.5.body": [
+     "どれがあなたの発言で、",
+     "どれが AI の発言かを明記。",
+     "Perplexity は",
+     "本文中の出典リンクも",
+     "一緒に保存します。"
+    ],
+    "features.6.body": [
+     "表・コード・文書を、",
+     "元のファイルのまま",
+     "フォルダーへ。"
+    ],
+    "features.7.body": [
+     "題材ごとにひとまとめ。",
+     "何のためかを一文書けば、",
+     "AI はすぐに分かります。"
+    ],
+    "features.8.body": [
+     "同じページを",
+     "もう一度保存すると、",
+     "元のものを更新します。",
+     "増えません。"
+    ],
+    "features.1.more": [
+     "03 章を見る"
+    ],
+    "features.2.more": [
+     "04 章を見る"
+    ],
+    "features.3.more": [
+     "05 章を見る"
+    ],
+    "features.4.more": [
+     "06 章を見る"
+    ],
+    "features.5.more": [
+     "07 章を見る"
+    ],
+    "features.6.more": [
+     "08 章を見る"
+    ],
+    "features.7.more": [
+     "09 章を見る"
+    ],
+    "features.8.more": [
+     "03 章を見る"
+    ],
+    "privacy.title": [
+     "保存した",
+     "ものは、",
+     "パソコンの",
+     "外に出ません"
+    ],
+    "privacy.lead": [
+     "拡張機能で保存したものを、",
+     "作者が受け取ることは",
+     "できません。",
+     "受け取る場所が",
+     "存在しないからです。"
+    ],
+    "privacy.1.title": [
+     "拡張機能に",
+     "サーバーなし"
+    ],
+    "privacy.2.title": [
+     "アカウントなし"
+    ],
+    "privacy.3.title": [
+     "拡張機能に追跡なし"
+    ],
+    "privacy.4.title": [
+     "選んだフォルダーだけ"
+    ],
+    "privacy.1.body": [
+     "保存したものは、",
+     "あなたのフォルダーに",
+     "直接書き込まれます。"
+    ],
+    "privacy.2.body": [
+     "登録もログインも不要です。"
+    ],
+    "privacy.3.body": [
+     "拡張機能には解析も追跡も",
+     "広告もありません。"
+    ],
+    "privacy.4.body": [
+     "触れられるのは、",
+     "あなたが選んだ",
+     "フォルダーだけ。",
+     "ほかのフォルダーには",
+     "一切触れません。"
+    ],
+    "privacy.link": [
+     "プライバシーポリシーの全文を読む"
+    ],
+    "final.title": [
+     "役に立つものを",
+     "見つけたら、",
+     "ポチッと保存"
+    ],
+    "final.meta": [
+     "無料 · デスクトップ版 Chrome",
+     "（Windows、Mac）"
+    ],
+    "final.cta": [
+     "Chrome に追加 · 無料"
+    ]
+   },
+   "320": {
+    "how.title": [
+     "一か所に集めて、",
+     "AI に読ませる"
+    ],
+    "how.pain": [
+     "資料はブックマーク、",
+     "スクリーンショット、",
+     "ダウンロードフォルダー、",
+     "いくつものチャット画面に",
+     "散らばりがち。",
+     "いざ AI に整理してもらおうとしても、",
+     "何を渡せばいいのか分からない。"
+    ],
+    "how.1.title": [
+     "フォルダーを選ぶ"
+    ],
+    "how.2.title": [
+     "役に立つものを保存"
+    ],
+    "how.3.title": [
+     "AI にフォルダーを分析させる"
+    ],
+    "how.1.body": [
+     "ディスク上のふつうの",
+     "フォルダーで構いません。",
+     "選ぶのはあなたです。"
+    ],
+    "how.2.body": [
+     "ページ全体、選んだテキスト、",
+     "画像、AI の返信。",
+     "ワンクリックで保存できます。"
+    ],
+    "how.3.body": [
+     "たとえば Claude Code、",
+     "Codex、Gemini CLI。",
+     "すべて読んで、どの項目にも",
+     "出典が付いたまとめを返します。"
+    ],
+    "features.title": [
+     "見つけたものを、",
+     "そのまま保存"
+    ],
+    "features.1.title": [
+     "記事まるごと"
+    ],
+    "features.2.title": [
+     "選択した部分"
+    ],
+    "features.3.title": [
+     "画像"
+    ],
+    "features.4.title": [
+     "AI の返信を 1 件"
+    ],
+    "features.5.title": [
+     "AI との会話まるごと"
+    ],
+    "features.6.title": [
+     "ChatGPT が作ったファイル"
+    ],
+    "features.7.title": [
+     "テーマで分ける"
+    ],
+    "features.8.title": [
+     "2 回保存しても 1 つ"
+    ],
+    "features.1.body": [
+     "ワンクリックで、本文全体を",
+     "1 つの Markdown に。"
+    ],
+    "features.2.body": [
+     "選んで右クリック。",
+     "ハイライトした",
+     "箇所だけを残します。"
+    ],
+    "features.3.body": [
+     "右クリックで元の画像を 1 枚、",
+     "またはページ内の画像を",
+     "まとめて選択。"
+    ],
+    "features.4.body": [
+     "ChatGPT・Claude・",
+     "Perplexity の返信を",
+     "1 件ずつ保存できます。"
+    ],
+    "features.5.body": [
+     "どれがあなたの発言で、",
+     "どれが AI の発言かを明記。",
+     "Perplexity は本文中の出典リンクも",
+     "一緒に保存します。"
+    ],
+    "features.6.body": [
+     "表・コード・文書を、",
+     "元のファイルのままフォルダーへ。"
+    ],
+    "features.7.body": [
+     "題材ごとにひとまとめ。",
+     "何のためかを一文書けば、",
+     "AI はすぐに分かります。"
+    ],
+    "features.8.body": [
+     "同じページをもう一度保存すると、",
+     "元のものを更新します。",
+     "増えません。"
+    ],
+    "features.1.more": [
+     "03 章を見る"
+    ],
+    "features.2.more": [
+     "04 章を見る"
+    ],
+    "features.3.more": [
+     "05 章を見る"
+    ],
+    "features.4.more": [
+     "06 章を見る"
+    ],
+    "features.5.more": [
+     "07 章を見る"
+    ],
+    "features.6.more": [
+     "08 章を見る"
+    ],
+    "features.7.more": [
+     "09 章を見る"
+    ],
+    "features.8.more": [
+     "03 章を見る"
+    ],
+    "privacy.title": [
+     "保存したものは、",
+     "パソコンの",
+     "外に出ません"
+    ],
+    "privacy.lead": [
+     "拡張機能で保存したものを、",
+     "作者が受け取ることはできません。",
+     "受け取る場所が存在しないからです。"
+    ],
+    "privacy.1.title": [
+     "拡張機能にサーバーなし"
+    ],
+    "privacy.2.title": [
+     "アカウントなし"
+    ],
+    "privacy.3.title": [
+     "拡張機能に追跡なし"
+    ],
+    "privacy.4.title": [
+     "選んだフォルダーだけ"
+    ],
+    "privacy.1.body": [
+     "保存したものは、",
+     "あなたのフォルダーに",
+     "直接書き込まれます。"
+    ],
+    "privacy.2.body": [
+     "登録もログインも不要です。"
+    ],
+    "privacy.3.body": [
+     "拡張機能には解析も追跡も",
+     "広告もありません。"
+    ],
+    "privacy.4.body": [
+     "触れられるのは、",
+     "あなたが選んだフォルダーだけ。",
+     "ほかのフォルダーには",
+     "一切触れません。"
+    ],
+    "privacy.link": [
+     "プライバシーポリシーの全文を読む"
+    ],
+    "final.title": [
+     "役に立つものを",
+     "見つけたら、",
+     "ポチッと保存"
+    ],
+    "final.meta": [
+     "無料 · デスクトップ版 Chrome",
+     "（Windows、Mac）"
+    ],
+    "final.cta": [
+     "Chrome に追加 · 無料"
+    ]
+   },
+   "360": {
+    "how.title": [
+     "一か所に集めて、",
+     "AI に読ませる"
+    ],
+    "how.pain": [
+     "資料はブックマーク、スクリーンショット、",
+     "ダウンロードフォルダー、",
+     "いくつものチャット画面に散らばりがち。",
+     "いざ AI に整理してもらおうとしても、",
+     "何を渡せばいいのか分からない。"
+    ],
+    "how.1.title": [
+     "フォルダーを選ぶ"
+    ],
+    "how.2.title": [
+     "役に立つものを保存"
+    ],
+    "how.3.title": [
+     "AI にフォルダーを分析させる"
+    ],
+    "how.1.body": [
+     "ディスク上のふつうのフォルダーで構いません。",
+     "選ぶのはあなたです。"
+    ],
+    "how.2.body": [
+     "ページ全体、選んだテキスト、画像、AI の返信。",
+     "ワンクリックで保存できます。"
+    ],
+    "how.3.body": [
+     "たとえば Claude Code、Codex、Gemini CLI。",
+     "すべて読んで、どの項目にも",
+     "出典が付いたまとめを返します。"
+    ],
+    "features.title": [
+     "見つけたものを、",
+     "そのまま保存"
+    ],
+    "features.1.title": [
+     "記事まるごと"
+    ],
+    "features.2.title": [
+     "選択した部分"
+    ],
+    "features.3.title": [
+     "画像"
+    ],
+    "features.4.title": [
+     "AI の返信を 1 件"
+    ],
+    "features.5.title": [
+     "AI との会話まるごと"
+    ],
+    "features.6.title": [
+     "ChatGPT が作ったファイル"
+    ],
+    "features.7.title": [
+     "テーマで分ける"
+    ],
+    "features.8.title": [
+     "2 回保存しても 1 つ"
+    ],
+    "features.1.body": [
+     "ワンクリックで、本文全体を",
+     "1 つの Markdown に。"
+    ],
+    "features.2.body": [
+     "選んで右クリック。",
+     "ハイライトした箇所だけを残します。"
+    ],
+    "features.3.body": [
+     "右クリックで元の画像を 1 枚、",
+     "またはページ内の画像をまとめて選択。"
+    ],
+    "features.4.body": [
+     "ChatGPT・Claude・Perplexity の返信を",
+     "1 件ずつ保存できます。"
+    ],
+    "features.5.body": [
+     "どれがあなたの発言で、",
+     "どれが AI の発言かを明記。",
+     "Perplexity は本文中の出典リンクも",
+     "一緒に保存します。"
+    ],
+    "features.6.body": [
+     "表・コード・文書を、元のファイルのまま",
+     "フォルダーへ。"
+    ],
+    "features.7.body": [
+     "題材ごとにひとまとめ。",
+     "何のためかを一文書けば、",
+     "AI はすぐに分かります。"
+    ],
+    "features.8.body": [
+     "同じページをもう一度保存すると、",
+     "元のものを更新します。",
+     "増えません。"
+    ],
+    "features.1.more": [
+     "03 章を見る"
+    ],
+    "features.2.more": [
+     "04 章を見る"
+    ],
+    "features.3.more": [
+     "05 章を見る"
+    ],
+    "features.4.more": [
+     "06 章を見る"
+    ],
+    "features.5.more": [
+     "07 章を見る"
+    ],
+    "features.6.more": [
+     "08 章を見る"
+    ],
+    "features.7.more": [
+     "09 章を見る"
+    ],
+    "features.8.more": [
+     "03 章を見る"
+    ],
+    "privacy.title": [
+     "保存したものは、",
+     "パソコンの",
+     "外に出ません"
+    ],
+    "privacy.lead": [
+     "拡張機能で保存したものを、",
+     "作者が受け取ることはできません。",
+     "受け取る場所が存在しないからです。"
+    ],
+    "privacy.1.title": [
+     "拡張機能にサーバーなし"
+    ],
+    "privacy.2.title": [
+     "アカウントなし"
+    ],
+    "privacy.3.title": [
+     "拡張機能に追跡なし"
+    ],
+    "privacy.4.title": [
+     "選んだフォルダーだけ"
+    ],
+    "privacy.1.body": [
+     "保存したものは、あなたのフォルダーに",
+     "直接書き込まれます。"
+    ],
+    "privacy.2.body": [
+     "登録もログインも不要です。"
+    ],
+    "privacy.3.body": [
+     "拡張機能には解析も追跡も",
+     "広告もありません。"
+    ],
+    "privacy.4.body": [
+     "触れられるのは、",
+     "あなたが選んだフォルダーだけ。",
+     "ほかのフォルダーには一切触れません。"
+    ],
+    "privacy.link": [
+     "プライバシーポリシーの全文を読む"
+    ],
+    "final.title": [
+     "役に立つものを",
+     "見つけたら、",
+     "ポチッと保存"
+    ],
+    "final.meta": [
+     "無料 · デスクトップ版 Chrome",
+     "（Windows、Mac）"
+    ],
+    "final.cta": [
+     "Chrome に追加 · 無料"
+    ]
+   },
+   "375": {
+    "how.title": [
+     "一か所に集めて、",
+     "AI に読ませる"
+    ],
+    "how.pain": [
+     "資料はブックマーク、スクリーンショット、",
+     "ダウンロードフォルダー、",
+     "いくつものチャット画面に散らばりがち。",
+     "いざ AI に整理してもらおうとしても、",
+     "何を渡せばいいのか分からない。"
+    ],
+    "how.1.title": [
+     "フォルダーを選ぶ"
+    ],
+    "how.2.title": [
+     "役に立つものを保存"
+    ],
+    "how.3.title": [
+     "AI にフォルダーを分析させる"
+    ],
+    "how.1.body": [
+     "ディスク上のふつうのフォルダーで構いません。",
+     "選ぶのはあなたです。"
+    ],
+    "how.2.body": [
+     "ページ全体、選んだテキスト、画像、AI の返信。",
+     "ワンクリックで保存できます。"
+    ],
+    "how.3.body": [
+     "たとえば Claude Code、Codex、Gemini CLI。",
+     "すべて読んで、どの項目にも",
+     "出典が付いたまとめを返します。"
+    ],
+    "features.title": [
+     "見つけたものを、",
+     "そのまま保存"
+    ],
+    "features.1.title": [
+     "記事まるごと"
+    ],
+    "features.2.title": [
+     "選択した部分"
+    ],
+    "features.3.title": [
+     "画像"
+    ],
+    "features.4.title": [
+     "AI の返信を 1 件"
+    ],
+    "features.5.title": [
+     "AI との会話まるごと"
+    ],
+    "features.6.title": [
+     "ChatGPT が作ったファイル"
+    ],
+    "features.7.title": [
+     "テーマで分ける"
+    ],
+    "features.8.title": [
+     "2 回保存しても 1 つ"
+    ],
+    "features.1.body": [
+     "ワンクリックで、本文全体を",
+     "1 つの Markdown に。"
+    ],
+    "features.2.body": [
+     "選んで右クリック。",
+     "ハイライトした箇所だけを残します。"
+    ],
+    "features.3.body": [
+     "右クリックで元の画像を 1 枚、",
+     "またはページ内の画像をまとめて選択。"
+    ],
+    "features.4.body": [
+     "ChatGPT・Claude・Perplexity の返信を",
+     "1 件ずつ保存できます。"
+    ],
+    "features.5.body": [
+     "どれがあなたの発言で、",
+     "どれが AI の発言かを明記。",
+     "Perplexity は本文中の出典リンクも",
+     "一緒に保存します。"
+    ],
+    "features.6.body": [
+     "表・コード・文書を、元のファイルのまま",
+     "フォルダーへ。"
+    ],
+    "features.7.body": [
+     "題材ごとにひとまとめ。",
+     "何のためかを一文書けば、",
+     "AI はすぐに分かります。"
+    ],
+    "features.8.body": [
+     "同じページをもう一度保存すると、",
+     "元のものを更新します。",
+     "増えません。"
+    ],
+    "features.1.more": [
+     "03 章を見る"
+    ],
+    "features.2.more": [
+     "04 章を見る"
+    ],
+    "features.3.more": [
+     "05 章を見る"
+    ],
+    "features.4.more": [
+     "06 章を見る"
+    ],
+    "features.5.more": [
+     "07 章を見る"
+    ],
+    "features.6.more": [
+     "08 章を見る"
+    ],
+    "features.7.more": [
+     "09 章を見る"
+    ],
+    "features.8.more": [
+     "03 章を見る"
+    ],
+    "privacy.title": [
+     "保存したものは、",
+     "パソコンの",
+     "外に出ません"
+    ],
+    "privacy.lead": [
+     "拡張機能で保存したものを、",
+     "作者が受け取ることはできません。",
+     "受け取る場所が存在しないからです。"
+    ],
+    "privacy.1.title": [
+     "拡張機能にサーバーなし"
+    ],
+    "privacy.2.title": [
+     "アカウントなし"
+    ],
+    "privacy.3.title": [
+     "拡張機能に追跡なし"
+    ],
+    "privacy.4.title": [
+     "選んだフォルダーだけ"
+    ],
+    "privacy.1.body": [
+     "保存したものは、あなたのフォルダーに",
+     "直接書き込まれます。"
+    ],
+    "privacy.2.body": [
+     "登録もログインも不要です。"
+    ],
+    "privacy.3.body": [
+     "拡張機能には解析も追跡も",
+     "広告もありません。"
+    ],
+    "privacy.4.body": [
+     "触れられるのは、",
+     "あなたが選んだフォルダーだけ。",
+     "ほかのフォルダーには一切触れません。"
+    ],
+    "privacy.link": [
+     "プライバシーポリシーの全文を読む"
+    ],
+    "final.title": [
+     "役に立つものを",
+     "見つけたら、",
+     "ポチッと保存"
+    ],
+    "final.meta": [
+     "無料 · デスクトップ版 Chrome",
+     "（Windows、Mac）"
+    ],
+    "final.cta": [
+     "Chrome に追加 · 無料"
+    ]
+   },
+   "390": {
+    "how.title": [
+     "一か所に集めて、",
+     "AI に読ませる"
+    ],
+    "how.pain": [
+     "資料はブックマーク、スクリーンショット、",
+     "ダウンロードフォルダー、",
+     "いくつものチャット画面に散らばりがち。",
+     "いざ AI に整理してもらおうとしても、",
+     "何を渡せばいいのか分からない。"
+    ],
+    "how.1.title": [
+     "フォルダーを選ぶ"
+    ],
+    "how.2.title": [
+     "役に立つものを保存"
+    ],
+    "how.3.title": [
+     "AI にフォルダーを分析させる"
+    ],
+    "how.1.body": [
+     "ディスク上のふつうのフォルダーで構いません。",
+     "選ぶのはあなたです。"
+    ],
+    "how.2.body": [
+     "ページ全体、選んだテキスト、画像、AI の返信。",
+     "ワンクリックで保存できます。"
+    ],
+    "how.3.body": [
+     "たとえば Claude Code、Codex、Gemini CLI。",
+     "すべて読んで、どの項目にも",
+     "出典が付いたまとめを返します。"
+    ],
+    "features.title": [
+     "見つけたものを、",
+     "そのまま保存"
+    ],
+    "features.1.title": [
+     "記事まるごと"
+    ],
+    "features.2.title": [
+     "選択した部分"
+    ],
+    "features.3.title": [
+     "画像"
+    ],
+    "features.4.title": [
+     "AI の返信を 1 件"
+    ],
+    "features.5.title": [
+     "AI との会話まるごと"
+    ],
+    "features.6.title": [
+     "ChatGPT が作ったファイル"
+    ],
+    "features.7.title": [
+     "テーマで分ける"
+    ],
+    "features.8.title": [
+     "2 回保存しても 1 つ"
+    ],
+    "features.1.body": [
+     "ワンクリックで、本文全体を",
+     "1 つの Markdown に。"
+    ],
+    "features.2.body": [
+     "選んで右クリック。",
+     "ハイライトした箇所だけを残します。"
+    ],
+    "features.3.body": [
+     "右クリックで元の画像を 1 枚、",
+     "またはページ内の画像をまとめて選択。"
+    ],
+    "features.4.body": [
+     "ChatGPT・Claude・Perplexity の返信を",
+     "1 件ずつ保存できます。"
+    ],
+    "features.5.body": [
+     "どれがあなたの発言で、",
+     "どれが AI の発言かを明記。",
+     "Perplexity は本文中の出典リンクも",
+     "一緒に保存します。"
+    ],
+    "features.6.body": [
+     "表・コード・文書を、元のファイルのまま",
+     "フォルダーへ。"
+    ],
+    "features.7.body": [
+     "題材ごとにひとまとめ。",
+     "何のためかを一文書けば、",
+     "AI はすぐに分かります。"
+    ],
+    "features.8.body": [
+     "同じページをもう一度保存すると、",
+     "元のものを更新します。",
+     "増えません。"
+    ],
+    "features.1.more": [
+     "03 章を見る"
+    ],
+    "features.2.more": [
+     "04 章を見る"
+    ],
+    "features.3.more": [
+     "05 章を見る"
+    ],
+    "features.4.more": [
+     "06 章を見る"
+    ],
+    "features.5.more": [
+     "07 章を見る"
+    ],
+    "features.6.more": [
+     "08 章を見る"
+    ],
+    "features.7.more": [
+     "09 章を見る"
+    ],
+    "features.8.more": [
+     "03 章を見る"
+    ],
+    "privacy.title": [
+     "保存したものは、",
+     "パソコンの外に出ません"
+    ],
+    "privacy.lead": [
+     "拡張機能で保存したものを、",
+     "作者が受け取ることはできません。",
+     "受け取る場所が存在しないからです。"
+    ],
+    "privacy.1.title": [
+     "拡張機能にサーバーなし"
+    ],
+    "privacy.2.title": [
+     "アカウントなし"
+    ],
+    "privacy.3.title": [
+     "拡張機能に追跡なし"
+    ],
+    "privacy.4.title": [
+     "選んだフォルダーだけ"
+    ],
+    "privacy.1.body": [
+     "保存したものは、あなたのフォルダーに",
+     "直接書き込まれます。"
+    ],
+    "privacy.2.body": [
+     "登録もログインも不要です。"
+    ],
+    "privacy.3.body": [
+     "拡張機能には解析も追跡も広告もありません。"
+    ],
+    "privacy.4.body": [
+     "触れられるのは、",
+     "あなたが選んだフォルダーだけ。",
+     "ほかのフォルダーには一切触れません。"
+    ],
+    "privacy.link": [
+     "プライバシーポリシーの全文を読む"
+    ],
+    "final.title": [
+     "役に立つものを",
+     "見つけたら、",
+     "ポチッと保存"
+    ],
+    "final.meta": [
+     "無料 · デスクトップ版 Chrome",
+     "（Windows、Mac）"
+    ],
+    "final.cta": [
+     "Chrome に追加 · 無料"
+    ]
+   },
+   "414": {
+    "how.title": [
+     "一か所に集めて、",
+     "AI に読ませる"
+    ],
+    "how.pain": [
+     "資料はブックマーク、スクリーンショット、",
+     "ダウンロードフォルダー、いくつものチャット画面に",
+     "散らばりがち。",
+     "いざ AI に整理してもらおうとしても、",
+     "何を渡せばいいのか分からない。"
+    ],
+    "how.1.title": [
+     "フォルダーを選ぶ"
+    ],
+    "how.2.title": [
+     "役に立つものを保存"
+    ],
+    "how.3.title": [
+     "AI にフォルダーを分析させる"
+    ],
+    "how.1.body": [
+     "ディスク上のふつうのフォルダーで構いません。",
+     "選ぶのはあなたです。"
+    ],
+    "how.2.body": [
+     "ページ全体、選んだテキスト、画像、AI の返信。",
+     "ワンクリックで保存できます。"
+    ],
+    "how.3.body": [
+     "たとえば Claude Code、Codex、Gemini CLI。",
+     "すべて読んで、どの項目にも",
+     "出典が付いたまとめを返します。"
+    ],
+    "features.title": [
+     "見つけたものを、",
+     "そのまま保存"
+    ],
+    "features.1.title": [
+     "記事まるごと"
+    ],
+    "features.2.title": [
+     "選択した部分"
+    ],
+    "features.3.title": [
+     "画像"
+    ],
+    "features.4.title": [
+     "AI の返信を 1 件"
+    ],
+    "features.5.title": [
+     "AI との会話まるごと"
+    ],
+    "features.6.title": [
+     "ChatGPT が作ったファイル"
+    ],
+    "features.7.title": [
+     "テーマで分ける"
+    ],
+    "features.8.title": [
+     "2 回保存しても 1 つ"
+    ],
+    "features.1.body": [
+     "ワンクリックで、本文全体を",
+     "1 つの Markdown に。"
+    ],
+    "features.2.body": [
+     "選んで右クリック。",
+     "ハイライトした箇所だけを残します。"
+    ],
+    "features.3.body": [
+     "右クリックで元の画像を 1 枚、",
+     "またはページ内の画像をまとめて選択。"
+    ],
+    "features.4.body": [
+     "ChatGPT・Claude・Perplexity の返信を",
+     "1 件ずつ保存できます。"
+    ],
+    "features.5.body": [
+     "どれがあなたの発言で、",
+     "どれが AI の発言かを明記。",
+     "Perplexity は本文中の出典リンクも",
+     "一緒に保存します。"
+    ],
+    "features.6.body": [
+     "表・コード・文書を、元のファイルのまま",
+     "フォルダーへ。"
+    ],
+    "features.7.body": [
+     "題材ごとにひとまとめ。",
+     "何のためかを一文書けば、",
+     "AI はすぐに分かります。"
+    ],
+    "features.8.body": [
+     "同じページをもう一度保存すると、",
+     "元のものを更新します。",
+     "増えません。"
+    ],
+    "features.1.more": [
+     "03 章を見る"
+    ],
+    "features.2.more": [
+     "04 章を見る"
+    ],
+    "features.3.more": [
+     "05 章を見る"
+    ],
+    "features.4.more": [
+     "06 章を見る"
+    ],
+    "features.5.more": [
+     "07 章を見る"
+    ],
+    "features.6.more": [
+     "08 章を見る"
+    ],
+    "features.7.more": [
+     "09 章を見る"
+    ],
+    "features.8.more": [
+     "03 章を見る"
+    ],
+    "privacy.title": [
+     "保存したものは、",
+     "パソコンの外に出ません"
+    ],
+    "privacy.lead": [
+     "拡張機能で保存したものを、",
+     "作者が受け取ることはできません。",
+     "受け取る場所が存在しないからです。"
+    ],
+    "privacy.1.title": [
+     "拡張機能にサーバーなし"
+    ],
+    "privacy.2.title": [
+     "アカウントなし"
+    ],
+    "privacy.3.title": [
+     "拡張機能に追跡なし"
+    ],
+    "privacy.4.title": [
+     "選んだフォルダーだけ"
+    ],
+    "privacy.1.body": [
+     "保存したものは、あなたのフォルダーに",
+     "直接書き込まれます。"
+    ],
+    "privacy.2.body": [
+     "登録もログインも不要です。"
+    ],
+    "privacy.3.body": [
+     "拡張機能には解析も追跡も広告もありません。"
+    ],
+    "privacy.4.body": [
+     "触れられるのは、あなたが選んだフォルダーだけ。",
+     "ほかのフォルダーには一切触れません。"
+    ],
+    "privacy.link": [
+     "プライバシーポリシーの全文を読む"
+    ],
+    "final.title": [
+     "役に立つものを",
+     "見つけたら、",
+     "ポチッと保存"
+    ],
+    "final.meta": [
+     "無料 · デスクトップ版 Chrome（Windows、Mac）"
+    ],
+    "final.cta": [
+     "Chrome に追加 · 無料"
+    ]
+   },
+   "430": {
+    "how.title": [
+     "一か所に集めて、",
+     "AI に読ませる"
+    ],
+    "how.pain": [
+     "資料はブックマーク、スクリーンショット、",
+     "ダウンロードフォルダー、いくつものチャット画面に",
+     "散らばりがち。",
+     "いざ AI に整理してもらおうとしても、",
+     "何を渡せばいいのか分からない。"
+    ],
+    "how.1.title": [
+     "フォルダーを選ぶ"
+    ],
+    "how.2.title": [
+     "役に立つものを保存"
+    ],
+    "how.3.title": [
+     "AI にフォルダーを分析させる"
+    ],
+    "how.1.body": [
+     "ディスク上のふつうのフォルダーで構いません。",
+     "選ぶのはあなたです。"
+    ],
+    "how.2.body": [
+     "ページ全体、選んだテキスト、画像、AI の返信。",
+     "ワンクリックで保存できます。"
+    ],
+    "how.3.body": [
+     "たとえば Claude Code、Codex、Gemini CLI。",
+     "すべて読んで、どの項目にも",
+     "出典が付いたまとめを返します。"
+    ],
+    "features.title": [
+     "見つけたものを、",
+     "そのまま保存"
+    ],
+    "features.1.title": [
+     "記事まるごと"
+    ],
+    "features.2.title": [
+     "選択した部分"
+    ],
+    "features.3.title": [
+     "画像"
+    ],
+    "features.4.title": [
+     "AI の返信を 1 件"
+    ],
+    "features.5.title": [
+     "AI との会話まるごと"
+    ],
+    "features.6.title": [
+     "ChatGPT が作ったファイル"
+    ],
+    "features.7.title": [
+     "テーマで分ける"
+    ],
+    "features.8.title": [
+     "2 回保存しても 1 つ"
+    ],
+    "features.1.body": [
+     "ワンクリックで、本文全体を 1 つの Markdown に。"
+    ],
+    "features.2.body": [
+     "選んで右クリック。",
+     "ハイライトした箇所だけを残します。"
+    ],
+    "features.3.body": [
+     "右クリックで元の画像を 1 枚、",
+     "またはページ内の画像をまとめて選択。"
+    ],
+    "features.4.body": [
+     "ChatGPT・Claude・Perplexity の返信を",
+     "1 件ずつ保存できます。"
+    ],
+    "features.5.body": [
+     "どれがあなたの発言で、どれが AI の発言かを明記。",
+     "Perplexity は本文中の出典リンクも",
+     "一緒に保存します。"
+    ],
+    "features.6.body": [
+     "表・コード・文書を、元のファイルのまま",
+     "フォルダーへ。"
+    ],
+    "features.7.body": [
+     "題材ごとにひとまとめ。",
+     "何のためかを一文書けば、AI はすぐに分かります。"
+    ],
+    "features.8.body": [
+     "同じページをもう一度保存すると、",
+     "元のものを更新します。",
+     "増えません。"
+    ],
+    "features.1.more": [
+     "03 章を見る"
+    ],
+    "features.2.more": [
+     "04 章を見る"
+    ],
+    "features.3.more": [
+     "05 章を見る"
+    ],
+    "features.4.more": [
+     "06 章を見る"
+    ],
+    "features.5.more": [
+     "07 章を見る"
+    ],
+    "features.6.more": [
+     "08 章を見る"
+    ],
+    "features.7.more": [
+     "09 章を見る"
+    ],
+    "features.8.more": [
+     "03 章を見る"
+    ],
+    "privacy.title": [
+     "保存したものは、",
+     "パソコンの外に出ません"
+    ],
+    "privacy.lead": [
+     "拡張機能で保存したものを、",
+     "作者が受け取ることはできません。",
+     "受け取る場所が存在しないからです。"
+    ],
+    "privacy.1.title": [
+     "拡張機能にサーバーなし"
+    ],
+    "privacy.2.title": [
+     "アカウントなし"
+    ],
+    "privacy.3.title": [
+     "拡張機能に追跡なし"
+    ],
+    "privacy.4.title": [
+     "選んだフォルダーだけ"
+    ],
+    "privacy.1.body": [
+     "保存したものは、あなたのフォルダーに",
+     "直接書き込まれます。"
+    ],
+    "privacy.2.body": [
+     "登録もログインも不要です。"
+    ],
+    "privacy.3.body": [
+     "拡張機能には解析も追跡も広告もありません。"
+    ],
+    "privacy.4.body": [
+     "触れられるのは、あなたが選んだフォルダーだけ。",
+     "ほかのフォルダーには一切触れません。"
+    ],
+    "privacy.link": [
+     "プライバシーポリシーの全文を読む"
+    ],
+    "final.title": [
+     "役に立つものを",
+     "見つけたら、",
+     "ポチッと保存"
+    ],
+    "final.meta": [
+     "無料 · デスクトップ版 Chrome（Windows、Mac）"
+    ],
+    "final.cta": [
+     "Chrome に追加 · 無料"
+    ]
+   },
+   "640": {
+    "how.title": [
+     "一か所に集めて、",
+     "AI に読ませる"
+    ],
+    "how.pain": [
+     "資料はブックマーク、スクリーンショット、",
+     "ダウンロードフォルダー、いくつものチャット画面に",
+     "散らばりがち。",
+     "いざ AI に整理してもらおうとしても、",
+     "何を渡せばいいのか分からない。"
+    ],
+    "how.1.title": [
+     "フォルダーを選ぶ"
+    ],
+    "how.2.title": [
+     "役に立つものを保存"
+    ],
+    "how.3.title": [
+     "AI にフォルダーを",
+     "分析させる"
+    ],
+    "how.1.body": [
+     "ディスク上のふつうの",
+     "フォルダーで構いません。",
+     "選ぶのはあなたです。"
+    ],
+    "how.2.body": [
+     "ページ全体、",
+     "選んだテキスト、",
+     "画像、AI の返信。",
+     "ワンクリックで",
+     "保存できます。"
+    ],
+    "how.3.body": [
+     "たとえば Claude Code、",
+     "Codex、Gemini CLI。",
+     "すべて読んで、",
+     "どの項目にも",
+     "出典が付いたまとめを",
+     "返します。"
+    ],
+    "features.title": [
+     "見つけたものを、",
+     "そのまま保存"
+    ],
+    "features.1.title": [
+     "記事まるごと"
+    ],
+    "features.2.title": [
+     "選択した部分"
+    ],
+    "features.3.title": [
+     "画像"
+    ],
+    "features.4.title": [
+     "AI の返信を 1 件"
+    ],
+    "features.5.title": [
+     "AI との会話まるごと"
+    ],
+    "features.6.title": [
+     "ChatGPT が",
+     "作ったファイル"
+    ],
+    "features.7.title": [
+     "テーマで分ける"
+    ],
+    "features.8.title": [
+     "2 回保存しても 1 つ"
+    ],
+    "features.1.body": [
+     "ワンクリックで、本文全体を",
+     "1 つの Markdown に。"
+    ],
+    "features.2.body": [
+     "選んで右クリック。",
+     "ハイライトした",
+     "箇所だけを残します。"
+    ],
+    "features.3.body": [
+     "右クリックで元の画像を 1 枚、",
+     "またはページ内の画像を",
+     "まとめて選択。"
+    ],
+    "features.4.body": [
+     "ChatGPT・Claude・",
+     "Perplexity の返信を",
+     "1 件ずつ保存できます。"
+    ],
+    "features.5.body": [
+     "どれがあなたの発言で、",
+     "どれが AI の発言かを明記。",
+     "Perplexity は",
+     "本文中の出典リンクも",
+     "一緒に保存します。"
+    ],
+    "features.6.body": [
+     "表・コード・文書を、",
+     "元のファイルのまま",
+     "フォルダーへ。"
+    ],
+    "features.7.body": [
+     "題材ごとにひとまとめ。",
+     "何のためかを一文書けば、",
+     "AI はすぐに分かります。"
+    ],
+    "features.8.body": [
+     "同じページを",
+     "もう一度保存すると、",
+     "元のものを更新します。",
+     "増えません。"
+    ],
+    "features.1.more": [
+     "03 章を見る"
+    ],
+    "features.2.more": [
+     "04 章を見る"
+    ],
+    "features.3.more": [
+     "05 章を見る"
+    ],
+    "features.4.more": [
+     "06 章を見る"
+    ],
+    "features.5.more": [
+     "07 章を見る"
+    ],
+    "features.6.more": [
+     "08 章を見る"
+    ],
+    "features.7.more": [
+     "09 章を見る"
+    ],
+    "features.8.more": [
+     "03 章を見る"
+    ],
+    "privacy.title": [
+     "保存したものは、",
+     "パソコンの外に出ません"
+    ],
+    "privacy.lead": [
+     "拡張機能で保存したものを、",
+     "作者が受け取ることはできません。",
+     "受け取る場所が存在しないからです。"
+    ],
+    "privacy.1.title": [
+     "拡張機能にサーバーなし"
+    ],
+    "privacy.2.title": [
+     "アカウントなし"
+    ],
+    "privacy.3.title": [
+     "拡張機能に追跡なし"
+    ],
+    "privacy.4.title": [
+     "選んだフォルダーだけ"
+    ],
+    "privacy.1.body": [
+     "保存したものは、",
+     "あなたのフォルダーに",
+     "直接書き込まれます。"
+    ],
+    "privacy.2.body": [
+     "登録もログインも不要です。"
+    ],
+    "privacy.3.body": [
+     "拡張機能には解析も追跡も",
+     "広告もありません。"
+    ],
+    "privacy.4.body": [
+     "触れられるのは、",
+     "あなたが選んだフォルダーだけ。",
+     "ほかのフォルダーには",
+     "一切触れません。"
+    ],
+    "privacy.link": [
+     "プライバシーポリシーの全文を読む"
+    ],
+    "final.title": [
+     "役に立つものを",
+     "見つけたら、",
+     "ポチッと保存"
+    ],
+    "final.meta": [
+     "無料 · デスクトップ版 Chrome（Windows、Mac）"
+    ],
+    "final.cta": [
+     "Chrome に追加 · 無料"
+    ]
+   },
+   "768": {
+    "how.title": [
+     "一か所に集めて、AI に読ませる"
+    ],
+    "how.pain": [
+     "資料はブックマーク、スクリーンショット、",
+     "ダウンロードフォルダー、いくつものチャット画面に",
+     "散らばりがち。",
+     "いざ AI に整理してもらおうとしても、",
+     "何を渡せばいいのか分からない。"
+    ],
+    "how.1.title": [
+     "フォルダーを選ぶ"
+    ],
+    "how.2.title": [
+     "役に立つものを保存"
+    ],
+    "how.3.title": [
+     "AI にフォルダーを",
+     "分析させる"
+    ],
+    "how.1.body": [
+     "ディスク上のふつうの",
+     "フォルダーで構いません。",
+     "選ぶのはあなたです。"
+    ],
+    "how.2.body": [
+     "ページ全体、選んだテキスト、",
+     "画像、AI の返信。",
+     "ワンクリックで保存できます。"
+    ],
+    "how.3.body": [
+     "たとえば Claude Code、",
+     "Codex、Gemini CLI。",
+     "すべて読んで、どの項目にも",
+     "出典が付いたまとめを返します。"
+    ],
+    "features.title": [
+     "見つけたものを、そのまま保存"
+    ],
+    "features.1.title": [
+     "記事まるごと"
+    ],
+    "features.2.title": [
+     "選択した部分"
+    ],
+    "features.3.title": [
+     "画像"
+    ],
+    "features.4.title": [
+     "AI の返信を 1 件"
+    ],
+    "features.5.title": [
+     "AI との会話まるごと"
+    ],
+    "features.6.title": [
+     "ChatGPT が作ったファイル"
+    ],
+    "features.7.title": [
+     "テーマで分ける"
+    ],
+    "features.8.title": [
+     "2 回保存しても 1 つ"
+    ],
+    "features.1.body": [
+     "ワンクリックで、本文全体を",
+     "1 つの Markdown に。"
+    ],
+    "features.2.body": [
+     "選んで右クリック。",
+     "ハイライトした箇所だけを残します。"
+    ],
+    "features.3.body": [
+     "右クリックで元の画像を 1 枚、",
+     "またはページ内の画像をまとめて選択。"
+    ],
+    "features.4.body": [
+     "ChatGPT・Claude・Perplexity の返信を",
+     "1 件ずつ保存できます。"
+    ],
+    "features.5.body": [
+     "どれがあなたの発言で、",
+     "どれが AI の発言かを明記。",
+     "Perplexity は本文中の出典リンクも",
+     "一緒に保存します。"
+    ],
+    "features.6.body": [
+     "表・コード・文書を、元のファイルのまま",
+     "フォルダーへ。"
+    ],
+    "features.7.body": [
+     "題材ごとにひとまとめ。",
+     "何のためかを一文書けば、",
+     "AI はすぐに分かります。"
+    ],
+    "features.8.body": [
+     "同じページをもう一度保存すると、",
+     "元のものを更新します。",
+     "増えません。"
+    ],
+    "features.1.more": [
+     "03 章を見る"
+    ],
+    "features.2.more": [
+     "04 章を見る"
+    ],
+    "features.3.more": [
+     "05 章を見る"
+    ],
+    "features.4.more": [
+     "06 章を見る"
+    ],
+    "features.5.more": [
+     "07 章を見る"
+    ],
+    "features.6.more": [
+     "08 章を見る"
+    ],
+    "features.7.more": [
+     "09 章を見る"
+    ],
+    "features.8.more": [
+     "03 章を見る"
+    ],
+    "privacy.title": [
+     "保存したものは、",
+     "パソコンの外に出ません"
+    ],
+    "privacy.lead": [
+     "拡張機能で保存したものを、",
+     "作者が受け取ることはできません。",
+     "受け取る場所が存在しないからです。"
+    ],
+    "privacy.1.title": [
+     "拡張機能にサーバーなし"
+    ],
+    "privacy.2.title": [
+     "アカウントなし"
+    ],
+    "privacy.3.title": [
+     "拡張機能に追跡なし"
+    ],
+    "privacy.4.title": [
+     "選んだフォルダーだけ"
+    ],
+    "privacy.1.body": [
+     "保存したものは、あなたのフォルダーに",
+     "直接書き込まれます。"
+    ],
+    "privacy.2.body": [
+     "登録もログインも不要です。"
+    ],
+    "privacy.3.body": [
+     "拡張機能には解析も追跡も",
+     "広告もありません。"
+    ],
+    "privacy.4.body": [
+     "触れられるのは、",
+     "あなたが選んだフォルダーだけ。",
+     "ほかのフォルダーには一切触れません。"
+    ],
+    "privacy.link": [
+     "プライバシーポリシーの全文を読む"
+    ],
+    "final.title": [
+     "役に立つものを見つけたら、",
+     "ポチッと保存"
+    ],
+    "final.meta": [
+     "無料 · デスクトップ版 Chrome（Windows、Mac）"
+    ],
+    "final.cta": [
+     "Chrome に追加 · 無料"
+    ]
+   },
+   "1024": {
+    "how.title": [
+     "一か所に集めて、AI に読ませる"
+    ],
+    "how.pain": [
+     "資料はブックマーク、スクリーンショット、",
+     "ダウンロードフォルダー、いくつものチャット画面に",
+     "散らばりがち。",
+     "いざ AI に整理してもらおうとしても、",
+     "何を渡せばいいのか分からない。"
+    ],
+    "how.1.title": [
+     "フォルダーを選ぶ"
+    ],
+    "how.2.title": [
+     "役に立つものを保存"
+    ],
+    "how.3.title": [
+     "AI にフォルダーを分析させる"
+    ],
+    "how.1.body": [
+     "ディスク上のふつうの",
+     "フォルダーで構いません。",
+     "選ぶのはあなたです。"
+    ],
+    "how.2.body": [
+     "ページ全体、選んだテキスト、",
+     "画像、AI の返信。",
+     "ワンクリックで保存できます。"
+    ],
+    "how.3.body": [
+     "たとえば Claude Code、",
+     "Codex、Gemini CLI。",
+     "すべて読んで、どの項目にも",
+     "出典が付いたまとめを返します。"
+    ],
+    "features.title": [
+     "見つけたものを、そのまま保存"
+    ],
+    "features.1.title": [
+     "記事まるごと"
+    ],
+    "features.2.title": [
+     "選択した部分"
+    ],
+    "features.3.title": [
+     "画像"
+    ],
+    "features.4.title": [
+     "AI の返信を 1 件"
+    ],
+    "features.5.title": [
+     "AI との会話まるごと"
+    ],
+    "features.6.title": [
+     "ChatGPT が作ったファイル"
+    ],
+    "features.7.title": [
+     "テーマで分ける"
+    ],
+    "features.8.title": [
+     "2 回保存しても 1 つ"
+    ],
+    "features.1.body": [
+     "ワンクリックで、本文全体を 1 つの Markdown に。"
+    ],
+    "features.2.body": [
+     "選んで右クリック。",
+     "ハイライトした箇所だけを残します。"
+    ],
+    "features.3.body": [
+     "右クリックで元の画像を 1 枚、またはページ内の画像を",
+     "まとめて選択。"
+    ],
+    "features.4.body": [
+     "ChatGPT・Claude・Perplexity の返信を",
+     "1 件ずつ保存できます。"
+    ],
+    "features.5.body": [
+     "どれがあなたの発言で、どれが AI の発言かを明記。",
+     "Perplexity は本文中の出典リンクも一緒に保存します。"
+    ],
+    "features.6.body": [
+     "表・コード・文書を、元のファイルのまま",
+     "フォルダーへ。"
+    ],
+    "features.7.body": [
+     "題材ごとにひとまとめ。",
+     "何のためかを一文書けば、AI はすぐに分かります。"
+    ],
+    "features.8.body": [
+     "同じページをもう一度保存すると、",
+     "元のものを更新します。",
+     "増えません。"
+    ],
+    "features.1.more": [
+     "03 章を見る"
+    ],
+    "features.2.more": [
+     "04 章を見る"
+    ],
+    "features.3.more": [
+     "05 章を見る"
+    ],
+    "features.4.more": [
+     "06 章を見る"
+    ],
+    "features.5.more": [
+     "07 章を見る"
+    ],
+    "features.6.more": [
+     "08 章を見る"
+    ],
+    "features.7.more": [
+     "09 章を見る"
+    ],
+    "features.8.more": [
+     "03 章を見る"
+    ],
+    "privacy.title": [
+     "保存したものは、パソコンの外に出ません"
+    ],
+    "privacy.lead": [
+     "拡張機能で保存したものを、",
+     "作者が受け取ることはできません。",
+     "受け取る場所が存在しないからです。"
+    ],
+    "privacy.1.title": [
+     "拡張機能にサーバーなし"
+    ],
+    "privacy.2.title": [
+     "アカウントなし"
+    ],
+    "privacy.3.title": [
+     "拡張機能に追跡なし"
+    ],
+    "privacy.4.title": [
+     "選んだフォルダーだけ"
+    ],
+    "privacy.1.body": [
+     "保存したものは、あなたのフォルダーに",
+     "直接書き込まれます。"
+    ],
+    "privacy.2.body": [
+     "登録もログインも不要です。"
+    ],
+    "privacy.3.body": [
+     "拡張機能には解析も追跡も広告もありません。"
+    ],
+    "privacy.4.body": [
+     "触れられるのは、あなたが選んだフォルダーだけ。",
+     "ほかのフォルダーには一切触れません。"
+    ],
+    "privacy.link": [
+     "プライバシーポリシーの全文を読む"
+    ],
+    "final.title": [
+     "役に立つものを",
+     "見つけたら、",
+     "ポチッと保存"
+    ],
+    "final.meta": [
+     "無料 · デスクトップ版 Chrome",
+     "（Windows、Mac）"
+    ],
+    "final.cta": [
+     "Chrome に追加 · 無料"
+    ]
+   },
+   "1280": {
+    "how.title": [
+     "一か所に集めて、AI に読ませる"
+    ],
+    "how.pain": [
+     "資料はブックマーク、スクリーンショット、",
+     "ダウンロードフォルダー、いくつものチャット画面に",
+     "散らばりがち。",
+     "いざ AI に整理してもらおうとしても、",
+     "何を渡せばいいのか分からない。"
+    ],
+    "how.1.title": [
+     "フォルダーを選ぶ"
+    ],
+    "how.2.title": [
+     "役に立つものを保存"
+    ],
+    "how.3.title": [
+     "AI にフォルダーを分析させる"
+    ],
+    "how.1.body": [
+     "ディスク上のふつうのフォルダーで構いません。",
+     "選ぶのはあなたです。"
+    ],
+    "how.2.body": [
+     "ページ全体、選んだテキスト、画像、AI の返信。",
+     "ワンクリックで保存できます。"
+    ],
+    "how.3.body": [
+     "たとえば Claude Code、Codex、Gemini CLI。",
+     "すべて読んで、どの項目にも",
+     "出典が付いたまとめを返します。"
+    ],
+    "features.title": [
+     "見つけたものを、そのまま保存"
+    ],
+    "features.1.title": [
+     "記事まるごと"
+    ],
+    "features.2.title": [
+     "選択した部分"
+    ],
+    "features.3.title": [
+     "画像"
+    ],
+    "features.4.title": [
+     "AI の返信を 1 件"
+    ],
+    "features.5.title": [
+     "AI との会話まるごと"
+    ],
+    "features.6.title": [
+     "ChatGPT が",
+     "作ったファイル"
+    ],
+    "features.7.title": [
+     "テーマで分ける"
+    ],
+    "features.8.title": [
+     "2 回保存しても 1 つ"
+    ],
+    "features.1.body": [
+     "ワンクリックで、本文全体を",
+     "1 つの Markdown に。"
+    ],
+    "features.2.body": [
+     "選んで右クリック。",
+     "ハイライトした",
+     "箇所だけを残します。"
+    ],
+    "features.3.body": [
+     "右クリックで元の画像を 1 枚、",
+     "またはページ内の画像を",
+     "まとめて選択。"
+    ],
+    "features.4.body": [
+     "ChatGPT・Claude・",
+     "Perplexity の返信を",
+     "1 件ずつ保存できます。"
+    ],
+    "features.5.body": [
+     "どれがあなたの発言で、",
+     "どれが AI の発言かを明記。",
+     "Perplexity は",
+     "本文中の出典リンクも",
+     "一緒に保存します。"
+    ],
+    "features.6.body": [
+     "表・コード・文書を、",
+     "元のファイルのまま",
+     "フォルダーへ。"
+    ],
+    "features.7.body": [
+     "題材ごとにひとまとめ。",
+     "何のためかを一文書けば、",
+     "AI はすぐに分かります。"
+    ],
+    "features.8.body": [
+     "同じページを",
+     "もう一度保存すると、",
+     "元のものを更新します。",
+     "増えません。"
+    ],
+    "features.1.more": [
+     "03 章を見る"
+    ],
+    "features.2.more": [
+     "04 章を見る"
+    ],
+    "features.3.more": [
+     "05 章を見る"
+    ],
+    "features.4.more": [
+     "06 章を見る"
+    ],
+    "features.5.more": [
+     "07 章を見る"
+    ],
+    "features.6.more": [
+     "08 章を見る"
+    ],
+    "features.7.more": [
+     "09 章を見る"
+    ],
+    "features.8.more": [
+     "03 章を見る"
+    ],
+    "privacy.title": [
+     "保存したものは、パソコンの外に出ません"
+    ],
+    "privacy.lead": [
+     "拡張機能で保存したものを、",
+     "作者が受け取ることはできません。",
+     "受け取る場所が存在しないからです。"
+    ],
+    "privacy.1.title": [
+     "拡張機能にサーバーなし"
+    ],
+    "privacy.2.title": [
+     "アカウントなし"
+    ],
+    "privacy.3.title": [
+     "拡張機能に追跡なし"
+    ],
+    "privacy.4.title": [
+     "選んだフォルダーだけ"
+    ],
+    "privacy.1.body": [
+     "保存したものは、",
+     "あなたのフォルダーに",
+     "直接書き込まれます。"
+    ],
+    "privacy.2.body": [
+     "登録もログインも不要です。"
+    ],
+    "privacy.3.body": [
+     "拡張機能には解析も追跡も",
+     "広告もありません。"
+    ],
+    "privacy.4.body": [
+     "触れられるのは、",
+     "あなたが選んだフォルダーだけ。",
+     "ほかのフォルダーには",
+     "一切触れません。"
+    ],
+    "privacy.link": [
+     "プライバシーポリシーの全文を読む"
+    ],
+    "final.title": [
+     "役に立つものを見つけたら、",
+     "ポチッと保存"
+    ],
+    "final.meta": [
+     "無料 · デスクトップ版 Chrome（Windows、Mac）"
+    ],
+    "final.cta": [
+     "Chrome に追加 · 無料"
+    ]
+   },
+   "1440": {
+    "how.title": [
+     "一か所に集めて、AI に読ませる"
+    ],
+    "how.pain": [
+     "資料はブックマーク、スクリーンショット、",
+     "ダウンロードフォルダー、いくつものチャット画面に",
+     "散らばりがち。",
+     "いざ AI に整理してもらおうとしても、",
+     "何を渡せばいいのか分からない。"
+    ],
+    "how.1.title": [
+     "フォルダーを選ぶ"
+    ],
+    "how.2.title": [
+     "役に立つものを保存"
+    ],
+    "how.3.title": [
+     "AI にフォルダーを分析させる"
+    ],
+    "how.1.body": [
+     "ディスク上のふつうのフォルダーで構いません。",
+     "選ぶのはあなたです。"
+    ],
+    "how.2.body": [
+     "ページ全体、選んだテキスト、画像、AI の返信。",
+     "ワンクリックで保存できます。"
+    ],
+    "how.3.body": [
+     "たとえば Claude Code、Codex、Gemini CLI。",
+     "すべて読んで、どの項目にも",
+     "出典が付いたまとめを返します。"
+    ],
+    "features.title": [
+     "見つけたものを、そのまま保存"
+    ],
+    "features.1.title": [
+     "記事まるごと"
+    ],
+    "features.2.title": [
+     "選択した部分"
+    ],
+    "features.3.title": [
+     "画像"
+    ],
+    "features.4.title": [
+     "AI の返信を 1 件"
+    ],
+    "features.5.title": [
+     "AI との会話まるごと"
+    ],
+    "features.6.title": [
+     "ChatGPT が",
+     "作ったファイル"
+    ],
+    "features.7.title": [
+     "テーマで分ける"
+    ],
+    "features.8.title": [
+     "2 回保存しても 1 つ"
+    ],
+    "features.1.body": [
+     "ワンクリックで、本文全体を",
+     "1 つの Markdown に。"
+    ],
+    "features.2.body": [
+     "選んで右クリック。",
+     "ハイライトした",
+     "箇所だけを残します。"
+    ],
+    "features.3.body": [
+     "右クリックで元の画像を 1 枚、",
+     "またはページ内の画像を",
+     "まとめて選択。"
+    ],
+    "features.4.body": [
+     "ChatGPT・Claude・",
+     "Perplexity の返信を",
+     "1 件ずつ保存できます。"
+    ],
+    "features.5.body": [
+     "どれがあなたの発言で、",
+     "どれが AI の発言かを明記。",
+     "Perplexity は",
+     "本文中の出典リンクも",
+     "一緒に保存します。"
+    ],
+    "features.6.body": [
+     "表・コード・文書を、",
+     "元のファイルのまま",
+     "フォルダーへ。"
+    ],
+    "features.7.body": [
+     "題材ごとにひとまとめ。",
+     "何のためかを一文書けば、",
+     "AI はすぐに分かります。"
+    ],
+    "features.8.body": [
+     "同じページを",
+     "もう一度保存すると、",
+     "元のものを更新します。",
+     "増えません。"
+    ],
+    "features.1.more": [
+     "03 章を見る"
+    ],
+    "features.2.more": [
+     "04 章を見る"
+    ],
+    "features.3.more": [
+     "05 章を見る"
+    ],
+    "features.4.more": [
+     "06 章を見る"
+    ],
+    "features.5.more": [
+     "07 章を見る"
+    ],
+    "features.6.more": [
+     "08 章を見る"
+    ],
+    "features.7.more": [
+     "09 章を見る"
+    ],
+    "features.8.more": [
+     "03 章を見る"
+    ],
+    "privacy.title": [
+     "保存したものは、パソコンの外に出ません"
+    ],
+    "privacy.lead": [
+     "拡張機能で保存したものを、",
+     "作者が受け取ることはできません。",
+     "受け取る場所が存在しないからです。"
+    ],
+    "privacy.1.title": [
+     "拡張機能にサーバーなし"
+    ],
+    "privacy.2.title": [
+     "アカウントなし"
+    ],
+    "privacy.3.title": [
+     "拡張機能に追跡なし"
+    ],
+    "privacy.4.title": [
+     "選んだフォルダーだけ"
+    ],
+    "privacy.1.body": [
+     "保存したものは、",
+     "あなたのフォルダーに",
+     "直接書き込まれます。"
+    ],
+    "privacy.2.body": [
+     "登録もログインも不要です。"
+    ],
+    "privacy.3.body": [
+     "拡張機能には解析も追跡も",
+     "広告もありません。"
+    ],
+    "privacy.4.body": [
+     "触れられるのは、",
+     "あなたが選んだフォルダーだけ。",
+     "ほかのフォルダーには",
+     "一切触れません。"
+    ],
+    "privacy.link": [
+     "プライバシーポリシーの全文を読む"
+    ],
+    "final.title": [
+     "役に立つものを見つけたら、",
+     "ポチッと保存"
+    ],
+    "final.meta": [
+     "無料 · デスクトップ版 Chrome（Windows、Mac）"
+    ],
+    "final.cta": [
+     "Chrome に追加 · 無料"
+    ]
+   }
+  }
+ },
+ "touch": {
+  "zh": {
+   "320": {
+    "final.mobile.lead": [
+     "手機上裝不了，把網址傳到",
+     "電腦上再裝："
+    ],
+    "final.pc": [
+     "用的是電腦？直接加到 Chrome"
+    ]
+   },
+   "360": {
+    "final.mobile.lead": [
+     "手機上裝不了，把網址傳到電腦上再裝："
+    ],
+    "final.pc": [
+     "用的是電腦？直接加到 Chrome"
+    ]
+   },
+   "375": {
+    "final.mobile.lead": [
+     "手機上裝不了，把網址傳到電腦上再裝："
+    ],
+    "final.pc": [
+     "用的是電腦？直接加到 Chrome"
+    ]
+   },
+   "390": {
+    "final.mobile.lead": [
+     "手機上裝不了，把網址傳到電腦上再裝："
+    ],
+    "final.pc": [
+     "用的是電腦？直接加到 Chrome"
+    ]
+   },
+   "414": {
+    "final.mobile.lead": [
+     "手機上裝不了，把網址傳到電腦上再裝："
+    ],
+    "final.pc": [
+     "用的是電腦？直接加到 Chrome"
+    ]
+   },
+   "430": {
+    "final.mobile.lead": [
+     "手機上裝不了，把網址傳到電腦上再裝："
+    ],
+    "final.pc": [
+     "用的是電腦？直接加到 Chrome"
+    ]
+   }
+  },
+  "en": {
+   "320": {
+    "final.mobile.lead": [
+     "It can’t be installed on a phone.",
+     "Send the link to your computer and",
+     "install it there:"
+    ],
+    "final.pc": [
+     "On a computer?",
+     "Add to Chrome directly"
+    ]
+   },
+   "360": {
+    "final.mobile.lead": [
+     "It can’t be installed on a phone. Send the",
+     "link to your computer and install it there:"
+    ],
+    "final.pc": [
+     "On a computer?",
+     "Add to Chrome directly"
+    ]
+   },
+   "375": {
+    "final.mobile.lead": [
+     "It can’t be installed on a phone.",
+     "Send the link to your computer",
+     "and install it there:"
+    ],
+    "final.pc": [
+     "On a computer?",
+     "Add to Chrome directly"
+    ]
+   },
+   "390": {
+    "final.mobile.lead": [
+     "It can’t be installed on a phone.",
+     "Send the link to your computer",
+     "and install it there:"
+    ],
+    "final.pc": [
+     "On a computer? Add to Chrome directly"
+    ]
+   },
+   "414": {
+    "final.mobile.lead": [
+     "It can’t be installed on a phone.",
+     "Send the link to your computer and install it there:"
+    ],
+    "final.pc": [
+     "On a computer? Add to Chrome directly"
+    ]
+   },
+   "430": {
+    "final.mobile.lead": [
+     "It can’t be installed on a phone.",
+     "Send the link to your computer and install it there:"
+    ],
+    "final.pc": [
+     "On a computer? Add to Chrome directly"
+    ]
+   }
+  },
+  "ja": {
+   "320": {
+    "final.mobile.lead": [
+     "スマートフォンには",
+     "インストールできません。URL を",
+     "パソコンに送って、そちらで",
+     "追加してください："
+    ],
+    "final.pc": [
+     "パソコンなら、",
+     "そのまま Chrome に追加"
+    ]
+   },
+   "360": {
+    "final.mobile.lead": [
+     "スマートフォンには",
+     "インストールできません。URL を",
+     "パソコンに送って、そちらで",
+     "追加してください："
+    ],
+    "final.pc": [
+     "パソコンなら、",
+     "そのまま Chrome に追加"
+    ]
+   },
+   "375": {
+    "final.mobile.lead": [
+     "スマートフォンにはインストールできません。",
+     "URL をパソコンに送って、",
+     "そちらで追加してください："
+    ],
+    "final.pc": [
+     "パソコンなら、そのまま Chrome に追加"
+    ]
+   },
+   "390": {
+    "final.mobile.lead": [
+     "スマートフォンにはインストールできません。",
+     "URL をパソコンに送って、",
+     "そちらで追加してください："
+    ],
+    "final.pc": [
+     "パソコンなら、そのまま Chrome に追加"
+    ]
+   },
+   "414": {
+    "final.mobile.lead": [
+     "スマートフォンにはインストールできません。",
+     "URL をパソコンに送って、",
+     "そちらで追加してください："
+    ],
+    "final.pc": [
+     "パソコンなら、そのまま Chrome に追加"
+    ]
+   },
+   "430": {
+    "final.mobile.lead": [
+     "スマートフォンにはインストールできません。",
+     "URL をパソコンに送って、",
+     "そちらで追加してください："
+    ],
+    "final.pc": [
+     "パソコンなら、そのまま Chrome に追加"
+    ]
+   }
+  }
+ }
+}

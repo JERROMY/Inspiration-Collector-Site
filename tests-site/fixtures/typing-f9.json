@@ -1,0 +1,109 @@
+{
+ "source": "07 打字要打的字與 HTML 的基準。excerpt：靜態大綱圖上那一段 —— GPTPlugins 的 tutorial/13-ai.js 的 REPORT.first（行號照原檔）套在 data/agent.<語言>.json 的 outline 上，照 tutorial/engine.js 的 fileCard 挑（<!-- 開頭的不算、空行照留、最多 12 行有字的），行與行之間 \\n；2026-10-04 產生。htmlGzip：c046013（f8b）npm run build 出來的 out/<語言>/index.html 拿掉 Next.js 給 React 接手用的 <script>self.__next_f.push(…)</script> 之後，用 Node 預設等級 gzip 的位元組數（那幾段資料的切法會隨內容變，整份 gzip 差幾百位元組是常有的，見 README）；htmlGzipFull：整份的，只印出來比。",
+ "ranges": {
+  "zh": [
+   [
+    1,
+    4
+   ],
+   [
+    22,
+    30
+   ]
+  ],
+  "en": [
+   [
+    1,
+    1
+   ],
+   [
+    11,
+    13
+   ],
+   [
+    135,
+    135
+   ],
+   [
+    137,
+    137
+   ],
+   [
+    139,
+    142
+   ]
+  ],
+  "ja": [
+   [
+    1,
+    1
+   ],
+   [
+    4,
+    4
+   ],
+   [
+    37,
+    44
+   ]
+  ]
+ },
+ "lines": {
+  "zh": [
+   1,
+   2,
+   3,
+   4,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30
+  ],
+  "en": [
+   1,
+   11,
+   12,
+   13,
+   135,
+   137,
+   139,
+   140,
+   141,
+   142
+  ],
+  "ja": [
+   1,
+   4,
+   37,
+   38,
+   39,
+   40,
+   41,
+   42,
+   43,
+   44
+  ]
+ },
+ "excerpt": {
+  "zh": "# 深海解謎遊戲 — 素材大綱\n\n整理自 `深海解謎遊戲/` 資料夾 5 筆收集素材（2026-09-27）。\n標示：**〔素〕**＝素材原文有的；**〔推〕**＝依素材推導的設計提案，素材沒寫；**〔缺〕**＝素材沒有、需另補。\n## 1. 貫穿三關的主軸：共生與化學合成\n\n素材裡最強的結構發現——三個關卡不是三個獨立題材，而是同一條線：\n\n- **化學合成**同時是熱泉與鯨落的基礎。〔素〕熱泉：細菌氧化硫化氫，是食物鏈起點。〔素〕鯨落第三階段：細菌分解骨脂產生硫化物，「形成類似熱泉的化學合成生態」。\n- **「沒有嘴的生物」出現兩次。**〔素〕巨型管蟲沒有嘴也沒有消化道，靠體內共生細菌供養；〔素〕食骨蠕蟲沒有嘴，靠根狀構造鑽進骨頭、由共生細菌消化脂質。\n- **〔素〕鮟鱇魚擬餌的光來自共生的發光細菌。**\n\n→ **〔推〕核心動詞建議定為「共生」**：玩家的能力不是自己擁有的，而是把某種細菌／生物安置到正確的宿主或基質上才會啟動。這讓三關共用一套機制而不重複，也讓鯨落第三階段成為熱泉關機制的自然回收（素材直接說了兩者相似，不是硬湊）。",
+  "en": "# Deep-sea puzzle game — reference outline\nNotation used throughout:\n- **[S]** stated in the material (source given)\n- **[I]** inferred / my design extrapolation — not in the material\n## 5. Ecology reference — creature → mechanic\n| Creature / process | From material | Suggested puzzle verb [I] |\n| Chemosynthetic bacteria, oxidise H₂S [S1] | vents | Converter you place: sulphide in → energy out. The game's \"power\" tile |\n| Giant tube worms, no mouth or gut, fed by symbionts [S1] | vents | Immobile unit that must be *sited* in the hot/cold band; dies if the band shifts |\n| >350 °C water kept from boiling by pressure [S1] | vents | Depth/pressure is a global variable — rise too far and vent water flashes to steam, changing the hazard |\n| Narrow band between hot and cold where animals crowd [S1] | vents | Core spatial constraint: keep units inside a moving survivable strip |",
+  "ja": "# 深海パズルゲーム 素材アウトライン\n**凡例**：〔資料〕＝素材にそう書かれている事実／〔案〕＝そこからのゲーム設計の派生。\n### 1-2. 生態（資料 1）\n- 〔資料〕1977 年、潜水調査船アルビン号がガラパゴス地溝で初めて観測。\n- 〔資料〕太陽光ではなく**化学合成**。細菌が硫化水素を酸化してエネルギーを得て、食物連鎖の起点になる。\n- 〔資料〕ジャイアントチューブワームには**口も消化管もなく**、体内の共生細菌から栄養を得る。\n- 〔資料〕噴出口の水温は **350℃ 超**。高水圧のため沸騰しない。\n- 〔資料〕**数メートル離れると 2℃ に戻る**。生き物は熱水と冷水の境目の**細い帯**に集まる。\n\n→〔案〕**この「細い帯」が熱水ステージの中核メカニクス**。素材中でいちばんパズル化しやすい一文。"
+ },
+ "htmlGzip": {
+  "commit": "c046013",
+  "zh": 16407,
+  "en": 15165,
+  "ja": 17452
+ },
+ "htmlGzipFull": {
+  "commit": "c046013",
+  "zh": 36555,
+  "en": 33980,
+  "ja": 38856
+ }
+}

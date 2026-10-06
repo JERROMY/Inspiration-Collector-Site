@@ -1,0 +1,75 @@
+/* Mirameta / nO.X — 字體排印 token
+   三套字型各司其職，字級角色取自設計稿實際組合統計。 */
+
+:root {
+  /* ── 字族 ─────────────────────────────────────
+     拉丁字型排前、中文字型排後：瀏覽器逐字回退，
+     英數走 Google Sans Flex，漢字自動落到 Glow Sans TC。 */
+  --font-sans:    "Google Sans Flex", "Glow Sans TC", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Google Sans Flex", "Glow Sans TC Condensed", "Glow Sans TC", system-ui, sans-serif;
+  --font-zh:      "Glow Sans TC", "Google Sans Flex", "PingFang TC", "Noto Sans TC", sans-serif;
+  --font-zh-cond: "Glow Sans TC Condensed", "Glow Sans TC", "PingFang TC", sans-serif;
+  --font-mono:    "JetBrains Mono", "Glow Sans TC", ui-monospace, "SF Mono", Consolas, monospace;
+
+  /* ── 字級 ────────────────────────────────────── */
+  --text-3xs:  8px;
+  --text-2xs:  9px;
+  --text-xs:  10px;
+  --text-sm:  11px;
+  --text-base:12px;
+  --text-md:  14px;   /* 內文基準 */
+  --text-lg:  16px;
+  --text-xl:  18px;
+  --text-2xl: 24px;
+  --text-3xl: 32px;
+  --text-4xl: 48px;
+  --text-5xl: 64px;
+
+  /* ── 字重（Google Sans Flex 為 1–1000 連續軸）── */
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* ── 行高 ────────────────────────────────────── */
+  --leading-none:  1;      /* 設計稿大量使用 100%：標籤、數值 */
+  --leading-tight: 1.25;
+  --leading-snug:  1.5;    /* 中文內文 14px → 21px */
+  --leading-relaxed: 2;    /* 中文長文 14px → 28px */
+
+  /* ── 字距 ────────────────────────────────────── */
+  --tracking-tight: -0.01em;
+  --tracking-none:   0;
+  --tracking-wide:   2px;   /* 等寬數值、英文標籤 */
+  --tracking-wider:  5px;   /* 中文標題、章節標 */
+
+  /* ── Google Sans Flex 可變軸預設 ───────────────
+     ROND/GRAD 保留為 0；需要更柔和的品牌調性時可調 ROND。 */
+  --gsf-opsz: 18;
+  --gsf-wdth: 100;
+  --gsf-grad: 0;
+  --gsf-rond: 0;
+}
+
+/* ── 字級角色 Type roles ──────────────────────── */
+
+.t-display    { font: var(--weight-bold) var(--text-3xl)/var(--leading-none) var(--font-display); letter-spacing: var(--tracking-none); }
+.t-title      { font: var(--weight-medium) var(--text-2xl)/var(--leading-tight) var(--font-display); }
+.t-heading    { font: var(--weight-medium) var(--text-lg)/var(--leading-tight) var(--font-sans); }
+.t-body       { font: var(--weight-regular) var(--text-md)/var(--leading-snug) var(--font-sans); }
+.t-body-sm    { font: var(--weight-regular) var(--text-base)/var(--leading-snug) var(--font-sans); }
+.t-label      { font: var(--weight-medium) var(--text-sm)/var(--leading-none) var(--font-sans); letter-spacing: var(--tracking-wide); }
+.t-caption    { font: var(--weight-regular) var(--text-xs)/var(--leading-none) var(--font-sans); }
+
+/* 中文 */
+.t-zh-display { font: var(--weight-light) var(--text-xl)/var(--leading-none) var(--font-zh-cond); letter-spacing: var(--tracking-wider); }
+.t-zh-body    { font: var(--weight-regular) var(--text-md)/var(--leading-snug) var(--font-zh); }
+.t-zh-long    { font: var(--weight-regular) var(--text-md)/var(--leading-relaxed) var(--font-zh); }
+.t-zh-label   { font: var(--weight-regular) var(--text-lg)/1.25 var(--font-zh); letter-spacing: var(--tracking-wider); }
+
+/* 等寬／儀器數值 — 深度計、座標、系統訊號 */
+.t-readout    { font: 200 var(--text-xs)/var(--leading-none) var(--font-mono); letter-spacing: var(--tracking-wide); font-variant-numeric: tabular-nums; }
+.t-readout-sm { font: var(--weight-regular) var(--text-2xs)/var(--leading-none) var(--font-mono); letter-spacing: var(--tracking-wide); font-variant-numeric: tabular-nums; }
+.t-readout-lg { font: var(--weight-medium) var(--text-2xl)/1.04 var(--font-mono); letter-spacing: var(--tracking-wide); font-variant-numeric: tabular-nums; }
+.t-code       { font: var(--weight-regular) var(--text-base)/var(--leading-snug) var(--font-mono); }
