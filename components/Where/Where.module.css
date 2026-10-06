@@ -166,7 +166,7 @@
     .in {
         grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
         column-gap: var(--gap-group);
-        align-items: end;
+        align-items: start;   /* 2026-10-07 使用者：左半邊靠上，「可以在這些地方用」跟右邊「擴充本身」同一條線，有標題感（原本 end，靠底） */
     }
 
     .zerosCol {
