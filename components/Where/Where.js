@@ -1,4 +1,4 @@
-import { getString } from '../../app/strings.js';
+import { getPlainString, getString } from '../../app/strings.js';
 import Seg from '../Seg/Seg.js';
 import Icon from '../Icon/Icon.js';
 import styles from './Where.module.css';
@@ -31,8 +31,8 @@ export default function Where({ lang }) {
                     </ul>
                 </div>
                 <div className={styles.zerosCol}>
-                    <p className={styles.label} data-id="zeros.cap"><Seg text={getString(lang, 'zeros.cap')} /></p>
-                    <ul className={styles.zeros}>
+                    {/* 2026-10-07 使用者：「擴充本身」畫面上拿掉、三個 0 往上提；讀屏仍念得到（清單的 aria-label） */}
+                    <ul className={styles.zeros} aria-label={getPlainString(lang, 'zeros.cap')} data-id="zeros.cap">
                         {ZEROS.map((key) => (
                             <li key={key}>
                                 <span className={styles.zero}><span className={styles.digit} data-zero="">0</span></span>
