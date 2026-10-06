@@ -7,7 +7,8 @@
 // - 桌機會自動播（<head> 的 motion.js 已經給 <html> 加了 video-auto：有滑鼠、沒開省流量、沒設減少動態）：開頁就是 44 的暫停鍵（loading），
 //   影片框捲進畫面三成才載入、才播 → playing。載入中按下去＝不要自動播：停止載入（拿掉 src＋load()）、記成使用者暫停 → paused。
 //   play() 被擋（瀏覽器不准自動播）：拿掉 video-auto、回到大的播放鈕（idle），讓人自己按。
-// - 只有手指、省流量、減少動態：開頁是大的播放鈕（idle），按了才載入、才播 → playing（之後是 44）。
+// - 2026-10-07 起手機也自動播（使用者決定）；省流量、減少動態：開頁是大的播放鈕（idle），按了才載入、才播 → playing（之後是 44）。
+// - 載入畫面（motion.js 的 html.loading）還在時先載不播，等 collector:loaded 才播，首頁出現時影片從第一格開始。
 // - 按暫停：paused，記成使用者暫停，捲走再捲回來不自己播；按播放：接著播。
 // - 播放中捲出畫面：暫停（不是使用者暫停）；捲回來：使用者沒暫停就接著播。
 // 讀屏名字跟著換（data-label-play／data-label-pause），不另加 aria-pressed。
@@ -46,6 +47,17 @@
         var start = function () {
             started = true;
             if (!video.getAttribute('src')) video.src = video.getAttribute('data-src');
+            // 載入畫面還在（public/motion.js）：先載、不播，等它淡出（collector:loaded）才從第一格開始播
+            if (!window.__collectorLoaded && root.classList.contains('loading')) {
+                document.addEventListener('collector:loaded', function () {
+                    if (started && !userPaused && inView) begin();
+                }, { once: true });
+                return;
+            }
+            begin();
+        };
+
+        var begin = function () {
             var promise = video.play();
             if (promise && promise.catch) {
                 promise.catch(function (err) {

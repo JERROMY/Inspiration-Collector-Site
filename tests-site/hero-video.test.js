@@ -14,8 +14,9 @@
 //   F4b.1 載入中按下去（三語 1440×900，mp4 晚 5 秒才給）：開頁是 loading、44；按了 → video 沒有 src 屬性（停止載入）、paused、讀屏名字 hero.video.play；
 //         mp4 放行之後 2 秒照樣沒在播。
 //   F4b.1 自動播被擋（三語 1440×900，play() 丟 NotAllowedError）：鈕回到 idle、72×72、讀屏名字 hero.video.play（不能只靠 html.video-auto 畫成 44）。
-//   F4b.1 不自動播的三種（三語）：只有手指 390 → idle、56×56；省流量、減少動態（1440×900）→ idle、72×72，<html> 沒有 video-auto；讀屏名字 hero.video.play；
-//         只有手指按了 → 播、playing、44、讀屏名字 hero.video.pause。
+//   F4b.1 不自動播的兩種（三語）：省流量、減少動態（1440×900）→ idle、72×72，<html> 沒有 video-auto；讀屏名字 hero.video.play。
+//   F4b.1 手機也自動播（2026-10-07 使用者決定；三語、只有手指 390）：<html> 有 video-auto、開頁就是 44（loading 或已經在播）；捲到影片框 → 播、playing、讀屏名字 hero.video.pause。
+//   F4b.1 載入畫面（2026-10-07）：<html> 還有 loading 的時候影片沒在播；loading 拿掉之後才播。
 //   F4b.1 關掉 JS（三語 1440×900、只有手指 390）：首屏看不到播放／暫停鈕；預覽圖與影片說明還在。
 //
 // 跑法（在 homepage/site/）：
@@ -217,7 +218,6 @@ test('F4b.1 自動播被擋（三語 1440×900，play() 丟 NotAllowedError）�
 });
 
 for (const [label, options, size] of [
-    ['只有手指 390', { width: 390, height: 844, context: TOUCH }, 56],
     ['省流量 1440', { init: [SAVE_DATA] }, 72],
     ['減少動態 1440', { context: { reducedMotion: 'reduce' } }, 72],
 ]) {
@@ -231,20 +231,53 @@ for (const [label, options, size] of [
                 assert.ok(s.visible && near(s.w, size) && near(s.h, size), `${lang}：是 ${size}×${size} 的大播放鈕，得到 ${s.w}×${s.h}`);
                 assert.equal(s.label, say(lang, 'hero.video.play'), `${lang}：讀屏名字是 hero.video.play`);
                 assert.equal(await page.evaluate(() => document.documentElement.classList.contains('video-auto')), false, `${lang}：不自動播時 <html> 沒有 video-auto`);
-                if (options.context === TOUCH) {
-                    await button.click();
-                    await playing(page);
-                    const on = await state(button);
-                    assert.ok(!on.video.paused && on.state === 'playing', `${lang}：按了要播、playing（paused ${on.video.paused}、data-state ${on.state}）`);
-                    assert.ok(near(on.w, 44) && near(on.h, 44), `${lang}：播起來縮成 44×44，得到 ${on.w}×${on.h}`);
-                    assert.equal(on.label, say(lang, 'hero.video.pause'), `${lang}：讀屏名字換成 hero.video.pause`);
-                }
             } finally {
                 await context.close();
             }
         }
     });
 }
+
+test('F4b.1 手機也自動播（只有手指 390，三語）：有 video-auto、開頁就是 44 的暫停鍵，捲到影片框在播', { skip: pw ? false : why }, async () => {
+    for (const lang of LANGS) {
+        const { page, context, button } = await open(lang, { width: 390, height: 844, context: TOUCH });
+        try {
+            assert.equal(await page.evaluate(() => document.documentElement.classList.contains('video-auto')), true, `${lang}：手機也要有 video-auto`);
+            const s = await state(button);
+            assert.ok(['loading', 'playing'].includes(s.state), `${lang}：開頁是 loading 或 playing（390×844 影片框已經露出一部分，可能已經在播），不是 idle，得到 ${s.state}`);
+            assert.ok(near(s.w, 44) && near(s.h, 44), `${lang}：是 44×44 的暫停鍵，得到 ${s.w}×${s.h}`);
+            await page.locator('[data-section="hero"] video').scrollIntoViewIfNeeded();
+            await playing(page);
+            const on = await state(button);
+            assert.ok(!on.video.paused && on.state === 'playing', `${lang}：捲到影片框要播、playing（paused ${on.video.paused}、data-state ${on.state}）`);
+            assert.equal(on.label, say(lang, 'hero.video.pause'), `${lang}：讀屏名字是 hero.video.pause`);
+        } finally {
+            await context.close();
+        }
+    }
+});
+
+test('F4b.1 載入畫面（三語 1440×900）：<html> 還有 loading 時影片沒在播，loading 拿掉之後才播', { skip: pw ? false : why }, async () => {
+    for (const lang of LANGS) {
+        const { site, browser } = await session.get();
+        const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+        const page = await context.newPage();
+        await page.addInitScript(() => {
+            window.__playedDuringLoading = false;
+            document.addEventListener('playing', () => {
+                if (document.documentElement.classList.contains('loading') && !window.__collectorLoaded) window.__playedDuringLoading = true;
+            }, true);
+        });
+        try {
+            await page.goto(`${site.url}/${lang}/`, { waitUntil: 'commit' });
+            await page.waitForFunction(() => !document.documentElement.classList.contains('loading'), null, { timeout: 5000 });
+            await playing(page);
+            assert.equal(await page.evaluate(() => window.__playedDuringLoading), false, `${lang}：載入畫面還在的時候影片就開始播了`);
+        } finally {
+            await context.close();
+        }
+    }
+});
 
 test('F4b.1 關掉 JS（三語 × 1440、只有手指 390）：沒有播放／暫停鈕，預覽圖與影片說明還在', { skip: pw ? false : why }, async () => {
     const { site, browser } = await session.get();
