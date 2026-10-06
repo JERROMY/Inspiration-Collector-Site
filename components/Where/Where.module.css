@@ -29,6 +29,11 @@
     letter-spacing: var(--label-track);
 }
 
+/* 左邊那一個是這一區的標題（2026-10-07 使用者）：跟其他區的小標同色（components/SectionHead 的 eyebrow）；右邊「擴充本身」是三個 0 的附註，維持灰 */
+.on .label {
+    color: var(--color-accent-lime-text);
+}
+
 /* 手機 2×2：欄寬照名字，「一般のウェブページ」不會被擠成兩行；360 以下放不下 2 欄，一個名字一行。
    設計稿寫 repeat(2, max-content)；寫成 minmax(0, max-content) 行為一樣，而且不會被最長那一列撐寬（坑 9） */
 .list {
