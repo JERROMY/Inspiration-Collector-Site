@@ -17,6 +17,37 @@
     // 有 JS：給 <html> 加 js（不管減少動態）。關掉 JS 時沒有這個 class，CSS 直接換成不用程式的樣子（例如手指框直接顯示網址、不放播放鈕）
     document.documentElement.classList.add('js');
 
+    // 載入畫面（2026-10-07 實驗，使用者要的）：有 JS 才出現（關掉 JS 的人與爬蟲直接看到內容）；
+    // 網頁字型好了、而且 HTML 讀完就淡出，最多等 1 秒；設了減少動態就直接拿掉、不淡出。畫面在 app/styles/global.css 的 html.loading。
+    (function () {
+        var html = document.documentElement;
+        var done = false;
+        html.classList.add('loading');
+        function out() {
+            if (done) return;
+            done = true;
+            if (!window.matchMedia || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                html.classList.remove('loading');
+                return;
+            }
+            html.classList.add('loading-out');
+            setTimeout(function () { html.classList.remove('loading', 'loading-out'); }, 400);
+        }
+        setTimeout(out, 1000);
+        var dom = new Promise(function (ok) {
+            if (document.readyState !== 'loading') ok();
+            else document.addEventListener('DOMContentLoaded', ok, { once: true });
+        });
+        var font = new Promise(function (ok) {
+            try {
+                document.fonts.load('600 1em "Google Sans Flex"').then(ok, ok);
+            } catch (err) {
+                ok();
+            }
+        });
+        Promise.all([dom, font]).then(out);
+    })();
+
     // 首屏宣傳片會不會自動播（有滑鼠、沒開省流量、沒設減少動態）：畫面出來之前決定，給 <html> 加 video-auto，
     // 播放鈕第一次畫就是 44 的暫停鍵（不先閃大的播放鈕）。之後的狀態由 public/hero.js 管（自動播被擋時它會拿掉這個 class）
     if (window.matchMedia && window.matchMedia('(hover: hover)').matches

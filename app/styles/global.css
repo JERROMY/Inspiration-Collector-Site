@@ -336,3 +336,17 @@ body {
     clip-path: inset(50%);
     white-space: nowrap;
 }
+
+/* 載入畫面（2026-10-07 實驗）：public/motion.js 在 <html> 加 loading，字型好了或 1 秒後加 loading-out 淡出再拿掉 */
+html.loading::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    background: var(--color-bg-primary) url("/mark.svg") center / 56px no-repeat;
+}
+
+html.loading-out::after {
+    opacity: 0;
+    transition: opacity var(--dur-base) var(--ease-out);
+}
