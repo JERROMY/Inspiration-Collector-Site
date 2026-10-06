@@ -6,7 +6,9 @@
 //
 // 同一支檔在 Node 裡 import 也載得起來（沒有 document 就不碰畫面）：產生網頁時用同一個 pick 挑沒有 JS 時看到的那條。
 //
-// localStorage：collector-bulletin-dismissed（按過 ✕ 的 id 陣列）。存不了（隱私模式、被擋掉）就只在這次瀏覽關掉，不報錯。
+// localStorage：collector-bulletin-dismissed（按過 ✕、或已經顯示過的 id 陣列）。存不了（隱私模式、被擋掉）就只在這次瀏覽關掉，不報錯。
+// 2026-10-07 使用者：有 JS 時公告條浮在導覽列下面（不佔版面，收起來版面不跳）、首頁出現後 8 秒自己淡出、看過一次就不再出現（有新公告才會再出現）。
+//   滑鼠停在上面、或鍵盤焦點在裡面時不收；設了減少動態就直接拿掉、不淡出。關掉 JS 時照舊在原位、不會自己消失。
 (function () {
     'use strict';
 
@@ -108,4 +110,63 @@
         var main = document.getElementById('main');
         if (hadFocus && main) main.focus({ preventScroll: true });
     });
+
+    if (!picked) return;
+    // 看過一次：下次來就不挑它；比它舊的也一起記成看過（不然下次會改挑次新的那一則，例如已經過時的舊公告）
+    var shownDay = dayOf(picked.date);
+    entries.forEach(function (entry) {
+        if (entry && entry.ok !== false && dayOf(entry.date) !== null && dayOf(entry.date) <= shownDay) remember(entry.id);
+    });
+
+    var SHOW_MS = 8000;
+    var started = false;
+    function autoHide() {
+        if (started) return;
+        started = true;
+        var bar = document.querySelector('[data-bulletin="' + String(picked.id).replace(/["\\]/g, '\\$&') + '"]');
+        if (!bar) return;
+        var left = SHOW_MS;
+        var began = 0;
+        var timer = 0;
+        var leave = function () {
+            var hadFocus = bar.contains(document.activeElement);
+            var gone = false;
+            var done = function () {
+                if (gone) return;
+                gone = true;
+                bar.remove();
+                var main = document.getElementById('main');
+                if (hadFocus && main) main.focus({ preventScroll: true });
+            };
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return done();
+            bar.setAttribute('data-leaving', '');
+            bar.addEventListener('transitionend', done, { once: true });
+            setTimeout(done, 1000);   // 轉場沒觸發（被別的樣式蓋掉）也照樣拿掉
+        };
+        var run = function () {
+            if (timer) return;
+            began = Date.now();
+            timer = setTimeout(leave, left);
+        };
+        var hold = function () {
+            if (!timer) return;
+            clearTimeout(timer);
+            timer = 0;
+            left = Math.max(1500, left - (Date.now() - began));   // 移開之後至少再停 1.5 秒
+        };
+        bar.addEventListener('mouseenter', hold);
+        bar.addEventListener('focusin', hold);
+        bar.addEventListener('mouseleave', function () { if (!bar.contains(document.activeElement)) run(); });
+        bar.addEventListener('focusout', function (event) { if (!bar.contains(event.relatedTarget) && !bar.matches(':hover')) run(); });
+        run();
+    }
+
+    // 從首頁出現算起（載入畫面淡出：public/motion.js 發 collector:loaded）；載入畫面沒跑（腳本沒到）就 3 秒後照樣開始算
+    function whenShown() {
+        if (window.__collectorLoaded) return autoHide();
+        document.addEventListener('collector:loaded', autoHide, { once: true });
+        setTimeout(autoHide, 3000);
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', whenShown, { once: true });
+    else whenShown();
 })();

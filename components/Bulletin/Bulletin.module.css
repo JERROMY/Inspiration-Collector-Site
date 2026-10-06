@@ -6,6 +6,23 @@
     background: var(--color-surface-raised);
 }
 
+/* 有 JS 時（html.js，public/motion.js 在畫面出來之前加）：浮在導覽列下面、不佔版面 —— 8 秒後淡出（public/bulletin.js），
+   收起來時底下的版面不跳（CLS 維持 0）。2026-10-07 使用者決定。關掉 JS 時照上面那樣在原位 */
+:global(html.js) .bulletin {
+    position: absolute;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    z-index: calc(var(--z-sticky) - 1);
+    box-shadow: var(--shadow-card);
+    transition: opacity var(--dur-slow) var(--ease-out);
+}
+
+.bulletin[data-leaving] {
+    opacity: 0;
+    pointer-events: none;
+}
+
 .bulletin:not([data-default]) {
     display: none;
 }
