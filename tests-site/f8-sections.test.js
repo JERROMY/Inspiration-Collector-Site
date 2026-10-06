@@ -299,7 +299,8 @@ for (const lang of LANGS) {
                 }
                 // 頁尾那句講的是網站數人次、擴充本身沒有追蹤 —— 跟 08 不矛盾（08 講的是擴充）
                 const analytics = say(lang, 'foot.analytics');
-                if (!/GoatCounter/.test(analytics) || !{ zh: /擴充/, en: /extension/i, ja: /拡張機能/ }[lang].test(analytics)) bad.push(`foot.analytics 要同時講到 GoatCounter（網站）與擴充本身：「${analytics}」`);
+                // 2026-10-07 使用者決定不用 GoatCounter（瀏覽數看 Cloudflare 後台），頁尾拿掉「計算瀏覽人次」：不能再提 GoatCounter，要講到 cookie 與擴充本身
+                if (/GoatCounter/.test(analytics) || !/cookie/i.test(analytics) || !{ zh: /擴充/, en: /extension/i, ja: /拡張機能/ }[lang].test(analytics)) bad.push(`foot.analytics 不提 GoatCounter、要講到 cookie 與擴充本身：「${analytics}」`);
                 const links = await page.evaluate((sel) => Object.fromEntries([...document.querySelector(sel).querySelectorAll('a[data-id]')].map((a) => [a.dataset.id, { href: a.getAttribute('href'), gc: a.getAttribute('data-goatcounter-click'), text: a.textContent.replace(/\s+/g, ' ').trim() }])), F8_SECTIONS.footer);
                 const want = {
                     'foot.store': { href: STORE_URL, gc: 'install-footer' }, 'foot.tutorial': { href: '#tutorial' }, 'foot.changelog': { href: '#changelog' },
@@ -489,7 +490,8 @@ for (const lang of LANGS) {
                     const el = page.locator(`${F8_SECTIONS[sectionOf(key)]} ${sel}`).nth(nth);
                     if (!(await el.count())) { bad.push(`${width} ${key}：找不到`); continue; }
                     const got = await textLines(el);
-                    const want = LINES.lines[lang][String(width)][key];
+                    // foot.analytics：2026-10-07 拿掉「用 GoatCounter 計算瀏覽人次」，設計稿還是舊句 —— 不逐行比，斷行規則照樣量（want 用網站自己的行）
+                    const want = key === 'foot.analytics' ? got : LINES.lines[lang][String(width)][key];
                     if (JSON.stringify(got) !== JSON.stringify(want)) bad.push(`${width} ${key}：網站 ${JSON.stringify(got)}，設計稿 ${JSON.stringify(want)}`);
                     if (!PROSE.includes(key)) continue;
                     const pairs = new Set(want.slice(0, -1).map((l, i) => `${l}\n${want[i + 1]}`));
@@ -517,7 +519,8 @@ for (const lang of LANGS) {
                 const want = DES.boxes[lang][String(width)];
                 for (const [name, section] of Object.entries(F8_SECTIONS)) {
                     // 13 收著的那幾題（2～7 的答案）不量位置：預設收著，看不到；它們的字在上一條全打開量
-                    const keys = Object.keys(want).filter((k) => sectionOf(k) === name && !/^faq\.[2-7]\.a$/.test(k));
+                    // foot.analytics 與它下面的 ©：2026-10-07 頁尾那句拿掉「計算瀏覽人次」、少一行，設計稿還是舊句 —— 不比位置（字與斷行在上一條量）
+                    const keys = Object.keys(want).filter((k) => sectionOf(k) === name && !/^faq\.[2-7]\.a$/.test(k) && k !== 'foot.analytics' && k !== 'foot.copyright');
                     const got = await page.evaluate(BOXES, { section, items: keys.map(f8Item) });
                     if (!got) { bad.push(`${width}：找不到 ${section}`); continue; }
                     for (const k of keys) {

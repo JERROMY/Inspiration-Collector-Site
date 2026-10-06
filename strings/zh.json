@@ -270,7 +270,7 @@
   "foot.blog": "部落格",
   "foot.copyright": "© 2026 Jerromy",
   "foot.affiliation": "««本擴充與 OpenAI、|Anthropic、|{Perplexity}» «{沒有任何隸屬關係。}»»",
-  "foot.analytics": "««這個網站用 {GoatCounter} {計算瀏覽人次，}»«{不用 cookie、}|{不記錄個人資料；}»«{擴充本身}|{沒有任何追蹤。}»»",
+  "foot.analytics": "««這個網站|{不用 cookie、}|{不記錄個人資料；}»«{擴充本身}|{沒有任何追蹤。}»»",
   "root.meta.title": "Inspiration Collector · 靈感收集器 · インスピレーション・コレクター",
   "root.name": "{靈感收集器}",
   "root.lead": "«{給 AI 讀的網頁剪藏：}»««網頁、|文字、|圖片，»«ChatGPT、|Claude、|{Perplexity 的對話，}»«{一鍵存成 Markdown，}»«{放進你自己的資料夾，}|{不上傳。}»»",
