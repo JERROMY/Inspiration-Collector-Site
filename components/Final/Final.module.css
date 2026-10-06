@@ -74,3 +74,21 @@
         column-gap: var(--gap-group);
     }
 }
+
+/* 動態 A'（2026-10-07）：大標括號裡那半句捲到時隨機冒出來，先螢光綠再轉白（同首屏的 A，components/Hero/Hero.module.css）。
+   public/motion.js 拆字（data-char、--k），拆完在大標加 data-a="wait"、捲到時換 "go"。只動透明度與顏色；減少動態、motion.js 沒載到時都不套用 */
+@media (prefers-reduced-motion: no-preference) {
+    .title[data-a] [data-char] {
+        opacity: 0;
+        color: var(--color-accent-lime-text);
+    }
+
+    .title[data-a="go"] [data-char] {
+        --a-window: calc(var(--dur-slow) + var(--dur-base));
+        --t: calc(var(--k) * var(--a-window));
+        opacity: 1;
+        color: var(--color-text-primary);
+        transition: opacity var(--dur-fast) var(--ease-out) var(--t),
+                    color var(--dur-slow) var(--ease-out) calc(var(--t) + var(--dur-fast));
+    }
+}

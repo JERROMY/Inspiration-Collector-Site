@@ -192,6 +192,34 @@
         });
     });
 
+    // A'：15 最後的安裝，大標括號裡那半句（[data-id="final.title"] .clamp）跟首屏一樣隨機冒出來、先螢光綠再轉白（2026-10-07 使用者要的）。
+    // 跟首屏不同的是時機：捲到大標露出六成時才播，只播一次。拆字一樣要等 React 接手；在那之前與拆完、還沒捲到之前，字照樣看得到 ——
+    // 只有拆完（大標加 data-a="wait"）才藏起來等，捲到時換 data-a="go" 開始。樣式在 components/Final/Final.module.css。
+    hydrated.then(function () {
+        var clamp = document.querySelector('[data-section="final"] [data-id="final.title"] .clamp');
+        if (!clamp || !('IntersectionObserver' in window)) return;
+        var title = clamp.closest('[data-id="final.title"]');
+        var chars = [];
+        try {
+            chars = split(clamp);
+        } catch (err) {
+            return;   // 拆壞了就不動，字照原樣
+        }
+        if (!chars.length) return;
+        restore(clamp, chars);
+        title.setAttribute('data-a', 'wait');
+        var watch = new IntersectionObserver(function (entries) {
+            if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
+            watch.disconnect();
+            fontReady.then(function () {
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(function () { title.setAttribute('data-a', 'go'); });
+                });
+            });
+        }, { threshold: 0.6 });
+        watch.observe(title);
+    });
+
     // B、D：捲進畫面三成時加 data-in，只加一次
     function reveal() {
         if (!('IntersectionObserver' in window)) {
