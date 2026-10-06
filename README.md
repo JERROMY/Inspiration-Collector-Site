@@ -42,7 +42,11 @@
 
    為什麼：網站的每一頁、網站地圖、分享預覽都寫死正式網址 `https://collector.jerromy.com/`；`.pages.dev` 那個網址雖然也打得開，但 `_headers` 叫搜尋引擎不要收錄它，免得變成兩份重複的網站。
 
-4. **看一眼 AI 爬蟲的設定。** Cloudflare 後台選 `jerromy.com` 這個網域，找跟 AI 爬蟲有關的設定（在哪一頁、叫什麼名字以後台畫面為準）。官方公告（https://developers.cloudflare.com/changelog/post/2026-07-01-ai-traffic-options/ ）：2026-09-15 起**新接上** Cloudflare 的網域，放廣告的頁面預設擋訓練用與 agent 類的爬蟲，搜尋類照樣放行。jerromy.com 早就在 Cloudflare、這個網站也沒有廣告，照原文不在範圍內，但兼做搜尋與訓練的爬蟲會受這類設定影響，所以還是看一眼。
+   **接著關掉這個子網域的「信箱加密」。** `jerromy.com` 開著 Cloudflare 的 Email Address Obfuscation，它會把網頁裡的 `mailto:` 連結（頁尾「回報問題」、「寄到自己電腦」）改寫成 `/cdn-cgi/l/email-protection#…`，還往頁面插一支解碼腳本。到 `jerromy.com` 這個網域 → Rules → Create rule → Configuration Rule：條件 Hostname equals `collector.jerromy.com`，設定加 Email Obfuscation、維持 Off，按 Deploy。只管這個子網域，部落格照舊。2026-10-07 上線時做過；做完抓一次網頁，`mailto:` 要是原樣。
+
+   為什麼：改寫過的連結要等那支腳本跑完才變回信箱，關掉 JS 的人、部分 App 內瀏覽器、搜尋引擎看到的都是壞連結；規格書也規定不做只靠 JS 才能用的內容。官方文件（https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/ ）建議只對特定網址關掉時用 Configuration Rule。
+
+4. **看一眼 AI 爬蟲的設定。**（2026-10-07 看過：AI Crawl Control → Security 的 Block Crawler 全部關著，沒有擋任何爬蟲；Bot Preference Sync 也關著，不會改我們的 robots.txt。） Cloudflare 後台選 `jerromy.com` 這個網域，找跟 AI 爬蟲有關的設定（在哪一頁、叫什麼名字以後台畫面為準）。官方公告（https://developers.cloudflare.com/changelog/post/2026-07-01-ai-traffic-options/ ）：2026-09-15 起**新接上** Cloudflare 的網域，放廣告的頁面預設擋訓練用與 agent 類的爬蟲，搜尋類照樣放行。jerromy.com 早就在 Cloudflare、這個網站也沒有廣告，照原文不在範圍內，但兼做搜尋與訓練的爬蟲會受這類設定影響，所以還是看一眼。
 
    為什麼：這個網站希望被 AI 搜尋找得到（規格書第 10.7 節）；被 Cloudflare 擋掉的話，`robots.txt` 寫允許也沒用。
 
