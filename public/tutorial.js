@@ -3,17 +3,15 @@
 // 一般的腳本，<head> 裡 <script src="/tutorial.js" defer>。沒有它時（關掉 JS）：章節清單照樣在（每一列的摘要打得開），
 // 播放鈕不顯示（CSS 的 html:not(.js)），06 的「看教學 NN」是原生的錨點 #ch-NN。
 //
-// 有影片 ID（[data-tutorial] 有 data-video-id）時：
-// - 還沒按之前整頁不碰 YouTube：按了播放鈕、章名、或 06 的「看教學 NN」，才載入 https://www.youtube.com/iframe_api（整頁一次），
-//   在影片框裡建播放器（加強隱私模式 youtube-nocookie.com，rel=0、playsinline=1）。
-// - 播放器程式載不到（被擋、出錯），或按下去 8 秒（LOAD_TIMEOUT_MS）播放器還沒好（程式沒到、或播放器建了卻一直沒 ready）：
-//   影片框回到還沒按的樣子（idle、播放鈕放回來、不標任何章、建了一半的播放器拿掉），框加上失敗的樣式（data-fail-class）、
-//   一句話（role="status"）請人改用底下的「在 YouTube 上看」；焦點掉了就放回播放鈕；再按會重試。
-//   程式在逾時之後才到，不自己播；再按就直接用（YT.Player 已經在、或 YT.loading 正在載就只等它好，不再插一次 —— iframe_api 第二次執行什麼都不做）。
-// - 播放鈕從 0:00（第 01 章）播；章名從那一章的起點播。每 250ms 看一次播到哪：真的播起來才標正在播的那一章（aria-current、「正在播放」），
-//   清單只捲清單、把那一列捲到清單頂；時間跑出這一章的範圍（自己拖進度）就改認時間所在的那一章；到那一章的結尾就停，蓋上章尾那一層 ——
-//   標題是這一章的章名；「重播這一段」「播下一段：下一章的章名」（最後一章只有「從頭再看一次」），焦點移到「播下一段」（或「從頭再看一次」），
-//   Esc 收掉、焦點回到那一章的按鈕（窄的時候那一章收在「看全部」裡，標它的時候先打開）。
+// 有影片（[data-tutorial] 有 data-video-id，就是 YouTube 那支的 ID —— 有它代表影片已經上線；底下的「在 YouTube 上看」連過去）時：
+// - 2026-10-07 起影片放在自己的網站上播（使用者決定：不嵌 YouTube、沒有任何 YouTube 的外框）：一章一支 /media/tutorial/<語言>/<章>.mp4
+//   （data-clips；scripts/tutorial-clips.mjs 從配樂版切的）。還沒按之前整頁不抓影片；按了播放鈕、章名、或 06 的「看教學 NN」才在影片框裡建 <video>。
+// - <video> 沒有 controls（瀏覽器內建的控制列不出現），也關掉子母畫面、下載、投放；點畫面或按空白鍵／Enter／k 暫停、繼續。
+// - 載不到（檔案出錯、或按下去 8 秒 LOAD_TIMEOUT_MS 還沒開始播）：影片框回到還沒按的樣子（idle、播放鈕放回來、不標任何章、<video> 拿掉），
+//   框加上失敗的樣式（data-fail-class）、一句話（role="status"）請人改用底下的「在 YouTube 上看」；焦點掉了就放回播放鈕；再按會重試。
+// - 播放鈕從第 01 章播；章名從那一章播。真的播起來才標正在播的那一章（aria-current、「正在播放」），清單只捲清單、把那一列捲到清單頂；
+//   一章播完（ended）蓋上章尾那一層 —— 標題是這一章的章名；「重播這一段」「播下一段：下一章的章名」（最後一章只有「從頭再看一次」），
+//   焦點移到「播下一段」（或「從頭再看一次」），Esc 收掉、焦點回到那一章的按鈕（窄的時候那一章收在「看全部」裡，標它的時候先打開）。
 // 影片框的 data-state：idle（還沒按）→ loading（載入播放器）→ playing／paused → ended（一章播完、蓋著章尾那一層）。
 //
 // 06 的「看教學 NN」：有影片就捲到影片、從那一章播；沒有影片時，寬的時候（清單在影片右邊、自己捲）捲到影片、清單把那一列捲到清單頂，
@@ -121,7 +119,7 @@
         else window.addEventListener('collector:hydrated', start, { once: true });
     }
 
-    var player = null;    // YT.Player（建好之後）
+    var player = null;    // 自己的 <video>（第一次按下去才建）
     var play = null;      // 有影片時：從第 index 章播
 
     if (videoId) {
@@ -151,42 +149,10 @@
 
         var current = -1;     // 要播（或正在播）的那一章
         var marked = -1;      // 已經標成「正在播放」的那一章
-        var expect = null;    // 剛叫播放器跳到哪一章：時間還沒到那一章之前，不拿舊的時間改認章
-        var expectAt = 0;
-        var timer = null;
-        var waiting = null;   // 這一次按下去、還在等播放器好的那一次（好了、或放棄之後清掉：晚到的回應不再動影片框）
+        var stall = 0;       // 按下去之後的逾時（開始播就清掉）
 
         var setState = function (state) {
             screen.setAttribute('data-state', state);
-        };
-
-        // 等 YouTube 的播放器程式（YT.Player）能用：已經有了就直接往下；已經在載（YT.loading）就不再插腳本、只等它好 ——
-        // 兩條都接：onYouTubeIframeAPIReady 串在原本那一個後面（不蓋掉），YT.ready 也排一個
-        var waitApi = function () {
-            return new Promise(function (done, fail) {
-                var yt = window.YT;
-                if (yt && typeof yt.Player === 'function') {
-                    done();
-                    return;
-                }
-                var before = window.onYouTubeIframeAPIReady;
-                window.onYouTubeIframeAPIReady = function () {
-                    if (typeof before === 'function') before();
-                    done();
-                };
-                if (yt && yt.loading) {
-                    if (typeof yt.ready === 'function') yt.ready(done);
-                    return;
-                }
-                var script = document.createElement('script');
-                script.onerror = function () {
-                    script.remove();
-                    fail(new Error('load'));
-                };
-                script.src = 'https://www.youtube.com/iframe_api';
-                script.async = true;
-                document.head.appendChild(script);
-            });
         };
 
         // 標出正在播的那一章（-1：都不標）
@@ -270,42 +236,7 @@
             if (focus && current >= 0) chapters[current].button.focus({ preventScroll: true });
         };
 
-        var chapterAt = function (t) {
-            for (var i = 0; i < chapters.length; i += 1) if (t >= chapters[i].start && t < chapters[i].end) return i;
-            return -1;
-        };
-
-        // 看一次播到哪：真的在播才標章；時間跑出這一章（自己拖進度）就改認那一章；到結尾就停、蓋上章尾那一層
-        var check = function () {
-            if (!player || current < 0 || typeof player.getCurrentTime !== 'function') return;
-            if (player.getPlayerState() !== 1) return;
-            var t = player.getCurrentTime();
-            if (expect !== null) {
-                var want = chapters[expect];
-                if (t >= want.start - 1 && t < want.end) expect = null;
-                else if (Date.now() - expectAt < 3000) return;
-                else expect = null;
-            }
-            var ch = chapters[current];
-            if (t < ch.start - 1 || t > ch.end + 0.75) {
-                var at = chapterAt(t);
-                if (at >= 0) {
-                    current = at;
-                    ch = chapters[at];
-                }
-            }
-            mark(current);
-            if (t >= ch.end - 0.25) {
-                player.pauseVideo();
-                showEnd();
-            }
-        };
-
-        var watch = function () {
-            if (!timer) timer = setInterval(check, 250);
-        };
-
-        // 播放器程式載不到：回到還沒按的樣子，框裡一句話指向底下的「在 YouTube 上看」（role="status"，讀屏會念，不搶焦點）；
+        // 影片載不到：回到還沒按的樣子，框裡一句話指向底下的「在 YouTube 上看」（role="status"，讀屏會念，不搶焦點）；
         // 按播放鈕的那一刻它藏起來了，焦點在影片框（play() 放的）或掉到 <body> 的話放回播放鈕（焦點已經在別的地方就不動）
         var failed = function () {
             mark(-1);
@@ -320,82 +251,86 @@
             }
         };
 
-        var onStateChange = function (event) {
-            var state = event.data;
-            if (state === 1) {
-                setState('playing');
-                watch();
-                check();
-            } else if (state === 2 && endcard.hidden) {
-                setState('paused');
-            } else if (state === 0 && current >= 0 && endcard.hidden) {
-                showEnd();
+        var clips = box.getAttribute('data-clips');
+
+        // 拿掉影片、回到還沒按的樣子（failed() 放回播放鈕與那一句話）
+        var giveUp = function () {
+            clearTimeout(stall);
+            if (player) {
+                player.removeAttribute('src');
+                player.load();
+                player.remove();
+                player = null;
             }
+            failed();
+        };
+
+        // 第一次按下去才建 <video>：沒有 controls（不出現任何控制列）、不給子母畫面／下載／投放；點畫面或鍵盤暫停、繼續
+        var makePlayer = function () {
+            var video = document.createElement('video');
+            video.muted = true;   // 網站上的影片沒有聲音（切片也沒有音軌；配樂只在 YouTube 那三支，使用者 2026-10-07）
+            video.setAttribute('muted', '');
+            video.setAttribute('playsinline', '');
+            video.setAttribute('preload', 'auto');
+            video.setAttribute('disablepictureinpicture', '');
+            video.setAttribute('disableremoteplayback', '');
+            video.setAttribute('controlslist', 'nodownload noplaybackrate noremoteplayback');
+            video.setAttribute('aria-label', box.getAttribute('data-video-label') || '');
+            video.tabIndex = 0;
+            video.addEventListener('playing', function () {
+                clearTimeout(stall);
+                setState('playing');
+                mark(current);
+            });
+            video.addEventListener('pause', function () {
+                if (!video.ended && endcard.hidden && screen.getAttribute('data-state') === 'playing') setState('paused');
+            });
+            video.addEventListener('ended', function () {
+                if (current >= 0) showEnd();
+            });
+            video.addEventListener('error', giveUp);
+            var toggle = function () {
+                if (screen.getAttribute('data-state') === 'ended') return;
+                if (video.paused) video.play().catch(function () {});
+                else video.pause();
+            };
+            video.addEventListener('click', toggle);
+            video.addEventListener('keydown', function (event) {
+                if (event.key !== ' ' && event.key !== 'Enter' && event.key !== 'k') return;
+                event.preventDefault();
+                toggle();
+            });
+            screen.insertBefore(video, endcard);
+            return video;
         };
 
         play = function (index) {
             hideEnd(false);
             current = index;
-            expect = index;
-            expectAt = Date.now();
             if (failNote) failNote.hidden = true;
             if (failClass) screen.classList.remove(failClass);
-            var start = chapters[index].start;
-            if (player && !waiting) {
-                player.seekTo(start, true);
-                player.playVideo();
-                check();
-                return;
+            var fromButton = playButton && document.activeElement === playButton;
+            if (playButton) playButton.hidden = true;
+            if (!player) player = makePlayer();
+            // 用鍵盤按的：播放鈕一藏起來焦點就會掉到 <body>，改放到影片上（空白鍵就能暫停）
+            if (fromButton) player.focus({ preventScroll: true });
+            var src = clips + chapters[index].id + '.mp4';
+            if (player.getAttribute('src') !== src) {
+                mark(-1);   // 真的播起來才標
+                setState('loading');
+                player.setAttribute('src', src);
+            } else {
+                player.currentTime = 0;
             }
-            mark(-1);   // 真的播起來才標
-            if (playButton) {
-                // 用鍵盤按的：播放鈕一藏起來焦點就會掉到 <body>（下一個 Tab 從頁首開始）。先把焦點放到影片框（tabindex="-1"：程式放得上去、Tab 不停），
-                // 載入中、播起來之後都在那裡；載不到時 failed() 放回播放鈕
-                if (document.activeElement === playButton) {
-                    screen.tabIndex = -1;
-                    screen.focus({ preventScroll: true });
-                }
-                playButton.hidden = true;
-            }
-            if (screen.getAttribute('data-state') === 'loading') return;   // 播放器還在載入：好了之後從 current 那一章播
-            setState('loading');
-            var attempt = {};
-            var holder = null;
-            var limit = 0;
-            // 這一次放棄（載不到、逾時）：建了一半的播放器拿掉，回到還沒按的樣子，再按會重試
-            var giveUp = function () {
-                if (waiting !== attempt) return;
-                waiting = null;
-                clearTimeout(limit);
-                var made = player;
-                player = null;
-                if (made && typeof made.destroy === 'function') made.destroy();
-                if (holder) holder.remove();
-                failed();
-            };
-            waiting = attempt;
-            limit = setTimeout(giveUp, LOAD_TIMEOUT_MS);   // 從按下去算到播放器 ready
-            waitApi().then(function () {
-                if (waiting !== attempt) return;   // 逾時之後才到：不自己播
-                holder = document.createElement('div');
-                screen.appendChild(holder);
-                player = new window.YT.Player(holder, {
-                    host: 'https://www.youtube-nocookie.com',
-                    videoId: videoId,
-                    playerVars: { rel: 0, playsinline: 1, start: start, autoplay: 1 },
-                    events: {
-                        onReady: function (event) {
-                            if (waiting !== attempt) return;
-                            waiting = null;
-                            clearTimeout(limit);
-                            var at = chapters[current].start;
-                            if (Math.abs(event.target.getCurrentTime() - at) > 1) event.target.seekTo(at, true);
-                            event.target.playVideo();
-                        },
-                        onStateChange: onStateChange,
-                    },
+            clearTimeout(stall);
+            stall = setTimeout(function () { if (player && screen.getAttribute('data-state') === 'loading') giveUp(); }, LOAD_TIMEOUT_MS);
+            var started = player.play();
+            if (started && started.catch) {
+                started.catch(function (err) {
+                    if (err && err.name === 'AbortError') return;   // 換章時上一次的 play() 被打斷：不用管
+                    giveUp();
                 });
-            }).catch(giveUp);
+            }
         };
 
         if (playButton) playButton.addEventListener('click', function () { play(0); });

@@ -102,7 +102,7 @@ export default function Tutorial({ lang }) {
                 <div
                     className={videoId ? styles.player : `${styles.player} ${styles.novideo}`}
                     data-tutorial=""
-                    {...(videoId ? { 'data-video-id': videoId, 'data-now-label': getPlainString(lang, 'tutorial.nowPlaying'), 'data-now-class': styles.now, 'data-fail-class': styles.failed } : {})}
+                    {...(videoId ? { 'data-video-id': videoId, 'data-clips': `/media/tutorial/${lang}/`, 'data-video-label': getPlainString(lang, 'tutorial.play'), 'data-now-label': getPlainString(lang, 'tutorial.nowPlaying'), 'data-now-class': styles.now, 'data-fail-class': styles.failed } : {})}
                 >
                     <Frame className={styles.screen} data-player="" data-state="idle">
                         <img
