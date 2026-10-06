@@ -7,7 +7,7 @@ export const SITE_URL = 'https://collector.jerromy.com/';
 export const GOATCOUNTER_CODE = '';
 
 // 教學影片在 YouTube 上的 ID（一語一支）。空字串＝那一語還沒上 YouTube：09 不放播放鈕與「在 YouTube 上看」，大標換成 tutorial.title.noid，章節只能看摘要
-export const TUTORIAL_VIDEO_IDS = { zh: '5phNHGmGRgc', en: '', ja: '' };
+export const TUTORIAL_VIDEO_IDS = { zh: '5phNHGmGRgc', en: 'Ah3LXcwIh9A', ja: 'qaqzO9EuJ7g' };
 
 // 12 更新紀錄從這一版開始列（含這一版）：比它舊的版本，內容檔裡就算有、網站也不列（收合裡也不放）。
 // 使用者 2026-10-02 決定不列 1.0.3（1.0.3 是第一個公開版本，沒有「改了什麼」可講）；規格書 §5-12 原本寫「從 1.0.3 開始」，以這裡為準。
