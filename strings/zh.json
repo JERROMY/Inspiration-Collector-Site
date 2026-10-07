@@ -29,7 +29,7 @@
   "hero.meta.free": "免費的 Chrome 擴充",
   "hero.meta.os": "支援 Windows、Mac 桌機版",
   "hero.meta.devices": "看支援裝置",
-  "hero.mobile.text": "«這是|電腦版 {Chrome 的}|免費擴充，»«手機上|裝不了。»«把網址|傳到|{電腦上再裝：}»",
+  "hero.mobile.text": "«這是|電腦版 {Chrome 的}|免費擴充，»«{手機上裝不了。把網址}|傳到|{電腦上再裝：}»",
   "hero.mobile.bold": "這是|電腦版 {Chrome 的}|免費擴充",
   "hero.share": "分享這個網址",
   "hero.mail": "寄給自己",
